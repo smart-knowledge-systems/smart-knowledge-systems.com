@@ -43,11 +43,11 @@ export const navigation = [
 export const mainContent = {
     intro: {
       tagline: "Knowledge Flow Expert",
-      title: "Breaking Down Barriers in Complex Organizations",
-      subtitle: "I help organizations overcome information silos by building practical knowledge-sharing systems that combine the best of human expertise with smart technology. Drawing on my background in project management, information science, and organizational transformation, I create environments where knowledge flows freely."
+      title: "Transforming Organizations Through Knowledge Sharing",
+      subtitle: "I help organizations build smart knowledge-sharing systems that combine the best of human expertise with smart technology (e.g. collaborative IT and generative AI), empowering them to overcome information silos and unleash innovation. Drawing on my background in project management, information science, and organizational transformation, I develop environments where knowledge flows freely."
     },
     mainContent: {
-      paragraph1: "Organizations today struggle with fragmented information, duplicated efforts, and missed opportunities for innovation. My approach doesn't just implement new tools—I design collaborative processes that change how people communicate, share expertise, and solve problems together. The result? Faster innovation, better decision-making, and teams that work smarter, not harder.",
+      paragraph1: "Organizations today struggle with fragmented information, duplicated efforts, and missed opportunities for innovation. My approach doesn't rely on rolling out new tools—I design collaborative processes that change how people communicate, share expertise, and solve problems together. The result? Faster innovation, better decision-making, and teams that work smarter, not harder.",
       featuresList: [
         {
           title: "Silo Assessment",
@@ -55,20 +55,20 @@ export const mainContent = {
         },
         {
           title: "Collaboration Design",
-          description: "Transform how teams communicate across departmental boundaries and create shared language and frameworks that bridge technical specialists."
+          description: "Transform how teams communicate across departmental boundaries and create shared language and frameworks that bridge between specialized teams."
         },
         {
           title: "Technology Integration",
           description: "Select and implement knowledge management tools that enhance rather than replace human connection and align with how people actually work."
         }
       ],
-      paragraph2: "With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares and leverages its most valuable asset—knowledge."
+      paragraph2: "With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares, leverages, and builds its most valuable asset—knowledge."
     },
     secondSection: {
       title: "From Information Silos to Knowledge Flow",
       paragraph: "I'm Russ Fugal, a consultant who helps organizations overcome the barriers that prevent knowledge from flowing where it's needed most. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.",
       testimonial: {
-        quote: "“The meeting format Russ designed completely transformed how our teams share information. What used to get stuck in departmental silos now flows to the people who need it most. We've eliminated duplicate work and seen a 65% improvement in cross-team innovation.”",
+        quote: "“The meeting format Russ designed completely transformed how our teams share information. What used to get stuck in departmental silos now flows to the people who need it most. We've eliminated duplicate work and seen an improvement in cross-team innovation.”",
         author: {
           name: "Maria Hill",
           title: "VP of Operations, Manufacturing Client",
@@ -80,7 +80,7 @@ export const mainContent = {
           }
         }
       },
-      paragraph2: "My approach combines practical project management expertise with deep insights into how organizations actually share knowledge and make decisions. Rather than focusing solely on technology solutions or abstract theories, I help clients create sustainable systems where both formal processes and informal communications work together."
+      paragraph2: "My approach combines best practices and practical project management expertise with deep insights into how organizations actually share knowledge and make decisions. Rather than focusing solely on technology solutions or abstract theories, I help clients create sustainable and dynamic systems where both formal processes and informal communications work together."
     },
     imageSection: {
       image: {
@@ -124,13 +124,13 @@ export const servicesData = {
     {
       name: 'Technology Integration',
       description:
-        'Select knowledge management tools that enhance human connection, align with how people actually work, and create governance frameworks that maintain quality while making information accessible.',
+        'Select knowledge management tools that enhance human connection, align with how people actually work, and create governance frameworks that maintain quality while making information accessible. If you want to leverage generative AI, I can help you design the right processes to get the most out of it.',
       icon: CpuChipIcon,
     },
     {
       name: 'Leadership Development',
       description:
-        'Equip leaders with practical skills to foster information sharing, build capacity to address knowledge barriers, and develop communication approaches that break down resistance to collaboration.',
+        'Equip leaders with practical skills to foster information sharing, build capacity to address knowledge barriers, and develop communication approaches that break down resistance to collaboration and cultivate healthy work.',
       icon: AcademicCapIcon,
     }
   ]
@@ -147,14 +147,14 @@ export const footerData = {
     height: 386
   },
   tagline: "Creating environments where knowledge flows freely across organizations, driving innovation and smart decision-making.",
-  copyright: "© 2024 Russ Fugal Consulting, LLC. All rights reserved.",
+  copyright: "© 2025 Smart Knowledge Systems, LLC. All rights reserved.",
   navigation: {
     solutions: [
       { name: 'Silo Assessment', href: '#' },
       { name: 'Collaboration Design', href: '#' },
       { name: 'Technology Integration', href: '#' },
       { name: 'Leadership Development', href: '#' },
-      { name: 'Process Improvement', href: '#' },
+      { name: 'Healthy Work', href: '#' },
     ],
     support: [
       { name: 'Schedule Consultation', href: '#' },
