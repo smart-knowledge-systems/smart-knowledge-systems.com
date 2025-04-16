@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Knowledge Systems Website
 
-## Getting Started
+This repository contains the source code for the Smart Knowledge Systems business website, built with Next.js and TypeScript. The site showcases my consulting services focused on breaking down information silos in organizations.
 
-First, run the development server:
+## About the Project
+
+Smart Knowledge Systems is my consulting business that helps organizations improve knowledge flow and collaboration. The website includes:
+
+- Detailed descriptions of services offered
+- Information about my approach to knowledge sharing
+- Resources for potential clients
+- Professional background and expertise
+
+## Technical Implementation
+
+This website demonstrates several technical capabilities:
+
+- **Modern React and Next.js** - Built using the App Router and latest Next.js features
+- **TypeScript** - Fully typed components and content
+- **Tailwind CSS** - Responsive design with Tailwind's utility-first approach
+- **Content Management** - Structured content management using TypeScript and Markdown
+- **Optimized Assets** - Performance-focused image loading and optimization
+- **Responsive Design** - Mobile-first approach that works on all device sizes
+
+## Development
+
+This project uses Next.js with the App Router. To start development:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site follows a content-driven approach where marketing content is stored separately from the presentation components. This makes it easy to update messaging without changing the underlying site structure.
 
-## Learn More
+Key directories:
+- `/src/content` - Contains marketing copy and site text
+- `/src/components` - Reusable UI components
+- `/app` - Next.js App Router pages and layouts
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+© 2025 Smart Knowledge Systems, LLC. All rights reserved.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Connect
 
-## Deploy on Vercel
+- [LinkedIn](https://linkedin.com/in/rfugal)
+- [Bluesky](https://rusted.social.sara.ai)
+- [GitHub](https://github.com/smart-knowledge-systems)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## About Me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+I'm Russ Fugal, a consultant specializing in knowledge management and information sharing in complex organizations. This site serves both as my business presence and a demonstration of my technical skills in modern web development.
