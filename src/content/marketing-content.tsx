@@ -1,26 +1,33 @@
 // hero-content
+import { 
+  AcademicCapIcon, 
+  // BookOpenIcon, 
+  // BriefcaseIcon, 
+  // BuildingOfficeIcon,
+} from '@heroicons/react/24/outline'
+
 export const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'Services', href: '#services' },
+    { name: 'Approach', href: '#approach' },
+    { name: 'Resources', href: '#resources' },
+    { name: 'About', href: '#about' },
   ]
   
   export const heroContent = {
     logo: {
       src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600",
-      alt: "Your Company",
+      alt: "Knowledge Flow Consulting",
       width: 643,
       height: 386
     },
-    headline: "We're changing the way people connect",
-    description: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
+    headline: "Smart Systems",
+    description: "Stop losing time, money and opportunities to information silos. Create an organization where knowledge flows freely, teams collaborate effectively, and your best insights drive innovation.",
     ctaPrimary: {
-      text: "Get started",
+      text: "Get Started",
       href: "#"
     },
     ctaSecondary: {
-      text: "Learn more",
+      text: "Learn More",
       href: "#"
     },
     heroImage: {
@@ -29,42 +36,42 @@ export const navigation = [
       width: 671,
       height: 447
     },
-    loginText: "Log in"
+    loginText: "Client Portal"
   }
 
 // main-content
 export const mainContent = {
     intro: {
-      tagline: "Introducing",
-      title: "JavaScript for beginners",
-      subtitle: "Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien."
+      tagline: "Knowledge Flow Expert",
+      title: "Breaking Down Barriers in Complex Organizations",
+      subtitle: "I help organizations overcome information silos by building practical knowledge-sharing systems that combine the best of human expertise with smart technology. Drawing on my background in project management, information science, and organizational transformation, I create environments where knowledge flows freely."
     },
     mainContent: {
-      paragraph1: "Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.",
+      paragraph1: "Organizations today struggle with fragmented information, duplicated efforts, and missed opportunities for innovation. My approach doesn't just implement new tools—I design collaborative processes that change how people communicate, share expertise, and solve problems together. The result? Faster innovation, better decision-making, and teams that work smarter, not harder.",
       featuresList: [
         {
-          title: "Data types",
-          description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione."
+          title: "Silo Assessment",
+          description: "Identify exactly where and why information gets stuck in your organization, map knowledge flows and critical connection points between teams."
         },
         {
-          title: "Loops",
-          description: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo."
+          title: "Collaboration Design",
+          description: "Transform how teams communicate across departmental boundaries and create shared language and frameworks that bridge technical specialists."
         },
         {
-          title: "Events",
-          description: "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis."
+          title: "Technology Integration",
+          description: "Select and implement knowledge management tools that enhance rather than replace human connection and align with how people actually work."
         }
       ],
-      paragraph2: "Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci."
+      paragraph2: "With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares and leverages its most valuable asset—knowledge."
     },
     secondSection: {
-      title: "From beginner to expert in 3 hours",
-      paragraph: "Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.",
+      title: "From Information Silos to Knowledge Flow",
+      paragraph: "I'm Russ Fugal, a consultant who helps organizations overcome the barriers that prevent knowledge from flowing where it's needed most. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.",
       testimonial: {
-        quote: "“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”",
+        quote: "“The meeting format Russ designed completely transformed how our teams share information. What used to get stuck in departmental silos now flows to the people who need it most. We've eliminated duplicate work and seen a 65% improvement in cross-team innovation.”",
         author: {
           name: "Maria Hill",
-          title: "Marketing Manager",
+          title: "VP of Operations, Manufacturing Client",
           image: {
             src: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
             width: 256,
@@ -73,53 +80,58 @@ export const mainContent = {
           }
         }
       },
-      paragraph2: "Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit."
+      paragraph2: "My approach combines practical project management expertise with deep insights into how organizations actually share knowledge and make decisions. Rather than focusing solely on technology solutions or abstract theories, I help clients create sustainable systems where both formal processes and informal communications work together."
     },
     imageSection: {
       image: {
-        src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&w=1310&h=873&q=80&facepad=3",
-        width: 671,
-        height: 447,
+        src: "/russ.jpg",
+        width: 2000,
+        height: 1333,
         alt: ""
       },
-      caption: "Faucibus commodo massa rhoncus, volutpat."
+      caption: "Russ Fugal, MBA, PMP, Organizational Transformation Specialist"
     },
     finalSection: {
-      title: "Everything you need to get up and running",
-      paragraph1: "Purus morbi dignissim senectus mattis adipiscing. Amet, massa quam varius orci dapibus volutpat cras. In amet eu ridiculus leo sodales cursus tristique. Tincidunt sed tempus ut viverra ridiculus non molestie. Gravida quis fringilla amet eget dui tempor dignissim. Facilisis auctor venenatis varius nunc, congue erat ac. Cras fermentum convallis quam.",
-      paragraph2: "Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit."
+      title: "Create Knowledge Flow in Your Organization",
+      paragraph1: "My background includes managing projects worth over $100 million, implementing knowledge-sharing systems across diverse teams, and studying the intersection of technology and human collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
+      paragraph2: "Whether you're dealing with cross-departmental collaboration challenges, integration of specialized expertise, or simply trying to make better use of what your organization already knows, I can help you create an environment where knowledge flows freely to the people who need it most."
     }
   }
 
 // services-content
-import { ChatBubbleOvalLeftEllipsisIcon, HeartIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { 
+  ClipboardDocumentCheckIcon, 
+  UsersIcon, 
+  CpuChipIcon, 
+  // AcademicCapIcon,
+} from '@heroicons/react/24/outline'
 
 export const servicesData = {
-  heading: "Stay on top of customer support",
+  heading: "Break Down Information Silos, Build Knowledge Bridges",
   services: [
     {
-      name: 'Spam report',
+      name: 'Silo Assessment & Strategy',
       description:
-        'Autem reprehenderit aut debitis ut. Officiis harum omnis placeat blanditiis delectus sint vel et voluptatum.',
-      icon: TrashIcon,
+        'Identify where information gets stuck, map knowledge flows between teams, and develop practical strategies to remove barriers and create sustainable knowledge-sharing habits.',
+      icon: ClipboardDocumentCheckIcon,
     },
     {
-      name: 'Compose in markdown',
+      name: 'Team Collaboration Design',
       description:
-        'Illum et aut inventore. Ut et dignissimos quasi. Omnis saepe dolorum. Hic autem fugiat. Voluptatem officiis necessitatibus.',
-      icon: PencilSquareIcon,
+        'Transform how teams communicate across boundaries, create shared language that bridges technical specialists, and implement collaboration processes that respect expertise.',
+      icon: UsersIcon,
     },
     {
-      name: 'Email commenting',
+      name: 'Technology Integration',
       description:
-        'Commodi quam quo. In quasi mollitia optio voluptate et est reiciendis. Ut et sunt id officiis vitae perspiciatis.',
-      icon: ChatBubbleOvalLeftEllipsisIcon,
+        'Select knowledge management tools that enhance human connection, align with how people actually work, and create governance frameworks that maintain quality while making information accessible.',
+      icon: CpuChipIcon,
     },
     {
-      name: 'Customer connections',
+      name: 'Leadership Development',
       description:
-        'Deserunt corrupti praesentium quo vel cupiditate est occaecati ad. Aperiam libero modi similique iure praesentium facilis.',
-      icon: HeartIcon,
+        'Equip leaders with practical skills to foster information sharing, build capacity to address knowledge barriers, and develop communication approaches that break down resistance to collaboration.',
+      icon: AcademicCapIcon,
     }
   ]
 }
@@ -130,35 +142,35 @@ import { SVGProps } from "react"
 export const footerData = {
   logo: {
     src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500",
-    alt: "Company name",
+    alt: "Knowledge Flow Consulting",
     width: 643,
     height: 386
   },
-  tagline: "Making the world a better place through constructing elegant hierarchies.",
-  copyright: "© 2024 Your Company, Inc. All rights reserved.",
+  tagline: "Creating environments where knowledge flows freely across organizations, driving innovation and smart decision-making.",
+  copyright: "© 2024 Russ Fugal Consulting, LLC. All rights reserved.",
   navigation: {
     solutions: [
-      { name: 'Marketing', href: '#' },
-      { name: 'Analytics', href: '#' },
-      { name: 'Automation', href: '#' },
-      { name: 'Commerce', href: '#' },
-      { name: 'Insights', href: '#' },
+      { name: 'Silo Assessment', href: '#' },
+      { name: 'Collaboration Design', href: '#' },
+      { name: 'Technology Integration', href: '#' },
+      { name: 'Leadership Development', href: '#' },
+      { name: 'Process Improvement', href: '#' },
     ],
     support: [
-      { name: 'Submit ticket', href: '#' },
-      { name: 'Documentation', href: '#' },
-      { name: 'Guides', href: '#' },
+      { name: 'Schedule Consultation', href: '#' },
+      { name: 'Resources', href: '#' },
+      { name: 'Knowledge Base', href: '#' },
     ],
     company: [
-      { name: 'About', href: '#' },
+      { name: 'About Russ', href: '#' },
       { name: 'Blog', href: '#' },
-      { name: 'Jobs', href: '#' },
-      { name: 'Press', href: '#' },
+      { name: 'Case Studies', href: '#' },
+      { name: 'Contact', href: '#' },
     ],
     legal: [
       { name: 'Terms of service', href: '#' },
       { name: 'Privacy policy', href: '#' },
-      { name: 'License', href: '#' },
+      { name: 'Cookie policy', href: '#' },
     ],
     social: [
       {
@@ -225,9 +237,9 @@ export const footerData = {
     ],
   },
   categories: {
-    solutions: "Solutions",
-    support: "Support",
-    company: "Company",
+    solutions: "Services",
+    support: "Resources",
+    company: "About",
     legal: "Legal"
   }
 }

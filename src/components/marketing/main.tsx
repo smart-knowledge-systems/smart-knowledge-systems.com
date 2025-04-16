@@ -6,7 +6,7 @@ import { mainContent } from '@/content/marketing-content';
 
 export default function Main() {
   return (
-    <div className="bg-white px-6 py-32 lg:px-8">
+    <div id="resources" className="bg-white px-6 py-32 lg:px-8">
       <div className="mx-auto max-w-3xl text-base/7 text-gray-700">
         <p className="text-base/7 font-semibold text-indigo-600">{mainContent.intro.tagline}</p>
         <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
@@ -32,13 +32,13 @@ export default function Main() {
           <p className="mt-8">
             {mainContent.mainContent.paragraph2}
           </p>
-          <h2 className="mt-16 text-pretty text-3xl font-semibold tracking-tight text-gray-900">
+          <h2 id="about" className="mt-16 text-pretty text-3xl font-semibold tracking-tight text-gray-900">
             {mainContent.secondSection.title}
           </h2>
           <p className="mt-6">
             {mainContent.secondSection.paragraph}
           </p>
-          <figure className="mt-10 border-l border-indigo-600 pl-9">
+          <figure id="approach" className="mt-10 border-l border-indigo-600 pl-9">
             <blockquote className="font-semibold text-gray-900">
               <p>
                 {mainContent.secondSection.testimonial.quote}
