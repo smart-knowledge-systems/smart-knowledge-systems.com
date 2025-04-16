@@ -1,4 +1,4 @@
-**Breaking Down Barriers: Creating Knowledge Flow in Complex Organizations**
+# Breaking Down Barriers: Creating Knowledge Flow in Complex Organizations
 
 I help organizations overcome information silos by building practical knowledge-sharing systems that combine the best of human expertise with smart technology. Drawing on my background in project management, information science, and organizational transformation, I create environments where knowledge flows freely across departments, teams gain access to critical insights, and leaders make better decisions.
 
@@ -6,17 +6,15 @@ Organizations today struggle with fragmented information, duplicated efforts, an
 
 With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares and leverages its most valuable asset—knowledge.
 
-# Website Copy
+## Website Copy
 
-## Homepage
+### Homepage
 
-### Hero Section
-
-**Turn Information Barriers into Bridges**
+#### Hero Section — **Turn Information Barriers into Bridges**
 
 Stop losing time, money and opportunities to information silos. Create an organization where knowledge flows freely, teams collaborate effectively, and your best insights drive innovation.
 
-### About Me
+#### About Me
 
 I'm Russ Fugal, a consultant who helps organizations overcome the barriers that prevent knowledge from flowing where it's needed most. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.
 
@@ -24,33 +22,33 @@ My approach combines practical project management expertise with deep insights i
 
 My background includes managing projects worth over $100 million, implementing knowledge-sharing systems across diverse teams, and studying the intersection of technology and human collaboration. This unique perspective allows me to see opportunities for improvement that others miss.
 
-### Services
+#### Services
 
-**Silo Assessment & Strategy**
+##### **Silo Assessment & Strategy**
 
 - Identify exactly where and why information gets stuck in your organization
 - Map knowledge flows and critical connection points between teams
 - Develop practical strategies to remove barriers and create sustainable knowledge-sharing habits
 
-**Team Collaboration Design**
+##### **Team Collaboration Design**
 
 - Transform how teams communicate across departmental boundaries
 - Create shared language and frameworks that bridge technical specialists
 - Implement collaboration processes that respect expertise while encouraging knowledge exchange
 
-**Technology Integration**
+##### **Technology Integration**
 
 - Select and implement knowledge management tools that enhance rather than replace human connection
 - Ensure new technologies align with how people actually work and communicate
 - Create governance frameworks that maintain quality while making information accessible
 
-**Leadership Development**
+##### **Leadership Development**
 
 - Equip leaders with practical skills to foster information sharing
 - Build capacity to recognize and address emerging knowledge barriers
 - Develop communication approaches that break down resistance to collaboration
 
-## Blog Post Titles
+### Blog Post Titles
 
 1. "The Hidden Cost of Information Silos: What They're Really Costing Your Business"
 2. "Beyond the Tech Fix: Why Your Knowledge Management System Isn't Working"
