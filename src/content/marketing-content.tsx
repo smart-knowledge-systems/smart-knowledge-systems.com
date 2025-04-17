@@ -47,11 +47,11 @@ export const mainContent = {
     title:
       "Transforming Organizations Through Knowledge Sharing",
     subtitle:
-      "I help organizations build smart knowledge-sharing systems that combine the best of human expertise with smart technology (e.g. collaborative IT and generative AI), empowering them to overcome information silos and unleash innovation. Drawing on my background in project management, information science, and organizational transformation, I develop environments where knowledge flows freely.",
+      "I help organizations build smart knowledge-sharing systems that combine the best of human expertise with smart technology (e.g. collaborative IT and generative AI), empowering them to overcome information silos and unleash innovation. Drawing on my background in project management, information science, and organizational transformation, I develop environments for knowledge growth and sharing.",
   },
   mainContent: {
     paragraph1:
-      "Organizations today struggle with fragmented information, duplicated efforts, and missed opportunities for innovation. My approach doesn't rely on rolling out new tools—I design collaborative processes that change how people communicate, share expertise, and solve problems together. The result? Faster innovation, better decision-making, and teams that work smarter, not harder.",
+      "Organizations waste valuable resources daily through duplicated efforts, and missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate—without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that become part of your organizational DNA. The result? Measurable gains in innovation speed, decision quality, and team productivity that drive bottom-line results.",
     featuresList: [
       {
         title: "Silo Assessment",
@@ -128,25 +128,25 @@ export const servicesData = {
     {
       name: "Silo Assessment & Strategy",
       description:
-        "Identify where information gets stuck, map knowledge flows between teams, and develop practical strategies to remove barriers and create sustainable knowledge-sharing habits.",
+        "Eliminate costly duplicate work and reduce project delays by pinpointing exactly where critical information breaks down between teams and creating targeted solutions that get knowledge flowing again.",
       icon: ClipboardDocumentCheckIcon,
     },
     {
       name: "Team Collaboration Design",
       description:
-        "Transform how teams communicate across boundaries, create shared language that bridges technical specialists, and implement collaboration processes that respect expertise.",
+        "Transform how teams communicate across departmental and technical boundaries by creating shared vocabularies and frameworks. Thoughtfully integrate generative AI as a navigator that bridges domains while promoting the human conversations essential for building shared knowledge and driving innovation.",
       icon: UsersIcon,
     },
     {
       name: "Technology Integration",
       description:
-        "Select knowledge management tools that enhance human connection, align with how people actually work, and create governance frameworks that maintain quality while making information accessible. If you want to leverage generative AI, I can help you design the right processes to get the most out of it.",
+        "Maximize ROI on your technology investments by implementing systems people actually use, turning your knowledge management tools into productivity multipliers rather than expensive digital filing cabinets.",
       icon: CpuChipIcon,
     },
     {
       name: "Leadership Development",
       description:
-        "Equip leaders with practical skills to foster information sharing, build capacity to address knowledge barriers, and develop communication approaches that break down resistance to collaboration and cultivate healthy work.",
+        "Transform managers into knowledge catalysts who create healthy team environments where innovations emerge naturally, problems get solved faster, and expertise is automatically shared with those who need it most—all while supporting employee wellbeing and reducing workplace stress.",
       icon: AcademicCapIcon,
     },
   ],
