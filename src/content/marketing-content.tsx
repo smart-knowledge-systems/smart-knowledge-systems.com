@@ -51,7 +51,7 @@ export const mainContent = {
   },
   mainContent: {
     paragraph1:
-      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate—without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that become part of your organizational DNA. The result? Measurable gains in innovation speed, decision quality, and team productivity that drive bottom-line results.",
+      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate—without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains in innovation speed, decision quality, and team productivity that drive bottom-line results.",
     featuresList: [
       {
         title: "Silo Assessment",
@@ -61,7 +61,7 @@ export const mainContent = {
       {
         title: "Collaboration Design",
         description:
-          "Transform how teams communicate across departmental boundaries and create shared language and frameworks that bridge between specialized teams.",
+          "Transform how teams communicate across departmental and technical boundaries by creating shared language and frameworks and healthy work environments.",
       },
       {
         title: "Technology Integration",
@@ -107,9 +107,9 @@ export const mainContent = {
   finalSection: {
     title: "Create Knowledge Flow in Your Organization",
     paragraph1:
-      "My background includes managing projects worth over $100 million, implementing knowledge-sharing systems across diverse teams, and studying the intersection of technology and human collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
+      "My background includes managing physical builds worth over $100 million, integrating knowledge-sharing systems across diverse teams, and studying the intersection of technology and human collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
     paragraph2:
-      "Whether you're dealing with cross-departmental collaboration challenges, integration of specialized expertise, or simply trying to make better use of what your organization already knows, I can help you create an environment where knowledge flows freely to the people who need it most.",
+      "Whether you’re dealing with cross-departmental collaboration challenges, integration of specialized expertise, or simply trying to make better use of what your organization already knows, I can help you create an environment where knowledge flows freely to the people who need it most.",
   },
 };
 
