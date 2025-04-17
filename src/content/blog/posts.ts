@@ -28,7 +28,7 @@ export type Post = {
 // href="/blog/hidden-cost-information-silos" would return the content of src/content/blog/hidden-cost-information-silos.md
 
 export const getMarkdownContent = async (href: string): Promise<string | undefined> => {
-  const filePath = `src/content${href}.md`;
+  const filePath = `.${href}.md`;
   try {
     const content = await fs.readFile(filePath, 'utf-8');
     return content;

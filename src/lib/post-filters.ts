@@ -10,7 +10,7 @@ export const getPostsWithMarkdown = async (posts: Post[]) => {
 };
 
 export const getPostWithMarkdown = async (slug: string): Promise<Post | undefined> => {
-  const post = postsData.find((post) => post.href === `../content/blog/${slug}`);
+  const post = postsData.find((post) => post.href === `/blog/${slug}`);
   if (!post) {
     return undefined;
   }
