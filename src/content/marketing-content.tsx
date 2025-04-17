@@ -51,7 +51,7 @@ export const mainContent = {
   },
   mainContent: {
     paragraph1:
-      "Organizations waste valuable resources daily through duplicated efforts, and missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate—without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that become part of your organizational DNA. The result? Measurable gains in innovation speed, decision quality, and team productivity that drive bottom-line results.",
+      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate—without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that become part of your organizational DNA. The result? Measurable gains in innovation speed, decision quality, and team productivity that drive bottom-line results.",
     featuresList: [
       {
         title: "Silo Assessment",
