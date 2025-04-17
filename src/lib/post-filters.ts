@@ -1,5 +1,6 @@
 'use server';
-import { postsData, getMarkdownContent, Post, Category } from "@/content/blog/posts";
+import { postsData, Post, Category } from "@/content/blog/posts";
+import { getMarkdownContent } from "@/content/blog/get-markdown";
 
 export const getPostsWithMarkdown = async (posts: Post[]) => {
   const fullPosts = posts.map((post) => ({

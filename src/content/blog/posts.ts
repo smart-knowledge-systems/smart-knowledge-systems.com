@@ -1,5 +1,3 @@
-import fs from 'fs/promises';
-
 type Author = {
   name: string;
   role: string;
@@ -23,23 +21,6 @@ export type Post = {
   author: Author;
   body: string; // markdown content
 };
-
-// getMarkdownContent(href: string): Promise<string> returns markdown content from a file
-// href="/blog/hidden-cost-information-silos" would return the content of src/content/blog/hidden-cost-information-silos.md
-
-export const getMarkdownContent = async (href: string): Promise<string | undefined> => {
-  const filePath = `.${href}.md`;
-  try {
-    const content = await fs.readFile(filePath, 'utf-8');
-    return content;
-  } catch (error) {
-    console.error(
-      `Error loading markdown content from ${filePath}:`,
-      error,
-    );
-    return undefined; // Return undefined if error occurs
-  }
-}
 
 // Common author data
 const russAuthor: Author = {
