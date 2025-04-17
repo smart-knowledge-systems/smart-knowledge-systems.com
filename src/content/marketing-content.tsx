@@ -51,7 +51,7 @@ export const mainContent = {
   },
   mainContent: {
     paragraph1:
-      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate—without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains in innovation speed, decision quality, and team productivity that drive bottom-line results.",
+      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate — without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains — in innovation speed, decision quality, and team productivity — that drive bottom-line results.",
     featuresList: [
       {
         title: "Silo Assessment",
@@ -70,7 +70,7 @@ export const mainContent = {
       },
     ],
     paragraph2:
-      "With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares, leverages, and builds its most valuable asset—knowledge.",
+      "With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares, leverages, and builds its most valuable asset — knowledge.",
   },
   secondSection: {
     title: "From Information Silos to Knowledge Flow",
@@ -146,7 +146,7 @@ export const servicesData = {
     {
       name: "Leadership Development",
       description:
-        "Transform managers into knowledge catalysts who create healthy team environments where innovations emerge naturally, problems get solved faster, and expertise is automatically shared with those who need it most—all while supporting employee wellbeing and reducing workplace stress.",
+        "Transform managers into knowledge catalysts who create healthy team environments where innovations emerge naturally, problems get solved faster, and expertise is automatically shared with those who need it most — all while supporting employee wellbeing and reducing workplace stress.",
       icon: AcademicCapIcon,
     },
   ],
@@ -159,11 +159,11 @@ export const footerData = {
   logo: {
     src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500",
     alt: "Knowledge Flow Consulting",
-    width: 643,
-    height: 386,
+    width: 36,
+    height: 36,
   },
   tagline:
-    "Creating environments where knowledge flows freely across organizations, driving innovation and smart decision-making.",
+    "build knowledge together",
   copyright:
     "© 2025 Smart Knowledge Systems, LLC. All rights reserved.",
   navigation: {
