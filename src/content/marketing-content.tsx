@@ -16,13 +16,13 @@ export const navigation = [
 export const heroContent = {
   logo: {
     src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600",
-    alt: "Knowledge Flow Consulting",
+    alt: "Knowledge Systems Consulting",
     width: 643,
     height: 386,
   },
   headline: "Smart Systems",
   description:
-    "Stop losing time, money and opportunities to information silos. Create an organization where knowledge flows freely, teams collaborate effectively, and your best insights drive innovation.",
+    "Stop losing time, money and opportunities to information silos. Create an organization where information flows, teams collaborate, and knowledge grows so your best insights drive innovation.",
   ctaPrimary: {
     text: "Get Started",
     href: "#",
@@ -43,25 +43,24 @@ export const heroContent = {
 // main-content
 export const mainContent = {
   intro: {
-    tagline: "Knowledge Flow Expert",
-    title:
-      "Transforming Organizations Through Knowledge Sharing",
+    tagline: "Knowledge Management Expert",
+    title: "Transforming Organizations Through Knowledge Sharing",
     subtitle:
       "I help organizations build smart knowledge-sharing systems that combine the best of human expertise with smart technology (e.g. collaborative IT and generative AI), empowering them to overcome information silos and unleash innovation. Drawing on my background in project management, information science, and organizational transformation, I develop environments for knowledge growth and sharing.",
   },
   mainContent: {
     paragraph1:
-      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented knowledge. My approach delivers immediate returns by redesigning how your teams collaborate — without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains — in innovation speed, decision quality, and team productivity — that drive bottom-line results.",
+      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented and stagnantknowledge. My approach delivers immediate returns by redesigning how your teams collaborate — without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains — in innovation speed, decision quality, and team productivity — that drive bottom-line results.",
     featuresList: [
       {
         title: "Silo Assessment",
         description:
-          "Identify exactly where and why information gets stuck in your organization, map knowledge flows and critical connection points between teams.",
+          "Identify exactly where and why information gets stuck in your organization, map information flows and critical connection points between teams.",
       },
       {
         title: "Collaboration Design",
         description:
-          "Transform how teams communicate across departmental and technical boundaries by creating shared language and frameworks and healthy work environments.",
+          "Transform how teams communicate across departmental and technical boundaries by creating healthy work environments with shared language and frameworks.",
       },
       {
         title: "Technology Integration",
@@ -73,16 +72,15 @@ export const mainContent = {
       "With certifications in Project Management and Organizational Transformation, backed by real-world experience leading multi-million dollar projects, I bring both the strategic vision and practical know-how to transform how your organization shares, leverages, and builds its most valuable asset — knowledge.",
   },
   secondSection: {
-    title: "From Information Silos to Knowledge Flow",
+    title: "From Information Silos to Shared Knowledge",
     paragraph:
-      "I'm Russ Fugal, a consultant who helps organizations overcome the barriers that prevent knowledge from flowing where it's needed most. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.",
+      "I'm Russ Fugal, a consultant who helps organizations overcome the barriers that prevent information from flowing where it's needed for knowledge growth. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.",
     testimonial: {
       quote:
         "“The meeting format Russ designed completely transformed how our teams share information. What used to get stuck in departmental silos now flows to the people who need it most. We've eliminated duplicate work and seen an improvement in cross-team innovation.”",
       author: {
         name: "",
-        title:
-          "Director of Operations, Manufacturing Client",
+        title: "Director of Operations, Manufacturing Client",
         image: {
           src: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
           width: 256,
@@ -92,7 +90,7 @@ export const mainContent = {
       },
     },
     paragraph2:
-      "My approach combines best practices and practical project management expertise with deep insights into how organizations actually share knowledge and make decisions. Rather than focusing solely on technology solutions or abstract theories, I help clients create sustainable and dynamic systems where both formal processes and informal communications work together.",
+      "My approach combines best practices and practical project management expertise with deep insights into how organizations actually develop shared knowledge and make decisions. Rather than focusing solely on technology solutions or abstract theories, I help clients create sustainable and dynamic systems where both formal processes and informal communications work together.",
   },
   imageSection: {
     image: {
@@ -101,15 +99,14 @@ export const mainContent = {
       height: 1333,
       alt: "",
     },
-    caption:
-      "Russ Fugal, MBA, PMP, Organizational Transformation Specialist",
+    caption: "Russ Fugal, MBA, PMP, Organizational Transformation Specialist",
   },
   finalSection: {
-    title: "Create Knowledge Flow in Your Organization",
+    title: "Create Information Flow in Your Organization",
     paragraph1:
-      "My background includes managing physical builds worth over $100 million, integrating knowledge-sharing systems across diverse teams, and studying the intersection of technology and human collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
+      "My background includes managing physical builds worth over $100 million, integrating information-sharing systems across diverse teams, and studying the intersections of informationtechnology, epistemology, and social collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
     paragraph2:
-      "Whether you’re dealing with cross-departmental collaboration challenges, integration of specialized expertise, or simply trying to make better use of what your organization already knows, I can help you create an environment where knowledge flows freely to the people who need it most.",
+      "Whether you’re dealing with cross-departmental collaboration challenges, integration of specialized expertise, or simply trying to make better use of what your organization already knows, I can help you create an environment where information flows.",
   },
 };
 
@@ -122,13 +119,12 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const servicesData = {
-  heading:
-    "Break Down Information Silos, Build Knowledge Bridges",
+  heading: "Break Down Information Silos, Build Knowledge Bridges",
   services: [
     {
       name: "Silo Assessment & Strategy",
       description:
-        "Eliminate costly duplicate work and reduce project delays by pinpointing exactly where critical information breaks down between teams and creating targeted solutions that get knowledge flowing again.",
+        "Eliminate costly duplicate work and reduce project delays by pinpointing exactly where critical information breaks down between teams and creating targeted solutions that get information flowing again.",
       icon: ClipboardDocumentCheckIcon,
     },
     {
@@ -158,14 +154,12 @@ import { SVGProps } from "react";
 export const footerData = {
   logo: {
     src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500",
-    alt: "Knowledge Flow Consulting",
+    alt: "Knowledge Systems Consulting",
     width: 36,
     height: 36,
   },
-  tagline:
-    "build knowledge together",
-  copyright:
-    "© 2025 Smart Knowledge Systems, LLC. All rights reserved.",
+  tagline: "build knowledge together",
+  copyright: "© 2025 Smart Knowledge Systems, LLC. All rights reserved.",
   navigation: {
     solutions: [
       { name: "Silo Assessment", href: "#" },
@@ -260,11 +254,7 @@ export const footerData = {
         name: "GitHub",
         href: "https://github.com/smart-knowledge-systems",
         icon: (props: SVGProps<SVGSVGElement>) => (
-          <svg
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            {...props}
-          >
+          <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
               fillRule="evenodd"
               d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
@@ -277,11 +267,7 @@ export const footerData = {
         name: "YouTube",
         href: "#",
         icon: (props: SVGProps<SVGSVGElement>) => (
-          <svg
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            {...props}
-          >
+          <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
               fillRule="evenodd"
               d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"

@@ -8,7 +8,7 @@ If this sounds familiar, you’re not alone. Research suggests that up to 70% of
 
 ## The Technology Trap
 
-The assumption underlying most failed knowledge management initiatives is that information silos are fundamentally a technology problem. If we just had the right system, the thinking goes, knowledge would naturally flow throughout the organization.
+The assumption underlying most failed knowledge management initiatives is that information silos are fundamentally a technology problem. If we just had the right system, the thinking goes, information would naturally flow throughout the organization.
 
 This assumption misunderstands the nature of organizational knowledge and how it actually moves between people. Here’s why technology-first approaches typically fall short:
 
@@ -35,35 +35,35 @@ Even the best technology can’t overcome social and cultural barriers to knowle
 - Departmental rivalries that impede cross-functional collaboration
 - Fear of appearing incompetent by asking questions
 
-**Solution Approach:** Directly address the human factors that impede knowledge flow. This might include revising incentives, modeling knowledge-sharing behaviors at leadership levels, or creating psychosocial safety culture that encourages questions and learning.
+**Solution Approach:** Directly address the human factors that impede information flow. This might include revising incentives, modeling knowledge-sharing behaviors at leadership levels, or creating psychosocial safety culture that encourages questions and learning.
 
-## A Balanced Approach: The Knowledge Flow Framework
+## A Balanced Approach: The Information Flow Framework
 
-Effective knowledge sharing requires balance between three key elements:
+Effective information sharing requires balance between three key elements:
 
 ### 1. People
 
-- Who holds critical knowledge?
-- Who needs access to this knowledge?
+- Who holds critical information?
+- Who needs access to this information?
 - What motivates or prevents these individuals from sharing?
 
 ### 2. Processes
 
 - How does work actually flow through your organization?
-- Where are the natural points for knowledge exchange?
+- Where are the natural points for information exchange?
 - What formal and informal systems govern how information moves?
 
 ### 3. Technology
 
 - What tools do people already use and trust?
-- How can technology reduce friction in knowledge sharing?
+- How can technology reduce friction in information sharing?
 - What knowledge truly needs to be reduced to information versus simply connected?
 
 ## Starting Small: The Pilot Approach
 
-Rather than implementing organization-wide knowledge management systems, consider starting with targeted pilots focused on high-value knowledge domains. For example:
+Rather than implementing organization-wide knowledge management systems, consider starting with targeted pilots focused on high-value information domains. For example:
 
-- Create a “knowledge bridge” between your customer service and product development teams
+- Create an “information bridge” between your customer service and product development teams
 - Implement paired working sessions between departing experts and their replacements
 - Redesign specific meeting formats to include intentional knowledge-sharing components
 
@@ -71,6 +71,6 @@ One manufacturing client saw dramatic improvement by simply instituting 15-minut
 
 ## Moving Forward
 
-If your knowledge management system isn’t delivering results, don’t immediately assume you need a better system. Instead, step back and examine how knowledge actually flows — or doesn’t — in your organization. The solution may involve less technology and more attention to the human systems that either enable or prevent effective knowledge sharing.
+If your knowledge management system isn’t delivering results, don’t immediately assume you need a better system. Instead, step back and examine how information actually flows — or doesn’t — in your organization. The solution may involve less technology and more attention to the human systems that either enable or prevent effective knowledge sharing.
 
-In my next post, I’ll explore practical approaches to mapping knowledge flows in your organization and identifying critical intervention points. Until then, consider this question: What small step could you take tomorrow to improve knowledge flow across one critical boundary in your organization?
+In my next post, I’ll explore practical approaches to mapping information flows in your organization and identifying critical intervention points. Until then, consider this question: What small step could you take tomorrow to improve information flow across one critical boundary in your organization?

@@ -1,6 +1,6 @@
 ## What They’re Really Costing Your Business
 
-Information silos might seem like just an annoyance — that moment when you discover another team has been working on the same problem, or when critical knowledge fails to reach decision-makers. But the true cost extends far beyond frustration.
+Information silos might seem like just an annoyance — that moment when you discover another team has been working on the same problem, or when critical information fails to reach decision-makers. But the true cost extends far beyond frustration.
 
 ## The Four Hidden Costs
 
@@ -34,7 +34,7 @@ One technology company calculated that each departing senior engineer represente
 
 Perhaps most damaging is how silos stifle innovation. Breakthrough ideas often emerge at the intersection of different domains and perspectives. When information doesn’t cross boundaries, these opportunities for innovation never materialize.
 
-Organizations with strong cross-functional knowledge flow consistently outperform their siloed counterparts in measures of innovation output. They produce more patents, launch more successful products, and adapt more quickly to market changes.
+Organizations with strong cross-functional knowledge sharing consistently outperform their siloed counterparts in measures of innovation output. They produce more patents, launch more successful products, and adapt more quickly to market changes.
 
 ## Beyond Technology: A Holistic Approach
 
@@ -46,4 +46,4 @@ Effective solutions require attention to three interconnected elements:
 2. **Tools** that align with how people actually communicate and make decisions
 3. **Conversations** that build connections across departmental boundaries
 
-In my next post, I’ll share a straightforward assessment method to identify where information gets stuck in your organization. In the meantime, consider this question: What critical knowledge in your organization is currently trapped in silos, and what is it costing you?
+In my next post, I’ll share a straightforward assessment method to identify where information gets stuck in your organization. In the meantime, consider this question: What critical information in your organization is currently trapped in silos, and what is it costing you?
