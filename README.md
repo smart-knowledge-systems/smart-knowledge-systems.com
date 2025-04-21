@@ -41,6 +41,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site in your bro
 The site follows a content-driven approach where marketing content is stored separately from the presentation components. This makes it easy to update messaging without changing the underlying site structure.
 
 Key directories:
+
 - `/src/content` - Contains marketing copy and site text
 - `/src/components` - Reusable UI components
 - `/app` - Next.js App Router pages and layouts
