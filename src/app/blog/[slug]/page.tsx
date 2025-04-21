@@ -1,14 +1,14 @@
 import Post from "@/components/blog/post";
 
 export default async function Page({
-    params,
+  params,
 }: {
-    params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-    const { slug } = await params;
-    return (
+  const { slug } = await params;
+  return (
     <>
-    <Post slug={slug} />;
+      <Post slug={slug} />;
     </>
-    )
+  );
 }

@@ -1,19 +1,16 @@
-import {
-  getFeaturedPosts,
-} from "@/lib/post-filters";
+import { getFeaturedPosts } from "@/lib/post-filters";
 import { Category } from "@/content/blog/posts";
 
 interface FeaturedProps {
   postCategories: Category[];
+  excludePosts?: number[];
 }
 
 export default async function Featured({
   postCategories,
+  excludePosts,
 }: FeaturedProps) {
-  const posts = await getFeaturedPosts(
-    postCategories,
-    3,
-  );
+  const posts = await getFeaturedPosts(postCategories, 3, excludePosts);
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -34,24 +31,24 @@ export default async function Featured({
                   dateTime={post.datetime.toISOString()}
                   className="text-gray-500"
                 >
-                  {post.datetime.toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    },
-                  )}
+                  {post.datetime.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
                 </time>
-                {post.categories.map((c) => (
-                  <a
-                    key={c.title}
-                    href={c.href}
-                    className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                  >
-                    {c.title}
-                  </a>
-                ))}
+                {post.categories
+                  .sort((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
+                  .slice(0, 2)
+                  .map((c) => (
+                    <a
+                      key={c.title}
+                      href={c.href}
+                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                    >
+                      {c.title}
+                    </a>
+                  ))}
               </div>
               <div className="group relative">
                 <h3 className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
@@ -77,9 +74,7 @@ export default async function Featured({
                       {post.author.name}
                     </a>
                   </p>
-                  <p className="text-gray-600">
-                    {post.author.role}
-                  </p>
+                  <p className="text-gray-600">{post.author.role}</p>
                 </div>
               </div>
             </article>
