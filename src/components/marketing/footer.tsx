@@ -116,7 +116,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Built with TailwindCSS
+              Styled with TailwindCSS
               <Image
                 alt="tailwindcss logo"
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"

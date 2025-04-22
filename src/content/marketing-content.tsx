@@ -104,7 +104,7 @@ export const mainContent = {
   finalSection: {
     title: "Create Information Flow in Your Organization",
     paragraph1:
-      "My background includes managing physical builds worth over $100 million, integrating information-sharing systems across diverse teams, and studying the intersections of informationtechnology, epistemology, and social collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
+      "My background includes managing physical builds worth over $100 million, integrating information-sharing systems across diverse teams, and studying the intersections of information technology, epistemology, and social collaboration. This unique perspective allows me to see opportunities for improvement that others miss.",
     paragraph2:
       "Whether you’re dealing with cross-departmental collaboration challenges, integration of specialized expertise, or simply trying to make better use of what your organization already knows, I can help you create an environment where information flows.",
   },
