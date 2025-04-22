@@ -1,4 +1,6 @@
 import Post from "@/components/blog/post";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 export default async function Page({
   params,
@@ -8,7 +10,9 @@ export default async function Page({
   const { slug } = await params;
   return (
     <>
+      <Header />
       <Post slug={slug} />;
+      <Footer />
     </>
   );
 }

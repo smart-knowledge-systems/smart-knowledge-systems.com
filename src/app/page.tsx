@@ -1,5 +1,5 @@
 import Hero from "../components/marketing/hero";
-import Footer from "../components/marketing/footer";
+import Footer from "../components/footer";
 import Services from "@/components/marketing/services";
 import Main from "@/components/marketing/main";
 import Featured from "@/components/blog/featured";

@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-x-6">
               {footerData.navigation.social.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="text-gray-400 hover:text-gray-300"
@@ -28,7 +28,7 @@ export default function Footer() {
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="size-6" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -41,12 +41,12 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   {footerData.navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-gray-400 hover:text-white"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -58,12 +58,12 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   {footerData.navigation.support.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-gray-400 hover:text-white"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -77,33 +77,33 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   {footerData.navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-gray-400 hover:text-white"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-10 md:mt-0">
+              {/* <div className="mt-10 md:mt-0">
                 <h3 className="text-sm/6 font-semibold text-white">
                   {footerData.categories.legal}
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {footerData.navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-gray-400 hover:text-white"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -7,10 +7,10 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const navigation = [
-  { name: "Services", href: "#services" },
-  { name: "Approach", href: "#approach" },
-  { name: "Resources", href: "#resources" },
-  { name: "About", href: "#about" },
+  { name: "Services", href: "/#services" },
+  { name: "Approach", href: "/#approach" },
+  { name: "Resources", href: "/#resources" },
+  { name: "About", href: "/#about" },
 ];
 
 export const heroContent = {
@@ -25,11 +25,11 @@ export const heroContent = {
     "Stop losing time, money and opportunities to information silos. Create an organization where information flows, teams collaborate, and knowledge grows so your best insights drive innovation.",
   ctaPrimary: {
     text: "Get Started",
-    href: "#",
+    href: "https://calendly.com/saras-books/smart-knowledge-systems-consultation",
   },
   ctaSecondary: {
-    text: "Learn More",
-    href: "#",
+    text: "Schedule a Free Consultation",
+    href: "https://calendly.com/saras-books/smart-knowledge-systems-consultation",
   },
   heroImage: {
     src: "https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80",
@@ -50,7 +50,7 @@ export const mainContent = {
   },
   mainContent: {
     paragraph1:
-      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented and stagnantknowledge. My approach delivers immediate returns by redesigning how your teams collaborate — without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains — in innovation speed, decision quality, and team productivity — that drive bottom-line results.",
+      "Organizations waste valuable resources daily through duplicated efforts, missed opportunities for innovation, and fragmented and stagnant knowledge. My approach delivers immediate returns by redesigning how your teams collaborate — without requiring expensive new software that nobody uses. Instead of digital tools gathering dust, I create sustainable knowledge sharing that becomes part of your organizational DNA. The result? Measurable gains — in innovation speed, decision quality, and team productivity — that drive bottom-line results.",
     featuresList: [
       {
         title: "Silo Assessment",
@@ -74,7 +74,7 @@ export const mainContent = {
   secondSection: {
     title: "From Information Silos to Shared Knowledge",
     paragraph:
-      "I'm Russ Fugal, a consultant who helps organizations overcome the barriers that prevent information from flowing where it's needed for knowledge growth. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.",
+      "I'm Russ Fugal, a professional who helps organizations overcome the barriers that prevent information from flowing where it's needed for knowledge growth. With over a decade leading complex projects and teams, I've seen firsthand how information silos create frustration, waste resources, and block innovation.",
     testimonial: {
       quote:
         "“The meeting format Russ designed completely transformed how our teams share information. What used to get stuck in departmental silos now flows to the people who need it most. We've eliminated duplicate work and seen an improvement in cross-team innovation.”",
@@ -159,7 +159,7 @@ export const footerData = {
     height: 36,
   },
   tagline: "build knowledge together",
-  copyright: "© 2025 Smart Knowledge Systems, LLC. All rights reserved.",
+  copyright: "© 2025 Russ Fugal. All rights reserved.",
   navigation: {
     solutions: [
       { name: "Silo Assessment", href: "#" },
@@ -169,15 +169,21 @@ export const footerData = {
       { name: "Healthy Work", href: "#" },
     ],
     support: [
-      { name: "Schedule Consultation", href: "#" },
+      {
+        name: "Schedule Consultation",
+        href: "https://calendly.com/saras-books/smart-knowledge-systems-consultation",
+      },
       { name: "Resources", href: "#" },
       { name: "Knowledge Base", href: "#" },
     ],
     company: [
       { name: "About Russ", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: "Blog", href: "/blog" },
       { name: "Case Studies", href: "#" },
-      { name: "Contact", href: "#" },
+      {
+        name: "Contact",
+        href: "https://calendly.com/saras-books/smart-knowledge-systems-consultation",
+      },
     ],
     legal: [
       { name: "Terms of service", href: "#" },
