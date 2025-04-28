@@ -12,7 +12,7 @@ The fundamental mistake many organizations make is treating information and know
 
 **Knowledge**, by contrast, is what enables action. It emerges when information connects with experience, context, and judgment. Knowledge isn’t just transmitted — it’s constructed through social interaction, shared experiences, and dialogue. Knowledge grows rather than flows.
 
-A manufacturing client discovered this distinction the hard way. They had meticulously documented production processes in their knowledge management system, yet continuous quality issues persisted. The breakthrough came not from better documentation but from creating structured conversations between experienced operators and newer team members. These dialogues surfaced critical contextual knowledge that had never made it into the formal documentation: subtle equipment sounds that indicated potential issues, visual cues that the written procedures never captured, and situational judgment that couldn’t be reduced to a checklist.
+A manufacturer discovered this distinction the hard way. They had meticulously documented production processes in their knowledge management system, yet continuous quality issues persisted. The breakthrough came not from better documentation but from creating structured conversations between experienced operators and newer team members. These dialogues surfaced critical contextual knowledge that had never made it into the formal documentation: subtle equipment sounds that indicated potential issues, visual cues that the written procedures never captured, and situational judgment that couldn’t be reduced to a checklist.
 
 ### The Social Construction of Knowledge
 

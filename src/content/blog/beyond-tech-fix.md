@@ -67,7 +67,7 @@ Rather than implementing organization-wide knowledge management systems, conside
 - Implement paired working sessions between departing experts and their replacements
 - Redesign specific meeting formats to include intentional knowledge-sharing components
 
-One manufacturing client saw dramatic improvement by simply instituting 15-minute weekly cross-team stand-ups focused on surfacing information relevant to other departments through dialogue rather than prepared reporting. This lightweight process created more value than their previous document repository ever had.
+One manufacturer saw dramatic improvement by simply instituting 15-minute weekly cross-team stand-ups focused on surfacing information relevant to other departments through dialogue rather than prepared reporting. This lightweight process created more value than their previous document repository ever had.
 
 ## Moving Forward
 

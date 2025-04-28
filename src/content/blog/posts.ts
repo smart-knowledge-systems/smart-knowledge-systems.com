@@ -94,7 +94,7 @@ export const postsData: Post[] = [
     title: "The Cost of Information Silos",
     href: "/blog/hidden-cost-information-silos",
     description:
-      "Information silos might seem like just an annoyance, but their true cost extends far beyond frustration. Learn about the four hidden costs that are impacting your organization's performance and innovation.",
+      "Information silos might seem like just an annoyance, but their true cost extends far beyond frustration. Learn about the four hidden costs that are impacting your organization’s performance and innovation.",
     datetime: new Date("2025-03-21"),
     categories: [
       {
@@ -118,7 +118,7 @@ Information silos might seem like just an annoyance—that moment when you disco
     title: "Beyond the Tech Fix",
     href: "/blog/beyond-tech-fix",
     description:
-      "Despite significant investments in knowledge management systems, many organizations struggle with adoption and effectiveness. Discover why technology alone can't solve your information silo problems.",
+      "Despite significant investments in knowledge management systems, many organizations struggle with adoption and effectiveness. Discover why technology alone can’t solve your information silo problems.",
     datetime: new Date("2025-03-28"),
     categories: [
       {
@@ -161,7 +161,7 @@ Modern organizations face a fundamental tension. On one hand, the complexity of 
     title: "Leading for Information Flow",
     href: "/blog/leading-information-flow",
     description:
-      "Leadership isn't just about making decisions—it's about ensuring people have the information they need to execute effectively. Discover practical leadership behaviors that improve information flow throughout your organization.",
+      "Leadership isn’t just about making decisions — it’s about ensuring people have the information they need to execute effectively. Discover practical leadership behaviors that improve information flow throughout your organization.",
     datetime: new Date("2025-04-21"),
     categories: [
       { ...categories.leadership, priority: 1 },
