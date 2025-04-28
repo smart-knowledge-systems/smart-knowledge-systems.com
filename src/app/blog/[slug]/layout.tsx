@@ -20,6 +20,7 @@ export async function generateMetadata({
     title: `${post.title} | Smart Systems`,
     description: post.description,
     openGraph: {
+      ...metadata.openGraph,
       title: post.title,
       description: post.description,
       url: "https://smart-knowledge-systems.com/blog/" + slug,
