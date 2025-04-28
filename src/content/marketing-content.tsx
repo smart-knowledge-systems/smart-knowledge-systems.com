@@ -228,7 +228,7 @@ export const footerData = {
       // },
       {
         name: "Bluesky",
-        href: "https://rusted.social.sara.ai",
+        href: "https://russ-fugal.smart-knowledge-systems.com",
         icon: (props: SVGProps<SVGSVGElement>) => (
           <svg
             fill="currentColor"
