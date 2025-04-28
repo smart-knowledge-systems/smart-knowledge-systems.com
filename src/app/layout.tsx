@@ -17,6 +17,23 @@ export const metadata: Metadata = {
   title: "Smart Systems",
   description:
     "build smart knowledge-sharing systems that combine the best of human expertise with smart technology",
+  openGraph: {
+    title: "Smart Systems",
+    description:
+      "build smart knowledge-sharing systems that combine the best of human expertise with smart technology",
+    url: "https://smart-knowledge-systems.com",
+    siteName: "Smart Knowledge Systems",
+    images: [
+      {
+        url: "https://cdn.sara.ai/image/uuid/7715fd21-5d30-54f9-b838-22acec9d9d9b.jpg",
+        width: 725,
+        height: 482,
+        alt: "Smart Systems",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
