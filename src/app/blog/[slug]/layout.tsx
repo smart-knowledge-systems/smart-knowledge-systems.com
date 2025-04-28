@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getPost } from "@/lib/post-filters";
-import RootLayout from "@/app/layout";
+import RootLayout, { metadata } from "@/app/layout";
 
 export async function generateMetadata({
   params,
@@ -16,6 +16,7 @@ export async function generateMetadata({
     };
   }
   const dynamicMetadata: Metadata = {
+    ...metadata,
     title: `${post.title} | Smart Systems`,
     description: post.description,
     openGraph: {
