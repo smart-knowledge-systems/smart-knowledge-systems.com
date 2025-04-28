@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { getPost } from "@/lib/post-filters";
+import RootLayout from "@/app/layout";
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const post = await getPost(`/blog/${slug}`);
   if (!post) {
     return {
       title: "Post not found",
@@ -24,3 +26,5 @@ export async function generateMetadata({
   };
   return dynamicMetadata;
 };
+
+export default RootLayout;

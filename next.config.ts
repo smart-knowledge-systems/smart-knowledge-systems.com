@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
+const subdomains = ["rusted", "russ-fugal", "dialogue", "social"];
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
@@ -12,7 +12,26 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "tailwindcss.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.sara.ai",
+      },
     ],
+  },
+  async redirects() {
+    return [
+      ...subdomains.map((subdomain) => ({
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: `${subdomain}.smart-knowledge-systems.com`,
+          },
+        ],
+        destination: `https://smart-knowledge-systems.com/${subdomain}/:path*`,
+        permanent: false,
+      })),
+    ];
   },
 };
 
