@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const subdomains = ["rusted"];
+const subdomains = ["russ-fugal"];
 
 const nextConfig = {
   async redirects() {
