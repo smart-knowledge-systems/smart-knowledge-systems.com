@@ -27,6 +27,6 @@ export async function generateMetadata({
     },
   };
   return dynamicMetadata;
-};
+}
 
 export default RootLayout;
