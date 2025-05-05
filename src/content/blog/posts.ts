@@ -60,6 +60,24 @@ export const categories = {
 
 export const postsData: Post[] = [
   {
+    id: 18,
+    title: "My AI Research Assistant",
+    href: "/blog/my-ai-research-assistant",
+    description:
+      "Generative AI is transforming the workplace, but its impact on knowledge management is often misunderstood. Explore how generative AI can enhance knowledge sharing and collaboration in organizations.",
+    datetime: new Date("2025-05-05"),
+    categories: [
+      { ...categories.knowledgeManagement, priority: 3 },
+      { ...categories.technologyIntegration, priority: 4 },
+      { ...categories.teamCollaboration, priority: 2 },
+      { ...categories.organizationalCulture, priority: 1 },
+    ],
+    author: russAuthor,
+    body: `## How I Use AI in Creating Knowledge-Sharing Ecosystems
+
+In today's academic environment, we're flooded with an overwhelming amount of information. With millions of articles published yearly, finding and prioritizing relevant content has become increasingly challenging. Over the past year, I've been experimenting with AI tools to help me navigate this landscape, using them as research assistants while maintaining my human judgment and scholarly approach.`,
+  },
+  {
     id: 17,
     title: "Knowledge Emerges Through Conversation",
     href: "/blog/knowledge-emerges",
