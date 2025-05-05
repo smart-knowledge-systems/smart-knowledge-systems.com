@@ -64,7 +64,7 @@ export const postsData: Post[] = [
     title: "My AI Research Assistant",
     href: "/blog/my-ai-research-assistant",
     description:
-      "Generative AI is transforming the workplace, but its impact on knowledge management is often misunderstood. Explore how generative AI can enhance knowledge sharing and collaboration in organizations.",
+      "Generative AI is transforming the workplace, but its impact on knowledge management is often misunderstood. Learn how AI can help organize your “academic dinner party” by identifying relevant literature while ensuring human expertise remains central to knowledge creation and analysis.",
     datetime: new Date("2025-05-05"),
     categories: [
       { ...categories.knowledgeManagement, priority: 3 },
