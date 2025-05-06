@@ -25,10 +25,15 @@ This process is documented in my `score-and-sort-abstracts.ipynb` notebook, wher
 ```python
 def get_relevance_score(tag_desc, abstract_text):
     prompt = (
-        f"Rate the relevance of the following article abstract to the tag description on a scale of 0-10.\n\n"
+        "Rate the relevance of the following "
+        "article abstract to the tag description "
+        "on a scale of 0-10.\n\n"
+        
         f"Tag description:\n{tag_desc}\n\n"
         f"Article abstract:\n{abstract_text}\n\n"
-        "Respond with only a single integer between 0 (not relevant) and 10 (highly relevant)."
+        
+        "Respond with only a single integer between "
+        "0 (not relevant) and 10 (highly relevant)."
     )
     response = openai.chat.completions.create(
         model=MODEL,
@@ -40,7 +45,10 @@ def get_relevance_score(tag_desc, abstract_text):
 # Process articles and assign relevance scores
 for article in tqdm(articles, desc="Processing articles"):
     for tag in tags:
-        score = get_relevance_score(tag["description"], article["abstract"])
+        score = get_relevance_score(
+            tag["description"], 
+            article["abstract"]
+        )
         if score > 0:
             article["tags"].append({
                 "id": tag["id"],
@@ -53,14 +61,19 @@ for article in tqdm(articles, desc="Processing articles"):
 This approach allows me to filter hundreds of articles based on their relevance to my specific research focus in minutes rather than hours or days:
 
 ```python
-articles_sorted = sorted(articles, key: "weightedSum", reverse=True)
+articles_sorted = sorted(
+    articles, 
+    key: lambda a: a["weightedSum"], 
+    reverse=True
+)
 # Filter articles with high relevance scores
 filtered_articles = articles_sorted[:20]
-for i in range(1, 11): 
-	# i is relevance score - secondaryWeight
-	# n is the number of tags that need to meet the threshold
-    test = filter_by_relevance(articles_sorted[20:], i, n)
-    print(f"Filtered articles with threshold {i}: {len(test)}")
+for testWeight in range(1, 11): 	
+    test = filter_by_relevance(
+        articles_sorted[20:], 
+        testWeight, 
+        tagsAtThreshold
+    )
     if len(test) < 25:
         filtered_articles += test
         break
