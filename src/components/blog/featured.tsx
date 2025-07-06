@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { getFeaturedPosts } from "@/lib/post-filters";
+import { getCategorySlug } from "@/lib/category-utils";
 import { Category } from "@/content/blog/posts";
 
 interface FeaturedProps {
@@ -43,7 +45,7 @@ export default async function Featured({
                   .map((c) => (
                     <a
                       key={c.title}
-                      href={c.href}
+                      href={`/blog?categories=${getCategorySlug(c.title)}`}
                       className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                     >
                       {c.title}
@@ -62,10 +64,12 @@ export default async function Featured({
                 </p>
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
-                <img
+                <Image
                   alt=""
                   src={post.author.imageUrl}
                   className="size-10 rounded-full bg-gray-50"
+                  width={40}
+                  height={40}
                 />
                 <div className="text-sm/6">
                   <p className="font-semibold text-gray-900">

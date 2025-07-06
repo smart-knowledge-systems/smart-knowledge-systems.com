@@ -10,7 +10,7 @@ export const navigation = [
   { name: "Services", href: "/#services" },
   { name: "Approach", href: "/#approach" },
   { name: "Resources", href: "/#resources" },
-  { name: "About", href: "/#about" },
+  { name: "About", href: "/about" },
 ];
 
 export const heroContent = {
