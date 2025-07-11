@@ -11,6 +11,7 @@ export const navigation = [
   { name: "Approach", href: "/#approach" },
   { name: "Resources", href: "/#resources" },
   { name: "About", href: "/about" },
+  { name: "Portfolio", href: "/portfolio" },
 ];
 
 export const heroContent = {
