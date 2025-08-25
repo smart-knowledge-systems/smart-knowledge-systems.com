@@ -19,7 +19,7 @@ export type Post = {
   datetime: Date;
   categories: Category[];
   author: Author;
-  body?: string; // markdown content
+  body: string; // markdown content
 };
 
 // Common author data
@@ -70,6 +70,7 @@ export const postsData: Post[] = [
       { ...categories.technologyIntegration, priority: 2 },
     ],
     author: russAuthor,
+    body: "# What AI in Business Teaches Us About Knowledge Systems"
   },
   {
     id: 19,
@@ -85,6 +86,7 @@ export const postsData: Post[] = [
       { ...categories.organizationalCulture, priority: 4 },
     ],
     author: russAuthor,
+    body: "# From Posts to Knowledge: The Power of Structured Dialogue"
   },
   {
     id: 18,
