@@ -60,6 +60,21 @@ export const categories = {
 
 export const postsData: Post[] = [
   {
+    id: 21,
+    title: "The Friction Paradox",
+    href: "/blog/friction",
+    description: "The resistance we typically try to eliminate – the difficulty of translating between departments, the effort of integration, the discomfort of changing workflows – isn't a barrier to organizational learning. It's the mechanism through which real knowledge emerges. When organizations embrace productive friction rather than seeking frictionless solutions, they create the conditions for genuine transformation.",
+    datetime: new Date("2025-09-04"),
+    categories: [
+      { ...categories.knowledgeManagement, priority: 2 },
+      { ...categories.technologyIntegration, priority: 3 },
+      { ...categories.organizationalCulture, priority: 1 },
+      { ...categories.teamCollaboration, priority: 4 },
+    ],
+    author: russAuthor,
+    body: "",
+  },
+  {
     id: 20,
     title: "Crossing the GenAI Divide",
     href: "/blog/crossing-the-divide",

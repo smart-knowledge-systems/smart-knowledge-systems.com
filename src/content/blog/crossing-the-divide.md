@@ -1,4 +1,4 @@
-# What AI in Business Teaches Us About Knowledge Systems
+## What AI in Business Teaches Us About Knowledge Systems
 
 The recently released _State of AI in Business 2025_ report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives. The authors call this gap the __GenAI Divide__ — a fault line between organizations that experiment with AI and those that actually achieve transformation.
 
