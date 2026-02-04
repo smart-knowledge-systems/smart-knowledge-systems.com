@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+import { useState } from "react";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 interface AccordionFilterProps {
   title: string;
@@ -9,7 +9,11 @@ interface AccordionFilterProps {
   defaultOpen?: boolean;
 }
 
-export default function AccordionFilter({ title, children, defaultOpen = false }: AccordionFilterProps) {
+export default function AccordionFilter({
+  title,
+  children,
+  defaultOpen = false,
+}: AccordionFilterProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -25,12 +29,8 @@ export default function AccordionFilter({ title, children, defaultOpen = false }
           <ChevronDownIcon className="h-5 w-5 text-gray-500" />
         )}
       </button>
-      
-      {isOpen && (
-        <div className="pb-6 px-6">
-          {children}
-        </div>
-      )}
+
+      {isOpen && <div className="pb-6 px-6">{children}</div>}
     </div>
   );
 }

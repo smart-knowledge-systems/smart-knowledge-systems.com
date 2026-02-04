@@ -9,22 +9,26 @@ This is a Next.js 15 website for Smart Knowledge Systems, a consulting business 
 ## Development Commands
 
 ### Core Commands
+
 - `npm run dev` - Start development server with Turbopack (opens on http://localhost:3000)
 - `npm run build` - Build production version
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint for code linting
 
 ### Testing
+
 No test framework is currently configured. If adding tests, check with the project maintainer for preferred testing approach.
 
 ## Architecture & Code Organization
 
 ### Content-Driven Architecture
+
 The site follows a content-driven approach where marketing content is stored separately from presentation components. This separation allows content updates without changing site structure.
 
 ### Key Directories
 
 **`/src/content/`** - All site content and copy
+
 - `marketing-content.tsx` - Main marketing content (hero, services, footer data)
 - `blog/posts.ts` - Blog post metadata and content structure
 - `blog/*.md` - Individual blog post markdown files
@@ -33,6 +37,7 @@ The site follows a content-driven approach where marketing content is stored sep
 - `dialog-synthialog-about-pages.md` - Additional content
 
 **`/src/components/`** - Reusable UI components
+
 - `marketing/` - Marketing-specific components (hero, services, main)
 - `blog/` - Blog-specific components (post, featured)
 - `portfolio/` - Portfolio-specific components (filtering, display, pagination)
@@ -40,17 +45,20 @@ The site follows a content-driven approach where marketing content is stored sep
 - `markdown-content.tsx` - Markdown rendering component
 
 **`/src/app/`** - Next.js App Router pages and layouts
+
 - Page components import content from `/src/content/` and render with components
 - `blog/` - Blog pages with dynamic routing
 - `portfolio/` - Portfolio page with client-side filtering
 - `russ-fugal/route.ts` - Special redirect route
 
 **`/src/lib/`** - Utility functions
+
 - `load-markdown.ts` - Markdown content loading utilities
 - `post-filters.ts` - Blog post filtering logic
 - `portfolio-filters.ts` - Portfolio filtering, sorting, and pagination utilities
 
 ### Configuration Files
+
 - `next.config.ts` - Next.js configuration with subdomain redirects
 - `tsconfig.json` - TypeScript configuration with path aliases (`@/*` → `./src/*`)
 - `eslint.config.mjs` - ESLint configuration extending Next.js rules
@@ -59,7 +67,9 @@ The site follows a content-driven approach where marketing content is stored sep
 ## Content Management
 
 ### Blog Posts
+
 Blog posts are managed through a dual-file system:
+
 1. **Metadata**: Defined in `/src/content/blog/posts.ts` with the `Post` interface including:
    - `id`, `title`, `href`, `description`, `datetime`
    - `categories` array with optional priority for display order
@@ -76,7 +86,9 @@ Blog posts are managed through a dual-file system:
 4. **Adding New Posts**: Create markdown file in `blog/` directory AND add entry to `postsData` array in `posts.ts`
 
 ### Portfolio (Academic Work)
+
 Student work is managed through:
+
 1. **Data**: JSON structure in `/src/content/cv/student-work.json` with academic metadata
    - Each essay has: `title`, `date`, `abstract`, `url`, `course`, `school`, `tags[]`
 2. **Types**: TypeScript interfaces in `/src/content/cv/portfolio.ts`
@@ -94,7 +106,9 @@ Student work is managed through:
    - Sort direction toggleable (ascending/descending)
 
 ### Marketing Content
+
 All marketing copy is centralized in `/src/content/marketing-content.tsx`:
+
 - Hero section content
 - Services descriptions
 - Footer navigation and social links
@@ -113,35 +127,43 @@ All marketing copy is centralized in `/src/content/marketing-content.tsx`:
 ## Development Patterns
 
 ### Component Structure
+
 - Components import content from `/src/content/` rather than hardcoding text
 - TypeScript interfaces define content structure
 - Responsive design with Tailwind CSS utility classes
 
 ### Content Updates
+
 - Update marketing content in `marketing-content.tsx`
 - Add blog posts by creating `.md` files and updating `posts.ts`
 - Update portfolio entries in `student-work.json` and manage tags in `portfolio.ts`
 - Maintain separation between content and presentation
 
 ### Client-Side vs Server-Side Architecture
+
 - **Blog**: Server-side rendering with static generation
 - **Portfolio**: Client-side filtering with URL state management for shareable links
 - Both systems use TypeScript interfaces and helper functions for data transformation
 
 ### Subdomain Handling
+
 The site handles subdomain redirects through Next.js configuration:
+
 - **Subdomains**: `rusted`, `russ-fugal`, `dialogue`, `social`
 - **Behavior**: Redirect from `{subdomain}.smart-knowledge-systems.com` to `smart-knowledge-systems.com/{subdomain}`
 - **Configuration**: Defined in `next.config.ts` with `async redirects()` function
 - **Special Routes**: `/russ-fugal` route redirects to Bluesky profile via `route.ts` handler
 
 ## Path Aliases
+
 - `@/*` maps to `./src/*` for cleaner imports
 
 ## Important Filtering Logic
 
 ### Portfolio Filtering (`/src/lib/portfolio-filters.ts`)
+
 When working with portfolio filtering:
+
 - `filterSortAndPaginateEssays()` is the main function combining all operations
 - Tag filtering uses OR logic within tags, AND logic between filter types
 - Sorting with multi-tag selection prioritizes essays matching more tags
@@ -149,6 +171,7 @@ When working with portfolio filtering:
 - Client-side filtering enables shareable URLs without API calls
 
 ### Blog Post Filtering
+
 - Posts sorted by `datetime` (most recent first by default)
 - Category filtering available through predefined categories
 - Posts contain both inline body content and separate markdown files

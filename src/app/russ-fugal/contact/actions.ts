@@ -1,16 +1,15 @@
-'use server';
+"use server";
 
-import { headers } from 'next/headers';
+import { headers } from "next/headers";
+import { logEventAsync } from "@/lib/axiom/server";
 
 export async function trackContactDownload() {
   const headersList = await headers();
 
-  // Analytics tracking - replace with your actual endpoint if desired
-  console.log('Contact download tracked:', {
-    event: 'contact_download',
-    timestamp: new Date().toISOString(),
-    userAgent: headersList.get('user-agent'),
-    referer: headersList.get('referer'),
+  await logEventAsync("contact.download", {
+    source: "russ-fugal-subdomain",
+    userAgent: headersList.get("user-agent") || "unknown",
+    referer: headersList.get("referer") || "direct",
   });
 }
 

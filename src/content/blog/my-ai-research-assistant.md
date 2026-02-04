@@ -28,10 +28,10 @@ def get_relevance_score(tag_desc, abstract_text):
         "Rate the relevance of the following "
         "article abstract to the tag description "
         "on a scale of 0-10.\n\n"
-        
+
         f"Tag description:\n{tag_desc}\n\n"
         f"Article abstract:\n{abstract_text}\n\n"
-        
+
         "Respond with only a single integer between "
         "0 (not relevant) and 10 (highly relevant)."
     )
@@ -46,7 +46,7 @@ def get_relevance_score(tag_desc, abstract_text):
 for article in tqdm(articles, desc="Processing articles"):
     for tag in tags:
         score = get_relevance_score(
-            tag["description"], 
+            tag["description"],
             article["abstract"]
         )
         if score > 0:
@@ -62,16 +62,16 @@ This approach allows me to filter hundreds of articles based on their relevance 
 
 ```python
 articles_sorted = sorted(
-    articles, 
-    key: lambda a: a["weightedSum"], 
+    articles,
+    key: lambda a: a["weightedSum"],
     reverse=True
 )
 # Filter articles with high relevance scores
 filtered_articles = articles_sorted[:20]
-for testWeight in range(1, 11): 	
+for testWeight in range(1, 11):
     test = filter_by_relevance(
-        articles_sorted[20:], 
-        testWeight, 
+        articles_sorted[20:],
+        testWeight,
         tagsAtThreshold
     )
     if len(test) < 25:

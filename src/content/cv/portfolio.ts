@@ -59,24 +59,24 @@ export const availableSchools: School[] = [
 
 // Helper function to get tag slug from name
 export const getTagSlug = (tagName: string): string => {
-  const tag = availableTags.find(t => t.name === tagName);
-  return tag ? tag.slug : tagName.toLowerCase().replace(/\s+/g, '-');
+  const tag = availableTags.find((t) => t.name === tagName);
+  return tag ? tag.slug : tagName.toLowerCase().replace(/\s+/g, "-");
 };
 
 // Helper function to get tag name from slug
 export const getTagName = (slug: string): string => {
-  const tag = availableTags.find(t => t.slug === slug);
+  const tag = availableTags.find((t) => t.slug === slug);
   return tag ? tag.name : slug;
 };
 
 // Helper function to get school slug from name
 export const getSchoolSlug = (schoolName: string): string => {
-  const school = availableSchools.find(s => s.name === schoolName);
-  return school ? school.slug : schoolName.toLowerCase().replace(/\s+/g, '-');
+  const school = availableSchools.find((s) => s.name === schoolName);
+  return school ? school.slug : schoolName.toLowerCase().replace(/\s+/g, "-");
 };
 
 // Helper function to get school name from slug
 export const getSchoolName = (slug: string): string => {
-  const school = availableSchools.find(s => s.slug === slug);
+  const school = availableSchools.find((s) => s.slug === slug);
   return school ? school.name : slug;
 };

@@ -95,7 +95,7 @@ As I’ve moved beyond traditional project management toward broader questions o
 This realization has profound implications for how we develop project leaders. Instead of focusing primarily on technical skills — important as they are — we need to develop capabilities in:
 
 - Facilitating meaningful dialogue across diverse perspectives
-- Creating psychosocial safety climates in high-pressure environments  
+- Creating psychosocial safety climates in high-pressure environments
 - Recognizing and addressing social challenges
 - Building learning-oriented rather than just delivery-oriented cultures
 
@@ -104,6 +104,7 @@ This realization has profound implications for how we develop project leaders. I
 Transforming how you approach project management doesn’t require abandoning everything you know or implementing wholesale organizational change. It starts with paying attention to the conversations happening — or not happening — within your projects.
 
 In your next project interaction, try asking:
+
 - “What assumptions are we making that we haven’t explicitly discussed?”
 - “What information do we need that we don’t currently have access to?”
 - “What would make it easier for us to surface problems early?”

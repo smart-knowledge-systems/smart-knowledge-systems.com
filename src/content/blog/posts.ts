@@ -63,7 +63,8 @@ export const postsData: Post[] = [
     id: 21,
     title: "The Friction Paradox",
     href: "/blog/friction",
-    description: "The resistance we typically try to eliminate – the difficulty of translating between departments, the effort of integration, the discomfort of changing workflows – isn't a barrier to organizational learning. It's the mechanism through which real knowledge emerges. When organizations embrace productive friction rather than seeking frictionless solutions, they create the conditions for genuine transformation.",
+    description:
+      "The resistance we typically try to eliminate – the difficulty of translating between departments, the effort of integration, the discomfort of changing workflows – isn't a barrier to organizational learning. It's the mechanism through which real knowledge emerges. When organizations embrace productive friction rather than seeking frictionless solutions, they create the conditions for genuine transformation.",
     datetime: new Date("2025-09-04"),
     categories: [
       { ...categories.knowledgeManagement, priority: 2 },
@@ -78,14 +79,15 @@ export const postsData: Post[] = [
     id: 20,
     title: "Crossing the GenAI Divide",
     href: "/blog/crossing-the-divide",
-    description: "The recently released State of AI in Business 2025 report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives.",
+    description:
+      "The recently released State of AI in Business 2025 report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives.",
     datetime: new Date("2025-08-24"),
     categories: [
       { ...categories.knowledgeManagement, priority: 1 },
       { ...categories.technologyIntegration, priority: 2 },
     ],
     author: russAuthor,
-    body: "# What AI in Business Teaches Us About Knowledge Systems"
+    body: "# What AI in Business Teaches Us About Knowledge Systems",
   },
   {
     id: 19,
@@ -101,7 +103,7 @@ export const postsData: Post[] = [
       { ...categories.organizationalCulture, priority: 4 },
     ],
     author: russAuthor,
-    body: "# From Posts to Knowledge: The Power of Structured Dialogue"
+    body: "# From Posts to Knowledge: The Power of Structured Dialogue",
   },
   {
     id: 18,

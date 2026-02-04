@@ -22,7 +22,9 @@ export default function CategoryFilter({
     let newSelectedCategories: string[];
     if (isSelected) {
       // Remove category
-      newSelectedCategories = selectedCategories.filter(slug => slug !== categorySlug);
+      newSelectedCategories = selectedCategories.filter(
+        (slug) => slug !== categorySlug
+      );
     } else {
       // Add category
       newSelectedCategories = [...selectedCategories, categorySlug];
@@ -40,7 +42,9 @@ export default function CategoryFilter({
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Filter by category</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Filter by category
+            </h3>
             {selectedCategories.length > 0 && (
               <button
                 onClick={handleClearAll}

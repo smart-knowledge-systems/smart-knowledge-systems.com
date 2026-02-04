@@ -1,13 +1,16 @@
 "use client";
 
-import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
 interface SortButtonProps {
   sortDateAsc: boolean;
   onSortToggle: () => void;
 }
 
-export default function SortButton({ sortDateAsc, onSortToggle }: SortButtonProps) {
+export default function SortButton({
+  sortDateAsc,
+  onSortToggle,
+}: SortButtonProps) {
   return (
     <button
       onClick={onSortToggle}

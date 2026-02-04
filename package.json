@@ -6,11 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
+    "lint": "bun run --bun eslint . --cache",
+    "lint:fix": "bun run --bun eslint --fix .",
+    "typecheck": "bun run --bun tsc --noEmit",
+    "check": "bun run --bun eslint . --cache && tsc --noEmit",
+    "format": "bun run --bun prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css}\" --cache -l",
+    "format:check": "bun run --bun prettier --check \"**/*.{ts,tsx,js,jsx,md,mdx,css}\" --cache"
   },
   "dependencies": {
+    "@axiomhq/js": "^1.4.0",
+    "@axiomhq/logging": "^0.2.0",
+    "@axiomhq/nextjs": "^0.2.0",
+    "@axiomhq/react": "^0.2.0",
     "@headlessui/react": "^2.2.1",
     "@heroicons/react": "^2.2.0",
     "@preact/signals": "^2.0.3",

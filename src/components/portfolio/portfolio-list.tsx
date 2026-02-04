@@ -1,7 +1,7 @@
 "use client";
 
-import { StudentWork } from '@/content/cv/portfolio';
-import PortfolioItem from './portfolio-item';
+import { StudentWork } from "@/content/cv/portfolio";
+import PortfolioItem from "./portfolio-item";
 
 interface PortfolioListProps {
   essays: StudentWork[];
@@ -9,14 +9,22 @@ interface PortfolioListProps {
   selectedTags?: string[];
 }
 
-export default function PortfolioList({ essays, onTagClick, selectedTags = [] }: PortfolioListProps) {
+export default function PortfolioList({
+  essays,
+  onTagClick,
+  selectedTags = [],
+}: PortfolioListProps) {
   if (essays.length === 0) {
     return (
       <div className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No essays found</h3>
-            <p className="text-gray-600">Try adjusting your filters to see more results.</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              No essays found
+            </h3>
+            <p className="text-gray-600">
+              Try adjusting your filters to see more results.
+            </p>
           </div>
         </div>
       </div>

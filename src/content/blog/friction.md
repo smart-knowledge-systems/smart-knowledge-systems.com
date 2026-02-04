@@ -1,6 +1,6 @@
 ## Organizations Need Resistance to Build Real Knowledge Systems
 
-The MIT *State of AI in Business 2025* report contains a counterintuitive finding, argues Forbes contributer [Jason Snyder](https://www.forbes.com/sites/jasonsnyder/). This finding challenges conventional wisdom about technology adoption: friction isn’t the enemy of successful AI implementation — it’s the proof of it. Organizations that deliberately design for resistance, that embrace the difficulty of integration, are the ones crossing what the authors call the _GenAI Divide._ “Pilots that glide frictionless from demo to deployment never build the muscle to scale,” Jason writes, “They collapse the moment they hit real organizational texture, compliance, politics, data quality, and human judgment.” [Success comes when enterprises embrace friction.](https://www.forbes.com/sites/jasonsnyder/2025/08/26/mit-finds-95-of-genai-pilots-fail-because-companies-avoid-friction/)
+The MIT _State of AI in Business 2025_ report contains a counterintuitive finding, argues Forbes contributer [Jason Snyder](https://www.forbes.com/sites/jasonsnyder/). This finding challenges conventional wisdom about technology adoption: friction isn’t the enemy of successful AI implementation — it’s the proof of it. Organizations that deliberately design for resistance, that embrace the difficulty of integration, are the ones crossing what the authors call the _GenAI Divide._ “Pilots that glide frictionless from demo to deployment never build the muscle to scale,” Jason writes, “They collapse the moment they hit real organizational texture, compliance, politics, data quality, and human judgment.” [Success comes when enterprises embrace friction.](https://www.forbes.com/sites/jasonsnyder/2025/08/26/mit-finds-95-of-genai-pilots-fail-because-companies-avoid-friction/)
 
 This insight reveals something fundamental about how knowledge actually develops in organizations. The same friction that makes implementation challenging is what forces adaptation, learning, and the emergence of genuine understanding. When we try to eliminate all resistance, we eliminate the very conditions that enable knowledge to grow.
 
@@ -26,13 +26,13 @@ The report’s discovery of a “shadow AI economy” – where 90% of employees
 - Creating informal feedback loops that official channels can’t provide
 - Developing contextual knowledge about what works and what doesn’t
 
-This shadow usage creates what I call *productive illegibility* – spaces where knowledge can emerge without premature formalization. The friction between official and unofficial practices forces organizations to confront the gap between how they think work happens and how it actually occurs.
+This shadow usage creates what I call _productive illegibility_ – spaces where knowledge can emerge without premature formalization. The friction between official and unofficial practices forces organizations to confront the gap between how they think work happens and how it actually occurs.
 
 ## Dialogic Friction and Knowledge Emergence
 
 Drawing from Anderson’s framework of dialogic organization development, we can understand friction as essential to the conversational processes through which organizations construct knowledge. When different perspectives collide – when marketing’s language meets engineering’s, when frontline experience challenges executive assumptions – the resulting friction isn’t noise to be eliminated but the sound of knowledge being forged.
 
-The MIT report shows that successful organizations create what I’d call *calibrated friction* through:
+The MIT report shows that successful organizations create what I’d call _calibrated friction_ through:
 
 **Learning loops** – The report emphasizes systems that learn from feedback, adapt to context, or improve over time. This isn’t smooth automation but deliberate resistance that forces reflection and adjustment.
 

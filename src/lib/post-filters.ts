@@ -12,7 +12,7 @@ export const getPostsWithMarkdown = async (posts: Post[]) => {
 };
 
 export const getPostWithMarkdown = async (
-  slug: string,
+  slug: string
 ): Promise<Post | undefined> => {
   const post = postsData.find((post) => post.href === `/blog/${slug}`);
   if (!post) {
@@ -69,9 +69,11 @@ export const getPublishedPosts = async (): Promise<Post[]> => {
 /**
  * Get posts filtered by category slugs (OR logic - posts appear if they match ANY selected category)
  */
-export const getPostsByCategories = async (categorySlugs: string[]): Promise<Post[]> => {
+export const getPostsByCategories = async (
+  categorySlugs: string[]
+): Promise<Post[]> => {
   const publishedPosts = await getPublishedPosts();
-  
+
   if (categorySlugs.length === 0) {
     return publishedPosts;
   }
@@ -86,9 +88,12 @@ export const getPostsByCategories = async (categorySlugs: string[]): Promise<Pos
 /**
  * Calculate how many of the selected categories a post matches
  */
-const calculateMatchScore = (post: Post, selectedCategorySlugs: string[]): number => {
-  return selectedCategorySlugs.filter(slug =>
-    post.categories.some(cat => getCategorySlug(cat.title) === slug)
+const calculateMatchScore = (
+  post: Post,
+  selectedCategorySlugs: string[]
+): number => {
+  return selectedCategorySlugs.filter((slug) =>
+    post.categories.some((cat) => getCategorySlug(cat.title) === slug)
   ).length;
 };
 
@@ -99,22 +104,22 @@ export const getPaginatedPosts = async (
   categorySlugs: string[] = [],
   page: number = 1,
   limit: number = 5
-): Promise<{ posts: Post[], totalPages: number, totalPosts: number }> => {
+): Promise<{ posts: Post[]; totalPages: number; totalPosts: number }> => {
   const filteredPosts = await getPostsByCategories(categorySlugs);
-  
+
   // Enhanced sorting: prioritize posts that match more selected categories
   const sortedPosts = filteredPosts.sort((a, b) => {
     if (categorySlugs.length > 1) {
       // Multi-category filtering: sort by match score first, then by date
       const aMatchScore = calculateMatchScore(a, categorySlugs);
       const bMatchScore = calculateMatchScore(b, categorySlugs);
-      
+
       // Primary sort: match score (higher is better)
       if (aMatchScore !== bMatchScore) {
         return bMatchScore - aMatchScore;
       }
     }
-    
+
     // Secondary sort (or primary for single/no categories): date (newer is better)
     return new Date(b.datetime).getTime() - new Date(a.datetime).getTime();
   });
@@ -128,7 +133,7 @@ export const getPaginatedPosts = async (
   return {
     posts,
     totalPages,
-    totalPosts
+    totalPosts,
   };
 };
 
@@ -138,24 +143,23 @@ export const getPaginatedPosts = async (
 export const getAllCategories = async (): Promise<string[]> => {
   const publishedPosts = await getPublishedPosts();
   const allCategories = new Set<string>();
-  
-  publishedPosts.forEach(post => {
-    post.categories.forEach(cat => {
+
+  publishedPosts.forEach((post) => {
+    post.categories.forEach((cat) => {
       allCategories.add(cat.title);
     });
   });
-  
+
   return Array.from(allCategories).sort();
 };
-
 
 export const getFeaturedPosts = async (
   categories: Category[],
   limit: number,
-  excludePosts: number[] = [],
+  excludePosts: number[] = []
 ) => {
   const categoryWeights = Object.fromEntries(
-    categories.map((cat) => [cat.title, cat.priority ?? 1]), // Use nullish coalescing
+    categories.map((cat) => [cat.title, cat.priority ?? 1]) // Use nullish coalescing
   );
   // first filter out future posts
   const currentPosts = postsData.filter((post) => {
@@ -168,8 +172,8 @@ export const getFeaturedPosts = async (
     categories.length > 0
       ? currentPosts.filter((post) =>
           post.categories.some((cat) =>
-            categories.some((c) => c.title === cat.title),
-          ),
+            categories.some((c) => c.title === cat.title)
+          )
         )
       : currentPosts;
 
@@ -177,11 +181,11 @@ export const getFeaturedPosts = async (
     .sort((a, b) => {
       const aScore = a.categories.reduce(
         (score, cat) => score + (categoryWeights[cat.title] || 0),
-        0,
+        0
       );
       const bScore = b.categories.reduce(
         (score, cat) => score + (categoryWeights[cat.title] || 0),
-        0,
+        0
       );
       return bScore - aScore;
     })

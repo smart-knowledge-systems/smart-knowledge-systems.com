@@ -1,6 +1,6 @@
 ## What AI in Business Teaches Us About Knowledge Systems
 
-The recently released _State of AI in Business 2025_ report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives. The authors call this gap the __GenAI Divide__ — a fault line between organizations that experiment with AI and those that actually achieve transformation.
+The recently released _State of AI in Business 2025_ report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives. The authors call this gap the **GenAI Divide** — a fault line between organizations that experiment with AI and those that actually achieve transformation.
 
 At first glance, the report seems to be about AI adoption. But read deeper, and you see something more fundamental: it’s about knowledge. It’s about how organizations fail — and sometimes succeed — at embedding new forms of learning into their systems. And that lesson applies as much to knowledge management as it does to artificial intelligence.
 
@@ -46,10 +46,10 @@ The parallel in knowledge management is obvious. The systems that work aren’t 
 
 What this study really tells us is that the future of AI — like the future of knowledge management — hinges not on adoption but on **adaptation**. Organizations that thrive will be those that:
 
-* **Create feedback loops** where tools and people continuously learn from each other
-* **Prioritize integration** into existing workflows over standalone platforms
-* **Respect informal practices** and build on the shadow systems employees already use
-* **Focus on augmentation, not replacement**, designing AI and knowledge systems to extend human capabilities, not sideline them
+- **Create feedback loops** where tools and people continuously learn from each other
+- **Prioritize integration** into existing workflows over standalone platforms
+- **Respect informal practices** and build on the shadow systems employees already use
+- **Focus on augmentation, not replacement**, designing AI and knowledge systems to extend human capabilities, not sideline them
 
 When we view AI as part of the broader challenge of knowledge systems, the GenAI Divide becomes less a story of failed technology and more a story of organizations struggling to learn. And that, ultimately, is the real lesson: transformation only happens when systems — human and machine alike — are capable of continuous learning.
 
