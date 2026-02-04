@@ -60,6 +60,21 @@ export const categories = {
 
 export const postsData: Post[] = [
   {
+    id: 22,
+    title: "The Door Is Open: AI-Powered Entrepreneurship and the Start School Promise",
+    href: "/blog/start-school-ai-entrepreneurship",
+    description:
+      "At SUMMIT 2026, Clint Betts asked a question that cuts to the heart of entrepreneurship: 'Who gets to be an entrepreneur?' The answer should be anyone. But that's not how it's worked. Until now. Start School and AI tools like Claude Code are opening doors that were locked for decades.",
+    datetime: new Date("2026-02-04"),
+    categories: [
+      { ...categories.technologyIntegration, priority: 1 },
+      { ...categories.leadership, priority: 2 },
+      { ...categories.organizationalCulture, priority: 3 },
+    ],
+    author: russAuthor,
+    body: "",
+  },
+  {
     id: 21,
     title: "The Friction Paradox",
     href: "/blog/friction",
