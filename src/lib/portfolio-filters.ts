@@ -1,3 +1,8 @@
+/**
+ * Portfolio filtering, sorting, and pagination utilities
+ * Data fetching logic with SWR-compatible caching
+ */
+
 import { StudentWork, getTagSlug, getSchoolSlug } from "@/content/cv/portfolio";
 
 export interface FilteredPortfolioResult {
@@ -6,7 +11,11 @@ export interface FilteredPortfolioResult {
   totalEssays: number;
 }
 
-// Load and parse student work data
+/**
+ * Load and parse student work data
+ * Note: This function is designed to be used with SWR on the client side
+ * for automatic deduplication and caching
+ */
 export const loadStudentWorkData = async (): Promise<StudentWork[]> => {
   try {
     const response = await fetch("/api/student-work");
@@ -44,27 +53,34 @@ export const sortEssaysWithMatchScore = (
   selectedTags: string[],
   sortDateAsc: boolean = true
 ): StudentWork[] => {
-  return essays.sort((a, b) => {
-    if (selectedTags.length > 1) {
-      // Multi-tag filtering: sort by match score first, then by date
-      const aMatchScore = calculateTagMatchScore(a, selectedTags);
-      const bMatchScore = calculateTagMatchScore(b, selectedTags);
+  // Pre-compute timestamps and match scores to avoid repeated calculations
+  const essaysWithScores = essays.map((essay) => ({
+    essay,
+    timestamp: new Date(essay.date).getTime(),
+    matchScore:
+      selectedTags.length > 1 ? calculateTagMatchScore(essay, selectedTags) : 0,
+  }));
 
-      // Primary sort: match score (higher is better)
-      if (aMatchScore !== bMatchScore) {
-        return bMatchScore - aMatchScore;
+  return essaysWithScores
+    .sort((a, b) => {
+      if (selectedTags.length > 1) {
+        // Multi-tag filtering: sort by match score first, then by date
+        if (a.matchScore !== b.matchScore) {
+          return b.matchScore - a.matchScore;
+        }
       }
-    }
 
-    // Secondary sort (or primary for single/no tags): date
-    const aTime = new Date(a.date).getTime();
-    const bTime = new Date(b.date).getTime();
-
-    return sortDateAsc ? aTime - bTime : bTime - aTime;
-  });
+      // Secondary sort (or primary for single/no tags): date
+      return sortDateAsc
+        ? a.timestamp - b.timestamp
+        : b.timestamp - a.timestamp;
+    })
+    .map((item) => item.essay);
 };
 
-// Filter, sort, and paginate student work
+/**
+ * Filter, sort, and paginate student work
+ */
 export const filterSortAndPaginateEssays = (
   essays: StudentWork[],
   selectedTags: string[],
@@ -119,7 +135,9 @@ export const filterSortAndPaginateEssays = (
   };
 };
 
-// Get all unique tags from essays
+/**
+ * Get all unique tags from essays
+ */
 export const getAllTagsFromEssays = (essays: StudentWork[]): string[] => {
   const allTags = new Set<string>();
   essays.forEach((essay) => {
@@ -130,7 +148,9 @@ export const getAllTagsFromEssays = (essays: StudentWork[]): string[] => {
   return Array.from(allTags).sort();
 };
 
-// Get all unique schools from essays
+/**
+ * Get all unique schools from essays
+ */
 export const getAllSchoolsFromEssays = (essays: StudentWork[]): string[] => {
   const allSchools = new Set<string>();
   essays.forEach((essay) => {
@@ -139,7 +159,9 @@ export const getAllSchoolsFromEssays = (essays: StudentWork[]): string[] => {
   return Array.from(allSchools).sort();
 };
 
-// Get all unique courses from essays
+/**
+ * Get all unique courses from essays
+ */
 export const getAllCoursesFromEssays = (essays: StudentWork[]): string[] => {
   const allCourses = new Set<string>();
   essays.forEach((essay) => {
@@ -148,42 +170,9 @@ export const getAllCoursesFromEssays = (essays: StudentWork[]): string[] => {
   return Array.from(allCourses).sort();
 };
 
-// Format date for display
-export const formatEssayDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
-// Truncate abstract for accordion preview
-export const truncateAbstract = (
-  abstract: string,
-  sentences: number = 2
-): string => {
-  // Split by sentences (periods followed by space and capital letter or end of string)
-  const sentences_array = abstract
-    .split(/\.(?=\s+[A-Z]|$)/)
-    .filter((s) => s.trim().length > 0);
-
-  if (sentences_array.length <= sentences) {
-    return abstract;
-  }
-
-  // Take the first N sentences and add ellipsis
-  const truncated = sentences_array.slice(0, sentences).join(".") + ".";
-  return truncated + "...";
-};
-
-// Check if abstract should be truncated
-export const shouldTruncateAbstract = (
-  abstract: string,
-  sentences: number = 2
-): boolean => {
-  const sentences_array = abstract
-    .split(/\.(?=\s+[A-Z]|$)/)
-    .filter((s) => s.trim().length > 0);
-  return sentences_array.length > sentences;
-};
+// Re-export formatting utilities for convenience
+export {
+  formatEssayDate,
+  truncateAbstract,
+  shouldTruncateAbstract,
+} from "./portfolio-formatting";
