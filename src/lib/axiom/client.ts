@@ -1,29 +1,39 @@
 "use client";
 
-import { Logger, AxiomJSTransport, ConsoleTransport } from "@axiomhq/logging";
+import {
+  Logger,
+  AxiomJSTransport,
+  ConsoleTransport,
+  type Transport,
+} from "@axiomhq/logging";
 import { createUseLogger, createWebVitalsComponent } from "@axiomhq/react";
 import { axiom, dataset, getCoreEventFields } from "./axiom";
 
-// Create client-side logger with Axiom transport
-export const clientLogger = new Logger({
-  transports: [
-    new AxiomJSTransport({ axiom, dataset }),
-    // Also log to console in development
-    ...(process.env.NODE_ENV === "development" ? [new ConsoleTransport()] : []),
-  ],
-});
+/** JSON-serializable event data values */
+type EventValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | string[]
+  | number[];
+export type EventData = Record<string, EventValue>;
 
-// Create the useLogger hook for components
+// Extract transport array to a constant (rule 5.4)
+const transports: [Transport, ...Transport[]] =
+  process.env.NODE_ENV === "development"
+    ? [new AxiomJSTransport({ axiom, dataset }), new ConsoleTransport()]
+    : [new AxiomJSTransport({ axiom, dataset })];
+
+export const clientLogger = new Logger({ transports });
+
 export const useLogger = createUseLogger(clientLogger);
 
-// Create the WebVitals component for performance monitoring
 export const WebVitals = createWebVitalsComponent(clientLogger);
 
-// Client-side wide event logging helper
-export function logClientEvent(
-  eventName: string,
-  data: Record<string, unknown>
-): void {
+/** Client-side wide event logging helper */
+export function logClientEvent(eventName: string, data: EventData): void {
   const coreFields = getCoreEventFields();
   clientLogger.info(eventName, {
     ...coreFields,
@@ -32,7 +42,7 @@ export function logClientEvent(
   });
 }
 
-// Flush logs (use on page unload or session end) - with error handling (Issue #25)
+/** Flush logs (use on page unload or session end) */
 export async function flushLogs(): Promise<void> {
   try {
     await clientLogger.flush();
@@ -41,5 +51,4 @@ export async function flushLogs(): Promise<void> {
   }
 }
 
-// Re-export for convenience
 export { clientLogger as logger };

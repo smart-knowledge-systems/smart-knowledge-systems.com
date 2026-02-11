@@ -13,8 +13,8 @@ export interface FilteredPortfolioResult {
 
 /**
  * Load and parse student work data
- * Note: This function is designed to be used with SWR on the client side
- * for automatic deduplication and caching
+ * Designed for SWR client-side use with automatic deduplication and caching.
+ * Falls back to static JSON import in development when API is unavailable.
  */
 export const loadStudentWorkData = async (): Promise<StudentWork[]> => {
   try {
@@ -25,11 +25,17 @@ export const loadStudentWorkData = async (): Promise<StudentWork[]> => {
     const data = await response.json();
     return data.essays;
   } catch (error) {
-    console.error("Error loading student work data:", error);
-    // Fallback to static import for development
-    const { default: studentWorkData } =
-      await import("@/content/cv/student-work.json");
-    return studentWorkData.essays;
+    // Only use fallback in development — in production, propagate the error
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(
+        "API unavailable, using static JSON fallback (dev only):",
+        error
+      );
+      const { default: studentWorkData } =
+        await import("@/content/cv/student-work.json");
+      return studentWorkData.essays;
+    }
+    throw error;
   }
 };
 
@@ -64,13 +70,10 @@ export const sortEssaysWithMatchScore = (
   return essaysWithScores
     .sort((a, b) => {
       if (selectedTags.length > 1) {
-        // Multi-tag filtering: sort by match score first, then by date
         if (a.matchScore !== b.matchScore) {
           return b.matchScore - a.matchScore;
         }
       }
-
-      // Secondary sort (or primary for single/no tags): date
       return sortDateAsc
         ? a.timestamp - b.timestamp
         : b.timestamp - a.timestamp;
@@ -80,6 +83,7 @@ export const sortEssaysWithMatchScore = (
 
 /**
  * Filter, sort, and paginate student work
+ * Combines tag/school/course filters in a single pass for efficiency (rule 7.6)
  */
 export const filterSortAndPaginateEssays = (
   essays: StudentWork[],
@@ -90,29 +94,35 @@ export const filterSortAndPaginateEssays = (
   itemsPerPage: number,
   sortDateAsc: boolean = true
 ): FilteredPortfolioResult => {
-  // Filter by tags (OR logic - essay must have at least one of the selected tags)
-  let filteredEssays = essays;
-  if (selectedTags.length > 0) {
-    filteredEssays = filteredEssays.filter((essay) =>
-      selectedTags.some((tag) =>
-        essay.tags.some((essayTag) => getTagSlug(essayTag) === tag)
-      )
-    );
-  }
+  const hasTags = selectedTags.length > 0;
+  const hasSchools = selectedSchools.length > 0;
+  const hasCourses = selectedCourses.length > 0;
 
-  // Filter by schools
-  if (selectedSchools.length > 0) {
-    filteredEssays = filteredEssays.filter((essay) =>
-      selectedSchools.includes(getSchoolSlug(essay.school))
-    );
-  }
+  // Convert schools to a Set for O(1) lookups
+  const schoolSet = hasSchools ? new Set(selectedSchools) : null;
+  const courseSet = hasCourses ? new Set(selectedCourses) : null;
 
-  // Filter by courses
-  if (selectedCourses.length > 0) {
-    filteredEssays = filteredEssays.filter((essay) =>
-      selectedCourses.includes(essay.course)
-    );
-  }
+  // Single-pass filter combining tags, schools, and courses
+  const filteredEssays =
+    hasTags || hasSchools || hasCourses
+      ? essays.filter((essay) => {
+          if (
+            hasTags &&
+            !selectedTags.some((tag) =>
+              essay.tags.some((essayTag) => getTagSlug(essayTag) === tag)
+            )
+          ) {
+            return false;
+          }
+          if (hasSchools && !schoolSet!.has(getSchoolSlug(essay.school))) {
+            return false;
+          }
+          if (hasCourses && !courseSet!.has(essay.course)) {
+            return false;
+          }
+          return true;
+        })
+      : essays;
 
   // Sort with intelligent tag match scoring and date direction
   const sortedEssays = sortEssaysWithMatchScore(
@@ -125,8 +135,10 @@ export const filterSortAndPaginateEssays = (
   const totalEssays = sortedEssays.length;
   const totalPages = Math.ceil(totalEssays / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedEssays = sortedEssays.slice(startIndex, endIndex);
+  const paginatedEssays = sortedEssays.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return {
     essays: paginatedEssays,
@@ -140,11 +152,11 @@ export const filterSortAndPaginateEssays = (
  */
 export const getAllTagsFromEssays = (essays: StudentWork[]): string[] => {
   const allTags = new Set<string>();
-  essays.forEach((essay) => {
-    essay.tags.forEach((tag) => {
+  for (const essay of essays) {
+    for (const tag of essay.tags) {
       allTags.add(getTagSlug(tag));
-    });
-  });
+    }
+  }
   return Array.from(allTags).sort();
 };
 
@@ -153,9 +165,9 @@ export const getAllTagsFromEssays = (essays: StudentWork[]): string[] => {
  */
 export const getAllSchoolsFromEssays = (essays: StudentWork[]): string[] => {
   const allSchools = new Set<string>();
-  essays.forEach((essay) => {
+  for (const essay of essays) {
     allSchools.add(getSchoolSlug(essay.school));
-  });
+  }
   return Array.from(allSchools).sort();
 };
 
@@ -164,9 +176,9 @@ export const getAllSchoolsFromEssays = (essays: StudentWork[]): string[] => {
  */
 export const getAllCoursesFromEssays = (essays: StudentWork[]): string[] => {
   const allCourses = new Set<string>();
-  essays.forEach((essay) => {
+  for (const essay of essays) {
     allCourses.add(essay.course);
-  });
+  }
   return Array.from(allCourses).sort();
 };
 

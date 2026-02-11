@@ -1,53 +1,60 @@
 /**
  * Markdown cache interface and utilities
- * Provides reusable caching structure for markdown content
+ * Provides lazy-loaded, async caching for markdown content
  */
 
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 
-/**
- * Generic markdown cache interface
- */
 export interface MarkdownCache {
   [key: string]: string;
 }
 
-/**
- * Cache for storing loaded markdown content
- */
+/** Singleton cache and initialization guard */
 let markdownCacheInstance: MarkdownCache | null = null;
+let initPromise: Promise<MarkdownCache> | null = null;
 
 /**
  * Load markdown content from directory and build cache
- * Implements module-level caching to avoid redundant file operations
+ * Uses async file I/O and defers execution until first access.
+ * Concurrent callers share the same initialization promise.
  */
-export function loadMarkdownContent({
+export async function loadMarkdownContent({
   contentDirPath,
 }: {
   contentDirPath: string;
-}): MarkdownCache {
+}): Promise<MarkdownCache> {
   // Return cached instance if available
   if (markdownCacheInstance !== null) {
     return markdownCacheInstance;
   }
 
-  const cache: MarkdownCache = {};
-  const contentDir = path.join(process.cwd(), contentDirPath);
+  // Share a single in-flight initialization across concurrent callers
+  if (initPromise !== null) {
+    return initPromise;
+  }
 
-  // Read all .md files in the content directory
-  const files = fs.readdirSync(contentDir);
-  files.forEach((file) => {
-    if (file.endsWith(".md")) {
-      const filePath = path.join(contentDir, file);
-      const content = fs.readFileSync(filePath, "utf-8");
-      const slug = `/blog/${file.replace(".md", "")}`;
-      cache[slug] = content;
-    }
-  });
+  initPromise = (async () => {
+    const cache: MarkdownCache = {};
+    const contentDir = path.join(process.cwd(), contentDirPath);
 
-  markdownCacheInstance = cache;
-  return cache;
+    const files = await fs.readdir(contentDir);
+    await Promise.all(
+      files
+        .filter((file) => file.endsWith(".md"))
+        .map(async (file) => {
+          const filePath = path.join(contentDir, file);
+          const content = await fs.readFile(filePath, "utf-8");
+          const slug = `/blog/${file.replace(".md", "")}`;
+          cache[slug] = content;
+        })
+    );
+
+    markdownCacheInstance = cache;
+    return cache;
+  })();
+
+  return initPromise;
 }
 
 /**
@@ -65,4 +72,5 @@ export function getMarkdownFromCache(
  */
 export function clearMarkdownCache(): void {
   markdownCacheInstance = null;
+  initPromise = null;
 }

@@ -15,8 +15,8 @@ export const navigation = [
 
 export const heroContent = {
   logo: {
-    src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600",
-    alt: "Knowledge Systems Consulting",
+    src: "/sks-logo.svg",
+    alt: "Smart Knowledge Systems",
     width: 643,
     height: 386,
   },
@@ -82,8 +82,8 @@ export const mainContent = {
       quote:
         '"The meeting format Russ designed completely transformed how our teams share information. What used to get stuck in departmental silos now flows to the people who need it most. We\'ve eliminated duplicate work and seen an improvement in cross-team innovation."',
       author: {
-        name: "",
-        title: "Director of Operations, Manufacturing Client",
+        name: "Director of Operations",
+        title: "Manufacturing Client",
         image: {
           src: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
           width: 256,
@@ -153,8 +153,8 @@ import { SVGProps } from "react";
 
 export const footerData = {
   logo: {
-    src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500",
-    alt: "Knowledge Systems Consulting",
+    src: "/sks-logo.svg",
+    alt: "Smart Knowledge Systems",
     width: 36,
     height: 36,
   },
@@ -162,33 +162,33 @@ export const footerData = {
   copyright: "© 2025 Russ Fugal. All rights reserved.",
   navigation: {
     solutions: [
-      { name: "Silo Assessment", href: "#" },
-      { name: "Collaboration Design", href: "#" },
-      { name: "Technology Integration", href: "#" },
-      { name: "Leadership Development", href: "#" },
-      { name: "Healthy Work", href: "#" },
+      { name: "Silo Assessment", href: "/#services" },
+      { name: "Collaboration Design", href: "/#services" },
+      { name: "Technology Integration", href: "/#services" },
+      { name: "Leadership Development", href: "/#services" },
+      { name: "Healthy Work", href: "/#services" },
     ],
     support: [
       {
         name: "Schedule Consultation",
         href: "https://calendly.com/saras-books/smart-knowledge-systems-consultation",
       },
-      { name: "Resources", href: "#" },
-      { name: "Knowledge Base", href: "#" },
+      { name: "Resources", href: "/#resources" },
+      { name: "Knowledge Base", href: "/blog" },
     ],
     company: [
-      { name: "About Russ", href: "#" },
+      { name: "About Russ", href: "/about" },
       { name: "Blog", href: "/blog" },
-      { name: "Case Studies", href: "#" },
+      { name: "Portfolio", href: "/portfolio" },
       {
         name: "Contact",
         href: "https://calendly.com/saras-books/smart-knowledge-systems-consultation",
       },
     ],
     legal: [
-      { name: "Terms of service", href: "#" },
-      { name: "Privacy policy", href: "#" },
-      { name: "Cookie policy", href: "#" },
+      { name: "Terms of service", href: "/terms" },
+      { name: "Privacy policy", href: "/privacy" },
+      { name: "Cookie policy", href: "/cookies" },
     ],
     social: [
       {
