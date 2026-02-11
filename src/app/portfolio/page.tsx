@@ -322,6 +322,7 @@ function PortfolioContent() {
             currentPage={currentPage}
             totalPages={totalPages}
             totalEssays={totalEssays}
+            itemsPerPage={10}
             onPageChange={handlePageChange}
           />
         </>

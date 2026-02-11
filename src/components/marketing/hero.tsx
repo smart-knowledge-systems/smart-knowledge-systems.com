@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { navigation, heroContent } from "@/content/marketing-content";
@@ -18,7 +19,7 @@ export default function Hero() {
           className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         >
           <div className="flex lg:flex-1">
-            <Link href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">{heroContent.logo.alt}</span>
               <Image
                 alt={heroContent.logo.alt}
@@ -64,7 +65,7 @@ export default function Hero() {
           <div className="fixed inset-0 z-50" />
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <Link href="#" className="-m-1.5 p-1.5">
+              <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">{heroContent.logo.alt}</span>
                 <Image
                   alt={heroContent.logo.alt}

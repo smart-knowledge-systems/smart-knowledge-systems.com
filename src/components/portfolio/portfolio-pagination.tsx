@@ -6,6 +6,7 @@ interface PortfolioPaginationProps {
   currentPage: number;
   totalPages: number;
   totalEssays: number;
+  itemsPerPage: number;
   onPageChange: (page: number) => void;
 }
 
@@ -13,13 +14,13 @@ export default function PortfolioPagination({
   currentPage,
   totalPages,
   totalEssays,
+  itemsPerPage,
   onPageChange,
 }: PortfolioPaginationProps) {
   if (totalPages <= 1) {
     return null;
   }
 
-  const itemsPerPage = 10; // This should match the itemsPerPage in your main component
   const startItem = (currentPage - 1) * itemsPerPage + 1;
   const endItem = Math.min(currentPage * itemsPerPage, totalEssays);
 

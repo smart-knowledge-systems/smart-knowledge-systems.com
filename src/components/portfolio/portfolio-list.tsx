@@ -35,9 +35,9 @@ export default function PortfolioList({
     <div className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          {essays.map((essay, index) => (
+          {essays.map((essay) => (
             <PortfolioItem
-              key={`${essay.title}-${essay.date}-${index}`}
+              key={`${essay.title}-${essay.date}`}
               essay={essay}
               onTagClick={onTagClick}
               selectedTags={selectedTags}

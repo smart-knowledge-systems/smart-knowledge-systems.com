@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import { heroContent, navigation } from "@/content/marketing-content";
 import { Dialog, DialogPanel } from "@headlessui/react";
 

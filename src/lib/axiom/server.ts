@@ -24,13 +24,17 @@ export function logEvent(
   });
 }
 
-// Async version that flushes immediately (use for request handlers)
+// Async version that flushes immediately (use for request handlers) - with error handling (Issue #25)
 export async function logEventAsync(
   eventName: string,
   data: Record<string, unknown>
 ): Promise<void> {
   logEvent(eventName, data);
-  await logger.flush();
+  try {
+    await logger.flush();
+  } catch (error) {
+    console.error("Failed to flush logs:", error);
+  }
 }
 
 // Re-export for convenience

@@ -32,9 +32,13 @@ export function logClientEvent(
   });
 }
 
-// Flush logs (use on page unload or session end)
-export function flushLogs(): void {
-  clientLogger.flush();
+// Flush logs (use on page unload or session end) - with error handling (Issue #25)
+export async function flushLogs(): Promise<void> {
+  try {
+    await clientLogger.flush();
+  } catch (error) {
+    console.error("Failed to flush logs:", error);
+  }
 }
 
 // Re-export for convenience
