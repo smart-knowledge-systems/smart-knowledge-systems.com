@@ -2,6 +2,25 @@
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
+const MAX_PAGES_TO_SHOW = 5;
+
+function getPageNumbers(currentPage: number, totalPages: number): number[] {
+  const pages: number[] = [];
+
+  let startPage = Math.max(1, currentPage - Math.floor(MAX_PAGES_TO_SHOW / 2));
+  const endPage = Math.min(totalPages, startPage + MAX_PAGES_TO_SHOW - 1);
+
+  if (endPage - startPage + 1 < MAX_PAGES_TO_SHOW) {
+    startPage = Math.max(1, endPage - MAX_PAGES_TO_SHOW + 1);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i);
+  }
+
+  return pages;
+}
+
 interface PortfolioPaginationProps {
   currentPage: number;
   totalPages: number;
@@ -24,27 +43,7 @@ export default function PortfolioPagination({
   const startItem = (currentPage - 1) * itemsPerPage + 1;
   const endItem = Math.min(currentPage * itemsPerPage, totalEssays);
 
-  // Generate page numbers to show
-  const getPageNumbers = () => {
-    const pages = [];
-    const maxPagesToShow = 5;
-
-    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-    const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-
-    // Adjust startPage if we're near the end
-    if (endPage - startPage + 1 < maxPagesToShow) {
-      startPage = Math.max(1, endPage - maxPagesToShow + 1);
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-
-    return pages;
-  };
-
-  const pageNumbers = getPageNumbers();
+  const pageNumbers = getPageNumbers(currentPage, totalPages);
   const showFirstPage = pageNumbers[0] > 1;
   const showLastPage = pageNumbers[pageNumbers.length - 1] < totalPages;
 

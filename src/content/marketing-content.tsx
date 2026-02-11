@@ -1,3 +1,7 @@
+// Centralized profile URLs
+export const BLUESKY_PROFILE_URL =
+  "https://bsky.app/profile/russ-fugal.smart-knowledge-systems.com";
+
 // hero-content
 import AcademicCapIcon from "@heroicons/react/24/outline/AcademicCapIcon";
 

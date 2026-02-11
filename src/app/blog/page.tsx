@@ -200,7 +200,6 @@ function BlogContent() {
             currentPage={currentPage}
             totalPages={totalPages}
             totalPosts={totalPosts}
-            categorySlugs={selectedCategories}
             onPageChange={handlePageChange}
           />
         </>

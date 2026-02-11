@@ -1,7 +1,7 @@
 // Redirect to Bluesky profile
 import { NextResponse } from "next/server";
+import { BLUESKY_PROFILE_URL } from "@/content/marketing-content";
 
 export function GET() {
-  const url = "https://bsky.app/profile/russ-fugal.smart-knowledge-systems.com";
-  return NextResponse.redirect(url, { status: 302 });
+  return NextResponse.redirect(BLUESKY_PROFILE_URL, { status: 302 });
 }

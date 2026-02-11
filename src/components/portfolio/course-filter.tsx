@@ -1,6 +1,7 @@
 "use client";
 
 import { getSchoolName } from "@/content/cv/portfolio";
+import { FilterButton, FilterHeader } from "./filter-button";
 
 interface SchoolFilterProps {
   availableSchools: string[];
@@ -13,7 +14,7 @@ export function SchoolFilter({
   selectedSchools,
   onSchoolToggle,
 }: SchoolFilterProps) {
-  const handleSchoolClick = (school: string) => {
+  const handleToggle = (school: string) => {
     if (selectedSchools.includes(school)) {
       onSchoolToggle(selectedSchools.filter((s) => s !== school));
     } else {
@@ -21,45 +22,22 @@ export function SchoolFilter({
     }
   };
 
-  const clearAllSchools = () => {
-    onSchoolToggle([]);
-  };
-
   return (
     <div>
-      {selectedSchools.length > 0 && (
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-sm text-gray-600">
-            {selectedSchools.length} selected
-          </p>
-          <button
-            onClick={clearAllSchools}
-            className="text-sm text-indigo-600 hover:text-indigo-500 font-medium"
-          >
-            Clear all
-          </button>
-        </div>
-      )}
+      <FilterHeader
+        selectedCount={selectedSchools.length}
+        onClearAll={() => onSchoolToggle([])}
+      />
 
       <div className="flex flex-wrap gap-2">
-        {availableSchools.map((schoolSlug) => {
-          const schoolName = getSchoolName(schoolSlug);
-          const isSelected = selectedSchools.includes(schoolSlug);
-
-          return (
-            <button
-              key={schoolSlug}
-              onClick={() => handleSchoolClick(schoolSlug)}
-              className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                isSelected
-                  ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                  : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
-              }`}
-            >
-              {schoolName}
-            </button>
-          );
-        })}
+        {availableSchools.map((schoolSlug) => (
+          <FilterButton
+            key={schoolSlug}
+            label={getSchoolName(schoolSlug)}
+            isSelected={selectedSchools.includes(schoolSlug)}
+            onClick={() => handleToggle(schoolSlug)}
+          />
+        ))}
       </div>
     </div>
   );
@@ -76,7 +54,7 @@ export function CourseFilter({
   selectedCourses,
   onCourseToggle,
 }: CourseFilterProps) {
-  const handleCourseClick = (course: string) => {
+  const handleToggle = (course: string) => {
     if (selectedCourses.includes(course)) {
       onCourseToggle(selectedCourses.filter((c) => c !== course));
     } else {
@@ -84,44 +62,22 @@ export function CourseFilter({
     }
   };
 
-  const clearAllCourses = () => {
-    onCourseToggle([]);
-  };
-
   return (
     <div>
-      {selectedCourses.length > 0 && (
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-sm text-gray-600">
-            {selectedCourses.length} selected
-          </p>
-          <button
-            onClick={clearAllCourses}
-            className="text-sm text-indigo-600 hover:text-indigo-500 font-medium"
-          >
-            Clear all
-          </button>
-        </div>
-      )}
+      <FilterHeader
+        selectedCount={selectedCourses.length}
+        onClearAll={() => onCourseToggle([])}
+      />
 
       <div className="flex flex-wrap gap-2">
-        {availableCourses.map((course) => {
-          const isSelected = selectedCourses.includes(course);
-
-          return (
-            <button
-              key={course}
-              onClick={() => handleCourseClick(course)}
-              className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                isSelected
-                  ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                  : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
-              }`}
-            >
-              {course}
-            </button>
-          );
-        })}
+        {availableCourses.map((course) => (
+          <FilterButton
+            key={course}
+            label={course}
+            isSelected={selectedCourses.includes(course)}
+            onClick={() => handleToggle(course)}
+          />
+        ))}
       </div>
     </div>
   );

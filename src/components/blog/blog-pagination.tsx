@@ -14,7 +14,6 @@ interface BlogPaginationProps {
   currentPage: number;
   totalPages: number;
   totalPosts: number;
-  categorySlugs: string[];
   onPageChange: (page: number) => void;
 }
 
@@ -22,23 +21,12 @@ export default function BlogPagination({
   currentPage,
   totalPages,
   totalPosts,
-  categorySlugs,
   onPageChange,
 }: BlogPaginationProps) {
   if (totalPages <= 1) return null;
 
-  const createPageUrl = (page: number) => {
-    const params = new URLSearchParams();
-    if (categorySlugs.length > 0) {
-      params.set("categories", categorySlugs.join(","));
-    }
-    if (page > 1) {
-      params.set("page", page.toString());
-    }
-    return `/blog${params.toString() ? `?${params.toString()}` : ""}`;
-  };
-
-  const handlePageClick = (page: number) => {
+  const handlePageClick = (e: React.MouseEvent, page: number) => {
+    e.preventDefault();
     onPageChange(page);
   };
 
@@ -47,16 +35,12 @@ export default function BlogPagination({
     const showEllipsis = totalPages > 7;
 
     if (!showEllipsis) {
-      // Show all pages if 7 or fewer
       for (let i = 1; i <= totalPages; i++) {
         pages.push(
           <PaginationItem key={i}>
             <PaginationLink
-              href={createPageUrl(i)}
-              onClick={(e) => {
-                e.preventDefault();
-                handlePageClick(i);
-              }}
+              href="#"
+              onClick={(e) => handlePageClick(e, i)}
               isActive={currentPage === i}
             >
               {i}
@@ -65,15 +49,11 @@ export default function BlogPagination({
         );
       }
     } else {
-      // Complex pagination with ellipsis
       pages.push(
         <PaginationItem key={1}>
           <PaginationLink
-            href={createPageUrl(1)}
-            onClick={(e) => {
-              e.preventDefault();
-              handlePageClick(1);
-            }}
+            href="#"
+            onClick={(e) => handlePageClick(e, 1)}
             isActive={currentPage === 1}
           >
             1
@@ -89,7 +69,6 @@ export default function BlogPagination({
         );
       }
 
-      // Show current page and neighbors
       const start = Math.max(2, currentPage - 1);
       const end = Math.min(totalPages - 1, currentPage + 1);
 
@@ -97,11 +76,8 @@ export default function BlogPagination({
         pages.push(
           <PaginationItem key={i}>
             <PaginationLink
-              href={createPageUrl(i)}
-              onClick={(e) => {
-                e.preventDefault();
-                handlePageClick(i);
-              }}
+              href="#"
+              onClick={(e) => handlePageClick(e, i)}
               isActive={currentPage === i}
             >
               {i}
@@ -122,11 +98,8 @@ export default function BlogPagination({
         pages.push(
           <PaginationItem key={totalPages}>
             <PaginationLink
-              href={createPageUrl(totalPages)}
-              onClick={(e) => {
-                e.preventDefault();
-                handlePageClick(totalPages);
-              }}
+              href="#"
+              onClick={(e) => handlePageClick(e, totalPages)}
               isActive={currentPage === totalPages}
             >
               {totalPages}
@@ -150,11 +123,11 @@ export default function BlogPagination({
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              href={createPageUrl(Math.max(1, currentPage - 1))}
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 if (currentPage > 1) {
-                  handlePageClick(currentPage - 1);
+                  onPageChange(currentPage - 1);
                 }
               }}
               className={
@@ -167,11 +140,11 @@ export default function BlogPagination({
 
           <PaginationItem>
             <PaginationNext
-              href={createPageUrl(Math.min(totalPages, currentPage + 1))}
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
                 if (currentPage < totalPages) {
-                  handlePageClick(currentPage + 1);
+                  onPageChange(currentPage + 1);
                 }
               }}
               className={

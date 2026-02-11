@@ -2,6 +2,56 @@
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { getTagName, getSchoolName } from "@/content/cv/portfolio";
+import { ClearAllButton } from "./filter-button";
+
+interface FilterBadgeProps {
+  label: string;
+  prefix: string;
+  onRemove: () => void;
+  colorScheme: "indigo" | "green" | "purple";
+}
+
+const badgeColors = {
+  indigo: {
+    badge: "bg-indigo-100 text-indigo-800",
+    prefix: "text-indigo-600",
+    button: "text-indigo-600 hover:bg-indigo-200 hover:text-indigo-700",
+  },
+  green: {
+    badge: "bg-green-100 text-green-800",
+    prefix: "text-green-600",
+    button: "text-green-600 hover:bg-green-200 hover:text-green-700",
+  },
+  purple: {
+    badge: "bg-purple-100 text-purple-800",
+    prefix: "text-purple-600",
+    button: "text-purple-600 hover:bg-purple-200 hover:text-purple-700",
+  },
+};
+
+function FilterBadge({
+  label,
+  prefix,
+  onRemove,
+  colorScheme,
+}: FilterBadgeProps) {
+  const colors = badgeColors[colorScheme];
+
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium ${colors.badge}`}
+    >
+      <span className={`text-xs ${colors.prefix}`}>{prefix}:</span>
+      {label}
+      <button
+        onClick={onRemove}
+        className={`flex-shrink-0 ml-1 h-4 w-4 rounded-full inline-flex items-center justify-center ${colors.button}`}
+      >
+        <XMarkIcon className="h-3 w-3" />
+      </button>
+    </span>
+  );
+}
 
 interface ActiveFiltersProps {
   selectedTags: string[];
@@ -37,64 +87,38 @@ export default function ActiveFilters({
             <h3 className="text-sm font-medium text-gray-700">
               Active Filters ({totalFilters})
             </h3>
-            <button
-              onClick={onClearAll}
-              className="text-sm text-indigo-600 hover:text-indigo-500 font-medium"
-            >
-              Clear all
-            </button>
+            <ClearAllButton onClick={onClearAll} />
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {/* Tags */}
             {selectedTags.map((tag) => (
-              <span
+              <FilterBadge
                 key={`tag-${tag}`}
-                className="inline-flex items-center gap-1 rounded-full bg-indigo-100 px-3 py-1 text-sm font-medium text-indigo-800"
-              >
-                <span className="text-xs text-indigo-600">Tag:</span>
-                {getTagName(tag)}
-                <button
-                  onClick={() => onRemoveTag(tag)}
-                  className="flex-shrink-0 ml-1 h-4 w-4 rounded-full inline-flex items-center justify-center text-indigo-600 hover:bg-indigo-200 hover:text-indigo-700"
-                >
-                  <XMarkIcon className="h-3 w-3" />
-                </button>
-              </span>
+                label={getTagName(tag)}
+                prefix="Tag"
+                onRemove={() => onRemoveTag(tag)}
+                colorScheme="indigo"
+              />
             ))}
 
-            {/* Schools */}
             {selectedSchools.map((school) => (
-              <span
+              <FilterBadge
                 key={`school-${school}`}
-                className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800"
-              >
-                <span className="text-xs text-green-600">School:</span>
-                {getSchoolName(school)}
-                <button
-                  onClick={() => onRemoveSchool(school)}
-                  className="flex-shrink-0 ml-1 h-4 w-4 rounded-full inline-flex items-center justify-center text-green-600 hover:bg-green-200 hover:text-green-700"
-                >
-                  <XMarkIcon className="h-3 w-3" />
-                </button>
-              </span>
+                label={getSchoolName(school)}
+                prefix="School"
+                onRemove={() => onRemoveSchool(school)}
+                colorScheme="green"
+              />
             ))}
 
-            {/* Courses */}
             {selectedCourses.map((course) => (
-              <span
+              <FilterBadge
                 key={`course-${course}`}
-                className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-sm font-medium text-purple-800"
-              >
-                <span className="text-xs text-purple-600">Course:</span>
-                {course}
-                <button
-                  onClick={() => onRemoveCourse(course)}
-                  className="flex-shrink-0 ml-1 h-4 w-4 rounded-full inline-flex items-center justify-center text-purple-600 hover:bg-purple-200 hover:text-purple-700"
-                >
-                  <XMarkIcon className="h-3 w-3" />
-                </button>
-              </span>
+                label={course}
+                prefix="Course"
+                onRemove={() => onRemoveCourse(course)}
+                colorScheme="purple"
+              />
             ))}
           </div>
         </div>
