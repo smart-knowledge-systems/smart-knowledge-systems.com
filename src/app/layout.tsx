@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+import dynamic from "next/dynamic";
 import { WebVitals } from "@/lib/axiom/client";
 import "./globals.css";
+
+const Analytics = dynamic(
+  () => import("@vercel/analytics/react").then((m) => m.Analytics),
+  { ssr: false }
+);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,8 +54,8 @@ export default function RootLayout({
       >
         <WebVitals />
         {children}
+        <Analytics />
       </body>
-      <Analytics />
     </html>
   );
 }

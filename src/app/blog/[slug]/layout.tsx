@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getPost } from "@/lib/post-filters";
-import RootLayout, { metadata } from "@/app/layout";
+import { metadata as rootMetadata } from "@/app/layout";
 
 export async function generateMetadata({
   params,
@@ -15,18 +15,23 @@ export async function generateMetadata({
       description: "The post you are looking for does not exist.",
     };
   }
-  const dynamicMetadata: Metadata = {
-    ...metadata,
+  return {
+    ...rootMetadata,
     title: `${post.title} | Smart Systems`,
     description: post.description,
     openGraph: {
-      ...metadata.openGraph,
+      ...rootMetadata.openGraph,
       title: post.title,
       description: post.description,
       url: "https://smart-knowledge-systems.com/blog/" + slug,
     },
   };
-  return dynamicMetadata;
 }
 
-export default RootLayout;
+export default function BlogPostLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
+}

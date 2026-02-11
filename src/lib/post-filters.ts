@@ -27,23 +27,20 @@ export const getPublishedPosts = cache(async (): Promise<Post[]> => {
 });
 
 /**
- * Get all published posts metadata (not future-dated)
- * Alias for getPublishedPosts for backward compatibility
- */
-export const getPublishedPostsMetadata = getPublishedPosts;
-
-/**
  * Load markdown content for multiple posts
+ * Cached with React.cache() for per-request deduplication
  */
-export const getPostsWithMarkdown = async (posts: Post[]): Promise<Post[]> => {
-  const fullPosts = await Promise.all(
-    posts.map(async (post) => ({
-      ...post,
-      body: (await getMarkdownContent(post.href)) || post.body,
-    }))
-  );
-  return fullPosts;
-};
+export const getPostsWithMarkdown = cache(
+  async (posts: Post[]): Promise<Post[]> => {
+    const fullPosts = await Promise.all(
+      posts.map(async (post) => ({
+        ...post,
+        body: (await getMarkdownContent(post.href)) || post.body,
+      }))
+    );
+    return fullPosts;
+  }
+);
 
 /**
  * Get a single post by slug with markdown content

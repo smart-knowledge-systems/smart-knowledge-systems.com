@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   Accordion,
@@ -10,6 +11,69 @@ import {
 import MarkdownContentClient from "@/components/markdown-content-client";
 import { AboutContent } from "@/lib/load-about-content";
 
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+const SECTIONS = {
+  DIALOG: "dialog",
+  SYNTHIALOG: "synthialog",
+} as const;
+
+type SectionId = (typeof SECTIONS)[keyof typeof SECTIONS];
+
+const VALID_SECTIONS = new Set<string>([SECTIONS.DIALOG, SECTIONS.SYNTHIALOG]);
+
+interface SectionConfig {
+  id: SectionId;
+  description: string;
+}
+
+const SECTION_CONFIGS: SectionConfig[] = [
+  {
+    id: SECTIONS.DIALOG,
+    description: "Social platform for meaningful, context-rich conversations",
+  },
+  {
+    id: SECTIONS.SYNTHIALOG,
+    description: "Collaborative platform for democratic document creation",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// AccordionSection — reusable item for each section
+// ---------------------------------------------------------------------------
+function AccordionSection({
+  sectionId,
+  title,
+  description,
+  content,
+}: {
+  sectionId: string;
+  title: string;
+  description: string;
+  content: string;
+}) {
+  return (
+    <AccordionItem value={sectionId}>
+      <AccordionTrigger
+        id={sectionId}
+        className="px-6 py-4 text-left hover:no-underline"
+      >
+        <div className="flex flex-col items-start">
+          <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
+          <p className="mt-1 text-sm text-gray-600">{description}</p>
+        </div>
+      </AccordionTrigger>
+      <AccordionContent className="px-6 pb-6">
+        <MarkdownContentClient content={content} />
+      </AccordionContent>
+    </AccordionItem>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// AboutAccordion
+// ---------------------------------------------------------------------------
 interface AboutAccordionProps {
   content: AboutContent;
 }
@@ -18,23 +82,24 @@ export default function AboutAccordion({ content }: AboutAccordionProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Derive open section directly from URL params
   const section = searchParams.get("section");
-  const openSection =
-    section === "dialog" || section === "synthialog" ? section : "";
+  const openSection = VALID_SECTIONS.has(section ?? "") ? section! : "";
 
-  const handleValueChange = (value: string) => {
-    // Update URL - openSection will derive from the new URL params
-    const params = new URLSearchParams(searchParams);
-    if (value.length > 0) {
-      params.set("section", value);
-    } else {
-      params.delete("section");
-    }
-
-    const newUrl = `/about${params.toString() ? `?${params.toString()}` : ""}`;
-    router.replace(newUrl, { scroll: false });
-  };
+  const handleValueChange = useCallback(
+    (value: string) => {
+      const params = new URLSearchParams(searchParams);
+      if (value.length > 0) {
+        params.set("section", value);
+      } else {
+        params.delete("section");
+      }
+      router.replace(
+        `/about${params.toString() ? `?${params.toString()}` : ""}`,
+        { scroll: false }
+      );
+    },
+    [router, searchParams]
+  );
 
   return (
     <div className="bg-white py-16 sm:py-24">
@@ -57,43 +122,15 @@ export default function AboutAccordion({ content }: AboutAccordionProps) {
             onValueChange={handleValueChange}
             className="space-y-4"
           >
-            <AccordionItem value="dialog">
-              <AccordionTrigger
-                id="dialog"
-                className="px-6 py-4 text-left hover:no-underline"
-              >
-                <div className="flex flex-col items-start">
-                  <h2 className="text-2xl font-semibold text-gray-900">
-                    {content.dialog.title}
-                  </h2>
-                  <p className="mt-1 text-sm text-gray-600">
-                    Social platform for meaningful, context-rich conversations
-                  </p>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <MarkdownContentClient content={content.dialog.content} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="synthialog">
-              <AccordionTrigger
-                id="synthialog"
-                className="px-6 py-4 text-left hover:no-underline"
-              >
-                <div className="flex flex-col items-start">
-                  <h2 className="text-2xl font-semibold text-gray-900">
-                    {content.synthialog.title}
-                  </h2>
-                  <p className="mt-1 text-sm text-gray-600">
-                    Collaborative platform for democratic document creation
-                  </p>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <MarkdownContentClient content={content.synthialog.content} />
-              </AccordionContent>
-            </AccordionItem>
+            {SECTION_CONFIGS.map(({ id, description }) => (
+              <AccordionSection
+                key={id}
+                sectionId={id}
+                title={content[id].title}
+                description={description}
+                content={content[id].content}
+              />
+            ))}
           </Accordion>
         </div>
       </div>
