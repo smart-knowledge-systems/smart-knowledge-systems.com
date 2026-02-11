@@ -1,6 +1,6 @@
 "use client";
 
-import { getSchoolName } from '@/content/cv/portfolio';
+import { getSchoolName } from "@/content/cv/portfolio";
 
 interface SchoolFilterProps {
   availableSchools: string[];
@@ -8,14 +8,14 @@ interface SchoolFilterProps {
   onSchoolToggle: (schools: string[]) => void;
 }
 
-export function SchoolFilter({ 
-  availableSchools, 
+export function SchoolFilter({
+  availableSchools,
   selectedSchools,
-  onSchoolToggle 
+  onSchoolToggle,
 }: SchoolFilterProps) {
   const handleSchoolClick = (school: string) => {
     if (selectedSchools.includes(school)) {
-      onSchoolToggle(selectedSchools.filter(s => s !== school));
+      onSchoolToggle(selectedSchools.filter((s) => s !== school));
     } else {
       onSchoolToggle([...selectedSchools, school]);
     }
@@ -40,20 +40,20 @@ export function SchoolFilter({
           </button>
         </div>
       )}
-      
+
       <div className="flex flex-wrap gap-2">
-        {availableSchools.map(schoolSlug => {
+        {availableSchools.map((schoolSlug) => {
           const schoolName = getSchoolName(schoolSlug);
           const isSelected = selectedSchools.includes(schoolSlug);
-          
+
           return (
             <button
               key={schoolSlug}
               onClick={() => handleSchoolClick(schoolSlug)}
               className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 isSelected
-                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                  ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                  : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
               }`}
             >
               {schoolName}
@@ -71,14 +71,14 @@ interface CourseFilterProps {
   onCourseToggle: (courses: string[]) => void;
 }
 
-export function CourseFilter({ 
-  availableCourses, 
-  selectedCourses, 
-  onCourseToggle 
+export function CourseFilter({
+  availableCourses,
+  selectedCourses,
+  onCourseToggle,
 }: CourseFilterProps) {
   const handleCourseClick = (course: string) => {
     if (selectedCourses.includes(course)) {
-      onCourseToggle(selectedCourses.filter(c => c !== course));
+      onCourseToggle(selectedCourses.filter((c) => c !== course));
     } else {
       onCourseToggle([...selectedCourses, course]);
     }
@@ -103,19 +103,19 @@ export function CourseFilter({
           </button>
         </div>
       )}
-      
+
       <div className="flex flex-wrap gap-2">
-        {availableCourses.map(course => {
+        {availableCourses.map((course) => {
           const isSelected = selectedCourses.includes(course);
-          
+
           return (
             <button
               key={course}
               onClick={() => handleCourseClick(course)}
               className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 isSelected
-                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                  ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                  : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
               }`}
             >
               {course}

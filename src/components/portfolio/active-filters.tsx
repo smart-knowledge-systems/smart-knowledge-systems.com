@@ -1,7 +1,7 @@
 "use client";
 
-import { XMarkIcon } from '@heroicons/react/20/solid';
-import { getTagName, getSchoolName } from '@/content/cv/portfolio';
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import { getTagName, getSchoolName } from "@/content/cv/portfolio";
 
 interface ActiveFiltersProps {
   selectedTags: string[];
@@ -20,10 +20,11 @@ export default function ActiveFilters({
   onRemoveTag,
   onRemoveSchool,
   onRemoveCourse,
-  onClearAll
+  onClearAll,
 }: ActiveFiltersProps) {
-  const totalFilters = selectedTags.length + selectedSchools.length + selectedCourses.length;
-  
+  const totalFilters =
+    selectedTags.length + selectedSchools.length + selectedCourses.length;
+
   if (totalFilters === 0) {
     return null;
   }
@@ -43,7 +44,7 @@ export default function ActiveFilters({
               Clear all
             </button>
           </div>
-          
+
           <div className="flex flex-wrap gap-2">
             {/* Tags */}
             {selectedTags.map((tag) => (
@@ -61,7 +62,7 @@ export default function ActiveFilters({
                 </button>
               </span>
             ))}
-            
+
             {/* Schools */}
             {selectedSchools.map((school) => (
               <span
@@ -78,7 +79,7 @@ export default function ActiveFilters({
                 </button>
               </span>
             ))}
-            
+
             {/* Courses */}
             {selectedCourses.map((course) => (
               <span

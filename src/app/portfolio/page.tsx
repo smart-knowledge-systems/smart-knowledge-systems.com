@@ -1,31 +1,35 @@
 "use client";
 
-import { useEffect, useState, useMemo, Suspense } from "react";
+import { useEffect, useState, useMemo, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import TagFilter from "@/components/portfolio/tag-filter";
-import { SchoolFilter, CourseFilter } from "@/components/portfolio/course-filter";
+import {
+  SchoolFilter,
+  CourseFilter,
+} from "@/components/portfolio/course-filter";
 import AccordionFilter from "@/components/portfolio/accordion-filter";
 import ActiveFilters from "@/components/portfolio/active-filters";
 import PortfolioList from "@/components/portfolio/portfolio-list";
 import PortfolioPagination from "@/components/portfolio/portfolio-pagination";
 import SortButton from "@/components/portfolio/sort-button";
 import { StudentWork } from "@/content/cv/portfolio";
-import { 
-  filterSortAndPaginateEssays, 
-  getAllTagsFromEssays, 
-  getAllSchoolsFromEssays, 
-  getAllCoursesFromEssays 
+import {
+  filterSortAndPaginateEssays,
+  getAllTagsFromEssays,
+  getAllSchoolsFromEssays,
+  getAllCoursesFromEssays,
 } from "@/lib/portfolio-filters";
 import studentWorkData from "@/content/cv/student-work.json";
+import { logClientEvent } from "@/lib/axiom/client";
 
 function PortfolioContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [allEssays, setAllEssays] = useState<StudentWork[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [allEssays] = useState<StudentWork[]>(studentWorkData.essays);
+  const loading = false;
 
   // Parse URL parameters
   const tagsParam = searchParams.get("tags");
@@ -34,52 +38,54 @@ function PortfolioContent() {
   const pageParam = searchParams.get("page");
   const sortParam = searchParams.get("sort");
 
-  const selectedTags = useMemo(() =>
-    tagsParam ? tagsParam.split(",").filter(Boolean) : [],
+  const selectedTags = useMemo(
+    () => (tagsParam ? tagsParam.split(",").filter(Boolean) : []),
     [tagsParam]
   );
-  const selectedSchools = useMemo(() =>
-    schoolsParam ? schoolsParam.split(",").filter(Boolean) : [],
+  const selectedSchools = useMemo(
+    () => (schoolsParam ? schoolsParam.split(",").filter(Boolean) : []),
     [schoolsParam]
   );
-  const selectedCourses = useMemo(() =>
-    coursesParam ? coursesParam.split(",").filter(Boolean) : [],
+  const selectedCourses = useMemo(
+    () => (coursesParam ? coursesParam.split(",").filter(Boolean) : []),
     [coursesParam]
   );
-  const currentPage = useMemo(() =>
-    pageParam ? parseInt(pageParam, 10) : 1,
-    [pageParam]
-  );
-  const sortDateAsc = useMemo(() =>
-    sortParam === "asc" ? true : false, // Default to descending
-    [sortParam]
-  );
+  const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
+  const sortDateAsc = sortParam === "asc"; // Default to descending
 
   // Derived state from client-side filtering
-  const availableTags = useMemo(() =>
-    getAllTagsFromEssays(allEssays),
+  const availableTags = useMemo(
+    () => getAllTagsFromEssays(allEssays),
     [allEssays]
   );
-  const availableSchools = useMemo(() =>
-    getAllSchoolsFromEssays(allEssays),
+  const availableSchools = useMemo(
+    () => getAllSchoolsFromEssays(allEssays),
     [allEssays]
   );
-  const availableCourses = useMemo(() =>
-    getAllCoursesFromEssays(allEssays),
+  const availableCourses = useMemo(
+    () => getAllCoursesFromEssays(allEssays),
     [allEssays]
   );
 
-  const { essays, totalPages, totalEssays } = useMemo(() =>
-    filterSortAndPaginateEssays(
-      allEssays, 
-      selectedTags, 
-      selectedSchools, 
-      selectedCourses, 
-      currentPage, 
-      10, 
-      sortDateAsc
-    ),
-    [allEssays, selectedTags, selectedSchools, selectedCourses, currentPage, sortDateAsc]
+  const { essays, totalPages, totalEssays } = useMemo(
+    () =>
+      filterSortAndPaginateEssays(
+        allEssays,
+        selectedTags,
+        selectedSchools,
+        selectedCourses,
+        currentPage,
+        10,
+        sortDateAsc
+      ),
+    [
+      allEssays,
+      selectedTags,
+      selectedSchools,
+      selectedCourses,
+      currentPage,
+      sortDateAsc,
+    ]
   );
 
   // Update URL when filters, page, or sort changes
@@ -105,7 +111,8 @@ function PortfolioContent() {
       params.set("page", newPage.toString());
     }
 
-    const sortToUse = newSortDateAsc !== undefined ? newSortDateAsc : sortDateAsc;
+    const sortToUse =
+      newSortDateAsc !== undefined ? newSortDateAsc : sortDateAsc;
     if (sortToUse) {
       params.set("sort", "asc");
     }
@@ -139,7 +146,7 @@ function PortfolioContent() {
   const handleTagClick = (tagSlug: string) => {
     if (selectedTags.includes(tagSlug)) {
       // Remove tag if already selected
-      const newTags = selectedTags.filter(tag => tag !== tagSlug);
+      const newTags = selectedTags.filter((tag) => tag !== tagSlug);
       handleTagToggle(newTags);
     } else {
       // Add tag if not selected
@@ -150,17 +157,17 @@ function PortfolioContent() {
 
   // Handle removing individual filters from active filters
   const handleRemoveTag = (tag: string) => {
-    const newTags = selectedTags.filter(t => t !== tag);
+    const newTags = selectedTags.filter((t) => t !== tag);
     handleTagToggle(newTags);
   };
 
   const handleRemoveSchool = (school: string) => {
-    const newSchools = selectedSchools.filter(s => s !== school);
+    const newSchools = selectedSchools.filter((s) => s !== school);
     handleSchoolToggle(newSchools);
   };
 
   const handleRemoveCourse = (course: string) => {
-    const newCourses = selectedCourses.filter(c => c !== course);
+    const newCourses = selectedCourses.filter((c) => c !== course);
     handleCourseToggle(newCourses);
   };
 
@@ -168,23 +175,53 @@ function PortfolioContent() {
     updateUrl([], [], [], 1);
   };
 
-  // Load essays data once on mount
+  // Track filter changes to Axiom (debounced)
+  const isInitialMount = useRef(true);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
-    const loadEssays = async () => {
-      setLoading(true);
-      try {
-        // For now, use the imported data directly
-        // In the future, you could fetch from an API
-        setAllEssays(studentWorkData.essays);
-      } catch (error) {
-        console.error("Error loading essays:", error);
-      } finally {
-        setLoading(false);
+    // Skip tracking on initial mount
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    // Only track if essays are loaded
+    if (loading || allEssays.length === 0) {
+      return;
+    }
+
+    // Clear any pending timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
+    // Debounce the tracking to avoid spam from rapid filter changes
+    debounceTimerRef.current = setTimeout(() => {
+      logClientEvent("portfolio.filter.change", {
+        tags_selected: selectedTags,
+        schools_selected: selectedSchools,
+        courses_selected: selectedCourses,
+        results_count: totalEssays,
+        sort_direction: sortDateAsc ? "asc" : "desc",
+      });
+    }, 500);
+
+    // Cleanup timer on unmount
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
       }
     };
-
-    loadEssays();
-  }, []);
+  }, [
+    selectedTags,
+    selectedSchools,
+    selectedCourses,
+    sortDateAsc,
+    loading,
+    allEssays.length,
+    totalEssays,
+  ]);
 
   return (
     <div className="h-full pt-12">
@@ -197,7 +234,8 @@ function PortfolioContent() {
               Academic Portfolio
             </h1>
             <p className="mt-2 text-lg leading-8 text-gray-600">
-              A collection of my academic work spanning multiple disciplines and institutions.
+              A collection of my academic work spanning multiple disciplines and
+              institutions.
             </p>
           </div>
         </div>
@@ -206,9 +244,7 @@ function PortfolioContent() {
       <div className="bg-white py-4 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-500">
-              Sort essays by date
-            </div>
+            <div className="text-sm text-gray-500">Sort essays by date</div>
             <SortButton
               sortDateAsc={sortDateAsc}
               onSortToggle={handleSortToggle}
@@ -259,7 +295,7 @@ function PortfolioContent() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <p className="mt-2 text-lg leading-8 text-gray-600">
-              {totalEssays} {totalEssays === 1 ? 'essay' : 'essays'} found
+              {totalEssays} {totalEssays === 1 ? "essay" : "essays"} found
             </p>
           </div>
         </div>
@@ -276,8 +312,8 @@ function PortfolioContent() {
         </div>
       ) : (
         <>
-          <PortfolioList 
-            essays={essays} 
+          <PortfolioList
+            essays={essays}
             onTagClick={handleTagClick}
             selectedTags={selectedTags}
           />
@@ -286,6 +322,7 @@ function PortfolioContent() {
             currentPage={currentPage}
             totalPages={totalPages}
             totalEssays={totalEssays}
+            itemsPerPage={10}
             onPageChange={handlePageChange}
           />
         </>

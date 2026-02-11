@@ -1,16 +1,17 @@
-import { Suspense } from 'react';
-import { Metadata } from 'next';
-import AboutAccordion from '@/components/about/about-accordion';
-import { loadAboutContent } from '@/lib/load-about-content';
+import { Suspense } from "react";
+import { Metadata } from "next";
+import AboutAccordion from "@/components/about/about-accordion";
+import { loadAboutContent } from "@/lib/load-about-content";
 
 export const metadata: Metadata = {
-  title: 'About Dialog and Synthialog | Smart Knowledge Systems',
-  description: 'Dialog and Synthialog — innovative platforms for meaningful conversations and collaborative document creation.',
+  title: "About Dialog and Synthialog | Smart Knowledge Systems",
+  description:
+    "Dialog and Synthialog — innovative platforms for meaningful conversations and collaborative document creation.",
 };
 
 function AboutContent() {
   const content = loadAboutContent();
-  
+
   return <AboutAccordion content={content} />;
 }
 
@@ -25,7 +26,7 @@ function AboutLoading() {
             <div className="h-6 bg-gray-200 rounded w-5/6"></div>
           </div>
         </div>
-        
+
         <div className="mx-auto mt-16 max-w-4xl">
           <div className="space-y-4">
             <div className="animate-pulse">

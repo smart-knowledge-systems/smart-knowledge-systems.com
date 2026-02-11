@@ -20,7 +20,6 @@ export default async function Post({ slug }: { slug: string }) {
   return (
     <div className="bg-white px-6 py-32 lg:px-8">
       <div className="mx-auto max-w-3xl text-gray-700">
-        {/* <div> */}
         <p className="text-base/7 font-semibold text-indigo-600">
           {post.datetime.toLocaleDateString("en-US", {
             month: "long",

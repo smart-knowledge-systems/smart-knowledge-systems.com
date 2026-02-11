@@ -1,6 +1,10 @@
+import { after } from "next/server";
 import Post from "@/components/blog/post";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { getPost } from "@/lib/post-filters";
+import { logEvent, logger } from "@/lib/axiom/server";
+import { getCategorySlug } from "@/lib/category-utils";
 
 export default async function Page({
   params,
@@ -8,10 +12,27 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  // Fetch post metadata for logging (not full markdown)
+  const post = await getPost(`/blog/${slug}`);
+
+  if (post) {
+    // Log after response is sent (non-blocking)
+    after(async () => {
+      logEvent("blog.post.view", {
+        post_slug: slug,
+        post_title: post.title,
+        post_id: post.id,
+        categories: post.categories.map((cat) => getCategorySlug(cat.title)),
+      });
+      await logger.flush();
+    });
+  }
+
   return (
     <>
       <Header />
-      <Post slug={slug} />;
+      <Post slug={slug} />
       <Footer />
     </>
   );

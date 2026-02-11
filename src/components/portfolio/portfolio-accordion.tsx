@@ -1,19 +1,25 @@
 "use client";
 
-import { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import { truncateAbstract, shouldTruncateAbstract } from '@/lib/portfolio-filters';
-import PortfolioMarkdown from './portfolio-markdown';
+import { useState } from "react";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
+import {
+  truncateAbstract,
+  shouldTruncateAbstract,
+} from "@/lib/portfolio-filters";
+import PortfolioMarkdown from "./portfolio-markdown";
 
 interface PortfolioAccordionProps {
   abstract: string;
   className?: string;
 }
 
-export default function PortfolioAccordion({ abstract, className = '' }: PortfolioAccordionProps) {
+export default function PortfolioAccordion({
+  abstract,
+  className = "",
+}: PortfolioAccordionProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const showTruncated = shouldTruncateAbstract(abstract);
-  
+
   if (!showTruncated) {
     // If abstract is short enough, just show it without accordion
     return (

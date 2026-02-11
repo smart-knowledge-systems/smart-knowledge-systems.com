@@ -1,6 +1,6 @@
 "use client";
 
-import { getTagName } from '@/content/cv/portfolio';
+import { getTagName } from "@/content/cv/portfolio";
 
 interface TagFilterProps {
   availableTagSlugs: string[];
@@ -8,11 +8,15 @@ interface TagFilterProps {
   onTagToggle: (tagSlugs: string[]) => void;
 }
 
-export default function TagFilter({ availableTagSlugs, selectedTags, onTagToggle }: TagFilterProps) {
+export default function TagFilter({
+  availableTagSlugs,
+  selectedTags,
+  onTagToggle,
+}: TagFilterProps) {
   const handleTagClick = (tagSlug: string) => {
     if (selectedTags.includes(tagSlug)) {
       // Remove tag
-      onTagToggle(selectedTags.filter(t => t !== tagSlug));
+      onTagToggle(selectedTags.filter((t) => t !== tagSlug));
     } else {
       // Add tag
       onTagToggle([...selectedTags, tagSlug]);
@@ -42,20 +46,20 @@ export default function TagFilter({ availableTagSlugs, selectedTags, onTagToggle
           </button>
         </div>
       )}
-      
+
       <div className="flex flex-wrap gap-2">
-        {availableTagSlugs.map(tagSlug => {
+        {availableTagSlugs.map((tagSlug) => {
           const tagName = getTagName(tagSlug);
           const isSelected = selectedTags.includes(tagSlug);
-          
+
           return (
             <button
               key={tagSlug}
               onClick={() => handleTagClick(tagSlug)}
               className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 isSelected
-                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               {tagName}

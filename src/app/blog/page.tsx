@@ -9,7 +9,10 @@ import PostList from "@/components/blog/post-list";
 import BlogPagination from "@/components/blog/blog-pagination";
 import SortButton from "@/components/blog/sort-button";
 import { getPublishedPostsMetadata } from "@/lib/post-filters";
-import { filterSortAndPaginatePosts, getAllCategoriesFromPosts } from "@/lib/client-post-filters";
+import {
+  filterSortAndPaginatePosts,
+  getAllCategoriesFromPosts,
+} from "@/lib/client-post-filters";
 import { getCategoryTitle } from "@/lib/category-utils";
 import { Post } from "@/content/blog/posts";
 
@@ -25,32 +28,37 @@ function BlogContent() {
   const pageParam = searchParams.get("page");
   const sortParam = searchParams.get("sort");
 
-  const selectedCategories = useMemo(() =>
-    categoriesParam ? categoriesParam.split(",").filter(Boolean) : [],
+  const selectedCategories = useMemo(
+    () => (categoriesParam ? categoriesParam.split(",").filter(Boolean) : []),
     [categoriesParam]
   );
-  const currentPage = useMemo(() =>
-    pageParam ? parseInt(pageParam, 10) : 1,
-    [pageParam]
-  );
-  const sortDateAsc = useMemo(() =>
-    sortParam === "desc" ? false : true, // Default to ascending, only false when explicitly "desc"
-    [sortParam]
-  );
+  const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
+  const sortDateAsc = sortParam !== "desc"; // Default to ascending, only false when explicitly "desc"
 
   // Derived state from client-side filtering
-  const availableCategories = useMemo(() =>
-    getAllCategoriesFromPosts(allPublishedPosts),
+  const availableCategories = useMemo(
+    () => getAllCategoriesFromPosts(allPublishedPosts),
     [allPublishedPosts]
   );
 
-  const { posts, totalPages, totalPosts } = useMemo(() =>
-    filterSortAndPaginatePosts(allPublishedPosts, selectedCategories, currentPage, 5, sortDateAsc),
+  const { posts, totalPages, totalPosts } = useMemo(
+    () =>
+      filterSortAndPaginatePosts(
+        allPublishedPosts,
+        selectedCategories,
+        currentPage,
+        5,
+        sortDateAsc
+      ),
     [allPublishedPosts, selectedCategories, currentPage, sortDateAsc]
   );
 
   // Update URL when filters, page, or sort changes
-  const updateUrl = (newCategories: string[], newPage: number = 1, newSortDateAsc?: boolean) => {
+  const updateUrl = (
+    newCategories: string[],
+    newPage: number = 1,
+    newSortDateAsc?: boolean
+  ) => {
     const params = new URLSearchParams();
 
     if (newCategories.length > 0) {
@@ -61,7 +69,8 @@ function BlogContent() {
       params.set("page", newPage.toString());
     }
 
-    const sortToUse = newSortDateAsc !== undefined ? newSortDateAsc : sortDateAsc;
+    const sortToUse =
+      newSortDateAsc !== undefined ? newSortDateAsc : sortDateAsc;
     if (!sortToUse) {
       params.set("sort", "desc");
     }
@@ -90,7 +99,9 @@ function BlogContent() {
   const handleCategoryClick = (categorySlug: string) => {
     if (selectedCategories.includes(categorySlug)) {
       // Remove category if already selected
-      const newCategories = selectedCategories.filter(slug => slug !== categorySlug);
+      const newCategories = selectedCategories.filter(
+        (slug) => slug !== categorySlug
+      );
       handleCategoryToggle(newCategories);
     } else {
       // Add category if not selected
@@ -132,9 +143,7 @@ function BlogContent() {
       <div className="bg-white py-4 border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-500">
-              Sort posts by date
-            </div>
+            <div className="text-sm text-gray-500">Sort posts by date</div>
             <SortButton
               sortDateAsc={sortDateAsc}
               onSortToggle={handleSortToggle}
@@ -152,18 +161,20 @@ function BlogContent() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <p className="mt-2 text-lg leading-8 text-gray-600">
-              {totalPosts} {totalPosts === 1 ? 'post' : 'posts'} found
+              {totalPosts} {totalPosts === 1 ? "post" : "posts"} found
             </p>
             {selectedCategories.length > 0 ? (
               <p className="mt-2 text-lg leading-8 text-gray-600">
-                Filtered by: {selectedCategories.map(slug => getCategoryTitle(slug)).join(", ")}
+                Filtered by:{" "}
+                {selectedCategories
+                  .map((slug) => getCategoryTitle(slug))
+                  .join(", ")}
               </p>
-            )
-              : (
-                <p className="mt-2 text-lg leading-8 text-gray-600">
-                  All categories
-                </p>
-              )}
+            ) : (
+              <p className="mt-2 text-lg leading-8 text-gray-600">
+                All categories
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -179,7 +190,11 @@ function BlogContent() {
         </div>
       ) : (
         <>
-          <PostList posts={posts} onCategoryClick={handleCategoryClick} selectedCategories={selectedCategories} />
+          <PostList
+            posts={posts}
+            onCategoryClick={handleCategoryClick}
+            selectedCategories={selectedCategories}
+          />
 
           <BlogPagination
             currentPage={currentPage}

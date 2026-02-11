@@ -11,15 +11,22 @@ interface PostListProps {
   selectedCategories: string[];
 }
 
-export default function PostList({ posts, onCategoryClick, selectedCategories }: PostListProps) {
+export default function PostList({
+  posts,
+  onCategoryClick,
+  selectedCategories,
+}: PostListProps) {
   if (posts.length === 0) {
     return (
       <div className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-lg font-semibold text-gray-900">No posts found</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              No posts found
+            </h3>
             <p className="mt-2 text-gray-600">
-              Try adjusting your category filters or check back later for new content.
+              Try adjusting your category filters or check back later for new
+              content.
             </p>
           </div>
         </div>
@@ -53,15 +60,15 @@ export default function PostList({ posts, onCategoryClick, selectedCategories }:
                       .sort((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
                       .map((category) => {
                         const categorySlug = getCategorySlug(category.title);
-                        const isSelected = selectedCategories.includes(categorySlug);
+                        const isSelected =
+                          selectedCategories.includes(categorySlug);
 
                         return (
                           <Button
                             key={category.title}
                             variant={isSelected ? "toggled" : "outline"}
                             onClick={() => onCategoryClick(categorySlug)}
-                            className={`relative z-10 rounded-full px-3 py-1.5 font-medium"
-                            }`}
+                            className="relative z-10 rounded-full px-3 py-1.5 font-medium"
                           >
                             {category.title}
                           </Button>

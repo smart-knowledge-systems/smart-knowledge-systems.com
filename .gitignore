@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.claude/agents/
+.claude/skills/
+public/sks-logo.png
+src/content/cv/landing.md
+src/content/blog/past-blog-posts.md
+.eslintcache

@@ -8,7 +8,10 @@ interface SortButtonProps {
   onSortToggle: () => void;
 }
 
-export default function SortButton({ sortDateAsc, onSortToggle }: SortButtonProps) {
+export default function SortButton({
+  sortDateAsc,
+  onSortToggle,
+}: SortButtonProps) {
   return (
     <Button
       variant="outline"

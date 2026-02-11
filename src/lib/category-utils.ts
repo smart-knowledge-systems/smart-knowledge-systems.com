@@ -2,7 +2,7 @@
  * Convert category title to URL-friendly slug
  */
 export const getCategorySlug = (title: string): string => {
-  return title.toLowerCase().replace(/\s+/g, '-');
+  return title.toLowerCase().replace(/\s+/g, "-");
 };
 
 /**
@@ -10,12 +10,12 @@ export const getCategorySlug = (title: string): string => {
  */
 export const getCategoryTitle = (slug: string): string => {
   const titleMap: Record<string, string> = {
-    'knowledge': 'Knowledge',
-    'culture': 'Culture', 
-    'leadership': 'Leadership',
-    'projects': 'Projects',
-    'technology': 'Technology',
-    'collaboration': 'Collaboration'
+    knowledge: "Knowledge",
+    culture: "Culture",
+    leadership: "Leadership",
+    projects: "Projects",
+    technology: "Technology",
+    collaboration: "Collaboration",
   };
   return titleMap[slug] || slug;
 };

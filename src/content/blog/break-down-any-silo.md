@@ -7,6 +7,7 @@ Information silos persist in organizations not because people are stubborn or te
 Most leaders assume that information silos exist because people don’t want to share knowledge or don’t have the tools or incentives to do so. In reality, the barriers are often invisible and systemic. Research in psychosocial safety shows that people’s willingness to share information depends heavily on whether they perceive their workplace as psychosocially safe — a place where they can speak up, ask questions, and share concerns without fear of negative consequences.
 
 When psychosocial safety is low, even the most collaborative individuals become cautious about sharing information that might:
+
 - Reveal gaps in their knowledge
 - Challenge existing processes or decisions
 - Cross-departmental or hierarchical boundaries
@@ -37,6 +38,7 @@ This question shifts focus from what people should share to what people actually
 **Why it works:** People are often reluctant to admit they’re missing information because it might seem like incompetence. This question normalizes information gaps as organizational challenges rather than personal failures.
 
 **What to listen for:**
+
 - Repeated mentions of the same missing information across different roles
 - Information that exists but isn’t accessible
 - Assumptions people are making due to lack of data
@@ -51,6 +53,7 @@ This question acknowledges that barriers to sharing exist and invites people to 
 **Why it works:** Instead of assuming people don’t want to share, this question recognizes that systemic factors often prevent well-intentioned knowledge sharing. It moves the conversation from blame to problem-solving.
 
 **What to listen for:**
+
 - Time constraints and competing priorities
 - Unclear expectations about what should be shared
 - Lack of appropriate forums for knowledge exchange
@@ -66,6 +69,7 @@ This question directly addresses psychosocial safety while focusing on practical
 **Why it works:** By explicitly acknowledging safety concerns, this question allows people to discuss fears usually left unspoken. It also positions the group as collaborative designers of better information-sharing conditions.
 
 **What to listen for:**
+
 - Concerns about how shared information might be used
 - Need for clearer context about why information is being requested
 - Desire for reciprocal information sharing

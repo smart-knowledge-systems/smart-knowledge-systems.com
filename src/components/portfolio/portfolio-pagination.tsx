@@ -1,11 +1,12 @@
 "use client";
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 interface PortfolioPaginationProps {
   currentPage: number;
   totalPages: number;
   totalEssays: number;
+  itemsPerPage: number;
   onPageChange: (page: number) => void;
 }
 
@@ -13,13 +14,13 @@ export default function PortfolioPagination({
   currentPage,
   totalPages,
   totalEssays,
-  onPageChange
+  itemsPerPage,
+  onPageChange,
 }: PortfolioPaginationProps) {
   if (totalPages <= 1) {
     return null;
   }
 
-  const itemsPerPage = 10; // This should match the itemsPerPage in your main component
   const startItem = (currentPage - 1) * itemsPerPage + 1;
   const endItem = Math.min(currentPage * itemsPerPage, totalEssays);
 
@@ -27,19 +28,19 @@ export default function PortfolioPagination({
   const getPageNumbers = () => {
     const pages = [];
     const maxPagesToShow = 5;
-    
+
     let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
     const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-    
+
     // Adjust startPage if we're near the end
     if (endPage - startPage + 1 < maxPagesToShow) {
       startPage = Math.max(1, endPage - maxPagesToShow + 1);
     }
-    
+
     for (let i = startPage; i <= endPage; i++) {
       pages.push(i);
     }
-    
+
     return pages;
   };
 
@@ -67,18 +68,21 @@ export default function PortfolioPagination({
               Next
             </button>
           </div>
-          
+
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">{startItem}</span> to{' '}
-                <span className="font-medium">{endItem}</span> of{' '}
+                Showing <span className="font-medium">{startItem}</span> to{" "}
+                <span className="font-medium">{endItem}</span> of{" "}
                 <span className="font-medium">{totalEssays}</span> essays
               </p>
             </div>
-            
+
             <div>
-              <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+              <nav
+                className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                aria-label="Pagination"
+              >
                 <button
                   onClick={() => onPageChange(currentPage - 1)}
                   disabled={currentPage === 1}
@@ -87,7 +91,7 @@ export default function PortfolioPagination({
                   <span className="sr-only">Previous</span>
                   <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                 </button>
-                
+
                 {/* First page */}
                 {showFirstPage && (
                   <>
@@ -104,7 +108,7 @@ export default function PortfolioPagination({
                     )}
                   </>
                 )}
-                
+
                 {/* Page numbers */}
                 {pageNumbers.map((page) => (
                   <button
@@ -112,14 +116,14 @@ export default function PortfolioPagination({
                     onClick={() => onPageChange(page)}
                     className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
                       page === currentPage
-                        ? 'z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                        : 'text-gray-900'
+                        ? "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        : "text-gray-900"
                     }`}
                   >
                     {page}
                   </button>
                 ))}
-                
+
                 {/* Last page */}
                 {showLastPage && (
                   <>
@@ -136,7 +140,7 @@ export default function PortfolioPagination({
                     </button>
                   </>
                 )}
-                
+
                 <button
                   onClick={() => onPageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}

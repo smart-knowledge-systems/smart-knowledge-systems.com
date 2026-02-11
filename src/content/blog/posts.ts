@@ -60,6 +60,52 @@ export const categories = {
 
 export const postsData: Post[] = [
   {
+    id: 22,
+    title:
+      "The Door Is Open: AI-Powered Entrepreneurship and the Start School Promise",
+    href: "/blog/start-school-ai-entrepreneurship",
+    description:
+      "At SUMMIT 2026, Clint Betts asked a question that cuts to the heart of entrepreneurship: 'Who gets to be an entrepreneur?' The answer should be anyone. But that's not how it's worked. Until now. Start School and AI tools like Claude Code are opening doors that were locked for decades.",
+    datetime: new Date("2026-02-04"),
+    categories: [
+      { ...categories.technologyIntegration, priority: 1 },
+      { ...categories.leadership, priority: 2 },
+      { ...categories.organizationalCulture, priority: 3 },
+    ],
+    author: russAuthor,
+    body: "",
+  },
+  {
+    id: 21,
+    title: "The Friction Paradox",
+    href: "/blog/friction",
+    description:
+      "The resistance we typically try to eliminate – the difficulty of translating between departments, the effort of integration, the discomfort of changing workflows – isn't a barrier to organizational learning. It's the mechanism through which real knowledge emerges. When organizations embrace productive friction rather than seeking frictionless solutions, they create the conditions for genuine transformation.",
+    datetime: new Date("2025-09-04"),
+    categories: [
+      { ...categories.knowledgeManagement, priority: 2 },
+      { ...categories.technologyIntegration, priority: 3 },
+      { ...categories.organizationalCulture, priority: 1 },
+      { ...categories.teamCollaboration, priority: 4 },
+    ],
+    author: russAuthor,
+    body: "",
+  },
+  {
+    id: 20,
+    title: "Crossing the GenAI Divide",
+    href: "/blog/crossing-the-divide",
+    description:
+      "The recently released State of AI in Business 2025 report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives.",
+    datetime: new Date("2025-08-24"),
+    categories: [
+      { ...categories.knowledgeManagement, priority: 1 },
+      { ...categories.technologyIntegration, priority: 2 },
+    ],
+    author: russAuthor,
+    body: "# What AI in Business Teaches Us About Knowledge Systems",
+  },
+  {
     id: 19,
     title: "Dialog, Parlay, and the Art of Structured Conversation",
     href: "/blog/dialog-and-parlay",
@@ -73,38 +119,7 @@ export const postsData: Post[] = [
       { ...categories.organizationalCulture, priority: 4 },
     ],
     author: russAuthor,
-    body: `In my ongoing exploration of tools to foster meaningful collaboration, I've envisioned a platform named **Dialog**, accompanied by its collaborative partner, **Synthialog**. Recently, I encountered an educational platform called **Parlay Ideas**, and I was struck by how closely it aligns with my own vision for facilitating structured, context-rich conversations.
-
-### Dialog and Synthialog: Structuring Knowledge Through Conversation
-
-Dialog is designed to revolutionize social interactions by prioritizing in-depth conversations over isolated posts. Recognizing that genuine knowledge emerges from sustained, multi-directional dialogues, Dialog supports threaded responses, historical linking, and summaries to maintain context and coherence.
-
-Synthialog expands this conversational foundation by facilitating structured, democratic collaboration. Originally envisioned as a means to synthesize extensive Dialog conversations into community-agreed summaries, Synthialog evolved to a versatile platform for collaboratively drafting documents such as open letters, policy proposals, and even legislation. Synthialog leverages democratic decision-making principles—such as nominations, seconds, and formal voting—to ensure content integrity and accountability.
-
-### Parlay Ideas: A Real-World Example in Education
-
-Parlay Ideas complements and validates these concepts through its practical implementation in educational settings. Parlay employs two main discussion formats:
-
-- **Written RoundTables**: Allowing students to share and discuss ideas anonymously in synchronous or asynchronous formats, fostering reflective engagement without social pressures.
-- **Verbal RoundTables**: Structured, moderated real-time conversations where students contribute by explicitly signaling new ideas, questions, challenges, or build-ons, ensuring intentional and constructive dialogue.
-
-Parlay provides detailed analytics on participation, discussion quality, and contribution types, enabling participants to reflect on their engagement and continuously improve their dialogue skills.
-
-### A Synergistic Overlap
-
-The parallels between Dialog–Synthialog and Parlay Ideas highlight a shared recognition of structured, meaningful dialogue as fundamental to knowledge creation. Both platforms focus on intentional conversation management, explicit moderation, and reflective engagement, creating conditions where collective insights organically emerge and evolve.
-
-Parlay's effectiveness in educational environments underscores the broader potential of structured dialogue tools. Such systems can significantly enhance organizational communication, overcome information silos, and promote innovative thinking through deliberate and democratic knowledge exchange.
-
-### Embracing Structured Democratic Dialogue
-
-The core philosophy behind Dialog, Synthialog, and Parlay emphasizes that effective knowledge management extends beyond information storage — it requires facilitating structured conversations that genuinely engage diverse perspectives. This approach fosters deeper understanding, promotes transparency, and encourages collaborative problem-solving.
-
-### Looking Ahead
-
-Inspired by the practical successes of Parlay, I am motivated to develop Dialog and Synthialog as essential tools for organizations confronting fragmented information and untapped collective wisdom. By adopting structured, democratic dialogues, organizations can significantly enhance their capacity for innovation and effective decision-making.
-
-What conversations in your organization could benefit from structured dialogue tools like Dialog and Synthialog, and how might these platforms help your teams achieve better clarity, collaboration, and innovation?`,
+    body: "# From Posts to Knowledge: The Power of Structured Dialogue",
   },
   {
     id: 18,
@@ -326,7 +341,7 @@ Cross-functional teams hold enormous potential. By bringing together diverse per
     href: "/blog/case-study-information-flow",
     description:
       "Organizations often approach knowledge management as a years-long transformation requiring extensive investments. Learn how one manufacturing company achieved significant improvements in just 90 days with targeted interventions.",
-    datetime: new Date("2025-10-24"),
+    datetime: new Date("2027-10-24"),
     categories: [
       { ...categories.knowledgeManagement },
       { ...categories.organizationalCulture },
@@ -342,7 +357,7 @@ Organizations often approach knowledge management as a years-long transformation
     href: "/blog/creating-psychosocial-safety",
     description:
       "In today's knowledge economy, an organization's most valuable asset is the minds of its people. Learn why small organizations need to prioritize psychosocial safety to thrive.",
-    datetime: new Date("2025-11-01"),
+    datetime: new Date("2027-11-01"),
     categories: [
       { ...categories.organizationalCulture },
       { ...categories.leadership },
@@ -358,7 +373,7 @@ In today's knowledge economy, an organization's most valuable asset isn't its te
     href: "/blog/dialogue-difference",
     description:
       "When organizations attempt to improve psychosocial safety, they often start with formal assessments and policies. Discover how changing conversations can transform organizational reality more effectively.",
-    datetime: new Date("2025-11-08"),
+    datetime: new Date("2027-11-08"),
     categories: [
       { ...categories.organizationalCulture },
       { ...categories.teamCollaboration },
@@ -374,7 +389,7 @@ When organizations attempt to improve psychosocial safety, they often start with
     href: "/blog/beyond-assessment",
     description:
       "Small organizations face challenges when addressing psychosocial safety, but their size creates opportunities for more collaborative approaches. Learn about participatory action approaches to psychosocial safety.",
-    datetime: new Date("2025-11-15"),
+    datetime: new Date("2027-11-15"),
     categories: [
       { ...categories.organizationalCulture },
       { ...categories.teamCollaboration },
@@ -390,7 +405,7 @@ Small organizations face a dual challenge when addressing psychosocial safety. O
     href: "/blog/knowledge-safety-connection",
     description:
       "The relationship between information flow and psychological wellbeing is often overlooked. Discover how information silos directly impact the psychological health of everyone in your organization.",
-    datetime: new Date("2025-11-22"),
+    datetime: new Date("2027-11-22"),
     categories: [
       { ...categories.knowledgeManagement },
       { ...categories.organizationalCulture },
@@ -406,7 +421,7 @@ The relationship between information flow and psychological wellbeing remains on
     href: "/blog/project-manager-wellbeing-catalyst",
     description:
       "Project managers have always been more than just schedulers and task trackers. Learn how to leverage your project management superpowers to become a catalyst for psychosocial safety.",
-    datetime: new Date("2025-11-29"),
+    datetime: new Date("2027-11-29"),
     categories: [
       { ...categories.projectManagement },
       { ...categories.leadership },
@@ -423,7 +438,7 @@ Project managers have always been more than just schedulers and task trackers. A
     href: "/blog/measuring-what-matters",
     description:
       "Organizations need to assess psychosocial risks, but formal processes can overwhelm small teams. Learn practical approaches that provide valuable insights without breaking the bank.",
-    datetime: new Date("2025-12-06"),
+    datetime: new Date("2027-12-06"),
     categories: [
       { ...categories.organizationalCulture },
       { ...categories.leadership },

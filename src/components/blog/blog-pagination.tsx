@@ -145,7 +145,7 @@ export default function BlogPagination({
         Showing {Math.min((currentPage - 1) * 5 + 1, totalPosts)} to{" "}
         {Math.min(currentPage * 5, totalPosts)} of {totalPosts} posts
       </div>
-      
+
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -175,7 +175,9 @@ export default function BlogPagination({
                 }
               }}
               className={
-                currentPage >= totalPages ? "pointer-events-none opacity-50" : ""
+                currentPage >= totalPages
+                  ? "pointer-events-none opacity-50"
+                  : ""
               }
             />
           </PaginationItem>

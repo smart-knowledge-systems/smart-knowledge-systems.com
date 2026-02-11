@@ -26,6 +26,7 @@ Drawing from Donald Anderson’s work on organization development, we can distin
 This format helps teams extract and share lessons from recent experiences, particularly after projects, challenges, or significant changes.
 
 **Structure:**
+
 - Begin with a simple timeline of events (15 minutes)
 - Explore different perspectives: “What did this experience look like from your vantage point?” (20 minutes)
 - Identify patterns and insights: “What patterns do we notice? What surprised us?” (15 minutes)
@@ -40,6 +41,7 @@ A consulting firm used this format after a challenging client engagement. What e
 This format brings together people from different departments or functions to share insights that might be relevant across boundaries.
 
 **Structure:**
+
 - Each participant shares one recent insight from their work that might be relevant to others (5 minutes per person)
 - Open exploration of connections: “How might this apply to challenges in your area?” (20 minutes)
 - Identify follow-up opportunities: “What conversations or collaborations might emerge from this?” (10 minutes)
@@ -51,6 +53,7 @@ This format brings together people from different departments or functions to sh
 This format helps teams surface and examine the underlying assumptions that guide their decisions, particularly valuable when facing complex or recurring challenges.
 
 **Structure:**
+
 - Define the challenge or decision at hand (10 minutes)
 - Individual reflection: “What assumptions am I making about this situation?” (10 minutes)
 - Share assumptions without judgment (15 minutes)
@@ -64,6 +67,7 @@ This format helps teams surface and examine the underlying assumptions that guid
 This format helps teams understand complex situations from multiple stakeholder viewpoints, which is particularly useful for customer-facing challenges or organizational changes.
 
 **Structure:**
+
 - Define the key stakeholders affected by a situation or decision (5 minutes)
 - Assign participants to represent different stakeholder perspectives (5 minutes)
 - Each “stakeholder” shares their view of the situation and concerns (20 minutes)
@@ -77,6 +81,7 @@ This format helps teams understand complex situations from multiple stakeholder 
 This format focuses on a collective exploration of possibilities rather than problem-solving, which is particularly valuable when facing ambiguous or emerging challenges.
 
 **Structure:**
+
 - Present the topic as an open question rather than a problem to solve (5 minutes)
 - Silent reflection on personal thoughts and reactions (5 minutes)
 - Share initial thoughts without discussion (15 minutes)

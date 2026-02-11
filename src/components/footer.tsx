@@ -87,23 +87,6 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-              {/* <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-white">
-                  {footerData.categories.legal}
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerData.navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-gray-400 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div> */}
             </div>
           </div>
         </div>
@@ -118,7 +101,7 @@ export default function Footer() {
             >
               Styled with TailwindCSS
               <Image
-                alt="tailwindcss logo"
+                alt="TailwindCSS logo"
                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                 className="h-8"
                 width={36}

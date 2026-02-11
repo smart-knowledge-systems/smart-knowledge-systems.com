@@ -19,8 +19,8 @@ export default function Main() {
         <div className="mt-10 max-w-2xl">
           <p>{mainContent.mainContent.paragraph1}</p>
           <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
-            {mainContent.mainContent.featuresList.map((feature, index) => (
-              <li key={index} className="flex gap-x-3">
+            {mainContent.mainContent.featuresList.map((feature) => (
+              <li key={feature.id} className="flex gap-x-3">
                 <CheckCircleIcon
                   aria-hidden="true"
                   className="mt-1 size-5 flex-none text-indigo-600"

@@ -1,5 +1,11 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+/**
+ * About content loader with caching and generic section parsing
+ * Implements React.cache() for per-request deduplication
+ */
+
+import { readFileSync } from "fs";
+import { join } from "path";
+import { cache } from "react";
 
 export interface AboutSection {
   id: string;
@@ -12,50 +18,64 @@ export interface AboutContent {
   synthialog: AboutSection;
 }
 
-export const loadAboutContent = (): AboutContent => {
+/**
+ * Parse a single section from markdown
+ */
+const parseSection = (
+  sectionText: string,
+  sectionId: string,
+  fallbackTitle: string
+): AboutSection => {
+  const titleMatch = sectionText.match(/## (.+)/);
+  const title = titleMatch?.[1] || fallbackTitle;
+  // Use the matched title (including ##) to ensure we remove the exact string
+  const content = sectionText.replace(titleMatch?.[0] ?? "", "").trim();
+
+  return {
+    id: sectionId,
+    title,
+    content,
+  };
+};
+
+/**
+ * Load and parse about content sections
+ * Cached with React.cache() for per-request deduplication
+ */
+export const loadAboutContent = cache((): AboutContent => {
   try {
-    const filePath = join(process.cwd(), 'src/content/dialog-synthialog-about-pages.md');
-    const fileContent = readFileSync(filePath, 'utf8');
-    
+    const filePath = join(
+      process.cwd(),
+      "src/content/dialog-synthialog-about-pages.md"
+    );
+    const fileContent = readFileSync(filePath, "utf8");
+
     // Split the content by the separator
-    const sections = fileContent.split('---').map(section => section.trim());
-    
-    // Parse Dialog section
-    const dialogSection = sections[0];
-    const dialogTitle = dialogSection.match(/## (.+)/)?.[1] || 'About Dialog';
-    const dialogContent = dialogSection.replace(/## .+\n/, '').trim();
-    
-    // Parse Synthialog section
-    const synthialogSection = sections[1];
-    const synthialogTitle = synthialogSection.match(/## (.+)/)?.[1] || 'About Synthialog';
-    const synthialogContent = synthialogSection.replace(/## .+\n/, '').trim();
-    
-    return {
-      dialog: {
-        id: 'dialog',
-        title: dialogTitle,
-        content: dialogContent
-      },
-      synthialog: {
-        id: 'synthialog',
-        title: synthialogTitle,
-        content: synthialogContent
-      }
-    };
+    const sections = fileContent.split("---").map((section) => section.trim());
+
+    // Parse sections using the shared parser
+    const dialog = parseSection(sections[0], "dialog", "About Dialog");
+    const synthialog = parseSection(
+      sections[1],
+      "synthialog",
+      "About Synthialog"
+    );
+
+    return { dialog, synthialog };
   } catch (error) {
-    console.error('Error loading about content:', error);
+    console.error("Error loading about content:", error);
     // Return default content if file reading fails
     return {
       dialog: {
-        id: 'dialog',
-        title: 'About Dialog',
-        content: 'Content not available.'
+        id: "dialog",
+        title: "About Dialog",
+        content: "Content not available.",
       },
       synthialog: {
-        id: 'synthialog',
-        title: 'About Synthialog',
-        content: 'Content not available.'
-      }
+        id: "synthialog",
+        title: "About Synthialog",
+        content: "Content not available.",
+      },
     };
   }
-};
+});

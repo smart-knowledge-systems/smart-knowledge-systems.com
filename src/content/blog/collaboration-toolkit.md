@@ -29,6 +29,7 @@ Based on research in organizational development and my experience working with t
 **How it works:** Schedule 90-minute sessions where each functional representative teaches key concepts from their domain to the rest of the team using everyday language.
 
 **Structure:**
+
 - Each specialist presents 3-5 key concepts their teammates need to understand (20 minutes)
 - Others ask clarifying questions and practice explaining the concepts back (15 minutes)
 - Create a shared glossary document that everyone can reference (10 minutes)
@@ -45,6 +46,7 @@ A product development team discovered that their engineers and designers were us
 **How it works:** Before major decisions or when facing persistent disagreements, the team systematically surfaces the assumptions underlying different viewpoints.
 
 **Structure:**
+
 - Each team member lists their assumptions about the situation (10 minutes)
 - Share assumptions without judgment or debate (20 minutes)
 - Identify which assumptions are shared, which conflict, and which haven’t been examined (15 minutes)
@@ -59,6 +61,7 @@ A product development team discovered that their engineers and designers were us
 **How it works:** Team members spend focused time shadowing or working alongside colleagues from other functions to understand their perspectives and constraints.
 
 **Structure:**
+
 - Pair team members from different functions for 2-4 hours of collaborative work
 - Focus on understanding the other person’s workflow, tools, and challenges
 - Document insights about how your work impacts their effectiveness
@@ -75,6 +78,7 @@ A marketing and engineering team dramatically improved their collaboration after
 **How it works:** Create a visual representation of critical information exchanges to identify bottlenecks and improvement opportunities.
 
 **Structure:**
+
 - Map the key information each function needs from others (15 minutes)
 - Identify current methods for sharing this information (15 minutes)
 - Mark delays, gaps, or quality issues in the current flow (15 minutes)
@@ -90,6 +94,7 @@ A marketing and engineering team dramatically improved their collaboration after
 **How it works:** Restructure important discussions so team members advocate for perspectives outside their own expertise area.
 
 **Structure:**
+
 - Assign each team member to represent a functional perspective different from their own
 - Present the decision or challenge from these assigned perspectives (30 minutes)
 - Open discussion while maintaining these assigned viewpoints (20 minutes)
