@@ -1,6 +1,6 @@
 # The Door Is Open
 
-*Live from SUMMIT 2026, Salt Palace Convention Center*
+_Live from SUMMIT 2026, Salt Palace Convention Center_
 
 “Who gets to be an entrepreneur”
 
@@ -26,7 +26,7 @@ How? [Claude Code](https://claude.ai/claude-code).
 
 That’s not hypothetical for me. That’s my last six months.
 
-The speed wasn’t the revelation, though the speed was remarkable. The revelation was what that speed *meant*. It meant I could build something without permission. Without gatekeepers. Without fitting someone else’s model of what an entrepreneur looks like.
+The speed wasn’t the revelation, though the speed was remarkable. The revelation was what that speed _meant_. It meant I could build something without permission. Without gatekeepers. Without fitting someone else’s model of what an entrepreneur looks like.
 
 ## Breaking Down Barriers
 

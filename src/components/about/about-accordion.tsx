@@ -1,6 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   Accordion,
@@ -19,14 +18,10 @@ export default function AboutAccordion({ content }: AboutAccordionProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Derive open section directly from URL params (no effect needed)
-  const openSection = useMemo(() => {
-    const section = searchParams.get("section");
-    if (section && (section === "dialog" || section === "synthialog")) {
-      return section;
-    }
-    return "";
-  }, [searchParams]);
+  // Derive open section directly from URL params
+  const section = searchParams.get("section");
+  const openSection =
+    section === "dialog" || section === "synthialog" ? section : "";
 
   const handleValueChange = (value: string) => {
     // Update URL - openSection will derive from the new URL params

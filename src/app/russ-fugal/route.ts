@@ -1,4 +1,4 @@
-// a GET function that redirects to 'https://bsky.app/profile/rusted.social.sara.ai'
+// Redirect to Bluesky profile
 import { NextResponse } from "next/server";
 
 export function GET() {

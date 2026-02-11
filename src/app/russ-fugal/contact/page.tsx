@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { getVCard } from "./actions";
 
 async function triggerDownload() {
@@ -17,27 +16,22 @@ async function triggerDownload() {
 }
 
 export default function ContactPage() {
-  useEffect(() => {
-    triggerDownload();
-  }, []);
-
   return (
     <div className="bg-white px-6 py-32 lg:px-8">
       <div className="mx-auto max-w-3xl text-gray-700">
         <p className="text-base/7 font-semibold text-indigo-600">Contact</p>
         <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-          Thanks for connecting!
+          Get in Touch
         </h1>
 
         <p className="mt-6 text-lg leading-8 text-gray-600">
-          Your contact file should be downloading now.{" "}
           <button
             onClick={triggerDownload}
             className="text-indigo-600 underline hover:text-indigo-800"
           >
-            Click here
+            Download my contact card
           </button>{" "}
-          if it didn&apos;t start automatically.
+          to save my information directly to your contacts.
         </p>
 
         <div className="mt-10 border-t border-gray-200 pt-10">

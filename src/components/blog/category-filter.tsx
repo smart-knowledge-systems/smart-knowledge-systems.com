@@ -75,12 +75,6 @@ export default function CategoryFilter({
               );
             })}
           </div>
-
-          {/* {selectedCategories.length > 0 && (
-            <div className="text-sm text-gray-500">
-              {selectedCategories.length} {selectedCategories.length === 1 ? 'category' : 'categories'} selected
-            </div>
-          )} */}
         </div>
       </div>
     </div>

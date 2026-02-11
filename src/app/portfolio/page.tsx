@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useState,
-  useMemo,
-  Suspense,
-  useRef,
-  useCallback,
-} from "react";
+import { useEffect, useState, useMemo, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -35,8 +28,8 @@ function PortfolioContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [allEssays, setAllEssays] = useState<StudentWork[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [allEssays] = useState<StudentWork[]>(studentWorkData.essays);
+  const loading = false;
 
   // Parse URL parameters
   const tagsParam = searchParams.get("tags");
@@ -57,14 +50,8 @@ function PortfolioContent() {
     () => (coursesParam ? coursesParam.split(",").filter(Boolean) : []),
     [coursesParam]
   );
-  const currentPage = useMemo(
-    () => (pageParam ? parseInt(pageParam, 10) : 1),
-    [pageParam]
-  );
-  const sortDateAsc = useMemo(
-    () => (sortParam === "asc" ? true : false), // Default to descending
-    [sortParam]
-  );
+  const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
+  const sortDateAsc = sortParam === "asc"; // Default to descending
 
   // Derived state from client-side filtering
   const availableTags = useMemo(
@@ -192,7 +179,18 @@ function PortfolioContent() {
   const isInitialMount = useRef(true);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const trackFilterChange = useCallback(() => {
+  useEffect(() => {
+    // Skip tracking on initial mount
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    // Only track if essays are loaded
+    if (loading || allEssays.length === 0) {
+      return;
+    }
+
     // Clear any pending timer
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
@@ -208,25 +206,6 @@ function PortfolioContent() {
         sort_direction: sortDateAsc ? "asc" : "desc",
       });
     }, 500);
-  }, [
-    selectedTags,
-    selectedSchools,
-    selectedCourses,
-    totalEssays,
-    sortDateAsc,
-  ]);
-
-  useEffect(() => {
-    // Skip tracking on initial mount
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
-
-    // Only track if essays are loaded
-    if (!loading && allEssays.length > 0) {
-      trackFilterChange();
-    }
 
     // Cleanup timer on unmount
     return () => {
@@ -241,26 +220,8 @@ function PortfolioContent() {
     sortDateAsc,
     loading,
     allEssays.length,
-    trackFilterChange,
+    totalEssays,
   ]);
-
-  // Load essays data once on mount
-  useEffect(() => {
-    const loadEssays = async () => {
-      setLoading(true);
-      try {
-        // For now, use the imported data directly
-        // In the future, you could fetch from an API
-        setAllEssays(studentWorkData.essays);
-      } catch (error) {
-        console.error("Error loading essays:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadEssays();
-  }, []);
 
   return (
     <div className="h-full pt-12">

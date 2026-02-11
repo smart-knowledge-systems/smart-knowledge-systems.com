@@ -32,14 +32,8 @@ function BlogContent() {
     () => (categoriesParam ? categoriesParam.split(",").filter(Boolean) : []),
     [categoriesParam]
   );
-  const currentPage = useMemo(
-    () => (pageParam ? parseInt(pageParam, 10) : 1),
-    [pageParam]
-  );
-  const sortDateAsc = useMemo(
-    () => (sortParam === "desc" ? false : true), // Default to ascending, only false when explicitly "desc"
-    [sortParam]
-  );
+  const currentPage = pageParam ? parseInt(pageParam, 10) : 1;
+  const sortDateAsc = sortParam !== "desc"; // Default to ascending, only false when explicitly "desc"
 
   // Derived state from client-side filtering
   const availableCategories = useMemo(
