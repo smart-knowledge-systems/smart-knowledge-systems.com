@@ -2,7 +2,7 @@ import { getPostWithMarkdown } from "@/lib/post-filters";
 import NotFound from "@/app/not-found";
 import MarkdownContent from "@/components/markdown-content";
 import Featured from "@/components/blog/featured";
-import Image from "next/image";
+import Author from "@/components/blog/author";
 
 export default async function Post({ slug }: { slug: string }) {
   const post = await getPostWithMarkdown(slug);
@@ -39,33 +39,3 @@ export default async function Post({ slug }: { slug: string }) {
     </div>
   );
 }
-
-interface AuthorProps {
-  name: string;
-  href: string;
-  imageUrl: string;
-  role: string;
-}
-
-const Author = ({ author }: { author: AuthorProps }) => {
-  return (
-    <div className="relative mt-8 flex items-center gap-x-4">
-      <Image
-        alt=""
-        src={author.imageUrl}
-        className="size-10 rounded-full bg-gray-50"
-        width={40}
-        height={40}
-      />
-      <div className="text-sm/6">
-        <p className="font-semibold text-gray-900">
-          <a href={author.href}>
-            <span className="absolute inset-0" />
-            {author.name}
-          </a>
-        </p>
-        <p className="text-gray-600">{author.role}</p>
-      </div>
-    </div>
-  );
-};

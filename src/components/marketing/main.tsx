@@ -58,6 +58,7 @@ export default function Main() {
                 height={
                   mainContent.secondSection.testimonial.author.image.height
                 }
+                loading="lazy"
               />
               <div className="text-sm/6">
                 <strong className="font-semibold text-gray-900">
@@ -76,6 +77,7 @@ export default function Main() {
             className="aspect-video rounded-xl bg-gray-50 object-cover"
             width={mainContent.imageSection.image.width}
             height={mainContent.imageSection.image.height}
+            loading="lazy"
           />
           <figcaption className="mt-4 flex gap-x-2 text-sm/6 text-gray-500">
             <InformationCircleIcon

@@ -5,10 +5,12 @@
 
 import { categories } from "@/content/blog/categories";
 
+const WHITESPACE_RE = /\s+/g;
+
 /** Module-level slug-to-title map built from the categories source of truth */
 const CATEGORY_TITLE_MAP: Record<string, string> = Object.fromEntries(
   Object.values(categories).map((cat) => [
-    cat.title.toLowerCase().replace(/\s+/g, "-"),
+    cat.title.toLowerCase().replace(WHITESPACE_RE, "-"),
     cat.title,
   ])
 );
@@ -17,7 +19,7 @@ const CATEGORY_TITLE_MAP: Record<string, string> = Object.fromEntries(
  * Convert category title to URL-friendly slug
  */
 export const getCategorySlug = (title: string): string => {
-  return title.toLowerCase().replace(/\s+/g, "-");
+  return title.toLowerCase().replace(WHITESPACE_RE, "-");
 };
 
 /**

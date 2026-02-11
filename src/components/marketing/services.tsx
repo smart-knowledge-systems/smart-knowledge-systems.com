@@ -10,7 +10,7 @@ export default function Services() {
           </h2>
           <dl className="col-span-3 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
             {servicesData.services.map((service) => (
-              <div key={service.name}>
+              <div key={service.id}>
                 <dt className="text-base/7 font-semibold text-gray-900">
                   <div className="mb-6 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
                     <service.icon

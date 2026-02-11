@@ -7,6 +7,16 @@ import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import { heroContent, navigation } from "@/content/marketing-content";
 import { Dialog, DialogPanel } from "@headlessui/react";
 
+const logoImage = (
+  <Image
+    alt={heroContent.logo.alt}
+    src={heroContent.logo.src}
+    className="h-8 w-auto"
+    width={heroContent.logo.width}
+    height={heroContent.logo.height}
+  />
+);
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,13 +29,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{heroContent.logo.alt}</span>
-            <Image
-              alt={heroContent.logo.alt}
-              src={heroContent.logo.src}
-              className="h-8 w-auto"
-              width={heroContent.logo.width}
-              height={heroContent.logo.height}
-            />
+            {logoImage}
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -65,13 +69,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">{heroContent.logo.alt}</span>
-              <Image
-                alt={heroContent.logo.alt}
-                src={heroContent.logo.src}
-                className="h-8 w-auto"
-                width={heroContent.logo.width}
-                height={heroContent.logo.height}
-              />
+              {logoImage}
             </Link>
             <button
               type="button"

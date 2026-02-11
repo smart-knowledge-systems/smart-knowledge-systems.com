@@ -39,7 +39,7 @@ export default async function Featured({
                   })}
                 </time>
                 {post.categories
-                  .sort((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
+                  .toSorted((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
                   .slice(0, 2)
                   .map((c) => (
                     <a

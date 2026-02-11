@@ -8,6 +8,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { navigation, heroContent } from "@/content/marketing-content";
 
+const logoImage = (
+  <Image
+    alt={heroContent.logo.alt}
+    src={heroContent.logo.src}
+    className="h-8 w-auto"
+    width={heroContent.logo.width}
+    height={heroContent.logo.height}
+  />
+);
+
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -21,13 +31,7 @@ export default function Hero() {
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">{heroContent.logo.alt}</span>
-              <Image
-                alt={heroContent.logo.alt}
-                src={heroContent.logo.src}
-                className="h-8 w-auto"
-                width={heroContent.logo.width}
-                height={heroContent.logo.height}
-              />
+              {logoImage}
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -67,13 +71,7 @@ export default function Hero() {
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">{heroContent.logo.alt}</span>
-                <Image
-                  alt={heroContent.logo.alt}
-                  src={heroContent.logo.src}
-                  className="h-8 w-auto"
-                  width={heroContent.logo.width}
-                  height={heroContent.logo.height}
-                />
+                {logoImage}
               </Link>
               <button
                 type="button"

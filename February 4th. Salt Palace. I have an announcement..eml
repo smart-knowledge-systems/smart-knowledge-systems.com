@@ -1,0 +1,873 @@
+Received: from SA1P221MB1200.NAMP221.PROD.OUTLOOK.COM (2603:10b6:806:3a8::18)
+ by SJ2P221MB1115.NAMP221.PROD.OUTLOOK.COM with HTTPS; Tue, 27 Jan 2026
+ 14:04:14 +0000
+Received: from BYAPR05CA0090.namprd05.prod.outlook.com (2603:10b6:a03:e0::31)
+ by SA1P221MB1200.NAMP221.PROD.OUTLOOK.COM (2603:10b6:806:3a8::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Tue, 27 Jan
+ 2026 14:04:12 +0000
+Received: from SJ5PEPF000001F4.namprd05.prod.outlook.com
+ (2603:10b6:a03:e0:cafe::ce) by BYAPR05CA0090.outlook.office365.com
+ (2603:10b6:a03:e0::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Tue,
+ 27 Jan 2026 14:04:17 +0000
+Authentication-Results: spf=pass (sender IP is 159.183.140.157)
+ smtp.mailfrom=em8820.newsletter.siliconslopes.com; dkim=pass (signature was
+ verified) header.d=newsletter.siliconslopes.com;dmarc=pass action=none
+ header.from=newsletter.siliconslopes.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ em8820.newsletter.siliconslopes.com designates 159.183.140.157 as permitted
+ sender) receiver=protection.outlook.com; client-ip=159.183.140.157;
+ helo=o171.ptr9046.mail.beehiiv.com; pr=C
+Received: from o171.ptr9046.mail.beehiiv.com (159.183.140.157) by
+ SJ5PEPF000001F4.mail.protection.outlook.com (10.167.242.72) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3
+ via Frontend Transport; Tue, 27 Jan 2026 14:04:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=newsletter.siliconslopes.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=f59; bh=ro+Kj/oi8StBKM9gmfyCI99yM41voS/KqxYtsl3cVf8=;
+	b=sKOy1DFz8MrBVKWXWnrESTcZhxD5E8runfVN4oJfqToJddTGNxB+4MsF1tQEteUdEBxF
+	UHc5/XPoxf1KiU0tuJpSl3vQV7OZO6A09qOhAQAN4+y+FxUWLd16M0UnnjqcEf5fMjz9uH
+	hIWm/Ih1Z4sYwwjJtgc2Jp8uIUjyMckE1bvX/ShXd9JY/Wb6eD7pO8G4BU9F+4OfUenSIi
+	iptOddEij3nGL5yJafUCRI6sVospYEYtiSUmFD++j4f3ojOMw9iKxwC9Q66fYRk5TIgZI9
+	MrP/m8nYkp9TUK/ID03DYRY09M8QontG0MVy8LqsZuB3y60TK3M1BxeMP7TxlT/A==
+Received: by recvd-874656597-sdf64 with SMTP id recvd-874656597-sdf64-1-6978C5C7-44
+	2026-01-27 14:03:51.05568329 +0000 UTC m=+3513142.322522330
+Received: from NDM3MDQ5MzE (unknown)
+	by geopod-ismtpd-32 (SG) with HTTP
+	id eoySq_4xQGqyCYoer73WDA
+	Tue, 27 Jan 2026 14:03:50.931 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f14458c393899da2618461d1292bd430c3a753e292864c2e17dd51f9beff
+Date: Tue, 27 Jan 2026 14:04:11 +0000 (UTC)
+From: Clint Betts <hi@newsletter.siliconslopes.com>
+Message-ID: <eoySq_4xQGqyCYoer73WDA@geopod-ismtpd-32>
+Subject: February 4th. Salt Palace. I have an announcement.
+Reply-To: Silicon Slopes <clint@siliconslopes.com>
+Feedback-ID: =?us-ascii?Q?8d525f52-0575-4d09-b973-3ab6921a960f=3Anewsletter=3Ab737d45a-6217-?=
+ =?us-ascii?Q?41dd-9589-cba7e937b079=3A75d65c03b8bb7bd?=
+List-Unsubscribe: =?us-ascii?Q?=3Cmailto=3Ab737d45a-6217-41dd-9589-cba7e937b079+1ac3181b-b1ea-4cf?=
+ =?us-ascii?Q?5-86ff-b468be9fea58+8d525f52-0575-4d09-?=
+ =?us-ascii?Q?b973-3ab6921a960f=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fnewsletter=2Esiliconslopes=2Ecom=2Funsubscribe=2FeyJ0eXAiOiJK?=
+ =?us-ascii?Q?V1QiLCJhbGciOiJIUzI1NiJ9=2EeyJzdWJzY3JpYm?=
+ =?us-ascii?Q?VyX2lkIjoiMWFjMzE4MWItYjFlYS00Y2Y1LTg2Z?=
+ =?us-ascii?Q?mYtYjQ2OGJlOWZlYTU4IiwicG9zdF9pZCI6Ijhk?=
+ =?us-ascii?Q?NTI1ZjUyLTA1NzUtNGQwOS1iOTczLTNhYjY5MjF?=
+ =?us-ascii?Q?hOTYwZiIsImxhc3RfcmVzb3VyY2VfZ3VpZCI6Il?=
+ =?us-ascii?Q?Bvc3Q6OGQ1MjVmNTItMDU3NS00ZDA5LWI5NzMtM?=
+ =?us-ascii?Q?2FiNjkyMWE5NjBmIn0=2Ep22i1D3IwxtaBWGIKn4B?=
+ =?us-ascii?Q?CNQU7Jnn2pN6F3YX5J6dbEg=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+sId: b737d45a-6217-41dd-9589-cba7e937b079
+x-beehiiv-ids: =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fnewsletter=2Esiliconslopes=2Ecom=2F=22=2C=22campa?=
+ =?us-ascii?Q?ign=5Fid=22=3A=228d525f52-0575-4d09-b973-3ab692?=
+ =?us-ascii?Q?1a960f=22=2C=22category=22=3A=22newsletter=22=2C=22email=5F?=
+ =?us-ascii?Q?generated=5Fat=22=3A1769522630=2C=22user=5Fid=22=3A=22b73?=
+ =?us-ascii?Q?7d45a-6217-41dd-9589-cba7e937b079=22}?=
+x-beehiiv-type: newsletter
+x-list-id: b737d45a-6217-41dd-9589-cba7e937b079
+x-list-owner: <mailto:clint@siliconslopes.com>
+x-newsletter: =?us-ascii?Q?https=3A=2F=2Fnewsletter=2Esiliconslopes=2Ecom=2Fp=2Ffebruary-4th-salt-palac?=
+ =?us-ascii?Q?e-i-have-an-announcement?=
+x-newsletter-id: https://newsletter.siliconslopes.com/
+x-newsletter-signup: https://newsletter.siliconslopes.com/subscribe
+X-SG-EID: =?us-ascii?Q?u001=2ExOjhGG5WFFhhdqc++ZD28AHql0LBFCM9D=2Fz0h3G7BHwXabA91KP5Haow6?=
+ =?us-ascii?Q?P3BtngUxR5HSgPXvTUsAONLFfkPpPIHHHM1CAZP?=
+ =?us-ascii?Q?A2OKylk2YTDA3uuQX=2Fg1cFODH+a5H0POMCC9COP?=
+ =?us-ascii?Q?DRSmWIvc65lsHLc54bRUjGiEdWqw=2Fre1GIHVmmw?=
+ =?us-ascii?Q?Xp85lNGIBFTcaep6gEvtFyaIbrOSOuFrfqE6+ht?=
+ =?us-ascii?Q?b2zAKrKG8TOd6=2Fk2EBV7G6dUMRrk4BzrvtNcOBa?=
+ =?us-ascii?Q?CS8l=2FdFheJzDy40EZAUzxb+kTA=3D=3D?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprD1ZcmFObA4po1bG?=
+ =?us-ascii?Q?aUE6gyc7ky+Z5Y=2F=2F6j+rVIh=2FqyeiLOiUxaisAqh?=
+ =?us-ascii?Q?+98aUg9mnouEqfYJPObwhSjL2=2FOWD2gJPbCgl5P?=
+ =?us-ascii?Q?n09EDkRBTianK4VGX2BgQEgSsj3=2FSbQBh5wOsWW?=
+ =?us-ascii?Q?LBhrjlno5tLtvp8BLcxWZfvc=2Fn7SjIaxPY7Aksr?=
+ =?us-ascii?Q?wMPRw45j3LgiR8=2F1snl8C7hvGYcXc8w85rKOGWb?=
+ =?us-ascii?Q?Z3TA=2FvVUkZb8sbq6DtF+X7Tlcyo=2FlB1GREwhSmN?=
+ =?us-ascii?Q?ls9ypUL+UHFSfVUaKRj2sdRstMpfOFfaMSwpLPq?=
+ =?us-ascii?Q?q2SN8PZ7bJmYhZM3MueTv5c=2FoqnCNeXN4=3D?=
+To: "russ-fugal@read-by-ear.com" <russ-fugal@read-by-ear.com>
+X-Entity-ID: u001.GCvhpDxWld7lcSXzkm3vyQ==
+Return-Path: bounces+43704931-4c7f-russ-fugal=read-by-ear.com@em8820.newsletter.siliconslopes.com
+X-MS-Exchange-Organization-ExpirationStartTime: 27 Jan 2026 14:04:12.3714
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: e49fb675-40ce-4ce8-0403-08de5dacf2e0
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 6f5605a2-ebbb-4a01-8f98-40e2fec5b01e:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F4:EE_|SA1P221MB1200:EE_|SJ2P221MB1115:EE_
+X-MS-Exchange-Organization-AuthSource: SJ5PEPF000001F4.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: e49fb675-40ce-4ce8-0403-08de5dacf2e0
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:3;ARA:13230040|1032899013|2092899012|29132699027|5062899012|4022899009|3072899012|69100299015|12012899012|3122999021|13003099007|7142099003|2066899003|8096899003|4076899003;
+X-Forefront-Antispam-Report: CIP:159.183.140.157;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:o171.ptr9046.mail.beehiiv.com;PTR:o171.ptr9046.mail.beehiiv.com;CAT:NONE;SFS:(13230040)(1032899013)(2092899012)(29132699027)(5062899012)(4022899009)(3072899012)(69100299015)(12012899012)(3122999021)(13003099007)(7142099003)(2066899003)(8096899003)(4076899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 14:04:12.0313
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e49fb675-40ce-4ce8-0403-08de5dacf2e0
+X-MS-Exchange-CrossTenant-Id: 6f5605a2-ebbb-4a01-8f98-40e2fec5b01e
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F4.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1P221MB1200
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.9448058
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9542.003
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944490095)(944506478)(944626604)(920097)(930201)(20251009114)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?windows-1256?Q?DKEFya+IXSoA62M2S7QQ5Kw8abmk2E6M4hyGx4+7iAaz5lERdlvPP/b3?=
+ =?windows-1256?Q?o2edDZmFLamlQlSBx9ppIhMYB2Va4Uyy0NK6buxzE03pYBr0udB+JUvP?=
+ =?windows-1256?Q?Zcqw4vkvoXOvuaGQSPCezRmyubq7bOrUrxvPayOSBIE4tfN435JhYdUy?=
+ =?windows-1256?Q?8kgbCOBw7F0uuCrGeOTfZiQhEsU/fcdYORRUEPaLFEfGGTT24AlFH3Oq?=
+ =?windows-1256?Q?awUwJKdiiWzRtiIbjgNqFr+q/TiTjR4fJALXHhmLzMERnmd5sSjMwZMe?=
+ =?windows-1256?Q?ml6utF6HkohLxIkTizH4If0FHD3M50ZA6Nf9Y20StmOC7/ZZrEb2e/PY?=
+ =?windows-1256?Q?dbMlpsOfkTjqJ+PEI7DJDMfTEGy1YkVnnY3R259ldOAGEQuQoCRKJ+r0?=
+ =?windows-1256?Q?UAwoXPOobRiY/z0eMNxjYDeT450sFwLOOxhD2n8TJul/nA8fdM0u4MWi?=
+ =?windows-1256?Q?yWpwVJjxg4pLW6Ixmm6nCx1HDOS+K+nKnVLiE2wwkj73fFtVxflKLUpX?=
+ =?windows-1256?Q?pHVqveGLeX97f5yn2aFGS74uuZd3iAvT/WFovvs6SDYy/oNVc8clfFjF?=
+ =?windows-1256?Q?9Vp9IgvpVwt/exhngH8MuHTZ3qKUdT4CYeB65koWaISQJ0/1vu26/fAf?=
+ =?windows-1256?Q?jJYPWhNIsB9cFlbPc4NFTCeXmH5nNwJsHlWtbkTQ2UFxqVenPzwKSu6u?=
+ =?windows-1256?Q?cbNvo22J6sMtqR5/bEIoh3SYSNt0hYYfXw9axU8wgYzkmeIIGu4MIUKA?=
+ =?windows-1256?Q?CHz88KvfeOEe1Q+aa36kA/JO1EGtrh71qLhEsIvSUjq9jN7ANtZxyhwQ?=
+ =?windows-1256?Q?tpHOFrJRDKTrErgAzogtexxjh88m9RCqyrmv/09Tpr0bxghVBefQNBZq?=
+ =?windows-1256?Q?M59XjRkXbrlKKiY8t186QFp1pZ46T6HfaPrB8FvbHuVU94e0KsbScOH2?=
+ =?windows-1256?Q?BBa8c3L9+s3kJGm5FRTxw2HsVsF9MzEPb3/KRjjRbHZM8Yy7p4tmi7Rj?=
+ =?windows-1256?Q?v+8K710HShSsgxXYlfN0uAXfQmHf00+jVXUYyT8WpR2QLx4jZ80RcxGJ?=
+ =?windows-1256?Q?zchHJ/ZHbLe+kV9qJp+0rvxGc8Toj8kHA26SDEPdiU7YtyZ3W/7URjcH?=
+ =?windows-1256?Q?eNA9EJ3+ZpTad7DpOb11P6WFjVsPFj2nS8UiQxAEFXKxpKA3rys4z8wx?=
+ =?windows-1256?Q?MApykXgPldlSvRfh1j8qpsJlVsVRSxqPJ+iqdUvzZc5AUOl5GjO7gN50?=
+ =?windows-1256?Q?vRvCwaq4vDHV0ZRMndw6Lf4giNForV9U//aH5gj7c6yXV/9CRWQ3bIg2?=
+ =?windows-1256?Q?JzLYrBpMwmHp7wAIc5s8kgUMMxeG6SXewhWRq/UNJsat8ofKCZ02s4tS?=
+ =?windows-1256?Q?TH3EzC67q5Ysi8JtVh1hAV/N7UPTL3vof+y2v2+sRKfXi0EyJQriPYhp?=
+ =?windows-1256?Q?8wBaL6YbLpsdryPRTJsWzZnXXUQOw0/2fbLMFwpUOtlSoyz6jPQAyxSu?=
+ =?windows-1256?Q?+oieMfppQ/akqtIFagDNPFPUSeVW+ciQfLrp4Nr67S76pGsVkQ27TEub?=
+ =?windows-1256?Q?NeaTo90YPO8yIRRitMioxZP9qg/czYCE3x/ykSazq0da8+gJrTiMnuHr?=
+ =?windows-1256?Q?rAlRnx5pDze2foK3D4DpiqigFyoLMvDpPPhSX4SsAwqXQ6qrD+oKjFg1?=
+ =?windows-1256?Q?ZX3ZGrYAlxp2X6CykXkQfQZI3IJRZYOQRPXPJvioGj8zYDdEvMfv+8Nm?=
+ =?windows-1256?Q?bmBSYs0FqBZkeC1zVBa42z4PpxRww1RU1QArCxusuQ5DvLlyUJ0KUDlG?=
+ =?windows-1256?Q?ThBM/y3FO3E/3gitpKbmgrgJcngVP5wcQNiGaDQ6w5H6f4olLG15GB0F?=
+ =?windows-1256?Q?R8cx9KNANdcd00K0r520F89QgbQIKjjyoHfhcasVO2m6ooVUy2+XXED3?=
+ =?windows-1256?Q?woI3o/HuwxnQoR8eYDQydx3K83iJ87WjLYyJ6ozscByY8/fC+K6lpWbZ?=
+ =?windows-1256?Q?rS8TWTP2EIPyWzfo4B+ad0DsazrhBOja4mG2yqHtc5RsKnGlgWSAayOf?=
+ =?windows-1256?Q?PhreEG34FlMgzOKHSD8KF5JlCDpQ6FH06QoD70P/kkVUrG4XaybwQaYs?=
+ =?windows-1256?Q?DYFKMpbsfaDi/kiKD3zFlTZrxyaZiu82XvpA1fLNe6bGVgC1lkp4s3l1?=
+ =?windows-1256?Q?MV6D45Gydkhl5H41FjQipLjoPkdu47/2J/8VBwbPszFTQNctzJZMyqwI?=
+ =?windows-1256?Q?t9Wyjf7hMPXcERw3X7sZofgiNcqCy9tEI7rTD9Ah0xHcALYvE25Zcy0A?=
+ =?windows-1256?Q?C6DCSpAhRgtGFaBVR+sLCnLhlGigrDnJOLqkf6Lvnhdxo0ATnrIm1qEx?=
+ =?windows-1256?Q?iR65w0rCsP/8SYxO5pMMuoEa0vau+4T+f64jJXkWRPTLbH2F8lEyfhPP?=
+ =?windows-1256?Q?AAbXIdj3pj8QLMcQQxDrUwlw+EZW6ky8WLMsTl/TNfX2AcgiGL7cc227?=
+ =?windows-1256?Q?D97NJ6Nie6ZTytonFmwztl2WSsCCtIjaSxlj7hhctaZmBTTR0JTQEK8F?=
+ =?windows-1256?Q?QipZ3/g6IVB2aPis6oLi++A484avq4CoRKZ9Gcy3WNWlGBYbvpcC0sRl?=
+ =?windows-1256?Q?UY5bzxKtwQi3eREiM1sSMcXxbO8hDP/HFOBSDOmPMrtqG8pujsOWaFIs?=
+ =?windows-1256?Q?uj/gYSobZW4FBmPhAc/71CUnYneaXiyAkhWNxyc2wLk6Um+uZzCPbw?=
+ =?windows-1256?Q?=3D=3D?=
+MIME-Version: 1.0
+
+--f14458c393899da2618461d1292bd430c3a753e292864c2e17dd51f9beff
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/f0dd18a6-5c0b-4=
+8ff-b543-2c50db883386/summit.png?t=3D1769378482)
+Follow image link: (https://www.siliconslopes.com/summit)
+Caption:=20
+
+## Get Two Free Passes To Summit
+
+**Two free tickets to Summit 2026.** All you have to do is [join the Silico=
+n Slopes Community Hub](https://www.siliconslopes.com/sign_up?post_login_re=
+direct=3Dhttps%3A%2F%2Fwww.siliconslopes.com%2Ffeed&request_host=3Dwww.sili=
+conslopes.com&user%5Binvitation_token%5D#email). This is our 10th year. 30,=
+000 attendees. The biggest one yet. Don't miss it.
+
+Join Community Hub (https://www.siliconslopes.com/sign_up?post_login_redire=
+ct=3Dhttps%3A%2F%2Fwww.siliconslopes.com%2Ffeed&request_host=3Dwww.silicons=
+lopes.com&user%5Binvitation_token%5D#email)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+I've been sitting on something for a while now.
+
+Over the past year, Silicon Slopes has been working on something different.=
+ Something I believe could change the trajectory of entrepreneurship in Uta=
+h. Something that challenges the way the startup world has operated for the=
+ past two decades.
+
+I'm not ready to tell you what it is. Not yet. Not in a newsletter.
+
+But I am ready to tell you this: if you've ever felt like the startup world=
+ wasn't built for you, I want you at SUMMIT this year.
+
+If you've ever been told your idea "isn't venture scale" and felt like that=
+ meant it wasn't worth pursuing, I want you there.
+
+If you've ever tried to break into the entrepreneurial ecosystem and felt l=
+ike you were missing some secret password that everyone else seemed to have=
+, I want you there.
+
+If you've ever wondered why the same schools, the same networks, and the sa=
+me types of people seem to get all the opportunities while everyone else fi=
+ghts for scraps, I want you there.
+
+I've been [asking our community a question lately](https://www.siliconslope=
+s.com/c/posts/i-need-your-input). A simple question that turns out to be no=
+t so simple at all:
+
+[Who gets to be an entrepreneur?](https://www.siliconslopes.com/c/posts/who=
+-gets-to-be-an-entrepreneur)
+
+The answer should be anyone. Anyone with an idea, a willingness to work, an=
+d the courage to build something. That's the story we tell ourselves.
+
+But that's not how it actually works. And I think we all know it.
+
+At this year's SUMMIT, I'm giving a keynote titled "Who Gets To Be An Entre=
+preneur? An Era-Defining Announcement From the Silicon Slopes Organization.=
+"
+
+I don't use words like "era-defining" lightly. I wouldn't say it if I didn'=
+t mean it.
+
+I'm going to talk about what's broken. I'm going to name names and cite dat=
+a. I'm going to say some things out loud that the startup world usually kee=
+ps quiet.
+
+And then I'm going to announce what we're doing about it.
+
+This isn't a product launch. This isn't a partnership announcement. This is=
+ something bigger. Something that reflects what I believe Silicon Slopes sh=
+ould stand for. Something that could change who gets to participate in Utah=
+'s entrepreneurial future.
+
+I want you in the room when it happens.
+
+### Summit 2026 | February 4-7 | Salt Palace, Downtown Salt Lake City
+
+This is our 10th anniversary [SUMMIT](https://www.siliconslopes.com/summit)=
+. We're expecting 30,000+ attendees. And I promise you, this keynote will b=
+e worth showing up for.
+
+If you're an aspiring entrepreneur who has felt locked out, come.
+
+If you're a successful founder who remembers what it was like to have nothi=
+ng, come.
+
+If you care about Utah's future and believe opportunity should actually exi=
+st for everyone, not just the connected few, come.
+
+I'll see you there.
+
+Clint
+
+P.S. I know this is vague. I know you want details. You'll get them on Febr=
+uary 4th. For now, just trust me: you want to be in the room.
+
+Get Your Ticket By Joining Community Hub (https://www.siliconslopes.com/sig=
+n_up?post_login_redirect=3Dhttps%3A%2F%2Fwww.siliconslopes.com%2Ffeed&reque=
+st_host=3Dwww.siliconslopes.com&user%5Binvitation_token%5D=3D&utm_source=3D=
+newsletter.siliconslopes.com&utm_medium=3Dnewsletter&utm_campaign=3Dfebruar=
+y-4th-salt-palace-i-have-an-announcement&_bhlid=3Da79f89427dd68f3198ed8e9a3=
+6d499e147f2179e#email)
+
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://newsletter.siliconslopes.com/p/february-4th-salt-palace-i-have-an-a=
+nnouncement
+
+--f14458c393899da2618461d1292bd430c3a753e292864c2e17dd51f9beff
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+></head><head><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" conte=
+nt=3D"IE=3Dedge"><!--<![endif]--><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width,initial-scale=3D1"><meta name=3D"x-apple-disable-message-re=
+formatting"><meta name=3D"format-detection" content=3D"telephone=3Dno,addre=
+ss=3Dno,email=3Dno,date=3Dno,url=3Dno"><meta name=3D"color-scheme" content=
+=3D"light"><meta name=3D"supported-color-schemes" content=3D"light"><title>=
+February 4th. Salt Palace. I have an announcement.</title><!--[if mso]><xml=
+><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInc=
+h></o:OfficeDocumentSettings></xml><![endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#FFFFFF; }
+  .b { background-color:#4566b0; }
+  .c  { background-color:#FFFFFF; }
+  .d { background-color:#4566b0; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 a { text-decoration:underline;color:#2c81e5 !important; }
+  h2 a { text-decoration:underline;color:#2c81e5 !important; }
+  h3 a { text-decoration:underline;color:#2c81e5 !important; }
+  h4 a { text-decoration:underline;color:#2c81e5 !important; }
+  h5 a { text-decoration:underline;color:#2c81e5 !important; }
+  h6 a { text-decoration:underline;color:#2c81e5 !important; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weigh=
+t:700;font-size:24px;color:#4566b0;line-height:36px;padding-bottom:4px;padd=
+ing-top:6px;mso-margin-top-alt:6px;mso-margin-bottom-alt:4px }
+  h2 { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weigh=
+t:400;font-size:20px;color:#4566b0;line-height:30px;padding-bottom:4px;padd=
+ing-top:6px;mso-margin-top-alt:6px;mso-margin-bottom-alt:4px }
+  h3 { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weigh=
+t:400;font-size:16px;color:#4566b0;line-height:24px;padding-bottom:4px;padd=
+ing-top:6px;mso-margin-top-alt:6px;mso-margin-bottom-alt:4px }
+  h4 { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weigh=
+t:400;font-size:14px;color:#4566b0;line-height:21px;padding-bottom:4px;padd=
+ing-top:6px;mso-margin-top-alt:6px;mso-margin-bottom-alt:4px }
+  h5 { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weigh=
+t:400;font-size:12px;color:#4566b0;line-height:18px;padding-bottom:4px;padd=
+ing-top:6px;mso-margin-top-alt:6px;mso-margin-bottom-alt:4px }
+  h6 { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weigh=
+t:400;font-size:12px;color:#4566b0;line-height:18px;padding-bottom:4px;padd=
+ing-top:6px;mso-margin-top-alt:6px;mso-margin-bottom-alt:4px }
+  p { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;font-weight=
+:400;color:#2D2D2D;font-size:16px;line-height:24px;padding-bottom:10px;padd=
+ing-top:10px;mso-margin-top-alt:10px;mso-margin-bottom-alt:10px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+2c81e5 !important;text-decoration:underline;text-decoration-color:#2c81e5; =
+}
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#2D2D2D; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#2D2D2D;padding:0; }
+  .f p a { color:#2D2D2D !important; }
+  .g p { font-family:'Helvetica',Arial,sans-serif;font-size:14px;line-heigh=
+t:20px;font-weight:normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Helvetica',Arial,sans-serif;line-height:23px;font-siz=
+e:15px;color:#ffffff; }
+  .i p a { color:#ffffff !important; }
+  .i2 p { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;line-he=
+ight:23px;font-size:15px;color:#2D2D2D; }
+  .i2 p a { color:#2D2D2D !important; }
+  .i3 p { font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;line-he=
+ight:43px;font-size:24px;color:#4566b0; }
+  .i3 p a { color:#4566b0 !important; }
+  .h p a { color:#00faff !important; }
+  .h2 p a { color:#4566b0 !important; }
+  .h3 p a { color:#d200d7 !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:1px solid #e9e9e9; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#FFFFFF;border:1px solid #F1F1F1;border-radius:5px;=
+ }
+  .o p { font-family:'Helvetica',Arial,sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a, .l a { font-size:14px;line-height:20px;font-weight: bold;color:#2=
+D2D2D;padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Helvetica',Arial,sans-serif;font-size:12px;line-heigh=
+t:18px;font-weight:400;color:#000000;font-style:italic;padding:4px 0px 0px;=
+ }
+  .v { border-radius:10px;border:solid 0px #00faff;background-color:#4566b0=
+;font-family:'Montserrat','DejaVu Sans',Verdana,sans-serif;color:#FFFFFF; }
+  .v a { text-decoration:none;display:block;color:#FFFFFF; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#FFFFFF; }
+  .w p a { text-decoration: underline !important;color:#FFFFFF !important; =
+}
+  ul { font-family:'Helvetica',Arial,sans-serif;margin:0px 0px 0px 25px !im=
+portant;padding:0px !important;color:#2D2D2D;line-height:24px;list-style:di=
+sc;font-size:16px; }
+  ul > li { font-family:'Helvetica',Arial,sans-serif;margin:10px 0px 0px 0p=
+x !important;padding: 0px 0px 0px 0px !important; color: #2D2D2D; list-styl=
+e:disc; }
+  ol { font-family:'Helvetica',Arial,sans-serif;margin: 0px 0px 0px 25px !i=
+mportant;padding:0px !important;color:#2D2D2D;line-height:24px;list-style:d=
+ecimal;font-size:16px; }
+  ol > li { font-family:'Helvetica',Arial,sans-serif;margin:10px 0px 0px 0p=
+x !important;padding: 0px 0px 0px 0px !important; color: #2D2D2D; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Helvetica',Arial,sans-serif;font-size:16px;color:#2D=
+2D2D;line-height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; word-break: break-all; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:5px; background-color:#FFFFFF; }
+  .table-c p { color: #2D2D2D; font-family:'Montserrat','DejaVu Sans',Verda=
+na,sans-serif !important;overflow-wrap: break-word; }
+  .table-h { padding:5px; background-color:#4566b0; }
+  .table-h p { color: #ffffff; font-family:'Montserrat','DejaVu Sans',Verda=
+na,sans-serif !important;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa, .w100pc { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:10px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-show {display: block !important; width: auto !important; overflow:=
+ visible !important; float: none !important; max-height: inherit !important=
+; line-height: inherit !important;}
+    .mob-stack {width:100% !important;display:block !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    h1, h2, h3, h4, h5, h6 {font-family: Arial, sans-serif !important;}
+    body, table, td, p, a, span {font-family: Arial, sans-serif !important;=
+}
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><!-- __merge_tags_in_links__ --><style>
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/montserrat/v24/JTUSjIg1_i6t=
+8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+        }
+
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: italic;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/montserrat/v24/JTUQjIg1_i6t=
+8kCHKm459WxRyS7m0dR9pA.woff2') format('woff2');
+        }
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/montserrat/v24/JTUSjIg1_i6t=
+8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+        }
+
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: italic;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/montserrat/v24/JTUQjIg1_i6t=
+8kCHKm459WxRyS7m0dR9pA.woff2') format('woff2');
+        }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#FFFFFF;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> We've been working on something for the past year. I'm finally r=
+eady to talk about it. &nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;=
+&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#82=
+04;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&=
+#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbs=
+p;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&=
+nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#820=
+4;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#=
+8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp=
+;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&n=
+bsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204=
+;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8=
+204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;=
+&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nb=
+sp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;=
+&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#82=
+04;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&=
+#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbs=
+p;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&=
+nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#820=
+4;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#=
+8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp=
+;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&n=
+bsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204=
+;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8=
+204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;=
+&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nb=
+sp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;=
+&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#82=
+04;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&=
+#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbs=
+p;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&=
+nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#820=
+4;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#=
+8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp=
+;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204; <=
+/div><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" ali=
+gn=3D"center" cellpadding=3D"0" class=3D"gg"><tr><td align=3D"center" valig=
+n=3D"top"><table role=3D"none" width=3D"670" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" class=3D"aa" style=3D"width:670px;table-layout:fixed;"><=
+tr><td class=3D"bodyWrapper" align=3D"center" valign=3D"top" style=3D"paddi=
+ng:10px 5px 10px 5px;"><table role=3D"none" width=3D"100%" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" =
+valign=3D"top" style=3D"border-width:0px 0px 0px 0px;border-style: solid; b=
+order-color: #FFFFFF;border-radius:10px 10px 0px 0px;background-color:#FFFF=
+FF;" class=3D"c"><table role=3D"none" width=3D"100%" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" align=3D"center"><tr id=3D"header"><td style=3D"=
+padding:15px 15px 0px 15px;"><div style=3D"padding-top:0px;padding-right:0p=
+x;padding-bottom:20px;padding-left:0px;"><table role=3D"none" width=3D"100%=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td=
+ class=3D"f" align=3D"right" valign=3D"top"><p> January 27, 2026 </p></td><=
+/tr><tr><td align=3D"center" valign=3D"top" class=3D"dd"><table role=3D"non=
+e" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D=
+"center"><tr><td aling=3D"center" valign=3D"middle" class=3D"mob-stack"><ta=
+ble role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D=
+"left" class=3D"mob-stack" style=3D"width:100%;"><tr><td align=3D"left" val=
+ign=3D"middle" style=3D"padding: 5px 0px 5px 0px;"><table role=3D"none" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"left"><tr><td align=
+=3D"center" valign=3D"middle"><img src=3D"https://media.beehiiv.com/cdn-cgi=
+/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploa=
+ds/user/profile_picture/f1c249b3-0e01-4d58-85fb-55af97eb239f/thumb_clint-pr=
+ofile.jpg" width=3D"40" alt=3D"" style=3D"display:block;max-width:40px;bord=
+er-radius:50%;position:relative;border:4px solid rgba(0,0,0,0) !important;l=
+eft:-4px;box-sizing:content-box;z-index:10;" border=3D"0"></td><td width=3D=
+"5" style=3D"width:5px;">&nbsp;</td><td align=3D"left" valign=3D"middle" cl=
+ass=3D"g" style=3D"position:relative;left:8px;width:100%;"><p style=3D"padd=
+ing:0px;color:#2D2D2D;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.=
+iMYgGdY-fPY_rU2p3J3RoHq3d_72_ABp5EjVULK1ioXFqT1AY8781EleLzP-hm7u-hcDjNY4cu-=
+BFrxXj9V7A725u2OYHGyQut89BTTiznJj1anviBx5TJ573aoEichJmjlfGXFwZN2xIOvfYSoveq=
+11jqScTRpFrXGUWfZxV9VYP9sLpI9IhYQ-5k6EMy40bPJa-FkFBDoUXueEFJkuWLS1ESta9VcWw=
+_a_nz2f5XmdSwvHoEcUdscyBBfS22pXkYEiMRzFB29VBQdbXYdEFkLm5XmX4wM8mXGJMS0DMc0/=
+4nn/Erfn0q6ARAWFkLZg9v14cA/h0/h001.pfcctpFZxg6ffBr9kmXIzXNkZ93sBLoWl-mRDKRF=
+b10" target=3D"_blank" style=3D"color:#2D2D2D !important;text-decoration:un=
+derline !important;">Clint Betts</a></p></td></tr></table></td></tr></table=
+></td></tr></table></td></tr><tr><td style=3D"line-height:0;"><div data-ope=
+n-tracking=3D"true"> <img src=3D"https://link.mail.beehiiv.com/ss/o/u001.hN=
+oezi2ofGuuHsGHWtjzZw/4nn/Erfn0q6ARAWFkLZg9v14cA/ho.gif" alt=3D"" width=3D"1=
+" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impor=
+tant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !imp=
+ortant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !im=
+portant;padding-bottom:0 !important;padding-right:0 !important;padding-left=
+:0 !important;"> </div></td></tr></table></div></td></tr><tr id=3D"content-=
+blocks"><td class=3D"email-card-body" align=3D"center" valign=3D"top" style=
+=3D"padding-bottom:15px;"><table role=3D"none" width=3D"100%" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"cente=
+r" valign=3D"top" style=3D"padding-bottom:4px;padding-left:15px;padding-rig=
+ht:15px;padding-top:4px; " class=3D"dd"><table role=3D"none" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td =
+align=3D"center" valign=3D"top" style=3D"width:630px;"><a href=3D"https://l=
+ink.mail.beehiiv.com/ss/c/u001.iMYgGdY-fPY_rU2p3J3RoMVe21_zYwwt5nKml0xGsTk8=
+1HFPq4Fj0dHQbJ3h4xzuN31bSI2KeZ90kEWvNYsGI0LGuOpVXM6chQldiHcxdAnvA_P09x33DTU=
+RIl25Wugh7SjgefNOsatzZneFz5bUBdejMHzlc-_anX6rNf21p-jsAHR7mcLB226A7JMnJugjHJ=
+bXxB3un9X__OrpBap5NTPSTqCfYP40OORATJ2egHdYLdYz7Rh_bNupBFnDc6C-lRFTe-nE_WLjm=
+zdjCMORu6vo0G4Nrv3udSQJzXowTjU/4nn/Erfn0q6ARAWFkLZg9v14cA/h1/h001.Jhz6GRx1N=
+8k2QyiEuCnhfAOAOsIHUtZC617YtZ0xCtE" rel=3D"noopener noreferrer nofollow" st=
+yle=3D"text-decoration:none;" target=3D"_blank"><img src=3D"https://media.b=
+eehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,=
+quality=3D80/uploads/asset/file/f0dd18a6-5c0b-48ff-b543-2c50db883386/summit=
+.png?t=3D1769378482" alt=3D"" height=3D"auto" width=3D"630" style=3D"displa=
+y:block;width:100%;" border=3D"0"></a></td></tr></table></td></tr><tr><td i=
+d=3D"get-two-free-passes-to-summit" class=3D"dd" align=3D"center" valign=3D=
+"top" style=3D"color:#4566b0;font-weight:Normal;padding:0px 25px;text-align=
+:center;"><h2 style=3D"color:#4566b0;font-weight:Normal;mso-line-height-alt=
+:150.0%;">Get Two Free Passes To Summit</h2></td></tr><tr><td class=3D"dd" =
+align=3D"left" style=3D"padding:0px 25px;text-align:left;word-break:break-w=
+ord;"><p style=3D"mso-line-height-alt:150.0%;"><b>Two free tickets to Summi=
+t 2026.</b> All you have to do is <a class=3D"link" href=3D"https://link.ma=
+il.beehiiv.com/ss/c/u001.iMYgGdY-fPY_rU2p3J3RoMVe21_zYwwt5nKml0xGsTlLplJFX-=
+NRfq2VtldW9CfX0E7qT_A9hnWAI0AX-TOLAgWobSY20Xm19-TmN1jmhXDeUWBKHvZOrdjD6lvlK=
+GUm8SQZdTVISHrMs4Rloe_oEO4aPavRgoB8HoubEkWt4WFGRLwxDgqPXtDVRZLcmNjqB-nqfGoh=
+ZTN06Uq8NmFp7ejlJ7gXhTDrr9aOCjsPbIDepe78DmCnlHn8_HAHvwZuHwHMcLY3Rzl-rPC_VXq=
+XOeZivzzz-j7VCj5SKc_4orWbgf3cn9gyLE5eUHQeiKaiRA-xS9LlOnVROKQv5qipjIxvxoLh-3=
+5d3b39PDm57dEZEWmqLOQV8OehjQNbUwn2X8eq3ST7dMDs03XIidE-PO5jvUTtk_END-njKfAgV=
+MxQbsn6aSdO1wHz3RZ7t_rhw57LYk62kH8PWH_2UgPSjg/4nn/Erfn0q6ARAWFkLZg9v14cA/h2=
+/h001.CliSgwW37rEdlimJRcpBj2Vx1n5_2S_1_L6Z5wkbDgg" target=3D"_blank" rel=3D=
+"noopener noreferrer nofollow"><span>join the Silicon Slopes Community Hub<=
+/span></a>. This is our 10th year. 30,000 attendees. The biggest one yet. D=
+on't miss it. </p></td></tr><tr class=3D"btn_row"><td valign=3D"top" style=
+=3D"padding-bottom:14px;padding-left:25px;padding-right:25px;padding-top:14=
+px;text-align:center;width:100%;word-break:break-word;" class=3D"dd"><table=
+ width=3D"100%" role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" style=3D"margin:14px auto 14px auto;"><tr><td align=3D"center" valign=
+=3D"middle"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0"><tr><td style=3D"background-color:#4566b0;border-radius:8px;mso-padd=
+ing-alt:14px 20px;" class=3D"btn"><a href=3D"https://link.mail.beehiiv.com/=
+ss/c/u001.iMYgGdY-fPY_rU2p3J3RoMVe21_zYwwt5nKml0xGsTlLplJFX-NRfq2VtldW9CfX0=
+E7qT_A9hnWAI0AX-TOLAgWobSY20Xm19-TmN1jmhXDeUWBKHvZOrdjD6lvlKGUm8SQZdTVISHrM=
+s4Rloe_oEO4aPavRgoB8HoubEkWt4WFGRLwxDgqPXtDVRZLcmNjqB-nqfGohZTN06Uq8NmFp7ej=
+lJ7gXhTDrr9aOCjsPbIDepe78DmCnlHn8_HAHvwZuHwHMcLY3Rzl-rPC_VXqXOeZivzzz-j7VCj=
+5SKc_4orWbgf3cn9gyLE5eUHQeiKaiRA-xS9LlOnVROKQv5qipjIxvxoLh-35d3b39PDm57dEZE=
+WmqLOQV8OehjQNbUwn2OStH7juF3v4kBMd9IQ6MjcAkQfacOQKqbg4jjgAcF_10Us0H-HGDTUdF=
+lHmJtfCNm_8S1hMuxlc7w5yhmFJxOg/4nn/Erfn0q6ARAWFkLZg9v14cA/h3/h001.XARbeQCbo=
+cEybK9HZn27zGpbkDsc0TKpg1NGES4gWb4" target=3D"_blank" rel=3D"noopener noref=
+errer nofollow" style=3D"background-color:#4566b0;border-radius:8px;color:#=
+FFFFFF;display:inline-block;font-family:'Montserrat','DejaVu Sans',Verdana,=
+sans-serif;font-size:16px;font-weight:normal;line-height:18px;padding:14px =
+20px;text-decoration:none;"> Join Community Hub </a></td></tr></table></td>=
+</tr></table></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"fon=
+t-size:0px;line-height:0px;padding:30px 0px 30px;" class=3D"dd"><table clas=
+s=3D"j" role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr=
+><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-align:left;=
+word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> I've been=
+ sitting on something for a while now. </p></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 25px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> Over the past year, Silicon =
+Slopes has been working on something different. Something I believe could c=
+hange the trajectory of entrepreneurship in Utah. Something that challenges=
+ the way the startup world has operated for the past two decades. </p></td>=
+</tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-ali=
+gn:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> I=
+'m not ready to tell you what it is. Not yet. Not in a newsletter. </p></td=
+></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-al=
+ign:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> =
+But I am ready to tell you this: if you've ever felt like the startup world=
+ wasn't built for you, I want you at SUMMIT this year. </p></td></tr><tr><t=
+d class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-align:left;wor=
+d-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> If you've ev=
+er been told your idea &quot;isn't venture scale&quot; and felt like that m=
+eant it wasn't worth pursuing, I want you there. </p></td></tr><tr><td clas=
+s=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-align:left;word-brea=
+k:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> If you've ever tri=
+ed to break into the entrepreneurial ecosystem and felt like you were missi=
+ng some secret password that everyone else seemed to have, I want you there=
+. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25=
+px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:=
+150.0%;"> If you've ever wondered why the same schools, the same networks, =
+and the same types of people seem to get all the opportunities while everyo=
+ne else fights for scraps, I want you there. </p></td></tr><tr><td class=3D=
+"dd" align=3D"left" style=3D"padding:0px 25px;text-align:left;word-break:br=
+eak-word;"><p style=3D"mso-line-height-alt:150.0%;"> I've been <a class=3D"=
+link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.iMYgGdY-fPY_rU2p3J3Ro=
+MVe21_zYwwt5nKml0xGsTl2rfomMX3Tf1nPACYjHDx0XiCY2_T4Ko3rDnRXLDTYVyZlP_cGGhL6=
+2oXE5HjLvFi-__ti_1sopw8JlY_mRM0pREiMhdI_chbbN-QjtOsrMi2CdrZ4NOiX6Z8lIGK4BnI=
+FYOm7cEPK2adYADU-JydAXoas6lGMvRDbrwQBLQUfmDIvrUJLtzBnsrxZSM68iccNk4Crqu7lGk=
+Y-Nrp_kjF4Zn4LCFAnDHgf02UMrPtLx9vVH0mEIQtq7_Gvax2xseLvxA3ENUD70XpNoot8mDBp/=
+4nn/Erfn0q6ARAWFkLZg9v14cA/h4/h001.0z6yhXt8DleQ0NWbD81WqahfRAvECV3nh9a4_gqw=
+UmI" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>asking ou=
+r community a question lately</span></a>. A simple question that turns out =
+to be not so simple at all: </p></td></tr><tr><td id=3D"who-gets-to-be-an-e=
+ntrepreneur" class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-ali=
+gn:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><a=
+ class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.iMYgGdY-fPY=
+_rU2p3J3RoMVe21_zYwwt5nKml0xGsTm5Ff2vO4vEbgv626Gz2aHY3HS_ScabmfiQflpcNJ7_Yi=
+es6iwtarRi6PeCNCZktFln2rmo0cacgGH3ZohBeINNSeN2eAZqBQ6VUe1mu28LXw8z6LACm9zd1=
+OJjaUp4J7hiCWu7H1RgUqsruBqPOavusoi1BPIAEu6otxSUSKxmmo3YhKjC2dPDtcUDwM31ZpyQ=
+ZG5XaRixaZFxxtQhWTNLw7s6E7LeSvmQdYe8ldOy0OHb5AchIUkewWw7DpYi_bjxR5AkW3Jhd9h=
+b0CGZ6P9pIXJhMeLs4xlTqzWq3_ps8w/4nn/Erfn0q6ARAWFkLZg9v14cA/h5/h001.BvCiaEPb=
+J7N5qgI-j2TWlbindVrpu2qqMGOAPVawX5g" target=3D"_blank" rel=3D"noopener nore=
+ferrer nofollow"><span>Who gets to be an entrepreneur?</span></a></p></td><=
+/tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-alig=
+n:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Th=
+e answer should be anyone. Anyone with an idea, a willingness to work, and =
+the courage to build something. That's the story we tell ourselves. </p></t=
+d></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-a=
+lign:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;">=
+ But that's not how it actually works. And I think we all know it. </p></td=
+></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-al=
+ign:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> =
+At this year's SUMMIT, I'm giving a keynote titled &quot;Who Gets To Be An =
+Entrepreneur? An Era-Defining Announcement From the Silicon Slopes Organiza=
+tion.&quot; </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padd=
+ing:0px 25px;text-align:left;word-break:break-word;"><p style=3D"mso-line-h=
+eight-alt:150.0%;"> I don't use words like &quot;era-defining&quot; lightly=
+. I wouldn't say it if I didn't mean it. </p></td></tr><tr><td class=3D"dd"=
+ align=3D"left" style=3D"padding:0px 25px;text-align:left;word-break:break-=
+word;"><p style=3D"mso-line-height-alt:150.0%;"> I'm going to talk about wh=
+at's broken. I'm going to name names and cite data. I'm going to say some t=
+hings out loud that the startup world usually keeps quiet. </p></td></tr><t=
+r><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-align:left=
+;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> And then=
+ I'm going to announce what we're doing about it. </p></td></tr><tr><td cla=
+ss=3D"dd" align=3D"left" style=3D"padding:0px 25px;text-align:left;word-bre=
+ak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> This isn't a prod=
+uct launch. This isn't a partnership announcement. This is something bigger=
+. Something that reflects what I believe Silicon Slopes should stand for. S=
+omething that could change who gets to participate in Utah's entrepreneuria=
+l future. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"paddin=
+g:0px 25px;text-align:left;word-break:break-word;"><p style=3D"mso-line-hei=
+ght-alt:150.0%;"> I want you in the room when it happens. </p></td></tr><tr=
+><td id=3D"summit-2026-february-47-salt-palace" class=3D"dd" align=3D"cente=
+r" valign=3D"top" style=3D"color:#4566b0;font-weight:normal;padding:0px 25p=
+x;text-align:center;"><h3 style=3D"color:#4566b0;font-weight:normal;mso-lin=
+e-height-alt:125.0%;">Summit 2026 | February 4-7 | Salt Palace, Downtown Sa=
+lt Lake City</h3></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pad=
+ding:0px 25px;text-align:left;word-break:break-word;"><p style=3D"mso-line-=
+height-alt:150.0%;"> This is our 10th anniversary <a class=3D"link" href=3D=
+"https://link.mail.beehiiv.com/ss/c/u001.iMYgGdY-fPY_rU2p3J3RoMVe21_zYwwt5n=
+Kml0xGsTk81HFPq4Fj0dHQbJ3h4xzuN31bSI2KeZ90kEWvNYsGI0LGuOpVXM6chQldiHcxdAnvA=
+_P09x33DTURIl25Wugh7SjgefNOsatzZneFz5bUBdejMHzlc-_anX6rNf21p-jsAHR7mcLB226A=
+7JMnJugjHJbXxB3un9X__OrpBap5NVGBgJ6r3C_aEmEaJUFX6fnYPBEO8VGETqKSbBX9W4m82XC=
+8pvv-_32tCv8dgmE-csKugH21R9k_Bq1KpmwFLXA/4nn/Erfn0q6ARAWFkLZg9v14cA/h6/h001=
+.0BYEHbb1sc6bAMxhYwFCcX2VOOUUueU9gjc4lc62rHc" target=3D"_blank" rel=3D"noop=
+ener noreferrer nofollow"><span>SUMMIT</span></a>. We're expecting 30,000+ =
+attendees. And I promise you, this keynote will be worth showing up for. </=
+p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;t=
+ext-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.=
+0%;"> If you're an aspiring entrepreneur who has felt locked out, come. </p=
+></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;te=
+xt-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0=
+%;"> If you're a successful founder who remembers what it was like to have =
+nothing, come. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"p=
+adding:0px 25px;text-align:left;word-break:break-word;"><p style=3D"mso-lin=
+e-height-alt:150.0%;"> If you care about Utah's future and believe opportun=
+ity should actually exist for everyone, not just the connected few, come. <=
+/p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 25px;=
+text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150=
+.0%;"> I'll see you there. </p></td></tr><tr><td class=3D"dd" align=3D"left=
+" style=3D"padding:0px 25px;text-align:left;word-break:break-word;"><p styl=
+e=3D"mso-line-height-alt:150.0%;"> Clint </p></td></tr><tr><td class=3D"dd"=
+ align=3D"left" style=3D"padding:0px 25px;text-align:left;word-break:break-=
+word;"><p style=3D"mso-line-height-alt:150.0%;"> P.S. I know this is vague.=
+ I know you want details. You'll get them on February 4th. For now, just tr=
+ust me: you want to be in the room. </p></td></tr><tr class=3D"btn_row"><td=
+ valign=3D"top" style=3D"padding-bottom:14px;padding-left:25px;padding-righ=
+t:25px;padding-top:14px;text-align:center;width:100%;word-break:break-word;=
+" class=3D"dd"><table width=3D"100%" role=3D"none" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D"margin:14px auto 14px auto;"><tr><td alig=
+n=3D"center" valign=3D"middle"><table role=3D"none" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"><tr><td style=3D"background-color:#4566b0;border-=
+radius:8px;mso-padding-alt:14px 20px;" class=3D"btn"><a href=3D"https://lin=
+k.mail.beehiiv.com/ss/c/u001.iMYgGdY-fPY_rU2p3J3RoMVe21_zYwwt5nKml0xGsTlLpl=
+JFX-NRfq2VtldW9CfX0E7qT_A9hnWAI0AX-TOLAgWobSY20Xm19-TmN1jmhXDeUWBKHvZOrdjD6=
+lvlKGUm8SQZdTVISHrMs4Rloe_oEO4aPavRgoB8HoubEkWt4WFGRLwxDgqPXtDVRZLcmNjqB-nq=
+fGohZTN06Uq8NmFp7ejlJ7gXhTDrr9aOCjsPbIDepe78DmCnlHn8_HAHvwZuHwHMcLY3Rzl-rPC=
+_VXqXOeZivzzz-j7VCj5SKc_4orWbgf3cn9gyLE5eUHQeiKaiRA-xS9LlOnVROKQv5qipjIxvxo=
+Lh-35d3b39PDm57dEZEWmqLOQV8OehjQNbUwn2OStH7juF3v4kBMd9IQ6MjcAkQfacOQKqbg4jj=
+gAcF_10Us0H-HGDTUdFlHmJtfCNm_8S1hMuxlc7w5yhmFJxOg/4nn/Erfn0q6ARAWFkLZg9v14c=
+A/h7/h001.DXDoQ9j4kDuPhL7Ogj_TfFListl1MoLhck9Jug5fQ4c" target=3D"_blank" re=
+l=3D"noopener noreferrer nofollow" style=3D"background-color:#4566b0;border=
+-radius:8px;color:#FFFFFF;display:inline-block;font-family:'Montserrat','De=
+jaVu Sans',Verdana,sans-serif;font-size:16px;font-weight:normal;line-height=
+:18px;padding:14px 20px;text-decoration:none;"> Get Your Ticket By Joining =
+Community Hub </a></td></tr></table></td></tr></table></td></tr></table></t=
+d></tr></table></td></tr><tr><td align=3D"center" valign=3D"top"><table rol=
+e=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+align=3D"center"><tr><td><tr><td class=3D"b" align=3D"center" valign=3D"top=
+" bgcolor=3D"#4566b0" style=3D"padding:0px 0px 0px 0px;border-style:solid;b=
+order-width: 0px 0px 0px 0px;border-color: #FFFFFF;border-bottom-left-radiu=
+s:10px;border-bottom-right-radius:10px;"><table role=3D"none" width=3D"100%=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td=
+ height=3D"10" style=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp;=
+ </td></tr><tr><td class=3D"w" align=3D"center" valign=3D"top" style=3D"pad=
+ding:15px 15px 15px 15px;"><table role=3D"none" width=3D"100%" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"cent=
+er" valign=3D"top"><p style=3D"font-family:'Verdana',Geneva,sans-serif;colo=
+r:#FFFFFF!important;"> Update your email preferences or unsubscribe <a clas=
+s=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.XrVEQS2RDGOB3tSc=
+4ZFzaBax2zp7GRpKORVxXBG9vFnTAY-K9rdzzhA9p7tkuQS31hFTVJc48e3D6z5chTLeBmvehdk=
+wrqLc579WrCHBMwy0OSfQHd-zY3uyAJgj8ImZ77T_Ndfk6ficcQTDZvBCXWWlz9tv6tLTeVQkqT=
+shoELCZ6QEni6MIgAtPmYolp_36ZaB8GVFcmxgrs0fIFa6nS7TcU5_qU1W4hV_H9AftE257TFIL=
+7B1FtBnuKtN3LHT8JBbarNY8sc-5JebiXrfG_aA58EhjBwfyJl8Tf0_Kns4NuWzdocjpLMuVTT9=
+pG8_ZQWBuehuqm7Wu9RHCAwXh-ruQA9y5yKtmZg_QbQL-kYYwbIbQGOGue4oSBEWPYoeYEhgLKZ=
+waD6eejGPloJypQX0ByDMUMnczwlqwQfIEH4JnurnVyFCbhrP4kLxPAtT8gTH4LBiEXXIWOj1gm=
+HVMlFuVQ3dVKMmkL00Qt8LblupYhh3Zqji9l8zPsDAYw66yX2FdTDfueqe3zZmahyNmWyGMYj5N=
+VC8GPt4Qr4EorWbPsFSm5dLDNmEJ4bEV7jnchTAchY2sqsc-J0iw5GQAjNewpOqD05YIZJSi8qY=
+ExTxL7ymIgisJzVHF91gsEqcVnJEhfaEShQG2PBKPX-9RGTxEQFX8_BtwezdRObXJmG07wdxzc8=
+iFYH3D-IB5txnn8mIvFwp-6hNM0OIXtNaO76n58ik8SteXiSKR0fqVDuUSwrC94743F-kJ03yYQ=
+7TzbRepFjaMd19N6gmbql5qD3Z2QGxY9T6ibcrSG80c7xR6z0zYtKNDa-uHnHy_EmXCwkYFqOPw=
+oI2p23GhTMqzFmJ5jo8RYHvjTwyenWcqiW5Tibnbnor3u1Ggd02RollTkM_zua_lbo_zGWzbhmZ=
+6-uZx-q_xdrpqZ8G4ImJrLklMcpJBAAMm9swwiZDyL4NtQ0FrKaD8V-yWr7YUhJBcgzkWKoDqmb=
+6yOgkxCvCw0jZORO7FE09W8LV598sdPdhJLE0LGXRYjA1Id3Kt9NSQcz5E3OO74N85AB8k7N-lf=
+dd96f1OtzGzvlkfGF4ad3u/4nn/Erfn0q6ARAWFkLZg9v14cA/h8/h001.6wcVAm5M7kzLOzsHt=
+wMH1iV0Hlq7oAv6AXosCRKvjaU" style=3D"text-decoration:underline;text-decorat=
+ion-color:#FFFFFF!important;color:#FFFFFF!important;"> here</a></p><p class=
+=3D"copyright" style=3D"font-family:'Verdana',Geneva,sans-serif;color:#FFFF=
+FF!important;"> &copy; 2026 Silicon Slopes </p><p style=3D"font-family:'Ver=
+dana',Geneva,sans-serif;color:#FFFFFF!important;"> 2600 W Executive Pkwy, S=
+uite 140<br>Lehi, Utah 84043, United States of America </p></td></tr><tr><t=
+d align=3D"left" valign=3D"top" height=3D"2" style=3D"height:2px;"><a href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001.QoUBFqaU0-xZeqVNY3XvZjINiVKNkHE=
+_QAVSQrPjcMVxe5LTzEwJNhniJjtVByvoqcRudqqY9o_lgrdBaNyALrchTmXCImpS9v6m0T1k3v=
+g/4nn/Erfn0q6ARAWFkLZg9v14cA/h9/h001._BCXU5QY_AF79g7vGezdGYFDsQpejowWjNVCHE=
+P10E4" style=3D"color: #4566b0 !important; cursor: default; font-size: 1px;=
+ text-decoration: none;"> Terms of Service </a></td></tr><tr><td align=3D"l=
+eft" valign=3D"top" height=3D"2" style=3D"height:2px;"><a href=3D"https://e=
+mail.beehiivstatus.com/aa2a007d827355fb452dda28a239569ae3d51a40/hclick" cli=
+cktracking=3D"off" style=3D"color: #4566b0 !important; cursor: default; fon=
+t-size: 1px; text-decoration: none;"></a></td></tr></table></td></tr></tabl=
+e></td></tr></td></tr></table></td></tr></table></td></tr></table></td></tr=
+></table></div></body></html>=
+
+--f14458c393899da2618461d1292bd430c3a753e292864c2e17dd51f9beff--

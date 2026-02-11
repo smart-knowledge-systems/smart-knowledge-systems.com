@@ -57,34 +57,25 @@ export const availableSchools: School[] = [
   { name: "University at Albany, SUNY", slug: "suny-albany" },
 ];
 
-// Build O(1) lookup maps for tags (Issue #19, #24)
-const tagsByName = new Map(availableTags.map((t) => [t.name, t]));
-const tagsBySlug = new Map(availableTags.map((t) => [t.slug, t]));
+// --- Lookup helpers ---
 
-// Build O(1) lookup maps for schools (Issue #19, #24)
-const schoolsByName = new Map(availableSchools.map((s) => [s.name, s]));
-const schoolsBySlug = new Map(availableSchools.map((s) => [s.slug, s]));
+const WHITESPACE_RE = /\s+/g;
 
-// Helper function to get tag slug from name - now O(1) instead of O(n)
-export const getTagSlug = (tagName: string): string => {
-  const tag = tagsByName.get(tagName);
-  return tag ? tag.slug : tagName.toLowerCase().replace(/\s+/g, "-");
-};
+/** Generic lookup factory for name/slug pairs */
+function createLookup<T extends { name: string; slug: string }>(items: T[]) {
+  const byName = new Map(items.map((item) => [item.name, item]));
+  const bySlug = new Map(items.map((item) => [item.slug, item]));
+  return {
+    getSlug: (name: string): string =>
+      byName.get(name)?.slug ?? name.toLowerCase().replace(WHITESPACE_RE, "-"),
+    getName: (slug: string): string => bySlug.get(slug)?.name ?? slug,
+  };
+}
 
-// Helper function to get tag name from slug - now O(1) instead of O(n)
-export const getTagName = (slug: string): string => {
-  const tag = tagsBySlug.get(slug);
-  return tag ? tag.name : slug;
-};
+const tagLookup = createLookup(availableTags);
+const schoolLookup = createLookup(availableSchools);
 
-// Helper function to get school slug from name - now O(1) instead of O(n)
-export const getSchoolSlug = (schoolName: string): string => {
-  const school = schoolsByName.get(schoolName);
-  return school ? school.slug : schoolName.toLowerCase().replace(/\s+/g, "-");
-};
-
-// Helper function to get school name from slug - now O(1) instead of O(n)
-export const getSchoolName = (slug: string): string => {
-  const school = schoolsBySlug.get(slug);
-  return school ? school.name : slug;
-};
+export const getTagSlug = tagLookup.getSlug;
+export const getTagName = tagLookup.getName;
+export const getSchoolSlug = schoolLookup.getSlug;
+export const getSchoolName = schoolLookup.getName;
