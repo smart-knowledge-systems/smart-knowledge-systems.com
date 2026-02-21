@@ -114,7 +114,7 @@ Readers reply on Bluesky. The conversation appears on the blog. The post page do
 
 62 files changed. 2,314 insertions. Less than 12 hours including a good night’s sleep.
 
-The entire [`feat/add-bluesky-comments-and-cover-images`](https://github.com/smart-knowledge-systems/smart-knowledge-systems.com) branch — Sequoia integration, comments component, atproto URI parsing, cover image system, OpenGraph generation, Vitest tests, `CollapsibleComments`, `ReadMoreContent` — was shipped by one developer in a sprint. With [Claude Code](https://claude.ai/claude-code).
+The entire [`feat/add-bluesky-comments-and-cover-images`](https://github.com/smart-knowledge-systems/smart-knowledge-systems.com) branch — Sequoia integration, comments component, atproto URI parsing, cover image system, OpenGraph generation, Vitest tests, `CollapsibleComments`, `ReadMoreContent` — was shipped by one developer in a sprint. With [Claude Code](https://claude.ai/referral/QBmYIgU1QA).
 
 I’ve written about this pattern [before](https://smart-knowledge-systems.com/blog/start-school-ai-entrepreneurship). The insight isn’t just speed — it’s what speed _changes_. When you can execute a feature branch in hours instead of days, you stop filtering ideas by implementation cost. You build the thing you actually want to build.
 
