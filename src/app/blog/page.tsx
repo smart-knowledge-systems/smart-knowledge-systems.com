@@ -17,7 +17,21 @@ function BlogLoading() {
   return (
     <div className="h-full pt-12">
       <Header />
-      <div className="bg-white py-24">
+      <div className="bg-white pt-24 sm:pt-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <h1 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+              The Dialogue Layer
+            </h1>
+            <p className="mt-6 text-xl/8 text-gray-600">
+              Knowledge lives in the conversations running beneath the formal
+              systems. Organizations are dialogic systems, and the action
+              happens in a layer most leaders don&apos;t see or design for.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
@@ -137,8 +151,14 @@ export default function BlogPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl lg:mx-0">
                 <h1 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                  From the blog
+                  The Dialogue Layer
                 </h1>
+                <p className="mt-6 text-xl/8 text-gray-600">
+                  Knowledge lives in the conversations running beneath the
+                  formal systems. Organizations are dialogic systems, and the
+                  action happens in a layer most leaders don&apos;t see or
+                  design for.
+                </p>
               </div>
             </div>
           </div>

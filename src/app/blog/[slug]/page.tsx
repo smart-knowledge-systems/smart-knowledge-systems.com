@@ -2,6 +2,7 @@ import { after } from "next/server";
 import Post from "@/components/blog/post";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import ScrollLogger from "@/components/scroll-logger";
 import { getPostWithMarkdown } from "@/lib/post-filters";
 import { logEvent, logger } from "@/lib/axiom/server";
 import { getCategorySlug } from "@/lib/category-utils";
@@ -32,6 +33,13 @@ export default async function Page({
   return (
     <>
       <Header />
+      <ScrollLogger
+        eventName="blog.post.scroll"
+        data={{
+          post_slug: slug,
+          post_title: post?.title ?? slug,
+        }}
+      />
       <Post slug={slug} />
       <Footer />
     </>

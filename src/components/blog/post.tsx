@@ -2,15 +2,20 @@ import Image from "next/image";
 import { getPostWithMarkdown } from "@/lib/post-filters";
 import NotFound from "@/app/not-found";
 import MarkdownContent from "@/components/markdown-content";
+import ReadMoreContent from "@/components/blog/read-more-content";
 import Featured from "@/components/blog/featured";
 import Author from "@/components/blog/author";
-import BlueskyCommentsWrapper from "@/components/blog/bluesky-comments-wrapper";
+import CollapsibleComments from "@/components/blog/collapsible-comments";
 import { coverImages } from "@/lib/cover-images";
+import { getAtprotoUri } from "@/lib/atproto-uris";
 
 export default async function Post({ slug }: { slug: string }) {
-  const post = await getPostWithMarkdown(slug);
+  const [post, atUri] = await Promise.all([
+    getPostWithMarkdown(slug),
+    getAtprotoUri(slug),
+  ]);
+
   if (!post) {
-    // return 404 if post not found
     return (
       <NotFound
         msg={{
@@ -20,9 +25,10 @@ export default async function Post({ slug }: { slug: string }) {
       />
     );
   }
+
   return (
     <div className="bg-white px-6 py-32 lg:px-8">
-      <div className="mx-auto max-w-3xl text-gray-700">
+      <article className="mx-auto max-w-3xl text-gray-700">
         <p className="text-base/7 font-semibold text-indigo-600">
           {post.datetime.toLocaleDateString("en-US", {
             month: "long",
@@ -44,11 +50,26 @@ export default async function Post({ slug }: { slug: string }) {
           {post.title}
         </h1>
         <div className="mt-6">
-          <MarkdownContent content={post.body} />
+          <ReadMoreContent slug={slug} title={post.title}>
+            <MarkdownContent content={post.body} />
+          </ReadMoreContent>
         </div>
-      </div>
-      <Featured postCategories={post.categories} excludePosts={[post.id]} />
-      <BlueskyCommentsWrapper slug={slug} />
+      </article>
+
+      {atUri ? (
+        <div className="mx-auto mt-16 max-w-5xl">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
+            <CollapsibleComments atUri={atUri} />
+            <Featured
+              postCategories={post.categories}
+              excludePosts={[post.id]}
+              variant="sidebar"
+            />
+          </div>
+        </div>
+      ) : (
+        <Featured postCategories={post.categories} excludePosts={[post.id]} />
+      )}
     </div>
   );
 }

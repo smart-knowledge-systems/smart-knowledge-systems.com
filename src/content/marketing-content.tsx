@@ -20,6 +20,7 @@ export const navigation = [
   { name: "Approach", href: "/#approach" },
   { name: "Resources", href: "/#resources" },
   { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Portfolio", href: "/portfolio" },
 ];
 
@@ -168,8 +169,8 @@ export const footerData = {
   logo: {
     src: "/sks-logo.svg",
     alt: "Smart Knowledge Systems",
-    width: 36,
-    height: 36,
+    width: 748,
+    height: 1024,
   },
   tagline: "build knowledge together",
   copyright: "© 2025 Russ Fugal. All rights reserved.",
