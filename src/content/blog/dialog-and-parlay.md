@@ -1,3 +1,16 @@
+---
+title: "Dialog, Parlay, and the Art of Structured Conversation"
+description: "Exploring how structured dialogue tools like Dialog, Synthialog, and Parlay Ideas can transform organizational conversations from isolated posts to meaningful knowledge creation through democratic, context-rich collaboration."
+publishDate: 2025-07-05
+ogImage: dialog-and-parlay.jpg
+tags:
+  - Team Collaboration
+  - Knowledge Management
+  - Technology Integration
+  - Organizational Culture
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbhqwks2b"
+---
+
 In my ongoing exploration of tools to foster meaningful collaboration, I've envisioned a platform named [**Dialog**](/about/dialog), accompanied by its collaborative partner, [**Synthialog**](/about/synthialog). Recently, I encountered an educational platform called [**Parlay Ideas**](https://parlayideas.com), and I was struck by how closely it aligns with my own vision for facilitating structured, context-rich conversations.
 
 ### Dialog and Synthialog: Structuring Knowledge Through Conversation

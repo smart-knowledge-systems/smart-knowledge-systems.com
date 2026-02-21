@@ -1,3 +1,14 @@
+---
+title: "Lessons From the Field"
+description: "Traditional project management focuses on scope, schedule, and resources, but success depends more on how effectively information flows. Learn how to evolve your approach to unlock higher performance."
+publishDate: 2025-06-10
+ogImage: lessons-from-the-field.jpg
+tags:
+  - Project Management
+  - Leadership
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbqqerg2n"
+---
+
 ## How Projects Succeed
 
 Ten years into my project management career, I understood what made projects succeed or fail. I had my PMP certification and knew the PMBOK Guide inside and out. I measured success through schedule, quality, and budget.

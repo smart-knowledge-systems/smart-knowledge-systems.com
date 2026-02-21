@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getPost } from "@/lib/post-filters";
 import { metadata as rootMetadata } from "@/app/layout";
+import { getAtprotoUri } from "@/lib/atproto-uris";
 
 export async function generateMetadata({
   params,
@@ -15,6 +16,7 @@ export async function generateMetadata({
       description: "The post you are looking for does not exist.",
     };
   }
+  const atUri = await getAtprotoUri(slug);
   return {
     ...rootMetadata,
     title: `${post.title} | Smart Systems`,
@@ -25,6 +27,9 @@ export async function generateMetadata({
       description: post.description,
       url: "https://smart-knowledge-systems.com/blog/" + slug,
     },
+    ...(atUri && {
+      other: { "site.standard.document": atUri },
+    }),
   };
 }
 

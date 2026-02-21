@@ -1,3 +1,14 @@
+---
+title: "Break Down Any Information Silo"
+description: "Information silos persist because they're structural, built into how organizations divide work. Discover three simple questions that can begin breaking down even the most entrenched information barriers."
+publishDate: 2025-06-02
+ogImage: break-down-any-silo.jpg
+tags:
+  - Knowledge Management
+  - Organizational Culture
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbtstax2t"
+---
+
 ## Three Simple Questions That Reveal Hidden Information Barriers
 
 Information silos persist in organizations not because people are stubborn or territorial but because they’re structural. Organizational structures divide how we work, organize teams, and measure success. While most approaches focus on implementing new systems or technologies, the most effective interventions start with understanding why silos exist in the first place.

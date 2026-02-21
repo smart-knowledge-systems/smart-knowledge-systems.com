@@ -1,3 +1,16 @@
+---
+title: "Knowledge Emerges Through Conversation"
+description: "Organizations invest millions in sophisticated information systems yet struggle to leverage what they collectively know. Discover why knowledge emerges through conversation and how to create environments where valuable insights naturally develop."
+publishDate: 2025-03-14
+ogImage: knowledge-emerges.jpg
+tags:
+  - Knowledge Management
+  - Team Collaboration
+  - Organizational Culture
+  - Leadership
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzd5uzex2t"
+---
+
 ## Rethinking Knowledge Management
 
 In today’s digital environment, we’re drowning in information while starving for knowledge. Organizations invest millions in sophisticated information systems and vast data repositories, yet continue to struggle with the same problems: duplicate efforts, missed opportunities, and an inability to leverage what the organization collectively “knows.”

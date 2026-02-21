@@ -1,8 +1,11 @@
+import Image from "next/image";
 import { getPostWithMarkdown } from "@/lib/post-filters";
 import NotFound from "@/app/not-found";
 import MarkdownContent from "@/components/markdown-content";
 import Featured from "@/components/blog/featured";
 import Author from "@/components/blog/author";
+import BlueskyCommentsWrapper from "@/components/blog/bluesky-comments-wrapper";
+import { coverImages } from "@/lib/cover-images";
 
 export default async function Post({ slug }: { slug: string }) {
   const post = await getPostWithMarkdown(slug);
@@ -28,6 +31,15 @@ export default async function Post({ slug }: { slug: string }) {
           })}
         </p>
         <Author author={post.author} />
+        {coverImages[slug] && (
+          <Image
+            src={coverImages[slug]}
+            alt={post.title}
+            className="mt-6 w-full rounded-lg"
+            priority
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
+        )}
         <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
           {post.title}
         </h1>
@@ -36,6 +48,7 @@ export default async function Post({ slug }: { slug: string }) {
         </div>
       </div>
       <Featured postCategories={post.categories} excludePosts={[post.id]} />
+      <BlueskyCommentsWrapper slug={slug} />
     </div>
   );
 }

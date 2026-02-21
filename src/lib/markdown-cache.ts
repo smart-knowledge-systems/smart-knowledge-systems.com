@@ -45,8 +45,9 @@ export async function loadMarkdownContent({
         .map(async (file) => {
           const filePath = path.join(contentDir, file);
           const content = await fs.readFile(filePath, "utf-8");
+          const body = content.replace(/^---\n[\s\S]*?\n---\n/, "");
           const slug = `/blog/${file.replace(".md", "")}`;
-          cache[slug] = content;
+          cache[slug] = body;
         })
     );
 

@@ -1,3 +1,16 @@
+---
+title: "My AI Research Assistant"
+description: 'Generative AI is transforming the workplace, but its impact on knowledge management is often misunderstood. Learn how AI can help organize your "academic dinner party" by identifying relevant literature while ensuring human expertise remains central to knowledge creation and analysis.'
+publishDate: 2025-05-05
+ogImage: my-ai-research-assistant.jpg
+tags:
+  - Knowledge Management
+  - Technology Integration
+  - Team Collaboration
+  - Organizational Culture
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcmfrv62u"
+---
+
 ## How I Use AI in Creating Knowledge-Sharing Ecosystems
 
 In today’s academic environment, we’re flooded with an overwhelming amount of information. With millions of articles published yearly, finding and prioritizing relevant content has become increasingly challenging. Over the past year, I’ve been experimenting with AI tools to help me navigate this landscape, using them as research assistants while maintaining my human judgment and scholarly approach.

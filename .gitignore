@@ -37,3 +37,4 @@ src/content/cv/landing.md
 src/content/blog/past-blog-posts.md
 .eslintcache
 audit/
+.sequoia-state.json
