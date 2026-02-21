@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import dynamic from "next/dynamic";
+import { Analytics } from "@vercel/analytics/react";
 import { WebVitals } from "@/lib/axiom/client";
 import "./globals.css";
-
-const Analytics = dynamic(
-  () => import("@vercel/analytics/react").then((m) => m.Analytics),
-  { ssr: false }
-);
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
