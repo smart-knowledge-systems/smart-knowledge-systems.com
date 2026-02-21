@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 
+import publishingToTheAtmosphere from "@/assets/publishing-to-the-atmosphere.jpg";
 import startSchoolAiEntrepreneurship from "@/assets/start-school-ai-entrepreneurship.jpg";
 import friction from "@/assets/friction.jpg";
 import crossingTheDivide from "@/assets/crossing-the-divide.jpg";
@@ -17,6 +18,7 @@ import lessonsFromTheField from "@/assets/lessons-from-the-field.jpg";
 import collaborationToolkit from "@/assets/collaboration-toolkit.jpg";
 
 export const coverImages: Record<string, StaticImageData> = {
+  "publishing-to-the-atmosphere": publishingToTheAtmosphere,
   "start-school-ai-entrepreneurship": startSchoolAiEntrepreneurship,
   friction: friction,
   "crossing-the-divide": crossingTheDivide,

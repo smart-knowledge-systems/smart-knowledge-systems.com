@@ -24,6 +24,17 @@ export type Post = {
 
 export const postsData: Post[] = [
   {
+    id: 23,
+    title: "Publishing to the ATmosphere",
+    href: "/blog/publishing-to-the-atmosphere",
+    description:
+      "How I used @sequoia.pub to publish my Next.js blog to the AT Protocol — Standard.site lexicons, Bluesky comments, and owning your content. #atproto #atdev",
+    datetime: new Date("2026-02-21"),
+    categories: [cp.technologyIntegration1, cp.knowledgeManagement2],
+    author: russAuthor,
+    body: "",
+  },
+  {
     id: 22,
     title:
       "The Door Is Open: AI-Powered Entrepreneurship and the Start School Promise",

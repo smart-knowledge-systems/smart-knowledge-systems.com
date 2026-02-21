@@ -16,7 +16,6 @@ export async function generateMetadata({
       description: "The post you are looking for does not exist.",
     };
   }
-  const atUri = await getAtprotoUri(slug);
   return {
     ...rootMetadata,
     title: `${post.title} | Smart Systems`,
@@ -27,16 +26,22 @@ export async function generateMetadata({
       description: post.description,
       url: "https://smart-knowledge-systems.com/blog/" + slug,
     },
-    ...(atUri && {
-      other: { "site.standard.document": atUri },
-    }),
   };
 }
 
-export default function BlogPostLayout({
+export default async function BlogPostLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ slug: string }>;
 }) {
-  return children;
+  const { slug } = await params;
+  const atUri = await getAtprotoUri(slug);
+  return (
+    <>
+      {atUri && <link rel="site.standard.document" href={atUri} />}
+      {children}
+    </>
+  );
 }
