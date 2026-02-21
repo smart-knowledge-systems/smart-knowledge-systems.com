@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getPost } from "@/lib/post-filters";
-import RootLayout, { metadata } from "@/app/layout";
+import { metadata as rootMetadata } from "@/app/layout";
+import { getAtprotoUri } from "@/lib/atproto-uris";
 
 export async function generateMetadata({
   params,
@@ -15,18 +16,27 @@ export async function generateMetadata({
       description: "The post you are looking for does not exist.",
     };
   }
-  const dynamicMetadata: Metadata = {
-    ...metadata,
+  const atUri = await getAtprotoUri(slug);
+  return {
+    ...rootMetadata,
     title: `${post.title} | Smart Systems`,
     description: post.description,
     openGraph: {
-      ...metadata.openGraph,
+      ...rootMetadata.openGraph,
       title: post.title,
       description: post.description,
       url: "https://smart-knowledge-systems.com/blog/" + slug,
     },
+    ...(atUri && {
+      other: { "site.standard.document": atUri },
+    }),
   };
-  return dynamicMetadata;
 }
 
-export default RootLayout;
+export default function BlogPostLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
+}

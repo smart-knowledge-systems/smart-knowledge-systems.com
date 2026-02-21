@@ -1,3 +1,14 @@
+---
+title: "The Collaboration Toolkit"
+description: "Cross-functional teams hold enormous potential, but often struggle with miscommunication and ineffective knowledge sharing. Discover practical tools that can help your team unlock its full collaborative potential."
+publishDate: 2025-06-17
+ogImage: collaboration-toolkit.jpg
+tags:
+  - Team Collaboration
+  - Knowledge Management
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbkjqe52f"
+---
+
 ## Practical Tools for Cross-Functional Teams That Actually Work
 
 Cross-functional teams represent one of the most powerful organizational structures for tackling complex challenges. When specialists from different domains work together effectively, they can solve problems that no single department can address alone. Yet many cross-functional teams struggle with a fundamental challenge: bridging the knowledge gaps between their diverse expertise areas.

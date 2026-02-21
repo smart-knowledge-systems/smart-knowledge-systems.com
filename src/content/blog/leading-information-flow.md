@@ -1,3 +1,14 @@
+---
+title: "Leading for Information Flow"
+description: "Leadership isn't just about making decisions — it's about ensuring people have the information they need to execute effectively. Discover practical leadership behaviors that improve information flow throughout your organization."
+publishDate: 2025-04-21
+ogImage: leading-information-flow.jpg
+tags:
+  - Leadership
+  - Knowledge Management
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcrtfgw2n"
+---
+
 ## Simple Practices That Break Down Barriers
 
 Leadership isn’t just about making decisions — it’s also about ensuring people have the information they need to enact the mission. Yet many leaders unintentionally create or maintain information silos through their everyday behaviors and practices.

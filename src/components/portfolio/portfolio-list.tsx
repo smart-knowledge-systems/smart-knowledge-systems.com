@@ -37,7 +37,7 @@ export default function PortfolioList({
         <div className="mx-auto max-w-4xl">
           {essays.map((essay, index) => (
             <PortfolioItem
-              key={`${essay.title}-${essay.date}-${index}`}
+              key={`${essay.date}-${index}`}
               essay={essay}
               onTagClick={onTagClick}
               selectedTags={selectedTags}

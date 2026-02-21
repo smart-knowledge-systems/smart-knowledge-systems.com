@@ -17,7 +17,6 @@ export default function PortfolioMarkdown({
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          // Custom components to maintain our styling
           h1: ({ children }) => (
             <h1 className="text-2xl font-bold text-gray-900">{children}</h1>
           ),

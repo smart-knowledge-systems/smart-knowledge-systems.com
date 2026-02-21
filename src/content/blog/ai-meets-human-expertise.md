@@ -1,3 +1,14 @@
+---
+title: "When AI Meets Human Expertise"
+description: "Artificial intelligence is transforming knowledge management, but it's not a magic solution. Learn how to thoughtfully integrate AI capabilities with human judgment for more effective knowledge systems."
+publishDate: 2025-05-05
+ogImage: ai-meets-human-expertise.jpg
+tags:
+  - Technology Integration
+  - Knowledge Management
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcoxsss2b"
+---
+
 ## Practical Approaches to Smart Knowledge Systems
 
 Artificial intelligence is transforming how organizations manage knowledge. But AI isn’t a magic solution for information silos — it’s a powerful tool that must be thoughtfully integrated with human expertise and organizational processes.

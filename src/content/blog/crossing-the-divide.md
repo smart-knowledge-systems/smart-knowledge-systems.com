@@ -1,3 +1,14 @@
+---
+title: "Crossing the GenAI Divide"
+description: "The recently released State of AI in Business 2025 report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives."
+publishDate: 2025-08-24
+ogImage: crossing-the-divide.jpg
+tags:
+  - Knowledge Management
+  - Technology Integration
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbeiwhb2a"
+---
+
 ## What AI in Business Teaches Us About Knowledge Systems
 
 The recently released _State of AI in Business 2025_ report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives. The authors call this gap the **GenAI Divide** — a fault line between organizations that experiment with AI and those that actually achieve transformation.

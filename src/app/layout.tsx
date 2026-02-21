@@ -49,8 +49,8 @@ export default function RootLayout({
       >
         <WebVitals />
         {children}
+        <Analytics />
       </body>
-      <Analytics />
     </html>
   );
 }

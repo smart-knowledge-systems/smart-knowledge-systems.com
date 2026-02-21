@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useLogger, logClientEvent, flushLogs } from "@/lib/axiom/client";
+import { logClientEvent, flushLogs } from "@/lib/axiom/client";
 
 export default function Error({
   error,
@@ -10,28 +10,18 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const logger = useLogger();
-
   useEffect(() => {
-    // Log the error to Axiom
     logClientEvent("infra.error.boundary", {
       error_name: error.name,
       error_message: error.message,
       error_digest: error.digest || "none",
-      error_stack: error.stack?.slice(0, 500), // Truncate stack to avoid large payloads
+      error_stack: error.stack?.slice(0, 500),
       path:
         typeof window !== "undefined" ? window.location.pathname : "unknown",
     });
 
-    // Also log via the hook for component context
-    logger.error("Client error boundary triggered", {
-      error_name: error.name,
-      error_message: error.message,
-    });
-
-    // Flush logs immediately for error events
-    flushLogs();
-  }, [error, logger]);
+    void flushLogs();
+  }, [error.name, error.message, error.digest, error.stack]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">

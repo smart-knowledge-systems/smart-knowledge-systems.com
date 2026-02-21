@@ -4,16 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 website for Smart Knowledge Systems, a consulting business focused on breaking down information silos in organizations. The site is built with React, TypeScript, and Tailwind CSS, using modern Next.js App Router features.
+This is a Next.js 16 website for Smart Knowledge Systems, a consulting business focused on breaking down information silos in organizations. The site is built with React, TypeScript, and Tailwind CSS, using modern Next.js App Router features.
 
 ## Development Commands
 
 ### Core Commands
 
-- `npm run dev` - Start development server with Turbopack (opens on http://localhost:3000)
-- `npm run build` - Build production version
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint for code linting
+- `bun run dev` - Start development server with Turbopack (opens on http://localhost:3000)
+- `bun run build` - Build production version
+- `bun run start` - Start production server
+- `bun run lint` - Run ESLint for code linting
 
 ### Testing
 

@@ -57,7 +57,7 @@ export default function PostList({
                       })}
                     </time>
                     {post.categories
-                      .sort((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
+                      .toSorted((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
                       .map((category) => {
                         const categorySlug = getCategorySlug(category.title);
                         const isSelected =
@@ -68,8 +68,7 @@ export default function PostList({
                             key={category.title}
                             variant={isSelected ? "toggled" : "outline"}
                             onClick={() => onCategoryClick(categorySlug)}
-                            className={`relative z-10 rounded-full px-3 py-1.5 font-medium"
-                            }`}
+                            className="relative z-10 rounded-full px-3 py-1.5 font-medium"
                           >
                             {category.title}
                           </Button>

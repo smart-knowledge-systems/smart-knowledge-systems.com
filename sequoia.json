@@ -1,0 +1,25 @@
+{
+  "siteUrl": "https://smart-knowledge-systems.com",
+  "contentDir": "./src/content/blog",
+  "imagesDir": "src/assets",
+  "outputDir": ".next",
+  "pathPrefix": "/blog",
+  "publicationUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.publication/3mfds4aqql323",
+  "ignore": [
+    "past-blog-posts.md",
+    "case-study-information-flow.md",
+    "creating-psychosocial-safety.md",
+    "dialogue-difference.md",
+    "beyond-assessment.md",
+    "knowledge-safety-connection.md",
+    "project-manager-wellbeing-catalyst.md",
+    "measuring-what-matters.md"
+  ],
+  "ui": {
+    "components": "src/components"
+  },
+  "bluesky": {
+    "enabled": true,
+    "maxAgeDays": 365
+  }
+}

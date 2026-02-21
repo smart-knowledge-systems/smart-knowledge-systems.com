@@ -1,15 +1,15 @@
-type Author = {
-  name: string;
-  role: string;
-  href: string;
-  imageUrl: string;
-};
+/**
+ * Blog post data
+ * Uses extracted author and category modules for reusability
+ */
 
-export type Category = {
-  title: string;
-  href: string;
-  priority?: number;
-};
+import { russAuthor } from "./authors";
+import { categories, categoryWithPriority as cp } from "./categories";
+
+// Re-export types and categories for backward compatibility
+export type { Author } from "./authors";
+export type { Category } from "./categories";
+export { categories } from "./categories";
 
 export type Post = {
   id: number;
@@ -17,59 +17,24 @@ export type Post = {
   href: string;
   description: string;
   datetime: Date;
-  categories: Category[];
-  author: Author;
+  categories: import("./categories").Category[];
+  author: import("./authors").Author;
   body: string; // markdown content
-};
-
-// Common author data
-const russAuthor: Author = {
-  name: "Russ Fugal",
-  role: "Organizational Transformation Specialist",
-  href: "/#about",
-  imageUrl: "/avatar.jpg",
-};
-
-// Categories
-export const categories = {
-  knowledgeManagement: {
-    title: "Knowledge",
-    href: "/categories/knowledge-management",
-  },
-  organizationalCulture: {
-    title: "Culture",
-    href: "/categories/organizational-culture",
-  },
-  leadership: {
-    title: "Leadership",
-    href: "/categories/leadership",
-  },
-  projectManagement: {
-    title: "Projects",
-    href: "/categories/project-management",
-  },
-  technologyIntegration: {
-    title: "Technology",
-    href: "/categories/technology-integration",
-  },
-  teamCollaboration: {
-    title: "Collaboration",
-    href: "/categories/team-collaboration",
-  },
 };
 
 export const postsData: Post[] = [
   {
     id: 22,
-    title: "The Door Is Open: AI-Powered Entrepreneurship and the Start School Promise",
+    title:
+      "The Door Is Open: AI-Powered Entrepreneurship and the Start School Promise",
     href: "/blog/start-school-ai-entrepreneurship",
     description:
       "At SUMMIT 2026, Clint Betts asked a question that cuts to the heart of entrepreneurship: 'Who gets to be an entrepreneur?' The answer should be anyone. But that's not how it's worked. Until now. Start School and AI tools like Claude Code are opening doors that were locked for decades.",
     datetime: new Date("2026-02-04"),
     categories: [
-      { ...categories.technologyIntegration, priority: 1 },
-      { ...categories.leadership, priority: 2 },
-      { ...categories.organizationalCulture, priority: 3 },
+      cp.technologyIntegration1,
+      cp.leadership2,
+      cp.organizationalCulture3,
     ],
     author: russAuthor,
     body: "",
@@ -82,10 +47,10 @@ export const postsData: Post[] = [
       "The resistance we typically try to eliminate – the difficulty of translating between departments, the effort of integration, the discomfort of changing workflows – isn't a barrier to organizational learning. It's the mechanism through which real knowledge emerges. When organizations embrace productive friction rather than seeking frictionless solutions, they create the conditions for genuine transformation.",
     datetime: new Date("2025-09-04"),
     categories: [
-      { ...categories.knowledgeManagement, priority: 2 },
-      { ...categories.technologyIntegration, priority: 3 },
-      { ...categories.organizationalCulture, priority: 1 },
-      { ...categories.teamCollaboration, priority: 4 },
+      cp.knowledgeManagement2,
+      cp.technologyIntegration3,
+      cp.organizationalCulture1,
+      cp.teamCollaboration4,
     ],
     author: russAuthor,
     body: "",
@@ -97,10 +62,7 @@ export const postsData: Post[] = [
     description:
       "The recently released State of AI in Business 2025 report has been making waves with its stark conclusion: despite billions of dollars invested, 95% of organizations are realizing little to no measurable impact from generative AI initiatives.",
     datetime: new Date("2025-08-24"),
-    categories: [
-      { ...categories.knowledgeManagement, priority: 1 },
-      { ...categories.technologyIntegration, priority: 2 },
-    ],
+    categories: [cp.knowledgeManagement1, cp.technologyIntegration2],
     author: russAuthor,
     body: "# What AI in Business Teaches Us About Knowledge Systems",
   },
@@ -112,10 +74,10 @@ export const postsData: Post[] = [
       "Exploring how structured dialogue tools like Dialog, Synthialog, and Parlay Ideas can transform organizational conversations from isolated posts to meaningful knowledge creation through democratic, context-rich collaboration.",
     datetime: new Date("2025-07-05"),
     categories: [
-      { ...categories.teamCollaboration, priority: 1 },
-      { ...categories.knowledgeManagement, priority: 2 },
-      { ...categories.technologyIntegration, priority: 3 },
-      { ...categories.organizationalCulture, priority: 4 },
+      cp.teamCollaboration1,
+      cp.knowledgeManagement2,
+      cp.technologyIntegration3,
+      cp.organizationalCulture4,
     ],
     author: russAuthor,
     body: "# From Posts to Knowledge: The Power of Structured Dialogue",
@@ -125,13 +87,13 @@ export const postsData: Post[] = [
     title: "My AI Research Assistant",
     href: "/blog/my-ai-research-assistant",
     description:
-      "Generative AI is transforming the workplace, but its impact on knowledge management is often misunderstood. Learn how AI can help organize your “academic dinner party” by identifying relevant literature while ensuring human expertise remains central to knowledge creation and analysis.",
+      "Generative AI is transforming the workplace, but its impact on knowledge management is often misunderstood. Learn how AI can help organize your \u201Cacademic dinner party\u201D by identifying relevant literature while ensuring human expertise remains central to knowledge creation and analysis.",
     datetime: new Date("2025-05-05"),
     categories: [
-      { ...categories.knowledgeManagement, priority: 3 },
-      { ...categories.technologyIntegration, priority: 4 },
-      { ...categories.teamCollaboration, priority: 2 },
-      { ...categories.organizationalCulture, priority: 1 },
+      cp.knowledgeManagement3,
+      cp.technologyIntegration4,
+      cp.teamCollaboration2,
+      cp.organizationalCulture1,
     ],
     author: russAuthor,
     body: `## How I Use AI in Creating Knowledge-Sharing Ecosystems
@@ -146,16 +108,10 @@ In today's academic environment, we're flooded with an overwhelming amount of in
       "Organizations invest millions in sophisticated information systems yet struggle to leverage what they collectively know. Discover why knowledge emerges through conversation and how to create environments where valuable insights naturally develop.",
     datetime: new Date("2025-03-14"),
     categories: [
-      {
-        ...categories.knowledgeManagement,
-        priority: 1,
-      },
-      { ...categories.teamCollaboration, priority: 2 },
-      {
-        ...categories.organizationalCulture,
-        priority: 3,
-      },
-      { ...categories.leadership, priority: 4 },
+      cp.knowledgeManagement1,
+      cp.teamCollaboration2,
+      cp.organizationalCulture3,
+      cp.leadership4,
     ],
     author: russAuthor,
     body: `# Beyond Information Overload
@@ -173,18 +129,9 @@ In today's academic environment, we're flooded with an overwhelming amount of in
     title: "The Cost of Information Silos",
     href: "/blog/hidden-cost-information-silos",
     description:
-      "Information silos might seem like just an annoyance, but their true cost extends far beyond frustration. Learn about the four hidden costs that are impacting your organization’s performance and innovation.",
+      "Information silos might seem like just an annoyance, but their true cost extends far beyond frustration. Learn about the four hidden costs that are impacting your organization's performance and innovation.",
     datetime: new Date("2025-03-21"),
-    categories: [
-      {
-        ...categories.knowledgeManagement,
-        priority: 2,
-      },
-      {
-        ...categories.organizationalCulture,
-        priority: 1,
-      },
-    ],
+    categories: [cp.knowledgeManagement2, cp.organizationalCulture1],
     author: russAuthor,
     body: `# The Hidden Cost of Information Silos: What They're Really Costing Your Business
 
@@ -197,18 +144,9 @@ Information silos might seem like just an annoyance—that moment when you disco
     title: "Beyond the Tech Fix",
     href: "/blog/beyond-tech-fix",
     description:
-      "Despite significant investments in knowledge management systems, many organizations struggle with adoption and effectiveness. Discover why technology alone can’t solve your information silo problems.",
+      "Despite significant investments in knowledge management systems, many organizations struggle with adoption and effectiveness. Discover why technology alone can't solve your information silo problems.",
     datetime: new Date("2025-03-28"),
-    categories: [
-      {
-        ...categories.knowledgeManagement,
-        priority: 1,
-      },
-      {
-        ...categories.technologyIntegration,
-        priority: 2,
-      },
-    ],
+    categories: [cp.knowledgeManagement1, cp.technologyIntegration2],
     author: russAuthor,
     body: `# Beyond the Tech Fix: Why Your Knowledge Management System Isn't Working
 
@@ -223,13 +161,7 @@ I hear some version of this lament from nearly every client I work with. The pat
     description:
       "Modern organizations need both specialists and generalists, but communication barriers between them can create significant challenges. Learn how to build connective tissue between expert domains.",
     datetime: new Date("2025-04-05"),
-    categories: [
-      { ...categories.teamCollaboration, priority: 2 },
-      {
-        ...categories.knowledgeManagement,
-        priority: 1,
-      },
-    ],
+    categories: [cp.teamCollaboration2, cp.knowledgeManagement1],
     author: russAuthor,
     body: `# Specialists vs. Generalists: Building Teams That Speak Each Other's Language
 
@@ -240,15 +172,9 @@ Modern organizations face a fundamental tension. On one hand, the complexity of 
     title: "Leading for Information Flow",
     href: "/blog/leading-information-flow",
     description:
-      "Leadership isn’t just about making decisions — it’s about ensuring people have the information they need to execute effectively. Discover practical leadership behaviors that improve information flow throughout your organization.",
+      "Leadership isn't just about making decisions — it's about ensuring people have the information they need to execute effectively. Discover practical leadership behaviors that improve information flow throughout your organization.",
     datetime: new Date("2025-04-21"),
-    categories: [
-      { ...categories.leadership, priority: 1 },
-      {
-        ...categories.knowledgeManagement,
-        priority: 1,
-      },
-    ],
+    categories: [cp.leadership1, cp.knowledgeManagement1],
     author: russAuthor,
     body: `# Simple Practices That Break Down Barriers
 
@@ -261,10 +187,7 @@ Leadership isn't just about making decisions—it's about ensuring people have t
     description:
       "Artificial intelligence is transforming knowledge management, but it's not a magic solution. Learn how to thoughtfully integrate AI capabilities with human judgment for more effective knowledge systems.",
     datetime: new Date("2025-05-05"),
-    categories: [
-      { ...categories.technologyIntegration },
-      { ...categories.knowledgeManagement },
-    ],
+    categories: [cp.technologyIntegration, cp.knowledgeManagement1],
     author: russAuthor,
     body: `# Practical Approaches to Smart Knowledge Systems
 
@@ -277,10 +200,7 @@ Artificial intelligence is transforming how organizations manage knowledge. But 
     description:
       "Meetings are often maligned as wasteful, but they can be powerful tools for breaking down information silos when designed correctly. Discover five meeting formats specifically designed to promote knowledge exchange.",
     datetime: new Date("2025-05-26"),
-    categories: [
-      { ...categories.teamCollaboration },
-      { ...categories.organizationalCulture },
-    ],
+    categories: [cp.teamCollaboration, cp.organizationalCulture1],
     author: russAuthor,
     body: `# The Meeting That Changed Everything: Creating Conversations That Matter
 
@@ -293,10 +213,7 @@ Meetings are the primary forum for knowledge exchange in most organizations. Yet
     description:
       "Information silos persist because they're structural, built into how organizations divide work. Discover three simple questions that can begin breaking down even the most entrenched information barriers.",
     datetime: new Date("2025-06-02"),
-    categories: [
-      { ...categories.knowledgeManagement },
-      { ...categories.organizationalCulture },
-    ],
+    categories: [cp.knowledgeManagement1, cp.organizationalCulture1],
     author: russAuthor,
     body: `# Three Questions That Break Down Any Information Silo
 
@@ -309,10 +226,7 @@ Information silos are persistent because they're structural—built into how org
     description:
       "Traditional project management focuses on scope, schedule, and resources, but success depends more on how effectively information flows. Learn how to evolve your approach to unlock higher performance.",
     datetime: new Date("2025-06-10"),
-    categories: [
-      { ...categories.projectManagement },
-      { ...categories.leadership },
-    ],
+    categories: [cp.projectManagement, cp.leadership1],
     author: russAuthor,
     body: `# From Project Management to Knowledge Leadership: Lessons From the Field
 
@@ -325,10 +239,7 @@ My journey from traditional project management to knowledge leadership wasn't pl
     description:
       "Cross-functional teams hold enormous potential, but often struggle with miscommunication and ineffective knowledge sharing. Discover practical tools that can help your team unlock its full collaborative potential.",
     datetime: new Date("2025-06-17"),
-    categories: [
-      { ...categories.teamCollaboration },
-      { ...categories.knowledgeManagement },
-    ],
+    categories: [cp.teamCollaboration, cp.knowledgeManagement1],
     author: russAuthor,
     body: `# The Collaboration Toolkit: Practical Tools for Cross-Functional Teams
 
@@ -341,10 +252,7 @@ Cross-functional teams hold enormous potential. By bringing together diverse per
     description:
       "Organizations often approach knowledge management as a years-long transformation requiring extensive investments. Learn how one manufacturing company achieved significant improvements in just 90 days with targeted interventions.",
     datetime: new Date("2027-10-24"),
-    categories: [
-      { ...categories.knowledgeManagement },
-      { ...categories.organizationalCulture },
-    ],
+    categories: [cp.knowledgeManagement1, cp.organizationalCulture1],
     author: russAuthor,
     body: `# Case Study: How One Organization Transformed Its Information Flow in 90 Days
 
@@ -357,10 +265,7 @@ Organizations often approach knowledge management as a years-long transformation
     description:
       "In today's knowledge economy, an organization's most valuable asset is the minds of its people. Learn why small organizations need to prioritize psychosocial safety to thrive.",
     datetime: new Date("2027-11-01"),
-    categories: [
-      { ...categories.organizationalCulture },
-      { ...categories.leadership },
-    ],
+    categories: [cp.organizationalCulture1, cp.leadership1],
     author: russAuthor,
     body: `# Creating Psychosocial Safety: Why Small Organizations Need to Prioritize Mental Wellbeing
 
@@ -373,10 +278,7 @@ In today's knowledge economy, an organization's most valuable asset isn't its te
     description:
       "When organizations attempt to improve psychosocial safety, they often start with formal assessments and policies. Discover how changing conversations can transform organizational reality more effectively.",
     datetime: new Date("2027-11-08"),
-    categories: [
-      { ...categories.organizationalCulture },
-      { ...categories.teamCollaboration },
-    ],
+    categories: [cp.organizationalCulture1, cp.teamCollaboration1],
     author: russAuthor,
     body: `# The Dialogue Difference: Transforming Psychosocial Safety Through Conversation
 
@@ -389,10 +291,7 @@ When organizations attempt to improve psychosocial safety, they often start with
     description:
       "Small organizations face challenges when addressing psychosocial safety, but their size creates opportunities for more collaborative approaches. Learn about participatory action approaches to psychosocial safety.",
     datetime: new Date("2027-11-15"),
-    categories: [
-      { ...categories.organizationalCulture },
-      { ...categories.teamCollaboration },
-    ],
+    categories: [cp.organizationalCulture1, cp.teamCollaboration1],
     author: russAuthor,
     body: `# Beyond Assessment: Participatory Approaches to Psychosocial Safety in Small Organizations
 
@@ -405,10 +304,7 @@ Small organizations face a dual challenge when addressing psychosocial safety. O
     description:
       "The relationship between information flow and psychological wellbeing is often overlooked. Discover how information silos directly impact the psychological health of everyone in your organization.",
     datetime: new Date("2027-11-22"),
-    categories: [
-      { ...categories.knowledgeManagement },
-      { ...categories.organizationalCulture },
-    ],
+    categories: [cp.knowledgeManagement1, cp.organizationalCulture1],
     author: russAuthor,
     body: `# The Knowledge-Safety Connection: How Information Silos Impact Psychological Health
 
@@ -422,9 +318,9 @@ The relationship between information flow and psychological wellbeing remains on
       "Project managers have always been more than just schedulers and task trackers. Learn how to leverage your project management superpowers to become a catalyst for psychosocial safety.",
     datetime: new Date("2027-11-29"),
     categories: [
-      { ...categories.projectManagement },
-      { ...categories.leadership },
-      { ...categories.organizationalCulture },
+      cp.projectManagement,
+      cp.leadership1,
+      cp.organizationalCulture1,
     ],
     author: russAuthor,
     body: `# From Project Manager to Wellbeing Catalyst: Expanding Your Leadership Impact
@@ -438,10 +334,7 @@ Project managers have always been more than just schedulers and task trackers. A
     description:
       "Organizations need to assess psychosocial risks, but formal processes can overwhelm small teams. Learn practical approaches that provide valuable insights without breaking the bank.",
     datetime: new Date("2027-12-06"),
-    categories: [
-      { ...categories.organizationalCulture },
-      { ...categories.leadership },
-    ],
+    categories: [cp.organizationalCulture1, cp.leadership1],
     author: russAuthor,
     body: `# Measuring What Matters: Simple Approaches to Psychosocial Risk Assessment for Resource-Constrained Teams
 

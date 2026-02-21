@@ -28,10 +28,10 @@ This project uses Next.js with the App Router. To start development:
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the site in your browser.

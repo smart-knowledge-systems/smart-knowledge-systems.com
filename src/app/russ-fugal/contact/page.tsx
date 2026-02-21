@@ -1,43 +1,44 @@
 "use client";
 
-import { useEffect } from "react";
 import { getVCard } from "./actions";
 
 async function triggerDownload() {
-  const vcard = await getVCard();
-  const blob = new Blob([vcard], { type: "text/vcard" });
-  const url = URL.createObjectURL(blob);
+  try {
+    const vcard = await getVCard();
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
 
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "russ-fugal.vcf";
-  link.click();
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "russ-fugal.vcf";
+    link.click();
 
-  URL.revokeObjectURL(url);
+    URL.revokeObjectURL(url);
+  } catch {
+    alert("Unable to download contact card. Please try again.");
+  }
 }
 
 export default function ContactPage() {
-  useEffect(() => {
-    triggerDownload();
-  }, []);
-
   return (
     <div className="bg-white px-6 py-32 lg:px-8">
       <div className="mx-auto max-w-3xl text-gray-700">
         <p className="text-base/7 font-semibold text-indigo-600">Contact</p>
         <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-          Thanks for connecting!
+          Get in Touch
         </h1>
 
         <p className="mt-6 text-lg leading-8 text-gray-600">
-          Your contact file should be downloading now.{" "}
           <button
-            onClick={triggerDownload}
+            onClick={async () => {
+              await triggerDownload();
+            }}
+            aria-label="Download contact card as vCard file"
             className="text-indigo-600 underline hover:text-indigo-800"
           >
-            Click here
+            Download my contact card
           </button>{" "}
-          if it didn&apos;t start automatically.
+          to save my information directly to your contacts.
         </p>
 
         <div className="mt-10 border-t border-gray-200 pt-10">

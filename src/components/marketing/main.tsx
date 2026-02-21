@@ -19,8 +19,8 @@ export default function Main() {
         <div className="mt-10 max-w-2xl">
           <p>{mainContent.mainContent.paragraph1}</p>
           <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
-            {mainContent.mainContent.featuresList.map((feature, index) => (
-              <li key={index} className="flex gap-x-3">
+            {mainContent.mainContent.featuresList.map((feature) => (
+              <li key={feature.id} className="flex gap-x-3">
                 <CheckCircleIcon
                   aria-hidden="true"
                   className="mt-1 size-5 flex-none text-indigo-600"
@@ -58,6 +58,7 @@ export default function Main() {
                 height={
                   mainContent.secondSection.testimonial.author.image.height
                 }
+                loading="lazy"
               />
               <div className="text-sm/6">
                 <strong className="font-semibold text-gray-900">
@@ -76,6 +77,7 @@ export default function Main() {
             className="aspect-video rounded-xl bg-gray-50 object-cover"
             width={mainContent.imageSection.image.width}
             height={mainContent.imageSection.image.height}
+            loading="lazy"
           />
           <figcaption className="mt-4 flex gap-x-2 text-sm/6 text-gray-500">
             <InformationCircleIcon

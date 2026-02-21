@@ -1,7 +1,9 @@
 const subdomains = ["rusted", "russ-fugal", "dialogue", "social"];
 
 const nextConfig = {
-  /* config options here */
+  experimental: {
+    optimizePackageImports: ["lucide-react", "@heroicons/react"],
+  },
   images: {
     remotePatterns: [
       {

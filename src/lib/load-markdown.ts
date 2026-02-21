@@ -1,24 +1,14 @@
-import fs from "fs";
-import path from "path";
+/**
+ * Markdown content loading utilities
+ * Re-exports from markdown-cache module for backward compatibility.
+ *
+ * @deprecated Import directly from "@/lib/markdown-cache" instead.
+ * This re-export file exists only for backward compatibility during migration.
+ */
 
-export function loadMarkdownContent({
-  contentDirPath,
-}: {
-  contentDirPath: string;
-}) {
-  const markdownCache: Record<string, string> = {};
-  const contentDir = path.join(process.cwd(), contentDirPath);
-
-  // Read all .md files in the content directory
-  const files = fs.readdirSync(contentDir);
-  files.forEach((file) => {
-    if (file.endsWith(".md")) {
-      const filePath = path.join(contentDir, file);
-      const content = fs.readFileSync(filePath, "utf-8");
-      const slug = `/blog/${file.replace(".md", "")}`;
-      markdownCache[slug] = content;
-    }
-  });
-
-  return markdownCache;
-}
+export {
+  loadMarkdownContent,
+  getMarkdownFromCache,
+  clearMarkdownCache,
+  type MarkdownCache,
+} from "./markdown-cache";
