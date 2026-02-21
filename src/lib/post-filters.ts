@@ -27,23 +27,20 @@ export const getPublishedPosts = cache(async (): Promise<Post[]> => {
 });
 
 /**
- * Get all published posts metadata (not future-dated)
- * Alias for getPublishedPosts for backward compatibility
- */
-export const getPublishedPostsMetadata = getPublishedPosts;
-
-/**
  * Load markdown content for multiple posts
+ * Cached with React.cache() for per-request deduplication
  */
-export const getPostsWithMarkdown = async (posts: Post[]): Promise<Post[]> => {
-  const fullPosts = await Promise.all(
-    posts.map(async (post) => ({
-      ...post,
-      body: (await getMarkdownContent(post.href)) || post.body,
-    }))
-  );
-  return fullPosts;
-};
+export const getPostsWithMarkdown = cache(
+  async (posts: Post[]): Promise<Post[]> => {
+    const fullPosts = await Promise.all(
+      posts.map(async (post) => ({
+        ...post,
+        body: (await getMarkdownContent(post.href)) || post.body,
+      }))
+    );
+    return fullPosts;
+  }
+);
 
 /**
  * Get a single post by slug with markdown content
@@ -150,34 +147,36 @@ export const getFeaturedPosts = async (
   limit: number,
   excludePosts: number[] = []
 ): Promise<Post[]> => {
-  const categoryWeights = Object.fromEntries(
+  // Build index map once for O(1) weight lookups per category
+  const categoryWeights = new Map(
     categories.map((cat) => [cat.title, cat.priority ?? 1])
   );
 
+  // Build Set for O(1) exclusion checks
+  const excludeSet = new Set(excludePosts);
+
   // Filter out future posts and excluded posts
+  const currentDate = new Date();
   const currentPosts = postsData.filter((post) => {
     const postDate = new Date(post.datetime);
-    const currentDate = new Date();
-    return postDate <= currentDate && !excludePosts.includes(post.id);
+    return postDate <= currentDate && !excludeSet.has(post.id);
   });
 
   const filteredPosts =
     categories.length > 0
       ? currentPosts.filter((post) =>
-          post.categories.some((cat) =>
-            categories.some((c) => c.title === cat.title)
-          )
+          post.categories.some((cat) => categoryWeights.has(cat.title))
         )
       : currentPosts;
 
   return filteredPosts
-    .sort((a, b) => {
+    .toSorted((a, b) => {
       const aScore = a.categories.reduce(
-        (score, cat) => score + (categoryWeights[cat.title] || 0),
+        (score, cat) => score + (categoryWeights.get(cat.title) ?? 0),
         0
       );
       const bScore = b.categories.reduce(
-        (score, cat) => score + (categoryWeights[cat.title] || 0),
+        (score, cat) => score + (categoryWeights.get(cat.title) ?? 0),
         0
       );
       return bScore - aScore;

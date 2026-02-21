@@ -57,7 +57,7 @@ export default function PostList({
                       })}
                     </time>
                     {post.categories
-                      .sort((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
+                      .toSorted((a, b) => (a.priority ?? 1) - (b.priority ?? 1))
                       .map((category) => {
                         const categorySlug = getCategorySlug(category.title);
                         const isSelected =

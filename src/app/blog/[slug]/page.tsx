@@ -2,7 +2,8 @@ import { after } from "next/server";
 import Post from "@/components/blog/post";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { getPost } from "@/lib/post-filters";
+import ScrollLogger from "@/components/scroll-logger";
+import { getPostWithMarkdown } from "@/lib/post-filters";
 import { logEvent, logger } from "@/lib/axiom/server";
 import { getCategorySlug } from "@/lib/category-utils";
 
@@ -13,8 +14,8 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  // Fetch post metadata for logging (not full markdown)
-  const post = await getPost(`/blog/${slug}`);
+  // Fetch post for logging — uses cached getPostWithMarkdown (same as Post component)
+  const post = await getPostWithMarkdown(slug);
 
   if (post) {
     // Log after response is sent (non-blocking)
@@ -32,6 +33,13 @@ export default async function Page({
   return (
     <>
       <Header />
+      <ScrollLogger
+        eventName="blog.post.scroll"
+        data={{
+          post_slug: slug,
+          post_title: post?.title ?? slug,
+        }}
+      />
       <Post slug={slug} />
       <Footer />
     </>

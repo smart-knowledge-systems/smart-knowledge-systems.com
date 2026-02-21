@@ -6,87 +6,86 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-1 xl:gap-8">
-          <div className="space-y-8">
+        {/* Main grid: brand left, nav right */}
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          {/* Brand column */}
+          <div className="space-y-6">
             <Image
               alt={footerData.logo.alt}
               src={footerData.logo.src}
-              className="h-9"
+              className="h-16 w-auto"
               width={footerData.logo.width}
               height={footerData.logo.height}
             />
-            <p className="text-balance text-sm/6 text-gray-300">
+            <p className="text-balance text-base/7 font-medium text-gray-300">
               {footerData.tagline}
             </p>
-            <div className="flex gap-x-6">
+            <div className="flex gap-x-5">
               {footerData.navigation.social.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-gray-300"
+                  className="text-gray-400 transition-colors hover:text-white"
                   target="_blank"
                 >
                   <span className="sr-only">{item.name}</span>
-                  <item.icon aria-hidden="true" className="size-6" />
+                  <item.icon aria-hidden="true" className="size-7" />
                 </Link>
               ))}
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm/6 font-semibold text-white">
-                  {footerData.categories.solutions}
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerData.navigation.solutions.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-gray-400 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-white">
-                  {footerData.categories.support}
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerData.navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-gray-400 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          {/* Nav columns — span 2 cols */}
+          <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-3 xl:col-span-2 xl:mt-0">
+            <div>
+              <h3 className="text-sm/6 font-semibold text-white">
+                {footerData.categories.solutions}
+              </h3>
+              <ul role="list" className="mt-6 space-y-4">
+                {footerData.navigation.solutions.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm/6 text-gray-400 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm/6 font-semibold text-white">
-                  {footerData.categories.company}
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {footerData.navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-gray-400 hover:text-white"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div>
+              <h3 className="text-sm/6 font-semibold text-white">
+                {footerData.categories.support}
+              </h3>
+              <ul role="list" className="mt-6 space-y-4">
+                {footerData.navigation.support.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm/6 text-gray-400 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm/6 font-semibold text-white">
+                {footerData.categories.company}
+              </h3>
+              <ul role="list" className="mt-6 space-y-4">
+                {footerData.navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm/6 text-gray-400 transition-colors hover:text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

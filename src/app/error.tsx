@@ -11,20 +11,17 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to Axiom
     logClientEvent("infra.error.boundary", {
       error_name: error.name,
       error_message: error.message,
       error_digest: error.digest || "none",
-      error_stack: error.stack?.slice(0, 500), // Truncate stack to avoid large payloads
+      error_stack: error.stack?.slice(0, 500),
       path:
         typeof window !== "undefined" ? window.location.pathname : "unknown",
     });
 
-    // Flush logs immediately for error events
-    flushLogs();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    void flushLogs();
+  }, [error.name, error.message, error.digest, error.stack]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">

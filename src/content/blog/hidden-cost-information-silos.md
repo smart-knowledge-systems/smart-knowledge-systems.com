@@ -1,3 +1,14 @@
+---
+title: "The Cost of Information Silos"
+description: "Information silos might seem like just an annoyance, but their true cost extends far beyond frustration. Learn about the four hidden costs that are impacting your organization’s performance and innovation."
+publishDate: 2025-03-21
+ogImage: hidden-cost-information-silos.jpg
+tags:
+  - Knowledge Management
+  - Organizational Culture
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzd2snrm2j"
+---
+
 ## What They’re Really Costing Your Business
 
 Information silos might seem like just an annoyance — that moment when you discover another team has been working on the same problem, or when critical information fails to reach decision-makers. But the true cost extends far beyond frustration.

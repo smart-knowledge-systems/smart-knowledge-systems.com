@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback } from "react";
 import { Toggle } from "@/components/ui/toggle";
 import { getCategorySlug } from "@/lib/category-utils";
 import { cn } from "@/lib/utils";
@@ -15,27 +16,20 @@ export default function CategoryFilter({
   selectedCategories,
   onCategoryToggle,
 }: CategoryFilterProps) {
-  const handleCategoryClick = (categoryTitle: string) => {
-    const categorySlug = getCategorySlug(categoryTitle);
-    const isSelected = selectedCategories.includes(categorySlug);
+  const handleCategoryClick = useCallback(
+    (categoryTitle: string) => {
+      const categorySlug = getCategorySlug(categoryTitle);
+      const newCategories = selectedCategories.includes(categorySlug)
+        ? selectedCategories.filter((slug) => slug !== categorySlug)
+        : [...selectedCategories, categorySlug];
+      onCategoryToggle(newCategories);
+    },
+    [selectedCategories, onCategoryToggle]
+  );
 
-    let newSelectedCategories: string[];
-    if (isSelected) {
-      // Remove category
-      newSelectedCategories = selectedCategories.filter(
-        (slug) => slug !== categorySlug
-      );
-    } else {
-      // Add category
-      newSelectedCategories = [...selectedCategories, categorySlug];
-    }
-
-    onCategoryToggle(newSelectedCategories);
-  };
-
-  const handleClearAll = () => {
+  const handleClearAll = useCallback(() => {
     onCategoryToggle([]);
-  };
+  }, [onCategoryToggle]);
 
   return (
     <div className="bg-white py-8 border-b border-gray-200">

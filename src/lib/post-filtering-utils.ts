@@ -31,10 +31,9 @@ export const filterPostsByCategories = (
     return posts;
   }
 
+  const slugSet = new Set(categorySlugs);
   return posts.filter((post) =>
-    post.categories.some((cat) =>
-      categorySlugs.some((slug) => getCategorySlug(cat.title) === slug)
-    )
+    post.categories.some((cat) => slugSet.has(getCategorySlug(cat.title)))
   );
 };
 
@@ -48,29 +47,21 @@ export const sortPostsWithMatchScore = (
   categorySlugs: string[],
   sortDateAsc: boolean = false
 ): Post[] => {
-  // Pre-compute timestamps to avoid repeated Date construction in sort
-  const postsWithTimestamps = posts.map((post) => ({
-    post,
-    timestamp: new Date(post.datetime).getTime(),
-    matchScore:
-      categorySlugs.length > 1 ? calculateMatchScore(post, categorySlugs) : 0,
-  }));
+  const useMatchScoring = categorySlugs.length > 1;
 
-  return postsWithTimestamps
-    .sort((a, b) => {
-      if (categorySlugs.length > 1) {
-        // Primary sort: match score (higher is better)
-        if (a.matchScore !== b.matchScore) {
-          return b.matchScore - a.matchScore;
-        }
+  return posts.toSorted((a, b) => {
+    if (useMatchScoring) {
+      const aScore = calculateMatchScore(a, categorySlugs);
+      const bScore = calculateMatchScore(b, categorySlugs);
+      if (aScore !== bScore) {
+        return bScore - aScore;
       }
+    }
 
-      // Secondary sort (or primary for single/no categories): date
-      return sortDateAsc
-        ? a.timestamp - b.timestamp
-        : b.timestamp - a.timestamp;
-    })
-    .map((item) => item.post);
+    const aTime = new Date(a.datetime).getTime();
+    const bTime = new Date(b.datetime).getTime();
+    return sortDateAsc ? aTime - bTime : bTime - aTime;
+  });
 };
 
 /**
@@ -78,12 +69,10 @@ export const sortPostsWithMatchScore = (
  */
 export const getAllCategoriesFromPosts = (posts: Post[]): string[] => {
   const allCategories = new Set<string>();
-
-  posts.forEach((post) => {
-    post.categories.forEach((cat) => {
+  for (const post of posts) {
+    for (const cat of post.categories) {
       allCategories.add(cat.title);
-    });
-  });
-
+    }
+  }
   return Array.from(allCategories).sort();
 };

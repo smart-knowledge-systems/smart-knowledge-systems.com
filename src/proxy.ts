@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { after } from "next/server";
 import { logger, logEvent } from "@/lib/axiom/server";
 
-// Paths to exclude from logging
-const EXCLUDED_PATHS = [
-  "/_next",
-  "/api",
+// Exact paths to exclude from logging
+const EXCLUDED_EXACT_PATHS = new Set([
   "/favicon.ico",
   "/robots.txt",
   "/sitemap.xml",
-];
+]);
+
+// Path prefixes to exclude (matched by segment boundary)
+const EXCLUDED_PATH_PREFIXES = ["/_next/", "/api/"];
 
 // File extensions to exclude
 const EXCLUDED_EXTENSIONS = [
@@ -28,12 +30,14 @@ const EXCLUDED_EXTENSIONS = [
 ];
 
 function shouldLogRequest(pathname: string): boolean {
-  // Check excluded paths
-  if (EXCLUDED_PATHS.some((path) => pathname.startsWith(path))) {
+  if (EXCLUDED_EXACT_PATHS.has(pathname)) {
     return false;
   }
 
-  // Check excluded extensions
+  if (EXCLUDED_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) {
+    return false;
+  }
+
   if (EXCLUDED_EXTENSIONS.some((ext) => pathname.endsWith(ext))) {
     return false;
   }
@@ -44,30 +48,30 @@ function shouldLogRequest(pathname: string): boolean {
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (shouldLogRequest(pathname)) {
-    logEvent("http.request", {
-      method: request.method,
-      path: pathname,
-      host: request.headers.get("host") || "unknown",
-      userAgent: request.headers.get("user-agent") || "unknown",
-      referer: request.headers.get("referer") || "direct",
-      ip:
-        request.headers.get("x-forwarded-for") ||
-        request.headers.get("x-real-ip") ||
-        "unknown",
-    });
-
-    // Use waitUntil for reliable delivery without blocking the response
-    const response = NextResponse.next();
-
-    // Note: In Edge runtime, we need to flush asynchronously
-    // The flush will happen in the background
-    logger.flush().catch(() => {
-      // Silently handle flush errors in proxy
-    });
-
-    return response;
+  if (!shouldLogRequest(pathname)) {
+    return NextResponse.next();
   }
+
+  logEvent("http.request", {
+    method: request.method,
+    path: pathname,
+    host: request.headers.get("host") || "unknown",
+    userAgent: request.headers.get("user-agent") || "unknown",
+    referer: request.headers.get("referer") || "direct",
+    ip:
+      request.headers.get("x-forwarded-for") ||
+      request.headers.get("x-real-ip") ||
+      "unknown",
+  });
+
+  // Flush logs after the response is sent (non-blocking)
+  after(async () => {
+    await logger.flush().catch((error: unknown) => {
+      if (process.env.NODE_ENV === "development") {
+        console.error("Failed to flush proxy logs:", error);
+      }
+    });
+  });
 
   return NextResponse.next();
 }

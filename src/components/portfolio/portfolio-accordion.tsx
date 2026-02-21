@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import {
   truncateAbstract,
@@ -18,18 +18,22 @@ export default function PortfolioAccordion({
   className = "",
 }: PortfolioAccordionProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const showTruncated = shouldTruncateAbstract(abstract);
+
+  const { showTruncated, truncatedText } = useMemo(
+    () => ({
+      showTruncated: shouldTruncateAbstract(abstract),
+      truncatedText: truncateAbstract(abstract),
+    }),
+    [abstract]
+  );
 
   if (!showTruncated) {
-    // If abstract is short enough, just show it without accordion
     return (
       <div className={className}>
         <PortfolioMarkdown content={abstract} />
       </div>
     );
   }
-
-  const truncatedText = truncateAbstract(abstract);
 
   return (
     <div className={className}>

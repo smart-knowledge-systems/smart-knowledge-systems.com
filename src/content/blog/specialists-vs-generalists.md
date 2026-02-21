@@ -1,3 +1,14 @@
+---
+title: "Specialists vs. Generalists"
+description: "Modern organizations need both specialists and generalists, but communication barriers between them can create significant challenges. Learn how to build connective tissue between expert domains."
+publishDate: 2025-04-05
+ogImage: specialists-vs-generalists.jpg
+tags:
+  - Team Collaboration
+  - Knowledge Management
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzctzugt2j"
+---
+
 ## Building Teams That Speak Each Other’s Language
 
 Modern organizations face a fundamental tension. On one hand, the complexity of today’s business environment demands deep specialists — people with expertise in increasingly narrow domains. On the other hand, solving complex problems requires integration across these specialized domains, which becomes more difficult as the knowledge gaps between specialists widen.

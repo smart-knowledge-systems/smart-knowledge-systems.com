@@ -1,10 +1,38 @@
 "use client";
 
+import { memo, useMemo } from "react";
 import { StudentWork, getTagSlug } from "@/content/cv/portfolio";
 import { formatEssayDate } from "@/lib/portfolio-filters";
 import PortfolioAccordion from "./portfolio-accordion";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import PortfolioMarkdown from "./portfolio-markdown";
+
+interface TagButtonProps {
+  tag: string;
+  tagSlug: string;
+  isSelected: boolean;
+  onClick?: (tagSlug: string) => void;
+}
+
+const TagButton = memo(function TagButton({
+  tag,
+  tagSlug,
+  isSelected,
+  onClick,
+}: TagButtonProps) {
+  return (
+    <button
+      onClick={() => onClick?.(tagSlug)}
+      className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium transition-colors ${
+        isSelected
+          ? "bg-indigo-100 text-indigo-800 hover:bg-indigo-200"
+          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+      }`}
+    >
+      {tag}
+    </button>
+  );
+});
 
 interface PortfolioItemProps {
   essay: StudentWork;
@@ -12,12 +40,19 @@ interface PortfolioItemProps {
   selectedTags?: string[];
 }
 
+const EMPTY_TAGS: string[] = [];
+
 export default function PortfolioItem({
   essay,
   onTagClick,
-  selectedTags = [],
+  selectedTags = EMPTY_TAGS,
 }: PortfolioItemProps) {
   const formattedDate = formatEssayDate(essay.date);
+
+  const tagSlugs = useMemo(
+    () => essay.tags.map((tag) => getTagSlug(tag)),
+    [essay.tags]
+  );
 
   return (
     <article className="border-b border-gray-200 py-8">
@@ -38,28 +73,19 @@ export default function PortfolioItem({
           <PortfolioAccordion abstract={essay.abstract} className="mb-4" />
 
           <div className="flex flex-wrap gap-2">
-            {essay.tags.map((tag) => {
-              const tagSlug = getTagSlug(tag);
-              const isSelected = selectedTags.includes(tagSlug);
-
-              return (
-                <button
-                  key={tag}
-                  onClick={() => onTagClick?.(tagSlug)}
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium transition-colors ${
-                    isSelected
-                      ? "bg-indigo-100 text-indigo-800 hover:bg-indigo-200"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {tag}
-                </button>
-              );
-            })}
+            {essay.tags.map((tag, index) => (
+              <TagButton
+                key={tag}
+                tag={tag}
+                tagSlug={tagSlugs[index]}
+                isSelected={selectedTags.includes(tagSlugs[index])}
+                onClick={onTagClick}
+              />
+            ))}
           </div>
         </div>
 
-        {essay.url && (
+        {essay.url ? (
           <div className="ml-6 flex-shrink-0">
             <a
               href={essay.url}
@@ -71,7 +97,7 @@ export default function PortfolioItem({
               <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             </a>
           </div>
-        )}
+        ) : null}
       </div>
     </article>
   );

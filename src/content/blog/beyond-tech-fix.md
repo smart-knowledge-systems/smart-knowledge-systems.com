@@ -1,3 +1,14 @@
+---
+title: "Beyond the Tech Fix"
+description: "Despite significant investments in knowledge management systems, many organizations struggle with adoption and effectiveness. Discover why technology alone can’t solve your information silo problems."
+publishDate: 2025-03-28
+ogImage: beyond-tech-fix.jpg
+tags:
+  - Knowledge Management
+  - Technology Integration
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcwwlyf2j"
+---
+
 ## Why Your Knowledge Management System Isn’t Working
 
 “We spent a fortune on a knowledge management system that nobody uses.”

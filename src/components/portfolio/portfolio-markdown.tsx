@@ -1,6 +1,5 @@
 "use client";
 
-import { memo } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -9,7 +8,7 @@ interface PortfolioMarkdownProps {
   className?: string;
 }
 
-function PortfolioMarkdown({
+export default function PortfolioMarkdown({
   content,
   className = "",
 }: PortfolioMarkdownProps) {
@@ -18,7 +17,6 @@ function PortfolioMarkdown({
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          // Custom components to maintain our styling
           h1: ({ children }) => (
             <h1 className="text-2xl font-bold text-gray-900">{children}</h1>
           ),
@@ -57,5 +55,3 @@ function PortfolioMarkdown({
     </div>
   );
 }
-
-export default memo(PortfolioMarkdown);

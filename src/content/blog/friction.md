@@ -1,3 +1,16 @@
+---
+title: "The Friction Paradox"
+description: "The resistance we typically try to eliminate – the difficulty of translating between departments, the effort of integration, the discomfort of changing workflows – isn't a barrier to organizational learning. It's the mechanism through which real knowledge emerges. When organizations embrace productive friction rather than seeking frictionless solutions, they create the conditions for genuine transformation."
+publishDate: 2025-09-04
+ogImage: friction.jpg
+tags:
+  - Knowledge Management
+  - Technology Integration
+  - Organizational Culture
+  - Team Collaboration
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbcfvxp2t"
+---
+
 ## Organizations Need Resistance to Build Real Knowledge Systems
 
 The MIT _State of AI in Business 2025_ report contains a counterintuitive finding, argues Forbes contributer [Jason Snyder](https://www.forbes.com/sites/jasonsnyder/). This finding challenges conventional wisdom about technology adoption: friction isn’t the enemy of successful AI implementation — it’s the proof of it. Organizations that deliberately design for resistance, that embrace the difficulty of integration, are the ones crossing what the authors call the _GenAI Divide._ “Pilots that glide frictionless from demo to deployment never build the muscle to scale,” Jason writes, “They collapse the moment they hit real organizational texture, compliance, politics, data quality, and human judgment.” [Success comes when enterprises embrace friction.](https://www.forbes.com/sites/jasonsnyder/2025/08/26/mit-finds-95-of-genai-pilots-fail-because-companies-avoid-friction/)

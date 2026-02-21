@@ -1,3 +1,14 @@
+---
+title: "Creating Conversations That Matter"
+description: "Meetings are often maligned as wasteful, but they can be powerful tools for breaking down information silos when designed correctly. Discover five meeting formats specifically designed to promote knowledge exchange."
+publishDate: 2025-05-26
+ogImage: conversations-that-matter.jpg
+tags:
+  - Team Collaboration
+  - Organizational Culture
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcjaue52i"
+---
+
 ## Five Meeting Formats That Break Down Information Silos
 
 Meetings are the primary forum for knowledge exchange in most organizations. Yet they’re also among the most maligned aspects of organizational life — criticized as wasteful, boring, and ineffective. The problem isn’t meetings themselves but how we structure and conduct them.

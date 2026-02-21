@@ -1,20 +1,19 @@
 "use server";
 
+import { after } from "next/server";
 import { headers } from "next/headers";
 import { logEventAsync } from "@/lib/axiom/server";
 
-export async function trackContactDownload() {
+export async function getVCard() {
   const headersList = await headers();
 
-  await logEventAsync("contact.download", {
-    source: "russ-fugal-subdomain",
-    userAgent: headersList.get("user-agent") || "unknown",
-    referer: headersList.get("referer") || "direct",
+  after(async () => {
+    await logEventAsync("contact.download", {
+      source: "russ-fugal-subdomain",
+      userAgent: headersList.get("user-agent") || "unknown",
+      referer: headersList.get("referer") || "direct",
+    });
   });
-}
-
-export async function getVCard() {
-  await trackContactDownload();
 
   return `BEGIN:VCARD
 VERSION:3.0

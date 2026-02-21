@@ -3,16 +3,20 @@
 import { getVCard } from "./actions";
 
 async function triggerDownload() {
-  const vcard = await getVCard();
-  const blob = new Blob([vcard], { type: "text/vcard" });
-  const url = URL.createObjectURL(blob);
+  try {
+    const vcard = await getVCard();
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
 
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "russ-fugal.vcf";
-  link.click();
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "russ-fugal.vcf";
+    link.click();
 
-  URL.revokeObjectURL(url);
+    URL.revokeObjectURL(url);
+  } catch {
+    alert("Unable to download contact card. Please try again.");
+  }
 }
 
 export default function ContactPage() {
@@ -26,7 +30,10 @@ export default function ContactPage() {
 
         <p className="mt-6 text-lg leading-8 text-gray-600">
           <button
-            onClick={triggerDownload}
+            onClick={async () => {
+              await triggerDownload();
+            }}
+            aria-label="Download contact card as vCard file"
             className="text-indigo-600 underline hover:text-indigo-800"
           >
             Download my contact card
