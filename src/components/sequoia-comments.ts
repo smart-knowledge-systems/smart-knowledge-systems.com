@@ -413,10 +413,7 @@ function escapeHtml(text: string): string {
   return div.innerHTML;
 }
 
-function renderTextWithFacets(
-  text: string,
-  facets?: RichTextFacet[]
-): string {
+function renderTextWithFacets(text: string, facets?: RichTextFacet[]): string {
   if (!facets || facets.length === 0) {
     return escapeHtml(text);
   }
@@ -614,7 +611,9 @@ const BLUESKY_ICON = `<svg class="sequoia-bsky-logo" viewBox="0 0 600 530" fill=
 
 // SSR-safe base class - use HTMLElement in browser, empty class in Node.js
 const BaseElement =
-  typeof HTMLElement !== "undefined" ? HTMLElement : (class {} as typeof HTMLElement);
+  typeof HTMLElement !== "undefined"
+    ? HTMLElement
+    : (class {} as typeof HTMLElement);
 
 class SequoiaComments extends BaseElement {
   commentsContainer!: HTMLDivElement;

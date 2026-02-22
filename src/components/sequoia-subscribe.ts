@@ -131,7 +131,9 @@ const BELL_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 
 // SSR-safe base class - use HTMLElement in browser, empty class in Node.js
 const BaseElement =
-  typeof HTMLElement !== "undefined" ? HTMLElement : (class {} as typeof HTMLElement);
+  typeof HTMLElement !== "undefined"
+    ? HTMLElement
+    : (class {} as typeof HTMLElement);
 
 class SequoiaSubscribe extends BaseElement {
   subscribeContainer!: HTMLDivElement;
@@ -199,9 +201,7 @@ class SequoiaSubscribe extends BaseElement {
   }
 
   get callbackUrl(): string {
-    return (
-      this.getAttribute("callback-url") || "https://sequoia.pub/subscribe"
-    );
+    return this.getAttribute("callback-url") || "https://sequoia.pub/subscribe";
   }
 
   get hideAuto(): boolean {

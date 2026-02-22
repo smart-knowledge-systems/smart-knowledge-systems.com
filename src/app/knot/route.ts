@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const KNOT_URL = "https://knot.smart-knowledge-systems.com";
-const TANGLED_PROFILE =
-  "https://tangled.sh/did:plc:i2fgba5nignuw4nccml33wjp";
+const TANGLED_PROFILE = "https://tangled.sh/did:plc:i2fgba5nignuw4nccml33wjp";
 
 const PLAIN_TEXT = `
 ╔══════════════════════════════════════════════════════════╗

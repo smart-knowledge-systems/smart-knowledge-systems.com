@@ -144,4 +144,3 @@ Sequoia integration, comments component, cover image system, OpenGraph generatio
 [@sequoia.pub](https://bsky.app/profile/sequoia.pub) built the tool. Go tell them what you made with it.
 
 What would you build on Standard.site?
-

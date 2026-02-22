@@ -20,7 +20,14 @@ export default function Page() {
       <Hero />
       <Main />
       <Services />
-      <Featured postCategories={FEATURED_POST_CATEGORIES} afterHeading={<div className="pl-6"><Subscribe /></div>} />
+      <Featured
+        postCategories={FEATURED_POST_CATEGORIES}
+        afterHeading={
+          <div className="pl-6">
+            <Subscribe />
+          </div>
+        }
+      />
       <Footer />
     </div>
   );
