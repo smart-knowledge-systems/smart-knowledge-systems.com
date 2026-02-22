@@ -9,6 +9,7 @@ import BlogPagination from "@/components/blog/blog-pagination";
 import SortButton from "@/components/blog/sort-button";
 import { getCategoryTitle } from "@/lib/category-utils";
 import { BlogProvider, useBlog } from "@/contexts/blog-context";
+import Subscribe from "@/components/blog/subscribe";
 
 // ---------------------------------------------------------------------------
 // Loading skeleton (shown while Suspense resolves searchParams)
@@ -160,6 +161,12 @@ export default function BlogPage() {
                   design for.
                 </p>
               </div>
+            </div>
+          </div>
+
+          <div className="bg-white pt-8">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <Subscribe />
             </div>
           </div>
 

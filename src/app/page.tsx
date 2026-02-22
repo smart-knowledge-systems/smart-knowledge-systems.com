@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import Services from "@/components/marketing/services";
 import Main from "@/components/marketing/main";
 import Featured from "@/components/blog/featured";
+import Subscribe from "@/components/blog/subscribe";
 import ScrollLogger from "@/components/scroll-logger";
 import { categoryWithPriority as cp } from "@/content/blog/categories";
 
@@ -19,7 +20,7 @@ export default function Page() {
       <Hero />
       <Main />
       <Services />
-      <Featured postCategories={FEATURED_POST_CATEGORIES} />
+      <Featured postCategories={FEATURED_POST_CATEGORIES} afterHeading={<div className="pl-6"><Subscribe /></div>} />
       <Footer />
     </div>
   );

@@ -7,7 +7,6 @@ tags:
   - Technology Integration
   - Knowledge Management
 atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mffowjmedw2j"
-"
 ---
 
 This post lives in two places.
@@ -77,7 +76,7 @@ atUri: ""
 Run `sequoia publish`. Sequoia creates the PDS record and writes the `atUri` back:
 
 ```yaml
-atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzb6z4jh2t"
+atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mffowjmedw2j"
 ```
 
 That URI is the post’s permanent address on the protocol. Every subsequent piece hooks to it.
@@ -145,3 +144,4 @@ Sequoia integration, comments component, cover image system, OpenGraph generatio
 [@sequoia.pub](https://bsky.app/profile/sequoia.pub) built the tool. Go tell them what you made with it.
 
 What would you build on Standard.site?
+

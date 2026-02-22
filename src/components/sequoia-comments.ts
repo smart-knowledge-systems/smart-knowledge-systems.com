@@ -26,6 +26,107 @@
  */
 
 // ============================================================================
+// Types
+// ============================================================================
+
+interface AtUriParts {
+  did: string;
+  collection: string;
+  rkey: string;
+}
+
+interface DIDService {
+  id: string;
+  type: string;
+  serviceEndpoint: string;
+}
+
+interface DIDDocument {
+  service?: DIDService[];
+}
+
+interface BskyPostRef {
+  uri: string;
+  cid: string;
+}
+
+interface DocumentRecord {
+  $type: string;
+  title: string;
+  site: string;
+  path: string;
+  textContent: string;
+  publishedAt: string;
+  canonicalUrl?: string;
+  description?: string;
+  tags?: string[];
+  bskyPostRef?: BskyPostRef;
+}
+
+interface RichTextFacetIndex {
+  byteStart: number;
+  byteEnd: number;
+}
+
+type RichTextFeature =
+  | { $type: "app.bsky.richtext.facet#link"; uri: string }
+  | { $type: "app.bsky.richtext.facet#mention"; did: string }
+  | { $type: "app.bsky.richtext.facet#tag"; tag: string }
+  | { $type: string };
+
+interface RichTextFacet {
+  index: RichTextFacetIndex;
+  features: RichTextFeature[];
+}
+
+interface PostRecord {
+  text: string;
+  createdAt: string;
+  facets?: RichTextFacet[];
+}
+
+interface ProfileViewBasic {
+  did: string;
+  handle: string;
+  displayName?: string;
+  avatar?: string;
+}
+
+interface PostView {
+  uri: string;
+  cid: string;
+  author: ProfileViewBasic;
+  record: PostRecord;
+  indexedAt: string;
+}
+
+interface ThreadViewPost {
+  $type: "app.bsky.feed.defs#threadViewPost";
+  post: PostView;
+  replies?: ThreadOrBlocked[];
+}
+
+interface BlockedPost {
+  $type: "app.bsky.feed.defs#blockedPost" | "app.bsky.feed.defs#notFoundPost";
+}
+
+type ThreadOrBlocked = ThreadViewPost | BlockedPost;
+
+interface FlatComment {
+  post: PostView;
+  hasMoreReplies: boolean;
+}
+
+// Discriminated union for component state
+type CommentsState =
+  | { type: "loading" }
+  | { type: "no-document" }
+  | { type: "no-comments-enabled" }
+  | { type: "empty"; postUrl: string }
+  | { type: "error"; message: string }
+  | { type: "loaded"; thread: ThreadViewPost; postUrl: string };
+
+// ============================================================================
 // Styles
 // ============================================================================
 
@@ -273,12 +374,7 @@ const styles = `
 // Utility Functions
 // ============================================================================
 
-/**
- * Format a relative time string (e.g., "2 hours ago")
- * @param {string} dateString - ISO date string
- * @returns {string} Formatted relative time
- */
-function formatRelativeTime(dateString) {
+function formatRelativeTime(dateString: string): string {
   const date = new Date(dateString);
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
@@ -311,34 +407,24 @@ function formatRelativeTime(dateString) {
   return `${diffYears}y ago`;
 }
 
-/**
- * Escape HTML special characters
- * @param {string} text - Text to escape
- * @returns {string} Escaped HTML
- */
-function escapeHtml(text) {
+function escapeHtml(text: string): string {
   const div = document.createElement("div");
   div.textContent = text;
   return div.innerHTML;
 }
 
-/**
- * Convert post text with facets to HTML
- * @param {string} text - Post text
- * @param {Array<{index: {byteStart: number, byteEnd: number}, features: Array<{$type: string, uri?: string, did?: string, tag?: string}>}>} [facets] - Rich text facets
- * @returns {string} HTML string with links
- */
-function renderTextWithFacets(text, facets) {
+function renderTextWithFacets(
+  text: string,
+  facets?: RichTextFacet[]
+): string {
   if (!facets || facets.length === 0) {
     return escapeHtml(text);
   }
 
-  // Convert text to bytes for proper indexing
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
   const textBytes = encoder.encode(text);
 
-  // Sort facets by start index
   const sortedFacets = [...facets].sort(
     (a, b) => a.index.byteStart - b.index.byteStart
   );
@@ -349,25 +435,25 @@ function renderTextWithFacets(text, facets) {
   for (const facet of sortedFacets) {
     const { byteStart, byteEnd } = facet.index;
 
-    // Add text before this facet
     if (byteStart > lastEnd) {
       const beforeBytes = textBytes.slice(lastEnd, byteStart);
       result += escapeHtml(decoder.decode(beforeBytes));
     }
 
-    // Get the facet text
     const facetBytes = textBytes.slice(byteStart, byteEnd);
     const facetText = decoder.decode(facetBytes);
 
-    // Find the first renderable feature
     const feature = facet.features[0];
     if (feature) {
       if (feature.$type === "app.bsky.richtext.facet#link") {
-        result += `<a href="${escapeHtml(feature.uri)}" target="_blank" rel="noopener noreferrer">${escapeHtml(facetText)}</a>`;
+        const linkFeature = feature as { $type: string; uri: string };
+        result += `<a href="${escapeHtml(linkFeature.uri)}" target="_blank" rel="noopener noreferrer">${escapeHtml(facetText)}</a>`;
       } else if (feature.$type === "app.bsky.richtext.facet#mention") {
-        result += `<a href="https://bsky.app/profile/${escapeHtml(feature.did)}" target="_blank" rel="noopener noreferrer">${escapeHtml(facetText)}</a>`;
+        const mentionFeature = feature as { $type: string; did: string };
+        result += `<a href="https://bsky.app/profile/${escapeHtml(mentionFeature.did)}" target="_blank" rel="noopener noreferrer">${escapeHtml(facetText)}</a>`;
       } else if (feature.$type === "app.bsky.richtext.facet#tag") {
-        result += `<a href="https://bsky.app/hashtag/${escapeHtml(feature.tag)}" target="_blank" rel="noopener noreferrer">${escapeHtml(facetText)}</a>`;
+        const tagFeature = feature as { $type: string; tag: string };
+        result += `<a href="https://bsky.app/hashtag/${escapeHtml(tagFeature.tag)}" target="_blank" rel="noopener noreferrer">${escapeHtml(facetText)}</a>`;
       } else {
         result += escapeHtml(facetText);
       }
@@ -378,7 +464,6 @@ function renderTextWithFacets(text, facets) {
     lastEnd = byteEnd;
   }
 
-  // Add remaining text
   if (lastEnd < textBytes.length) {
     const remainingBytes = textBytes.slice(lastEnd);
     result += escapeHtml(decoder.decode(remainingBytes));
@@ -387,12 +472,7 @@ function renderTextWithFacets(text, facets) {
   return result;
 }
 
-/**
- * Get initials from a name for avatar placeholder
- * @param {string} name - Display name
- * @returns {string} Initials (1-2 characters)
- */
-function getInitials(name) {
+function getInitials(name: string): string {
   const parts = name.trim().split(/\s+/);
   if (parts.length >= 2) {
     return (parts[0][0] + parts[1][0]).toUpperCase();
@@ -404,13 +484,7 @@ function getInitials(name) {
 // AT Protocol Client Functions
 // ============================================================================
 
-/**
- * Parse an AT URI into its components
- * Format: at://did/collection/rkey
- * @param {string} atUri - AT Protocol URI
- * @returns {{did: string, collection: string, rkey: string} | null} Parsed components or null
- */
-function parseAtUri(atUri) {
+function parseAtUri(atUri: string): AtUriParts | null {
   const match = atUri.match(/^at:\/\/([^/]+)\/([^/]+)\/(.+)$/);
   if (!match) return null;
   return {
@@ -420,38 +494,29 @@ function parseAtUri(atUri) {
   };
 }
 
-/**
- * Resolve a DID to its PDS URL
- * Supports did:plc and did:web methods
- * @param {string} did - Decentralized Identifier
- * @returns {Promise<string>} PDS URL
- */
-async function resolvePDS(did) {
-  let pdsUrl;
+async function resolvePDS(did: string): Promise<string> {
+  let pdsUrl: string | undefined;
 
   if (did.startsWith("did:plc:")) {
-    // Fetch DID document from plc.directory
     const didDocUrl = `https://plc.directory/${did}`;
     const didDocResponse = await fetch(didDocUrl);
     if (!didDocResponse.ok) {
       throw new Error(`Could not fetch DID document: ${didDocResponse.status}`);
     }
-    const didDoc = await didDocResponse.json();
+    const didDoc: DIDDocument = await didDocResponse.json();
 
-    // Find the PDS service endpoint
     const pdsService = didDoc.service?.find(
       (s) => s.id === "#atproto_pds" || s.type === "AtprotoPersonalDataServer"
     );
     pdsUrl = pdsService?.serviceEndpoint;
   } else if (did.startsWith("did:web:")) {
-    // For did:web, fetch the DID document from the domain
     const domain = did.replace("did:web:", "");
     const didDocUrl = `https://${domain}/.well-known/did.json`;
     const didDocResponse = await fetch(didDocUrl);
     if (!didDocResponse.ok) {
       throw new Error(`Could not fetch DID document: ${didDocResponse.status}`);
     }
-    const didDoc = await didDocResponse.json();
+    const didDoc: DIDDocument = await didDocResponse.json();
 
     const pdsService = didDoc.service?.find(
       (s) => s.id === "#atproto_pds" || s.type === "AtprotoPersonalDataServer"
@@ -468,14 +533,11 @@ async function resolvePDS(did) {
   return pdsUrl;
 }
 
-/**
- * Fetch a record from a PDS using the public API
- * @param {string} did - DID of the repository owner
- * @param {string} collection - Collection name
- * @param {string} rkey - Record key
- * @returns {Promise<any>} Record value
- */
-async function getRecord(did, collection, rkey) {
+async function getRecord(
+  did: string,
+  collection: string,
+  rkey: string
+): Promise<DocumentRecord> {
   const pdsUrl = await resolvePDS(did);
 
   const url = new URL(`${pdsUrl}/xrpc/com.atproto.repo.getRecord`);
@@ -489,15 +551,10 @@ async function getRecord(did, collection, rkey) {
   }
 
   const data = await response.json();
-  return data.value;
+  return data.value as DocumentRecord;
 }
 
-/**
- * Fetch a document record from its AT URI
- * @param {string} atUri - AT Protocol URI for the document
- * @returns {Promise<{$type: string, title: string, site: string, path: string, textContent: string, publishedAt: string, canonicalUrl?: string, description?: string, tags?: string[], bskyPostRef?: {uri: string, cid: string}}>} Document record
- */
-async function getDocument(atUri) {
+async function getDocument(atUri: string): Promise<DocumentRecord> {
   const parsed = parseAtUri(atUri);
   if (!parsed) {
     throw new Error(`Invalid AT URI: ${atUri}`);
@@ -506,13 +563,10 @@ async function getDocument(atUri) {
   return getRecord(parsed.did, parsed.collection, parsed.rkey);
 }
 
-/**
- * Fetch a post thread from the public Bluesky API
- * @param {string} postUri - AT Protocol URI for the post
- * @param {number} [depth=6] - Maximum depth of replies to fetch
- * @returns {Promise<ThreadViewPost>} Thread view post
- */
-async function getPostThread(postUri, depth = 6) {
+async function getPostThread(
+  postUri: string,
+  depth: number = 6
+): Promise<ThreadViewPost> {
   const url = new URL(
     "https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread"
   );
@@ -530,15 +584,10 @@ async function getPostThread(postUri, depth = 6) {
     throw new Error("Post not found or blocked");
   }
 
-  return data.thread;
+  return data.thread as ThreadViewPost;
 }
 
-/**
- * Build a Bluesky app URL for a post
- * @param {string} postUri - AT Protocol URI for the post
- * @returns {string} Bluesky app URL
- */
-function buildBskyAppUrl(postUri) {
+function buildBskyAppUrl(postUri: string): string {
   const parsed = parseAtUri(postUri);
   if (!parsed) {
     throw new Error(`Invalid post URI: ${postUri}`);
@@ -547,12 +596,7 @@ function buildBskyAppUrl(postUri) {
   return `https://bsky.app/profile/${parsed.did}/post/${parsed.rkey}`;
 }
 
-/**
- * Type guard for ThreadViewPost
- * @param {any} post - Post to check
- * @returns {boolean} True if post is a ThreadViewPost
- */
-function isThreadViewPost(post) {
+function isThreadViewPost(post: ThreadOrBlocked): post is ThreadViewPost {
   return post?.$type === "app.bsky.feed.defs#threadViewPost";
 }
 
@@ -569,9 +613,14 @@ const BLUESKY_ICON = `<svg class="sequoia-bsky-logo" viewBox="0 0 600 530" fill=
 // ============================================================================
 
 // SSR-safe base class - use HTMLElement in browser, empty class in Node.js
-const BaseElement = typeof HTMLElement !== "undefined" ? HTMLElement : class {};
+const BaseElement =
+  typeof HTMLElement !== "undefined" ? HTMLElement : (class {} as typeof HTMLElement);
 
 class SequoiaComments extends BaseElement {
+  commentsContainer!: HTMLDivElement;
+  state!: CommentsState;
+  abortController: AbortController | null;
+
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
@@ -590,51 +639,48 @@ class SequoiaComments extends BaseElement {
     this.abortController = null;
   }
 
-  static get observedAttributes() {
+  static get observedAttributes(): string[] {
     return ["document-uri", "depth", "hide"];
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     this.render();
     this.loadComments();
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this.abortController?.abort();
   }
 
-  attributeChangedCallback() {
+  attributeChangedCallback(): void {
     if (this.isConnected) {
       this.loadComments();
     }
   }
 
-  get documentUri() {
-    // First check attribute
+  get documentUri(): string | null {
     const attrUri = this.getAttribute("document-uri");
     if (attrUri) {
       return attrUri;
     }
 
-    // Then scan for link tag in document head
     const linkTag = document.querySelector(
       'link[rel="site.standard.document"]'
     );
-    return linkTag?.href ?? null;
+    return linkTag?.getAttribute("href") ?? null;
   }
 
-  get depth() {
+  get depth(): number {
     const depthAttr = this.getAttribute("depth");
     return depthAttr ? parseInt(depthAttr, 10) : 6;
   }
 
-  get hide() {
+  get hide(): boolean {
     const hideAttr = this.getAttribute("hide");
     return hideAttr === "auto";
   }
 
-  async loadComments() {
-    // Cancel any in-flight request
+  async loadComments(): Promise<void> {
     this.abortController?.abort();
     this.abortController = new AbortController();
 
@@ -649,22 +695,18 @@ class SequoiaComments extends BaseElement {
     }
 
     try {
-      // Fetch the document record
-      const document = await getDocument(docUri);
+      const doc = await getDocument(docUri);
 
-      // Check if document has a Bluesky post reference
-      if (!document.bskyPostRef) {
+      if (!doc.bskyPostRef) {
         this.state = { type: "no-comments-enabled" };
         this.render();
         return;
       }
 
-      const postUrl = buildBskyAppUrl(document.bskyPostRef.uri);
+      const postUrl = buildBskyAppUrl(doc.bskyPostRef.uri);
 
-      // Fetch the post thread
-      const thread = await getPostThread(document.bskyPostRef.uri, this.depth);
+      const thread = await getPostThread(doc.bskyPostRef.uri, this.depth);
 
-      // Check if there are any replies
       const replies = thread.replies?.filter(isThreadViewPost) ?? [];
       if (replies.length === 0) {
         this.state = { type: "empty", postUrl };
@@ -682,7 +724,7 @@ class SequoiaComments extends BaseElement {
     }
   }
 
-  render() {
+  render(): void {
     switch (this.state.type) {
       case "loading":
         this.commentsContainer.innerHTML = `
@@ -760,13 +802,8 @@ class SequoiaComments extends BaseElement {
     }
   }
 
-  /**
-   * Flatten a thread into a linear list of comments
-   * @param {ThreadViewPost} thread - Thread to flatten
-   * @returns {Array<{post: any, hasMoreReplies: boolean}>} Flattened comments
-   */
-  flattenThread(thread) {
-    const result = [];
+  flattenThread(thread: ThreadViewPost): FlatComment[] {
+    const result: FlatComment[] = [];
     const nestedReplies = thread.replies?.filter(isThreadViewPost) ?? [];
 
     result.push({
@@ -774,7 +811,6 @@ class SequoiaComments extends BaseElement {
       hasMoreReplies: nestedReplies.length > 0,
     });
 
-    // Recursively flatten nested replies
     for (const reply of nestedReplies) {
       result.push(...this.flattenThread(reply));
     }
@@ -782,10 +818,7 @@ class SequoiaComments extends BaseElement {
     return result;
   }
 
-  /**
-   * Render a complete thread (top-level comment + all nested replies)
-   */
-  renderThread(thread) {
+  renderThread(thread: ThreadViewPost): string {
     const flatComments = this.flattenThread(thread);
     const commentsHtml = flatComments
       .map((item, index) =>
@@ -796,13 +829,11 @@ class SequoiaComments extends BaseElement {
     return `<div class="sequoia-thread">${commentsHtml}</div>`;
   }
 
-  /**
-   * Render a single comment
-   * @param {any} post - Post data
-   * @param {boolean} showThreadLine - Whether to show the connecting thread line
-   * @param {number} _index - Index in the flattened thread (0 = top-level)
-   */
-  renderComment(post, showThreadLine = false, _index = 0) {
+  renderComment(
+    post: PostView,
+    showThreadLine: boolean = false,
+    _index: number = 0
+  ): string {
     const author = post.author;
     const displayName = author.displayName || author.handle;
     const avatarHtml = author.avatar
@@ -836,7 +867,7 @@ class SequoiaComments extends BaseElement {
 		`;
   }
 
-  countComments(replies) {
+  countComments(replies: ThreadViewPost[]): number {
     let count = 0;
     for (const reply of replies) {
       count += 1;

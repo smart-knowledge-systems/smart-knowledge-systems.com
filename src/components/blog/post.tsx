@@ -6,6 +6,7 @@ import ReadMoreContent from "@/components/blog/read-more-content";
 import Featured from "@/components/blog/featured";
 import Author from "@/components/blog/author";
 import CollapsibleComments from "@/components/blog/collapsible-comments";
+import Subscribe from "@/components/blog/subscribe";
 import { coverImages } from "@/lib/cover-images";
 import { getAtprotoUri } from "@/lib/atproto-uris";
 
@@ -64,11 +65,16 @@ export default async function Post({ slug }: { slug: string }) {
               postCategories={post.categories}
               excludePosts={[post.id]}
               variant="sidebar"
+              afterHeading={<Subscribe />}
             />
           </div>
         </div>
       ) : (
-        <Featured postCategories={post.categories} excludePosts={[post.id]} />
+        <Featured
+          postCategories={post.categories}
+          excludePosts={[post.id]}
+          afterHeading={<Subscribe />}
+        />
       )}
     </div>
   );

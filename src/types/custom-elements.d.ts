@@ -7,6 +7,14 @@ declare module "react" {
         React.HTMLAttributes<HTMLElement> & { "document-uri"?: string },
         HTMLElement
       >;
+      "sequoia-subscribe": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & {
+          "publication-uri"?: string;
+          "callback-url"?: string;
+          hide?: string;
+        },
+        HTMLElement
+      >;
     }
   }
 }

@@ -7,21 +7,26 @@ interface FeaturedProps {
   postCategories: Category[];
   excludePosts?: number[];
   variant?: "default" | "sidebar";
+  afterHeading?: React.ReactNode;
 }
 
 export default async function Featured({
   postCategories,
   excludePosts,
   variant = "default",
+  afterHeading,
 }: FeaturedProps) {
   const posts = await getFeaturedPosts(postCategories, 3, excludePosts);
 
   if (variant === "sidebar") {
     return (
       <div className="lg:sticky lg:top-8 lg:self-start">
-        <h2 className="text-pretty text-2xl font-semibold tracking-tight text-gray-900">
-          From the blog
-        </h2>
+        <div className="flex items-center gap-4">
+          <h2 className="text-pretty text-2xl font-semibold tracking-tight text-gray-900">
+            From the blog
+          </h2>
+          {afterHeading}
+        </div>
         <div className="mt-6 flex flex-col gap-3 border-t border-gray-200 pt-6">
           {posts.map((post) => (
             <article
@@ -91,9 +96,12 @@ export default async function Featured({
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-            From the blog
-          </h2>
+          <div className="flex items-center gap-4">
+            <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+              From the blog
+            </h2>
+            {afterHeading}
+          </div>
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
