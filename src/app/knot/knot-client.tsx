@@ -32,7 +32,7 @@ function useKnotStatus() {
       timeoutRef.current = setTimeout(() => {
         checkStatus();
         intervalRef.current = setInterval(checkStatus, 10_000);
-      }, 10_000);
+      }, 5_000);
     };
 
     const stopPolling = () => {
