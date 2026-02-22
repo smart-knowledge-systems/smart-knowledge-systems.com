@@ -24,6 +24,21 @@ export type Post = {
 
 export const postsData: Post[] = [
   {
+    id: 24,
+    title: "The Knot That Sleeps",
+    href: "/blog/the-knot-that-sleeps",
+    description:
+      "I didn't want to buy a server. So my self-hosted Tangled knot runs on a laptop, serves git repos through the AT Protocol, and goes offline when the lid closes. Then I read Harari's Nexus — and realized the ephemerality wasn't a compromise. It was a feature.",
+    datetime: new Date("2026-02-22"),
+    categories: [
+      cp.technologyIntegration1,
+      cp.knowledgeManagement2,
+      cp.organizationalCulture3,
+    ],
+    author: russAuthor,
+    body: "",
+  },
+  {
     id: 23,
     title: "Publishing to the ATmosphere",
     href: "/blog/publishing-to-the-atmosphere",

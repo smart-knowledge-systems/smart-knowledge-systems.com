@@ -16,6 +16,7 @@ import conversationsThatMatter from "@/assets/conversations-that-matter.jpg";
 import breakDownAnySilo from "@/assets/break-down-any-silo.jpg";
 import lessonsFromTheField from "@/assets/lessons-from-the-field.jpg";
 import collaborationToolkit from "@/assets/collaboration-toolkit.jpg";
+import theKnotThatSleeps from "@/assets/the-knot-that-sleeps.jpg";
 
 export const coverImages: Record<string, StaticImageData> = {
   "publishing-to-the-atmosphere": publishingToTheAtmosphere,
@@ -34,4 +35,5 @@ export const coverImages: Record<string, StaticImageData> = {
   "break-down-any-silo": breakDownAnySilo,
   "lessons-from-the-field": lessonsFromTheField,
   "collaboration-toolkit": collaborationToolkit,
+  "the-knot-that-sleeps": theKnotThatSleeps,
 };

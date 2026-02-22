@@ -4,8 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { toast } from "sonner";
 
 const KNOT_URL = "https://knot.smart-knowledge-systems.com";
-const TANGLED_PROFILE =
-  "https://tangled.sh/did:plc:i2fgba5nignuw4nccml33wjp";
+const TANGLED_PROFILE = "https://tangled.sh/did:plc:i2fgba5nignuw4nccml33wjp";
 
 type KnotStatus = "checking" | "online" | "offline";
 
