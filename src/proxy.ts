@@ -3,6 +3,31 @@ import type { NextRequest } from "next/server";
 import { after } from "next/server";
 import { logger, logEvent } from "@/lib/axiom/server";
 
+const KNOT_PLAIN_TEXT = `
+╔══════════════════════════════════════════════════════════╗
+║           knot.smart-knowledge-systems.com               ║
+║           Tangled knot · ATProto git hosting             ║
+╚══════════════════════════════════════════════════════════╝
+
+STATUS
+  This knot runs as a local Docker container on a personal
+  laptop. It is only reachable when that laptop is powered
+  on and connected to the internet via Cloudflare Tunnel.
+
+  If you're seeing this page, the knot is likely offline.
+
+RETRY
+  https://knot.smart-knowledge-systems.com
+
+TANGLED PROFILE (always available)
+  https://tangled.sh/did:plc:i2fgba5nignuw4nccml33wjp
+
+CLONE EXAMPLE (when knot is live)
+  git clone https://knot.smart-knowledge-systems.com/<did>/<repo>
+
+──────────────────────────────────────────────────────────
+`.trim();
+
 // Exact paths to exclude from logging
 const EXCLUDED_EXACT_PATHS = new Set([
   "/favicon.ico",
@@ -47,6 +72,17 @@ function shouldLogRequest(pathname: string): boolean {
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Content negotiation for /knot: serve plain text to non-browser clients (curl, etc.)
+  if (pathname === "/knot") {
+    const accept = request.headers.get("accept") ?? "";
+    if (!accept.includes("text/html")) {
+      return new Response(KNOT_PLAIN_TEXT, {
+        headers: { "Content-Type": "text/plain; charset=utf-8" },
+      });
+    }
+    return NextResponse.next();
+  }
 
   if (!shouldLogRequest(pathname)) {
     return NextResponse.next();
