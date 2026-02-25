@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiri 切り — Benchmarks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Serif+JP:wght@200;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --copper: #dea584;
+  --copper-bright: #f0c4a0;
+  --copper-dim: #a06a3c;
+  --copper-glow: rgba(222,165,132,0.35);
+  --elixir: #6e4a7e;
+  --elixir-bright: #a87cc0;
+  --elixir-dim: #4a2d5e;
+  --elixir-glow: rgba(110,74,126,0.4);
+  --ts-blue: #7b8ec9;
+  --ts-blue-bright: #a0b4e8;
+  --ts-blue-dim: #4a5a8a;
+  --ts-glow: rgba(123,142,201,0.35);
+  --emerald: #5a9e6f;
+  --emerald-bright: #7ec492;
+  --emerald-dim: #3a6e4a;
+  --emerald-glow: rgba(90,158,111,0.35);
+  --bg-deep: #0c0a12;
+  --bg-mid: #14111e;
+  --bg-card: rgba(20,17,32,0.85);
+  --text-primary: #e8e0d4;
+  --text-secondary: #9a8e7e;
+  --text-dim: #5a5248;
+  --border-subtle: rgba(222,165,132,0.08);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* === TEXTURE OVERLAY === */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(110,74,126,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(222,165,132,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(90,158,111,0.03) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Noise texture via SVG data URI */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === HEXAGONAL BACKGROUND PATTERN === */
+.hex-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66Z' fill='none' stroke='%23dea584' stroke-width='0.5'/%3E%3Cpath d='M28 166L0 150L0 116L28 100L56 116L56 150L28 166Z' fill='none' stroke='%23dea584' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* === LAYOUT === */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* === HERO === */
+.hero {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+}
+
+.hero-watermark {
+  position: absolute;
+  font-family: var(--font-jp);
+  font-weight: 200;
+  font-size: clamp(12rem, 25vw, 22rem);
+  color: transparent;
+  background: linear-gradient(135deg, rgba(222,165,132,0.04), rgba(110,74,126,0.03));
+  -webkit-background-clip: text;
+  background-clip: text;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-blade {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: bladeSlice 1s ease-out 0.3s forwards;
+}
+
+@keyframes bladeSlice {
+  0% { width: 0; opacity: 0; }
+  50% { opacity: 1; }
+  100% { width: 120px; opacity: 1; }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.5s forwards;
+}
+
+.hero-title .jp {
+  font-family: var(--font-jp);
+  font-weight: 200;
+  font-size: 0.6em;
+  color: var(--copper);
+  display: block;
+  letter-spacing: 0.3em;
+  margin-top: 0.15em;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.7s forwards;
+}
+
+.hero-tagline {
+  font-family: var(--font-jp);
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: var(--copper);
+  margin-top: 1rem;
+  letter-spacing: 0.25em;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.85s forwards;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 1s forwards;
+}
+
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--copper-dim);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === SECTION === */
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-jp {
+  font-family: var(--font-jp);
+  font-weight: 200;
+  font-size: 2.2rem;
+  color: var(--copper);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  margin-left: auto;
+}
+
+/* === LEGEND === */
+.legend {
+  display: flex;
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+.legend-swatch.rust { background: var(--copper); box-shadow: 0 0 6px var(--copper-glow); }
+.legend-swatch.ts { background: var(--ts-blue); box-shadow: 0 0 6px var(--ts-glow); }
+.legend-swatch.elixir { background: var(--emerald); box-shadow: 0 0 6px var(--emerald-glow); }
+
+/* === CHART GROUP === */
+.chart-group {
+  margin-bottom: 3rem;
+}
+
+.chart-group-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--copper-dim);
+}
+
+/* === BAR CHART === */
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  align-items: center;
+  min-height: 28px;
+}
+
+.chart-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-align: right;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.chart-label .runtime-badge {
+  font-size: 0.58rem;
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.runtime-badge.bun { background: rgba(222,165,132,0.12); color: var(--copper); }
+.runtime-badge.node { background: rgba(123,142,201,0.12); color: var(--ts-blue); }
+.runtime-badge.elixir { background: rgba(90,158,111,0.12); color: var(--emerald); }
+
+.chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 22px;
+}
+
+.bar-dict-label {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  border-radius: 1px;
+  overflow: visible;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 1px;
+  position: relative;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+}
+
+.bar.rust {
+  background: linear-gradient(90deg, var(--copper-dim), var(--copper));
+  box-shadow: 0 0 12px var(--copper-glow), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.bar.ts {
+  background: linear-gradient(90deg, var(--ts-blue-dim), var(--ts-blue));
+  box-shadow: 0 0 12px var(--ts-glow), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.bar.elixir {
+  background: linear-gradient(90deg, var(--emerald-dim), var(--emerald));
+  box-shadow: 0 0 12px var(--emerald-glow), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.bar-value {
+  position: absolute;
+  right: -8px;
+  transform: translateX(100%);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease 1.2s;
+  letter-spacing: 0.03em;
+}
+
+.bar-row:hover .bar-value {
+  opacity: 1 !important;
+  color: var(--text-secondary);
+  transition-delay: 0s;
+}
+
+.chart-row.revealed .bar-value {
+  opacity: 0.6;
+}
+
+.bar-row:hover .bar {
+  filter: brightness(1.15);
+}
+
+/* Tooltip on hover */
+.bar-tooltip {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-mid);
+  border: 1px solid var(--border-subtle);
+  padding: 0.3em 0.6em;
+  border-radius: 3px;
+  font-size: 0.68rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.bar-row:hover .bar-tooltip {
+  opacity: 1;
+}
+
+/* Chart divider line */
+.chart-row + .chart-row {
+  border-top: 1px solid rgba(222,165,132,0.03);
+  padding-top: 0.4rem;
+}
+
+/* === SEPARATOR === */
+.separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), var(--copper-dim), var(--border-subtle), transparent);
+  margin: 1rem 0;
+}
+
+/* === DUAL CHARTS LAYOUT === */
+.dual-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 900px) {
+  .dual-charts {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* === LOAD TIME CHART (vertical bars) === */
+.load-chart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.load-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.load-group:hover {
+  border-color: rgba(222,165,132,0.15);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.load-group-title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.load-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 120px;
+  margin-bottom: 0.8rem;
+}
+
+.load-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  max-width: 32px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.load-bar {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  min-height: 2px;
+  height: 0;
+  transition: height 1s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.load-bar.rust {
+  background: linear-gradient(0deg, var(--copper-dim), var(--copper));
+  box-shadow: 0 -2px 8px var(--copper-glow);
+}
+.load-bar.ts {
+  background: linear-gradient(0deg, var(--ts-blue-dim), var(--ts-blue));
+  box-shadow: 0 -2px 8px var(--ts-glow);
+}
+.load-bar.elixir {
+  background: linear-gradient(0deg, var(--emerald-dim), var(--emerald));
+  box-shadow: 0 -2px 8px var(--emerald-glow);
+}
+
+.load-bar-label {
+  font-size: 0.55rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  writing-mode: horizontal-tb;
+}
+
+.load-bar-val {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.58rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.load-bar:hover .load-bar-val {
+  opacity: 1;
+  color: var(--text-secondary);
+}
+
+.load-group.revealed .load-bar-val {
+  opacity: 0.5;
+}
+
+.load-dict-labels {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.load-dict-label {
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  flex: 1;
+  max-width: 32px;
+  text-align: center;
+}
+
+/* === FOOTER === */
+.footer {
+  padding: 4rem 0 3rem;
+  text-align: center;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 2rem;
+}
+
+.footer-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.footer-line a {
+  color: var(--copper-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-line a:hover {
+  color: var(--copper);
+  border-bottom-color: var(--copper-dim);
+}
+
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+  .hero { padding: 4rem 1rem 3rem; min-height: 40vh; }
+  .chart-row { grid-template-columns: 110px 1fr; gap: 0.5rem; }
+  .chart-label { font-size: 0.62rem; }
+  .section-header { flex-wrap: wrap; gap: 0.5rem; }
+  .section-subtitle { margin-left: 0; }
+  .hero-meta { flex-direction: column; gap: 0.5rem; }
+  .load-chart { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .chart-row { grid-template-columns: 80px 1fr; }
+  .bar-value { font-size: 0.55rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="hex-grid"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-watermark">切</div>
+  <div class="hero-blade"></div>
+  <h1 class="hero-title">
+    KIRI
+    <span class="jp">切り</span>
+  </h1>
+  <p class="hero-subtitle">Performance Benchmarks &mdash; Japanese Morphological Analysis</p>
+  <p class="hero-tagline">言葉を切る刃</p>
+  <div class="hero-meta">
+    <span><span class="dot"></span>Apple M4 Pro</span>
+    <span><span class="dot"></span>SudachiDict v20260116</span>
+    <span><span class="dot"></span>Single-threaded</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- THROUGHPUT SECTION -->
+  <section class="section reveal">
+    <div class="section-header">
+      <span class="section-jp">速度</span>
+      <h2 class="section-title">Tokenization Throughput</h2>
+      <span class="section-subtitle">chars / second</span>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-swatch rust"></span>Rust / Native</div>
+      <div class="legend-item"><span class="legend-swatch ts"></span>TypeScript / Core</div>
+      <div class="legend-item"><span class="legend-swatch elixir"></span>Elixir / NIF</div>
+    </div>
+
+    <div class="dual-charts">
+      <!-- SHORT TEXT -->
+      <div class="chart-group reveal">
+        <h3 class="chart-group-title">Short texts <span style="color:var(--text-dim)">~750 chars/iter</span></h3>
+        <div class="chart" id="chart-short"></div>
+      </div>
+
+      <!-- LONG TEXT -->
+      <div class="chart-group reveal">
+        <h3 class="chart-group-title">Long texts <span style="color:var(--text-dim)">~10k chars/iter</span></h3>
+        <div class="chart" id="chart-long"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+  <!-- DICT LOAD TIME SECTION -->
+  <section class="section reveal">
+    <div class="section-header">
+      <span class="section-jp">辞書</span>
+      <h2 class="section-title">Dictionary Load Time</h2>
+      <span class="section-subtitle">milliseconds</span>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-swatch rust"></span>Rust / Native</div>
+      <div class="legend-item"><span class="legend-swatch ts"></span>TypeScript / Core</div>
+      <div class="legend-item"><span class="legend-swatch elixir"></span>Elixir / NIF</div>
+    </div>
+
+    <div class="load-chart" id="chart-load"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-line">
+      <a href="https://tangled.org/russ-fugal.smart-knowledge-systems.com/kiri/blob/main/README.md">Kiri</a> &mdash;
+      Built with <a href="https://github.com/WorksApplications/Sudachi">Sudachi</a> algorithms
+      &mdash; forged in Rust, tempered in TypeScript, distilled in Elixir
+    </p>
+    <p class="footer-line" style="margin-top: 0.8rem">
+      <a href="https://smart-knowledge-systems.com">Smart Knowledge Systems</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+// ─── DATA (generated by bench/gen-html.ts) ───
+const shortData = [{"runtime":"Bun","badge":"bun","backend":"Native (Rust)","type":"rust","small":617572,"core":651520,"full":563847},{"runtime":"Bun","badge":"bun","backend":"Core (TS)","type":"ts","small":689647,"core":763965,"full":740085},{"runtime":"Node","badge":"node","backend":"Native (Rust)","type":"rust","small":503330,"core":507930,"full":411316},{"runtime":"Node","badge":"node","backend":"Core (TS)","type":"ts","small":505946,"core":474554,"full":480779},{"runtime":"Elixir","badge":"elixir","backend":"NIF (Rust)","type":"elixir","small":null,"core":27861,"full":null}];
+const longData = [{"runtime":"Bun","badge":"bun","backend":"Native (Rust)","type":"rust","small":656402,"core":605395,"full":484757},{"runtime":"Bun","badge":"bun","backend":"Core (TS)","type":"ts","small":618752,"core":560163,"full":641485},{"runtime":"Node","badge":"node","backend":"Native (Rust)","type":"rust","small":424319,"core":null,"full":392187},{"runtime":"Node","badge":"node","backend":"Core (TS)","type":"ts","small":408495,"core":null,"full":397637}];
+const loadData = [{"runtime":"Bun","badge":"bun","backend":"Native","type":"rust","small":53.1,"core":144.1,"full":253.2},{"runtime":"Bun","badge":"bun","backend":"Core","type":"ts","small":9.1,"core":21.9,"full":48.8},{"runtime":"Node","badge":"node","backend":"Native","type":"rust","small":25.7,"core":47.1,"full":84.5},{"runtime":"Node","badge":"node","backend":"Core","type":"ts","small":27,"core":64.9,"full":95.8},{"runtime":"Elixir","badge":"elixir","backend":"NIF","type":"elixir","small":null,"core":189.1,"full":null}];
+
+// ─── FORMAT ───
+function fmt(n) {
+  return n.toLocaleString('en-US');
+}
+
+function fmtMs(n) {
+  return n % 1 === 0 ? n + 'ms' : n.toFixed(1) + 'ms';
+}
+
+// ─── BUILD THROUGHPUT CHART ───
+function buildThroughputChart(containerId, data) {
+  const container = document.getElementById(containerId);
+  const allValues = data.flatMap(d => [d.small, d.core, d.full].filter(v => v != null));
+  const maxVal = Math.max(...allValues);
+
+  data.forEach(row => {
+    const chartRow = document.createElement('div');
+    chartRow.className = 'chart-row';
+
+    const label = document.createElement('div');
+    label.className = 'chart-label';
+    label.innerHTML = '<span class="runtime-badge ' + row.badge + '">' + row.runtime + '</span> ' + row.backend;
+
+    const barsContainer = document.createElement('div');
+    barsContainer.className = 'chart-bars';
+
+    const dicts = [
+      { key: 'small', label: 'sm' },
+      { key: 'core', label: 'co' },
+      { key: 'full', label: 'fl' },
+    ];
+
+    dicts.forEach(dict => {
+      const val = row[dict.key];
+      if (val == null) return;
+      const pct = (val / maxVal) * 100;
+
+      const barRow = document.createElement('div');
+      barRow.className = 'bar-row';
+
+      const dictLabel = document.createElement('span');
+      dictLabel.className = 'bar-dict-label';
+      dictLabel.textContent = dict.label;
+
+      const track = document.createElement('div');
+      track.className = 'bar-track';
+
+      const bar = document.createElement('div');
+      bar.className = 'bar ' + row.type;
+      bar.dataset.width = pct;
+
+      const tooltip = document.createElement('div');
+      tooltip.className = 'bar-tooltip';
+      tooltip.textContent = fmt(val) + ' chars/s';
+
+      const barValue = document.createElement('span');
+      barValue.className = 'bar-value';
+      barValue.textContent = fmt(val);
+
+      bar.appendChild(tooltip);
+      bar.appendChild(barValue);
+      track.appendChild(bar);
+      barRow.appendChild(dictLabel);
+      barRow.appendChild(track);
+      barsContainer.appendChild(barRow);
+    });
+
+    chartRow.appendChild(label);
+    chartRow.appendChild(barsContainer);
+    container.appendChild(chartRow);
+  });
+}
+
+// ─── BUILD LOAD TIME CHART ───
+function buildLoadChart(containerId, data) {
+  const container = document.getElementById(containerId);
+  const allValues = data.flatMap(d => [d.small, d.core, d.full].filter(v => v != null));
+  const maxVal = Math.max(...allValues);
+
+  data.forEach(row => {
+    const group = document.createElement('div');
+    group.className = 'load-group';
+
+    const title = document.createElement('div');
+    title.className = 'load-group-title';
+    title.innerHTML = '<span class="runtime-badge ' + row.badge + '" style="font-size:0.6rem">' + row.runtime + '</span> ' + row.backend;
+
+    const bars = document.createElement('div');
+    bars.className = 'load-bars';
+
+    const dicts = ['small', 'core', 'full'];
+
+    dicts.forEach(dict => {
+      const val = row[dict];
+      if (val == null) return;
+      const pct = (val / maxVal) * 100;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'load-bar-wrapper';
+
+      const bar = document.createElement('div');
+      bar.className = 'load-bar ' + row.type;
+      bar.dataset.height = pct;
+
+      const valLabel = document.createElement('span');
+      valLabel.className = 'load-bar-val';
+      valLabel.textContent = fmtMs(val);
+
+      bar.appendChild(valLabel);
+      wrapper.appendChild(bar);
+      bars.appendChild(wrapper);
+    });
+
+    const dictLabels = document.createElement('div');
+    dictLabels.className = 'load-dict-labels';
+    ['sm', 'co', 'fl'].forEach(d => {
+      const lbl = document.createElement('span');
+      lbl.className = 'load-dict-label';
+      lbl.textContent = d;
+      dictLabels.appendChild(lbl);
+    });
+
+    group.appendChild(title);
+    group.appendChild(bars);
+    group.appendChild(dictLabels);
+    container.appendChild(group);
+  });
+}
+
+// ─── INIT ───
+buildThroughputChart('chart-short', shortData);
+buildThroughputChart('chart-long', longData);
+buildLoadChart('chart-load', loadData);
+
+// ─── SCROLL REVEAL + ANIMATE BARS ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // Animate horizontal bars
+      const bars = entry.target.querySelectorAll('.bar[data-width]');
+      bars.forEach((bar, i) => {
+        setTimeout(() => {
+          bar.style.width = bar.dataset.width + '%';
+          bar.closest('.chart-row')?.classList.add('revealed');
+        }, i * 40);
+      });
+
+      // Animate vertical bars
+      const loadBars = entry.target.querySelectorAll('.load-bar[data-height]');
+      loadBars.forEach((bar, i) => {
+        setTimeout(() => {
+          bar.style.height = bar.dataset.height + '%';
+          bar.closest('.load-group')?.classList.add('revealed');
+        }, i * 60);
+      });
+
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
