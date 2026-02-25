@@ -1,0 +1,36 @@
+diff --git a/dist/index.js b/dist/index.js
+index aff09a8af09ae37c8d01908f95a336e580805d31..5324e4fcac4417a47ee3d0a82778add4c8d20f66 100755
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -99671,6 +99671,12 @@ async function updateDocument(agent, post, atUri, config, coverImage) {
+     throw new Error(`Invalid atUri format: ${atUri}`);
+   }
+   const [, , collection, rkey] = uriMatch;
++  const existingResponse = await agent.com.atproto.repo.getRecord({
++    repo: agent.did,
++    collection,
++    rkey
++  });
++  const existingRecord = existingResponse.data.value;
+   const postPath = resolvePostPath(post, config.pathPrefix, config.pathTemplate);
+   const publishDate = new Date(post.frontmatter.publishDate);
+   let textContent;
+@@ -99680,6 +99686,7 @@ async function updateDocument(agent, post, atUri, config, coverImage) {
+     textContent = stripMarkdownForText(post.content);
+   }
+   const record = {
++    ...existingRecord,
+     $type: "site.standard.document",
+     title: post.frontmatter.title,
+     site: config.publicationUri,
+@@ -101160,6 +101167,10 @@ Dry run complete. No changes made.`);
+           if (existingBskyPostRef) {
+             R2.info(`  Bluesky post already exists, skipping`);
+             bskyPostRef = existingBskyPostRef;
++            if (action === "update") {
++              await addBskyPostRefToDocument(agent, atUri, existingBskyPostRef);
++              R2.info(`  Restored bskyPostRef on document`);
++            }
+           } else {
+             const publishDate = new Date(post.frontmatter.publishDate);
+             if (publishDate < cutoffDate) {
