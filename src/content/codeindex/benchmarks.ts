@@ -131,14 +131,14 @@ export const signalContribution = {
   subheadline: "Ablation study showing which signals matter most.",
   signals: [
     {
-      name: "Commit recency boost",
+      name: "Commit message similarity",
       contribution: "25.8%",
-      note: "Strongest signal — recently edited files rank higher",
+      note: "Strongest signal — matches query against recent commit messages with exponential recency decay. Files whose commits semantically relate to your search rank higher.",
     },
     {
       name: "Parent directory boost",
       contribution: "5.9%",
-      note: "Files near the query context get a relevance bump",
+      note: "Propagates directory-level relevance scores to child files, so files in semantically relevant directories rank higher.",
     },
     {
       name: "Child-to-parent",
