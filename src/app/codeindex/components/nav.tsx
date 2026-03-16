@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/codeindex", label: "Overview" },
   { href: "/codeindex/benchmarks", label: "Benchmarks" },
   { href: "/codeindex/compare", label: "Compare" },
+  { href: "/codeindex/cloud", label: "Cloud" },
 ];
 
 const externalLinks = [

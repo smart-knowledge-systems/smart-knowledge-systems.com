@@ -19,6 +19,7 @@ import {
 } from "@/app/codeindex/components/section";
 import { HeroTerminal } from "@/app/codeindex/components/hero-terminal";
 import { QuickStartBlock } from "@/app/codeindex/components/quick-start-block";
+import { ServicesSection } from "@/app/codeindex/components/services-section";
 
 export default function CodeindexPage() {
   return (
@@ -241,15 +242,9 @@ export default function CodeindexPage() {
                 <th className="pb-3 pr-6 font-medium text-cyan-400">
                   codeindex
                 </th>
-                <th className="pb-3 pr-6 font-medium text-slate-400">
-                  grep
-                </th>
-                <th className="pb-3 pr-6 font-medium text-slate-400">
-                  GitHub
-                </th>
-                <th className="pb-3 font-medium text-slate-400">
-                  Sourcegraph
-                </th>
+                <th className="pb-3 pr-6 font-medium text-slate-400">grep</th>
+                <th className="pb-3 pr-6 font-medium text-slate-400">GitHub</th>
+                <th className="pb-3 font-medium text-slate-400">Sourcegraph</th>
               </tr>
             </thead>
             <tbody>
@@ -293,9 +288,7 @@ export default function CodeindexPage() {
               key={item.scenario}
               className="rounded-xl border border-orange-500/20 bg-orange-500/5 p-6"
             >
-              <div className="font-medium text-orange-400">
-                {item.scenario}
-              </div>
+              <div className="font-medium text-orange-400">{item.scenario}</div>
               <p className="mt-2 text-sm text-slate-400">
                 {item.recommendation}
               </p>
@@ -304,42 +297,72 @@ export default function CodeindexPage() {
         </div>
       </Section>
 
+      {/* Services */}
+      <ServicesSection />
+
       {/* CTA Footer */}
       <Section className="border-t border-slate-800">
         <div className="text-center">
           <SectionHeadline className="text-center">
             {ctaFooter.headline}
           </SectionHeadline>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {ctaFooter.tiers.map((tier) => (
-              <div
-                key={tier.level}
-                className="rounded-xl border border-slate-700/50 bg-slate-800/30 p-6 text-center"
-              >
-                <div className="text-sm font-medium text-cyan-400">
-                  {tier.level}
-                </div>
-                <div className="mt-2 text-lg font-semibold text-white">
-                  {tier.label}
-                </div>
-                {tier.command ? (
-                  <div className="mt-4 rounded-lg bg-slate-950 px-4 py-2">
-                    <code className="font-mono text-xs text-slate-300">
-                      {tier.command}
-                    </code>
-                  </div>
-                ) : (
-                  <a
-                    href={tier.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block text-sm text-cyan-400 transition-colors hover:text-cyan-300"
+          <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {ctaFooter.tiers.map((tier, i) => {
+              const isSelfServe = i < 2;
+              const isInternal = tier.href && !tier.href.startsWith("http");
+              return (
+                <div
+                  key={tier.level}
+                  className={`rounded-xl p-6 text-center ${
+                    isSelfServe
+                      ? "border border-cyan-500/20 bg-slate-800/40"
+                      : "border border-amber-500/15 bg-slate-800/20"
+                  }`}
+                >
+                  <div
+                    className={`text-sm font-medium ${
+                      isSelfServe ? "text-cyan-400" : "text-amber-400/80"
+                    }`}
                   >
-                    {tier.label} →
-                  </a>
-                )}
-              </div>
-            ))}
+                    {tier.level}
+                  </div>
+                  <div className="mt-2 text-base font-semibold text-white">
+                    {tier.label}
+                  </div>
+                  {tier.command ? (
+                    <div className="mt-4 rounded-lg bg-slate-950 px-3 py-2">
+                      <code className="font-mono text-xs text-slate-300 break-all">
+                        {tier.command}
+                      </code>
+                    </div>
+                  ) : isInternal ? (
+                    <Link
+                      href={tier.href!}
+                      className={`mt-4 inline-block text-sm transition-colors ${
+                        isSelfServe
+                          ? "text-cyan-400 hover:text-cyan-300"
+                          : "text-amber-400/80 hover:text-amber-300"
+                      }`}
+                    >
+                      Learn more →
+                    </Link>
+                  ) : (
+                    <a
+                      href={tier.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`mt-4 inline-block text-sm transition-colors ${
+                        isSelfServe
+                          ? "text-cyan-400 hover:text-cyan-300"
+                          : "text-amber-400/80 hover:text-amber-300"
+                      }`}
+                    >
+                      Schedule a call →
+                    </a>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="mt-16 text-center text-xs text-slate-600">
