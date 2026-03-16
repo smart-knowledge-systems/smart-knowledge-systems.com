@@ -182,17 +182,21 @@ export default function BenchmarksPage() {
                 ? "border-emerald-500/30"
                 : lang.status === "good"
                   ? "border-cyan-500/30"
-                  : lang.status === "limited"
-                    ? "border-orange-500/30"
-                    : "border-red-500/30";
+                  : lang.status === "supported"
+                    ? "border-slate-500/30"
+                    : lang.status === "limited"
+                      ? "border-orange-500/30"
+                      : "border-red-500/30";
             const statusColor =
               lang.status === "excellent"
                 ? "text-emerald-400"
                 : lang.status === "good"
                   ? "text-cyan-400"
-                  : lang.status === "limited"
-                    ? "text-orange-400"
-                    : "text-red-400";
+                  : lang.status === "supported"
+                    ? "text-slate-400"
+                    : lang.status === "limited"
+                      ? "text-orange-400"
+                      : "text-red-400";
 
             return (
               <div

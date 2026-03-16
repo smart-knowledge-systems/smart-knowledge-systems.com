@@ -121,7 +121,8 @@ export const perRepoBreakdown = {
 
 export const perLanguagePerformance = {
   headline: "Per-Language Performance",
-  subheadline: "65 queries from self-evaluation dataset",
+  subheadline:
+    "18 languages supported. 6 benchmarked with dedicated eval queries, plus TypeScript (self-eval) and prose/docs.",
   languages: [
     {
       name: "PHP",
@@ -130,37 +131,107 @@ export const perLanguagePerformance = {
       status: "excellent" as const,
     },
     {
-      name: "Kotlin",
-      mrr: "93%",
-      hitRate5: "100%",
-      status: "excellent" as const,
-    },
-    {
-      name: "Ruby",
+      name: "Swift",
       mrr: "90%",
       hitRate5: "100%",
       status: "excellent" as const,
     },
     {
       name: "Scala",
-      mrr: "87%",
+      mrr: "90%",
       hitRate5: "100%",
       status: "excellent" as const,
     },
-    { name: "Swift", mrr: "73%", hitRate5: "80%", status: "good" as const },
     {
-      name: "Original Code",
-      mrr: "70%",
-      hitRate5: "78.4%",
+      name: "Ruby",
+      mrr: "85%",
+      hitRate5: "100%",
+      status: "excellent" as const,
+    },
+    {
+      name: "Kotlin",
+      mrr: "64%",
+      hitRate5: "100%",
       status: "good" as const,
     },
     {
       name: "Prose/Docs",
-      mrr: "40%",
-      hitRate5: "47%",
+      mrr: "61%",
+      hitRate5: "73%",
+      status: "good" as const,
+    },
+    {
+      name: "TypeScript",
+      mrr: "55%",
+      hitRate5: "64%",
+      status: "good" as const,
+    },
+    {
+      name: "Lua",
+      mrr: "17%",
+      hitRate5: "40%",
       status: "limited" as const,
     },
-    { name: "Lua", mrr: "0%", hitRate5: "0%", status: "broken" as const },
+    {
+      name: "Python",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "Go",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "Rust",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "Java",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "JavaScript",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "C",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "C++",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "C#",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "Elixir",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
+    {
+      name: "Zig",
+      mrr: "—",
+      hitRate5: "—",
+      status: "supported" as const,
+    },
   ],
 };
 
@@ -208,7 +279,8 @@ export const knownLimitations = {
     },
     {
       limitation: "Lua support",
-      detail: "Skeleton extraction is currently broken. We're working on it.",
+      detail:
+        "17% MRR — skeleton extraction finds some patterns but misses closures, coroutines, and metamethods. Improving.",
     },
     {
       limitation: "Single-word generic targets",
