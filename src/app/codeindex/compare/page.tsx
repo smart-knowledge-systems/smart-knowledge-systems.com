@@ -8,10 +8,7 @@ import {
   type CellValue,
 } from "@/content/codeindex/compare";
 import { CodeindexNav } from "@/app/codeindex/components/nav";
-import {
-  Section,
-  SectionHeadline,
-} from "@/app/codeindex/components/section";
+import { Section, SectionHeadline } from "@/app/codeindex/components/section";
 
 export const metadata: Metadata = {
   title: "Compare",
@@ -136,9 +133,7 @@ export default function ComparePage() {
           {competitor.costComparison && (
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-4 text-center">
-                <div className="text-xs text-slate-500">
-                  {competitor.name}
-                </div>
+                <div className="text-xs text-slate-500">{competitor.name}</div>
                 <div className="mt-1 font-mono text-sm text-slate-400">
                   {competitor.costComparison.theirs}
                 </div>

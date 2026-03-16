@@ -89,10 +89,7 @@ export function AnimatedTerminalComparison({
         </div>
         <div className="h-56 overflow-hidden p-4">
           {grep.results.slice(0, visibleGrep).map((line, i) => (
-            <div
-              key={i}
-              className="font-mono text-xs leading-6 text-slate-500"
-            >
+            <div key={i} className="font-mono text-xs leading-6 text-slate-500">
               {line}
             </div>
           ))}

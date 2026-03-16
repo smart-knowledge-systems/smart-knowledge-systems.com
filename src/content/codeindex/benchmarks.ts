@@ -10,8 +10,16 @@ export const benchmarkHero = {
 export const summaryStats = [
   { value: "3.1x", label: "MRR", description: "Mean Reciprocal Rank" },
   { value: "3.0x", label: "HitRate@5", description: "Hit Rate at 5 results" },
-  { value: "2.6x", label: "Precision@5", description: "Precision at 5 results" },
-  { value: "2.9x", label: "nDCG@10", description: "Normalized Discounted Cumulative Gain" },
+  {
+    value: "2.6x",
+    label: "Precision@5",
+    description: "Precision at 5 results",
+  },
+  {
+    value: "2.9x",
+    label: "nDCG@10",
+    description: "Normalized Discounted Cumulative Gain",
+  },
   { value: "$0.17", label: "42 repos", description: "Total indexing cost" },
 ];
 
@@ -115,13 +123,43 @@ export const perLanguagePerformance = {
   headline: "Per-Language Performance",
   subheadline: "65 queries from self-evaluation dataset",
   languages: [
-    { name: "PHP", mrr: "100%", hitRate5: "100%", status: "excellent" as const },
-    { name: "Kotlin", mrr: "93%", hitRate5: "100%", status: "excellent" as const },
-    { name: "Ruby", mrr: "90%", hitRate5: "100%", status: "excellent" as const },
-    { name: "Scala", mrr: "87%", hitRate5: "100%", status: "excellent" as const },
+    {
+      name: "PHP",
+      mrr: "100%",
+      hitRate5: "100%",
+      status: "excellent" as const,
+    },
+    {
+      name: "Kotlin",
+      mrr: "93%",
+      hitRate5: "100%",
+      status: "excellent" as const,
+    },
+    {
+      name: "Ruby",
+      mrr: "90%",
+      hitRate5: "100%",
+      status: "excellent" as const,
+    },
+    {
+      name: "Scala",
+      mrr: "87%",
+      hitRate5: "100%",
+      status: "excellent" as const,
+    },
     { name: "Swift", mrr: "73%", hitRate5: "80%", status: "good" as const },
-    { name: "Original Code", mrr: "70%", hitRate5: "78.4%", status: "good" as const },
-    { name: "Prose/Docs", mrr: "40%", hitRate5: "47%", status: "limited" as const },
+    {
+      name: "Original Code",
+      mrr: "70%",
+      hitRate5: "78.4%",
+      status: "good" as const,
+    },
+    {
+      name: "Prose/Docs",
+      mrr: "40%",
+      hitRate5: "47%",
+      status: "limited" as const,
+    },
     { name: "Lua", mrr: "0%", hitRate5: "0%", status: "broken" as const },
   ],
 };

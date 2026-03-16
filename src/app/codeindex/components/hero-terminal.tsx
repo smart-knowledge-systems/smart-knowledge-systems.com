@@ -9,7 +9,5 @@ export function HeroTerminal({
   grep: { label: string; results: string[] };
   codeindex: { label: string; results: string[] };
 }) {
-  return (
-    <AnimatedTerminalComparison grep={grep} codeindex={codeindex} />
-  );
+  return <AnimatedTerminalComparison grep={grep} codeindex={codeindex} />;
 }

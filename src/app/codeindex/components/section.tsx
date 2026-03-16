@@ -10,7 +10,10 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`px-8 py-20 sm:px-12 sm:py-28 lg:px-16 ${className}`}>
+    <section
+      id={id}
+      className={`px-8 py-20 sm:px-12 sm:py-28 lg:px-16 ${className}`}
+    >
       <div className="mx-auto max-w-6xl">{children}</div>
     </section>
   );
@@ -32,11 +35,7 @@ export function SectionHeadline({
   );
 }
 
-export function SectionSubheadline({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export function SectionSubheadline({ children }: { children: ReactNode }) {
   return <p className="mt-4 text-lg text-slate-400">{children}</p>;
 }
 

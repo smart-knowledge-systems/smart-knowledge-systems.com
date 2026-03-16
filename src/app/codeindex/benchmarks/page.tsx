@@ -82,9 +82,7 @@ export default function BenchmarksPage() {
           <table className="w-full text-left text-sm">
             <thead>
               <tr className="border-b border-slate-700">
-                <th className="pb-3 pr-6 font-medium text-slate-400">
-                  Metric
-                </th>
+                <th className="pb-3 pr-6 font-medium text-slate-400">Metric</th>
                 <th className="pb-3 pr-6 font-medium text-cyan-400">
                   codeindex
                 </th>
@@ -121,9 +119,7 @@ export default function BenchmarksPage() {
       {/* Per-Repository Breakdown */}
       <Section className="border-t border-slate-800">
         <SectionHeadline>{perRepoBreakdown.headline}</SectionHeadline>
-        <SectionSubheadline>
-          {perRepoBreakdown.subheadline}
-        </SectionSubheadline>
+        <SectionSubheadline>{perRepoBreakdown.subheadline}</SectionSubheadline>
         <div className="mt-10 space-y-4">
           {perRepoBreakdown.repos.map((repo) => (
             <div
@@ -256,8 +252,7 @@ export default function BenchmarksPage() {
                       signal.contribution === "0%"
                         ? "0%"
                         : `${parseFloat(signal.contribution)}%`,
-                    minWidth:
-                      signal.contribution !== "0%" ? "4%" : undefined,
+                    minWidth: signal.contribution !== "0%" ? "4%" : undefined,
                   }}
                 />
               </div>
@@ -271,10 +266,7 @@ export default function BenchmarksPage() {
         <SectionHeadline>{methodology.headline}</SectionHeadline>
         <ul className="mt-8 space-y-3">
           {methodology.points.map((point) => (
-            <li
-              key={point}
-              className="flex items-start gap-3 text-slate-400"
-            >
+            <li key={point} className="flex items-start gap-3 text-slate-400">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
               {point}
             </li>
