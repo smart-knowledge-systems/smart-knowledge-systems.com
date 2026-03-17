@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "codeindex — Semantic Code Search",
     description:
-      "Understand your code at any scale. 3.1x better search results than ripgrep. 42 repos indexed for $0.17.",
+      "Understand your code at any scale. 1.4x better ranking vs expert grep across 330 queries and 16 languages. 42 repos indexed for $0.70.",
     url: "https://smart-knowledge-systems.com/codeindex",
     siteName: "Smart Knowledge Systems",
     locale: "en_US",

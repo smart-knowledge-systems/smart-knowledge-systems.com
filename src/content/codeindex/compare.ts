@@ -124,7 +124,7 @@ export const competitors: CompetitorComparison[] = [
     weWin: {
       headline: "codeindex wins when...",
       points: [
-        "You need to understand intent — 3.1x better MRR on semantic queries",
+        "You need to understand intent — 1.4x better ranking even vs expert grep patterns",
         "You're searching across multiple repositories simultaneously",
         "You need structure awareness — find auth flows, not just 'auth' mentions",
       ],

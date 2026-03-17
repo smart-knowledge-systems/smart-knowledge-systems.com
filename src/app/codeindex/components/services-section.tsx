@@ -7,7 +7,7 @@ import {
 
 export function ServicesSection() {
   return (
-    <Section className="border-t border-amber-500/10">
+    <Section id="services" className="border-t border-amber-500/10">
       <div className="text-center">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/5 px-4 py-1.5">
           <div className="h-1.5 w-1.5 rounded-full bg-amber-400" />

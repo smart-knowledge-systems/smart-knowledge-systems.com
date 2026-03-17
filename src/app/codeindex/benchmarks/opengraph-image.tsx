@@ -5,11 +5,11 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const stats = [
-  { value: "3.1x", label: "MRR" },
-  { value: "3.0x", label: "HitRate@5" },
-  { value: "2.6x", label: "Precision@5" },
-  { value: "2.9x", label: "nDCG@10" },
-  { value: "$0.17", label: "42 repos" },
+  { value: "1.4x", label: "Ranking Quality" },
+  { value: "0.718", label: "MRR" },
+  { value: "330", label: "Queries" },
+  { value: "16", label: "Languages" },
+  { value: "$0.70", label: "42 repos" },
 ];
 
 export default function Image() {
@@ -60,7 +60,7 @@ export default function Image() {
           marginBottom: 48,
         }}
       >
-        vs ripgrep across 73 queries and 6 real-world repositories
+        330 queries · 19 repos · 16 languages · vs expert grep patterns
       </div>
       <div
         style={{

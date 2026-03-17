@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "Benchmarks",
   description:
-    "codeindex benchmark results: 3.1x better MRR than ripgrep across 73 queries and 6 real-world repositories. Reproducible methodology.",
+    "codeindex benchmark results: 1.4x better ranking quality vs expert grep patterns across 330 queries, 19 repos, and 16 languages. Reproducible methodology.",
 };
 
 export default function BenchmarksPage() {
@@ -128,9 +128,16 @@ export default function BenchmarksPage() {
             >
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <div>
-                  <h3 className="font-mono text-lg font-bold text-white">
-                    {repo.name}
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <h3 className="font-mono text-lg font-bold text-white">
+                      {repo.name}
+                    </h3>
+                    {"language" in repo && (
+                      <span className="rounded bg-slate-700/50 px-2 py-0.5 text-xs text-slate-400">
+                        {repo.language}
+                      </span>
+                    )}
+                  </div>
                   <p className="mt-1 text-sm text-slate-500">{repo.note}</p>
                 </div>
                 <div className="flex items-baseline gap-2">
@@ -182,21 +189,17 @@ export default function BenchmarksPage() {
                 ? "border-emerald-500/30"
                 : lang.status === "good"
                   ? "border-cyan-500/30"
-                  : lang.status === "supported"
-                    ? "border-slate-500/30"
-                    : lang.status === "limited"
-                      ? "border-orange-500/30"
-                      : "border-red-500/30";
+                  : lang.status === "limited"
+                    ? "border-orange-500/30"
+                    : "border-red-500/30";
             const statusColor =
               lang.status === "excellent"
                 ? "text-emerald-400"
                 : lang.status === "good"
                   ? "text-cyan-400"
-                  : lang.status === "supported"
-                    ? "text-slate-400"
-                    : lang.status === "limited"
-                      ? "text-orange-400"
-                      : "text-red-400";
+                  : lang.status === "limited"
+                    ? "text-orange-400"
+                    : "text-red-400";
 
             return (
               <div
@@ -223,6 +226,11 @@ export default function BenchmarksPage() {
                     </div>
                   </div>
                 </div>
+                {"repo" in lang && (
+                  <div className="mt-2 truncate text-xs text-slate-600">
+                    {lang.repo}
+                  </div>
+                )}
               </div>
             );
           })}

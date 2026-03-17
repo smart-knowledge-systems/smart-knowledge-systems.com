@@ -6,7 +6,7 @@ export const hero = {
   subheadline:
     "Semantic search that finds what code does, not just what it says. Works locally. Scales across repos. Free for production use.",
   trustLine: "Source-available · BSL 1.1 · 18 languages · Works offline",
-  costCallout: "42 repos indexed for $0.17",
+  costCallout: "42 repos indexed for $0.70",
   ctas: {
     primary: { text: "Get Started in 30s", href: "#quick-start" },
     github: {
@@ -74,7 +74,7 @@ export const pillars = {
       tagline: "Finds code intent, not strings.",
       description:
         'Search "authentication middleware" — grep returns noise, codeindex returns validators, handlers, and schemas.',
-      stat: { value: "3.1x", label: "better MRR than ripgrep" },
+      stat: { value: "1.4x", label: "better ranking vs expert grep" },
       example: {
         query: "authentication middleware",
         grepResults: [
@@ -111,14 +111,16 @@ export const pillars = {
 
 export const benchmarkHighlights = {
   headline: "Benchmarked Against Real Code",
-  subheadline: "73 queries · 6 repositories · Methodology is public",
+  subheadline:
+    "330 queries · 19 repos · 16 languages · vs expert grep patterns",
   stats: [
-    { value: "3.1x", label: "better MRR" },
-    { value: "3.0x", label: "better HitRate@5" },
-    { value: "2.9x", label: "better nDCG@10" },
-    { value: "$0.17", label: "to index 42 repos" },
+    { value: "1.4x", label: "better ranking quality" },
+    { value: "0.718", label: "MRR" },
+    { value: "16", label: "languages tested" },
+    { value: "$0.70", label: "to index 42 repos" },
   ],
-  detail: "7,579 files · 8.5M tokens · OpenAI text-embedding-3-small",
+  detail:
+    "Tested on kubernetes, elasticsearch, langchain, discourse, and 18 more public repos",
   cta: { text: "See Full Benchmarks →", href: "/codeindex/benchmarks" },
 };
 
@@ -135,7 +137,7 @@ export const personaCards = {
       persona: "AI Agents",
       tagline: "Agents work cheaper",
       description:
-        "Session caching (20-30% savings), batch queries (15-20%), deduplication (10-25%). 42 repos indexed for $0.17.",
+        "Session caching (20-30% savings), batch queries (15-20%), deduplication (10-25%). 42 repos indexed for $0.70.",
     },
     {
       persona: "Platform Teams",
