@@ -8,7 +8,6 @@ tags:
   - Knowledge Management
   - Organizational Culture
 atUri: "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfhwkrdu2k2j"
-"
 ---
 
 ## The Agent Who Needed Sleep
