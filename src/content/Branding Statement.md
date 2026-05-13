@@ -1,4 +1,9 @@
-# Breaking Down Barriers: Creating Information Flow in Complex Organizations
+---
+title: "Breaking Down Barriers: Creating Information Flow in Complex Organizations"
+author: "Russ Fugal"
+type: branding-statement
+context: This is the core branding statement for Smart Knowledge Systems. Use it as the voice, positioning, and thematic anchor for all blog content. Blog posts should reflect the expertise, values, and practitioner-meets-scholar tone expressed here.
+---
 
 I help organizations overcome information silos by building practical knowledge-sharing systems that combine the best of human expertise with smart technology. Drawing on my background in project management, information science, epistemology, and organizational transformation, I create environments where information flows freely across departments, teams gain access to critical insights, and leaders make better decisions.
 
