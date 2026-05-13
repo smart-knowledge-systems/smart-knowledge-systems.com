@@ -12,7 +12,8 @@ export default function Image() {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+        background:
+          "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
         padding: "60px 80px",
         justifyContent: "center",
         alignItems: "center",
@@ -68,7 +69,8 @@ export default function Image() {
           lineHeight: 1.5,
         }}
       >
-        Everything codeindex does locally — hosted and managed. No infrastructure to maintain.
+        Everything codeindex does locally — hosted and managed. No
+        infrastructure to maintain.
       </div>
       <div
         style={{

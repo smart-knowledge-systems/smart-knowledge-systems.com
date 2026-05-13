@@ -20,7 +20,8 @@ export default function Image() {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+        background:
+          "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
         padding: "60px 80px",
         justifyContent: "center",
         fontFamily: "sans-serif",
@@ -58,7 +59,14 @@ export default function Image() {
           marginBottom: 4,
         }}
       >
-        <div style={{ display: "flex", width: 200, fontSize: 15, color: "#64748b" }}>
+        <div
+          style={{
+            display: "flex",
+            width: 200,
+            fontSize: 15,
+            color: "#64748b",
+          }}
+        >
           Feature
         </div>
         {tools.map((tool) => (
@@ -86,7 +94,14 @@ export default function Image() {
             padding: "14px 0",
           }}
         >
-          <div style={{ display: "flex", width: 200, fontSize: 16, color: "#cbd5e1" }}>
+          <div
+            style={{
+              display: "flex",
+              width: 200,
+              fontSize: 16,
+              color: "#cbd5e1",
+            }}
+          >
             {feat.name}
           </div>
           {feat.values.map((val, i) => (
