@@ -1,0 +1,174 @@
+{
+  "posts": {
+    "src/content/blog/start-school-ai-entrepreneurship.md": {
+      "contentHash": "0532e4e71ab1e9f6394b11c961c9d4de26870c5d8a7c2fb45dada159df5fd4e3",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzb6z4jh2t",
+      "lastPublished": "2026-02-22T20:25:36.293Z",
+      "slug": "start-school-ai-entrepreneurship",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzb7nopx2t",
+        "cid": "bafyreibf4z4ztgp5u7ujwaxvcwsvgimd2zthhkyhznuyyuhytlh33aws2q"
+      }
+    },
+    "src/content/blog/friction.md": {
+      "contentHash": "b6990eef1e87f23d95ca4efd152895863e6366adb842fd91f5bdcc6f8222afc5",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbcfvxp2t",
+      "lastPublished": "2026-02-22T20:25:37.009Z",
+      "slug": "friction",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzbd2rvb2a",
+        "cid": "bafyreicx2g5e6rwspm2tlrtdvo2fzk6vze5isnpu4qv5gdtwzxxzqkcttu"
+      }
+    },
+    "src/content/blog/crossing-the-divide.md": {
+      "contentHash": "3d0f01c026120ea5e83c5aac6c67bc3870755a7310c3c341dfdce8e150436a2f",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbeiwhb2a",
+      "lastPublished": "2026-02-22T20:25:37.756Z",
+      "slug": "crossing-the-divide",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzbf54uy2o",
+        "cid": "bafyreia27gmlo5xoy3y5jh2h4ttijzafcdexjbokkz4zm2ixvketgdfoyy"
+      }
+    },
+    "src/content/blog/dialog-and-parlay.md": {
+      "contentHash": "c7e60bc58c33584fa20c267ddc58a1fa1f894495147a4521b309bf2536edd6e7",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbhqwks2b",
+      "lastPublished": "2026-02-22T20:25:38.408Z",
+      "slug": "dialog-and-parlay",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzbifql52f",
+        "cid": "bafyreihig65fzhjxdsusdqhsfpjgid5ai5fccwpyet47jyggt2rhs33rcy"
+      }
+    },
+    "src/content/blog/collaboration-toolkit.md": {
+      "contentHash": "08c40896ee29280b2529be36448c4468af9c3ba3e6fe8de52271c18c35f28ec6",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbkjqe52f",
+      "lastPublished": "2026-02-22T20:25:39.162Z",
+      "slug": "collaboration-toolkit",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzbl7aqu23",
+        "cid": "bafyreibi6yra4wa3gepklffqydelqdlkcuhrv2orjdusjf6jo6hzhnmtfe"
+      }
+    },
+    "src/content/blog/lessons-from-the-field.md": {
+      "contentHash": "432791f506de12d0b20d3e06a3d183986a413623636e4f3ee38681bc5a120df5",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbqqerg2n",
+      "lastPublished": "2026-02-22T20:25:39.836Z",
+      "slug": "lessons-from-the-field",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzbrjliq2t",
+        "cid": "bafyreickww5m5ywa5etaqaskuejvahcgxqayptjxe4f4zwcphioxxd6gaa"
+      }
+    },
+    "src/content/blog/break-down-any-silo.md": {
+      "contentHash": "b188458c8127ca61ab14452c9201267cf60d3e1a101cfd4cb3b9a541a2e4ad87",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzbtstax2t",
+      "lastPublished": "2026-02-22T20:25:40.519Z",
+      "slug": "break-down-any-silo",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzbuhwve2j",
+        "cid": "bafyreicshvuqdzemekizi5ugxzhsxg5pi2kqmzkw6gf22hrvpyzkccbrum"
+      }
+    },
+    "src/content/blog/conversations-that-matter.md": {
+      "contentHash": "20ff11f1ddeec39beac345f522199fe8ad52efaa55bde00cb275508c263ff1b3",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcjaue52i",
+      "lastPublished": "2026-02-22T20:25:41.150Z",
+      "slug": "conversations-that-matter",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzcjuj3f2j",
+        "cid": "bafyreif5oezgppvntqaury7davi7iffwaoyjm2yqco4lhknt22yyzspehy"
+      }
+    },
+    "src/content/blog/my-ai-research-assistant.md": {
+      "contentHash": "7b971c403c5d1543a40c8f012bebdfc6c8f638ec7b0a0652a80c4477c88fd60c",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcmfrv62u",
+      "lastPublished": "2026-02-22T20:25:41.873Z",
+      "slug": "my-ai-research-assistant",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzcn2vni2t",
+        "cid": "bafyreiawxvkrbfkfp24softun7hrgl4kmzsjob3szrnkvzkapbwl7jbfju"
+      }
+    },
+    "src/content/blog/ai-meets-human-expertise.md": {
+      "contentHash": "200b9bbb4d561ed13124db08f7b24dd1cc120af2e0c51cf60e03f10246e60458",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcoxsss2b",
+      "lastPublished": "2026-02-22T20:25:42.559Z",
+      "slug": "ai-meets-human-expertise",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzcplqge2j",
+        "cid": "bafyreiaytqcr6zltegdem5zegpxsiebn5cxx7ycqohcsrnd3nqth52743q"
+      }
+    },
+    "src/content/blog/leading-information-flow.md": {
+      "contentHash": "cc2b65bb9ddaa6c1e01e56fd17e20705a612bf19e91a3c63d6d7642398505474",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcrtfgw2n",
+      "lastPublished": "2026-02-22T20:25:43.215Z",
+      "slug": "leading-information-flow",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzcsghon2j",
+        "cid": "bafyreideclkwgm7alkwraqj7rfaup2gsmc4tzv6vbp4elildgio56t6co4"
+      }
+    },
+    "src/content/blog/specialists-vs-generalists.md": {
+      "contentHash": "0261f29f37f0634ff84c4448bdd01047e1a9aef5163883dae3bb795450b7f63a",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzctzugt2j",
+      "lastPublished": "2026-02-22T20:25:43.905Z",
+      "slug": "specialists-vs-generalists",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzcurk652f",
+        "cid": "bafyreih6micj3qul6sjbom55eqhkt6fpz4f2hsdsjjj3fzjiskrtyg3ida"
+      }
+    },
+    "src/content/blog/beyond-tech-fix.md": {
+      "contentHash": "0bdc82fcb432189c3ebe666c19b95fc1f58d32aa86afab1eea416bcd0db90a91",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzcwwlyf2j",
+      "lastPublished": "2026-02-22T20:25:44.553Z",
+      "slug": "beyond-tech-fix",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzcxkhuw2d",
+        "cid": "bafyreiapio43q6e2urnvp3hjcgqlv3ekxq5y7jbbsfarr6pltv6mkbuazm"
+      }
+    },
+    "src/content/blog/hidden-cost-information-silos.md": {
+      "contentHash": "35eb774c6938a31814325786987acb602aa8c790d49a3ca2f9ae264c0a88a127",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzd2snrm2j",
+      "lastPublished": "2026-02-22T20:25:45.361Z",
+      "slug": "hidden-cost-information-silos",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzd3khn72t",
+        "cid": "bafyreif5gpn6joyusnsiwjaowpawbfb474beudhibe5d2xajc23f5mzcj4"
+      }
+    },
+    "src/content/blog/knowledge-emerges.md": {
+      "contentHash": "eeef19b3982f24574675ac7faf5ece5f94aaf5cb9a844b5ae08589515032371a",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfdzd5uzex2t",
+      "lastPublished": "2026-02-22T20:25:46.018Z",
+      "slug": "knowledge-emerges",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfdzd6hnzb2a",
+        "cid": "bafyreibo557f2u4gwmo3jfyjmmmfw3x5pwmfch5ch75jc6e4nsnlifxhiy"
+      }
+    },
+    "src/content/blog/publishing-to-the-atmosphere.md": {
+      "contentHash": "9e34ac4d6e1ed1aec0ec3af7e830c8de0774b0ee396f10511de69ccab759cda1",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mffowjmedw2j",
+      "lastPublished": "2026-02-22T20:25:35.510Z",
+      "slug": "publishing-to-the-atmosphere",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mffowkflwo2w",
+        "cid": "bafyreic6qzkuc3guyweh2tpazwygusgg647ahkbry4savgvmjzr4zzlc5m"
+      }
+    },
+    "src/content/blog/the-knot-that-sleeps.md": {
+      "contentHash": "d477a6551a250397a8e0eb4a8d6fe75c0faf7d6986902178077237aa41075766",
+      "atUri": "at://did:plc:i2fgba5nignuw4nccml33wjp/site.standard.document/3mfhwkrdu2k2j",
+      "lastPublished": "2026-02-22T20:25:34.661Z",
+      "slug": "the-knot-that-sleeps",
+      "bskyPostRef": {
+        "uri": "at://did:plc:i2fgba5nignuw4nccml33wjp/app.bsky.feed.post/3mfhwkryt5k2a",
+        "cid": "bafyreicm6fpvckzqf7q5ki4bkreoxqyaeat7nj77tizzxc7hxqtenqqakm"
+      }
+    }
+  }
+}

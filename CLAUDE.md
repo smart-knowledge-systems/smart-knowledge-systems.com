@@ -14,10 +14,11 @@
 ## Commands
 
 ```bash
-bun run dev       # Dev server with Turbopack (localhost:3000)
-bun run build     # Production build
-bun run start     # Production server
-bun run lint      # ESLint
+bun run dev              # Dev server with Turbopack (localhost:3000)
+bun run build            # Production build
+bun run start            # Production server
+bun run lint             # ESLint
+bun run publish "msg"    # Full publish pipeline: sequoia → commit → vercel build/deploy → push
 ```
 
 ## Content Rules
@@ -26,9 +27,25 @@ bun run lint      # ESLint
 
 To add a blog post:
 
-1. Create a markdown file in `src/content/blog/`
-2. Add a corresponding entry to the `postsData` array in `src/content/blog/posts.ts`
-3. Both steps are required — a markdown file without a `postsData` entry won't appear
+1. Create a markdown file in `src/content/blog/` with frontmatter including `atUri: ""`
+2. Add a corresponding entry to the `postsData` array in `src/content/blog/posts.ts` (a markdown file without a `postsData` entry won't appear)
+3. Run `bun run publish "post: title"` to ship it (see Publishing below)
+
+### Publishing
+
+`bun run publish "commit msg"` is the canonical way to ship a new or updated post. The script (`scripts/publish.sh`) runs:
+
+1. `sequoia publish` — creates the AT Protocol record on the PDS, cross-posts to Bluesky, and writes the minted `atUri` back into the markdown frontmatter and `.sequoia-state.json`
+2. `git add src/content/blog/ .sequoia-state.json` then commit with the provided message
+3. `bunx vercel build --prod` then `bunx vercel deploy --prebuilt --prod` — builds locally and uploads prebuilt artifacts
+4. `git push` so origin/main matches the deployed state
+
+Notes:
+
+- `.sequoia-state.json` IS committed to git — it's the publish audit trail and prevents `autoSync`-on-every-build from creating duplicate Bluesky posts on retry
+- Vercel's git integration still handles non-publish pushes (CSS tweaks, typo fixes) via plain `next build`. Only `bun run publish` invokes sequoia
+- Requires sequoia OAuth session active (`bunx sequoia login` if expired) and Vercel CLI authenticated
+- A failed `vercel deploy` after the publish commit leaves the commit local; retrying the script (or just `git push && bunx vercel deploy --prebuilt --prod`) is safe — sequoia state is already correct
 
 ### Portfolio
 
