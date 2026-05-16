@@ -1,0 +1,50 @@
+diff --git a/dist/index.js b/dist/index.js
+index ae25500eceb7890d4243f46639a1d201958b1f4c..06adc85269ed671159b9a52eed10319b3b01b876 100755
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -103415,6 +103415,22 @@ async function createDocument(agent, post, config, coverImage) {
+   if (post.frontmatter.tags && post.frontmatter.tags.length > 0) {
+     record.tags = post.frontmatter.tags;
+   }
++  if (config.publishContent && post.content) {
++    record.content = {
++      $type: "at.markpub.markdown",
++      text: {
++        $type: "at.markpub.text",
++        markdown: post.content,
++        flavor: config.markpub?.flavor ?? "commonmark",
++        renderingRules: config.markpub?.renderingRules ?? "markdown-it"
++      }
++    };
++  }
++  record.contributors = [{
++    did: agent.did,
++    ...(config.contributor?.role && { role: config.contributor.role }),
++    ...(config.contributor?.displayName && { displayName: config.contributor.displayName })
++  }];
+   const response = await agent.com.atproto.repo.createRecord({
+     repo: agent.did,
+     collection: "site.standard.document",
+@@ -103465,6 +103481,22 @@ async function updateDocument(agent, post, atUri, config, coverImage) {
+   if (post.frontmatter.tags && post.frontmatter.tags.length > 0) {
+     record.tags = post.frontmatter.tags;
+   }
++  if (config.publishContent && post.content) {
++    record.content = {
++      $type: "at.markpub.markdown",
++      text: {
++        $type: "at.markpub.text",
++        markdown: post.content,
++        flavor: config.markpub?.flavor ?? "commonmark",
++        renderingRules: config.markpub?.renderingRules ?? "markdown-it"
++      }
++    };
++  }
++  record.contributors = [{
++    did: agent.did,
++    ...(config.contributor?.role && { role: config.contributor.role }),
++    ...(config.contributor?.displayName && { displayName: config.contributor.displayName })
++  }];
+   await agent.com.atproto.repo.putRecord({
+     repo: agent.did,
+     collection,

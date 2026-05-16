@@ -21,5 +21,14 @@
   "bluesky": {
     "enabled": true,
     "maxAgeDays": 365
+  },
+  "publishContent": true,
+  "contributor": {
+    "role": "author",
+    "displayName": "Russ Fugal"
+  },
+  "markpub": {
+    "flavor": "gfm",
+    "renderingRules": "react-markdown"
   }
 }
