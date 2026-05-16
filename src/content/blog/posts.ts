@@ -12,19 +12,22 @@ export type { Category } from "./categories";
 export { categories } from "./categories";
 
 export type Post = {
-  id: number;
+  id: string;
   title: string;
   href: string;
   description: string;
   datetime: Date;
   categories: import("./categories").Category[];
   author: import("./authors").Author;
-  body: string; // markdown content
+  body: string;
+  atUri?: string;
+  coverImageUrl?: string;
+  contributors?: Array<{ did: string; role?: string; displayName?: string }>;
 };
 
 export const postsData: Post[] = [
   {
-    id: 24,
+    id: "24",
     title: "The Knot That Sleeps",
     href: "/blog/the-knot-that-sleeps",
     description:
@@ -39,7 +42,7 @@ export const postsData: Post[] = [
     body: "",
   },
   {
-    id: 23,
+    id: "23",
     title: "Publishing to the ATmosphere",
     href: "/blog/publishing-to-the-atmosphere",
     description:
@@ -50,7 +53,7 @@ export const postsData: Post[] = [
     body: "",
   },
   {
-    id: 22,
+    id: "22",
     title:
       "The Door Is Open: AI-Powered Entrepreneurship and the Start School Promise",
     href: "/blog/start-school-ai-entrepreneurship",
@@ -66,7 +69,7 @@ export const postsData: Post[] = [
     body: "",
   },
   {
-    id: 21,
+    id: "21",
     title: "The Friction Paradox",
     href: "/blog/friction",
     description:
@@ -82,7 +85,7 @@ export const postsData: Post[] = [
     body: "",
   },
   {
-    id: 20,
+    id: "20",
     title: "Crossing the GenAI Divide",
     href: "/blog/crossing-the-divide",
     description:
@@ -93,7 +96,7 @@ export const postsData: Post[] = [
     body: "# What AI in Business Teaches Us About Knowledge Systems",
   },
   {
-    id: 19,
+    id: "19",
     title: "Dialog, Parlay, and the Art of Structured Conversation",
     href: "/blog/dialog-and-parlay",
     description:
@@ -109,7 +112,7 @@ export const postsData: Post[] = [
     body: "# From Posts to Knowledge: The Power of Structured Dialogue",
   },
   {
-    id: 18,
+    id: "18",
     title: "My AI Research Assistant",
     href: "/blog/my-ai-research-assistant",
     description:
@@ -127,7 +130,7 @@ export const postsData: Post[] = [
 In today's academic environment, we're flooded with an overwhelming amount of information. With millions of articles published yearly, finding and prioritizing relevant content has become increasingly challenging. Over the past year, I've been experimenting with AI tools to help me navigate this landscape, using them as research assistants while maintaining my human judgment and scholarly approach.`,
   },
   {
-    id: 17,
+    id: "17",
     title: "Knowledge Emerges Through Conversation",
     href: "/blog/knowledge-emerges",
     description:
@@ -151,7 +154,7 @@ In today's academic environment, we're flooded with an overwhelming amount of in
   The fundamental mistake many organizations make is treating information and knowledge as interchangeable. They're not.`,
   },
   {
-    id: 1,
+    id: "1",
     title: "The Cost of Information Silos",
     href: "/blog/hidden-cost-information-silos",
     description:
@@ -166,7 +169,7 @@ Information silos might seem like just an annoyance—that moment when you disco
 ## The Four Hidden Costs...`, // Truncated for brevity
   },
   {
-    id: 2,
+    id: "2",
     title: "Beyond the Tech Fix",
     href: "/blog/beyond-tech-fix",
     description:
@@ -181,7 +184,7 @@ Information silos might seem like just an annoyance—that moment when you disco
 I hear some version of this lament from nearly every client I work with. The pattern is distressingly familiar: An organization recognizes its information silo problem, invests in a technology solution, and then watches in disappointment as adoption languishes and information remains stubbornly stuck.`,
   },
   {
-    id: 3,
+    id: "3",
     title: "Specialists vs. Generalists",
     href: "/blog/specialists-vs-generalists",
     description:
@@ -194,7 +197,7 @@ I hear some version of this lament from nearly every client I work with. The pat
 Modern organizations face a fundamental tension. On one hand, the complexity of today's business environment demands deep specialists—people with expertise in increasingly narrow domains. On the other hand, solving complex problems requires integration across these specialized domains, which becomes more difficult as the knowledge gaps between specialists widen.`,
   },
   {
-    id: 4,
+    id: "4",
     title: "Leading for Information Flow",
     href: "/blog/leading-information-flow",
     description:
@@ -207,7 +210,7 @@ Modern organizations face a fundamental tension. On one hand, the complexity of 
 Leadership isn't just about making decisions—it's about ensuring people have the information they need to execute effectively. Yet many leaders unintentionally create or maintain information silos through their everyday behaviors and practices.`,
   },
   {
-    id: 5,
+    id: "5",
     title: "When AI Meets Human Expertise",
     href: "/blog/ai-meets-human-expertise",
     description:
@@ -220,7 +223,7 @@ Leadership isn't just about making decisions—it's about ensuring people have t
 Artificial intelligence is transforming how organizations manage knowledge. But AI isn't a magic solution for information silos—it's a powerful tool that must be thoughtfully integrated with human expertise and organizational processes.`,
   },
   {
-    id: 6,
+    id: "6",
     title: "Creating Conversations That Matter",
     href: "/blog/conversations-that-matter",
     description:
@@ -233,7 +236,7 @@ Artificial intelligence is transforming how organizations manage knowledge. But 
 Meetings are the primary forum for knowledge exchange in most organizations. Yet they're also among the most maligned aspects of organizational life—criticized as wasteful, boring, and ineffective. This paradox reveals a crucial insight: the problem isn't meetings themselves, but how we structure and conduct them.`,
   },
   {
-    id: 7,
+    id: "7",
     title: "Break Down Any Information Silo",
     href: "/blog/break-down-any-silo",
     description:
@@ -246,7 +249,7 @@ Meetings are the primary forum for knowledge exchange in most organizations. Yet
 Information silos are persistent because they're structural—built into how organizations divide work, specialize roles, and separate functions. While comprehensive solutions often require systematic change, I've found that three simple questions can begin breaking down even the most entrenched information barriers.`,
   },
   {
-    id: 8,
+    id: "8",
     title: "Lessons From the Field",
     href: "/blog/lessons-from-the-field",
     description:
@@ -259,7 +262,7 @@ Information silos are persistent because they're structural—built into how org
 My journey from traditional project management to knowledge leadership wasn't planned. It evolved naturally as I recognized a pattern across projects: success depended less on formal processes and more on how effectively information flowed between team members and stakeholders.`,
   },
   {
-    id: 9,
+    id: "9",
     title: "The Collaboration Toolkit",
     href: "/blog/collaboration-toolkit",
     description:
@@ -272,7 +275,7 @@ My journey from traditional project management to knowledge leadership wasn't pl
 Cross-functional teams hold enormous potential. By bringing together diverse perspectives and expertise, they can solve complex problems, drive innovation, and create integrated solutions that siloed approaches can't match.`,
   },
   {
-    id: 10,
+    id: "10",
     title: "One Organization Transformed Its Information Flow",
     href: "/blog/case-study-information-flow",
     description:
@@ -285,7 +288,7 @@ Cross-functional teams hold enormous potential. By bringing together diverse per
 Organizations often approach knowledge management as a years-long transformation requiring extensive technology investments and cultural change. While comprehensive transformation certainly takes time, significant improvements in information flow can happen remarkably quickly with targeted interventions.`,
   },
   {
-    id: 11,
+    id: "11",
     title: "Creating Psychosocial Safety",
     href: "/blog/creating-psychosocial-safety",
     description:
@@ -298,7 +301,7 @@ Organizations often approach knowledge management as a years-long transformation
 In today's knowledge economy, an organization's most valuable asset isn't its technology, physical infrastructure, or even intellectual property—it's the minds of its people. Yet many small organizations continue to focus primarily on physical safety while neglecting the psychosocial environment that determines whether those minds thrive or struggle.`,
   },
   {
-    id: 12,
+    id: "12",
     title: "The Dialogue Difference",
     href: "/blog/dialogue-difference",
     description:
@@ -311,7 +314,7 @@ In today's knowledge economy, an organization's most valuable asset isn't its te
 When organizations attempt to improve psychosocial safety, they often start with formal assessments, policies, and procedures. While these structures are important, they miss something essential: the power of dialogue to transform organizational reality.`,
   },
   {
-    id: 13,
+    id: "13",
     title: "Psychosocial Safety in Small Organizations",
     href: "/blog/beyond-assessment",
     description:
@@ -324,7 +327,7 @@ When organizations attempt to improve psychosocial safety, they often start with
 Small organizations face a dual challenge when addressing psychosocial safety. On one hand, their limited resources make formal assessment and intervention programs difficult to implement. On the other hand, their smaller size creates opportunities for more collaborative, participatory approaches that can be even more effective than traditional methods.`,
   },
   {
-    id: 14,
+    id: "14",
     title: "The Knowledge-Safety Connection",
     href: "/blog/knowledge-safety-connection",
     description:
@@ -337,7 +340,7 @@ Small organizations face a dual challenge when addressing psychosocial safety. O
 The relationship between information flow and psychological wellbeing remains one of the most overlooked connections in organizational health. While we often treat knowledge management and psychosocial safety as separate concerns, the reality is that they're deeply intertwined—information silos don't just impede operational efficiency; they directly impact the psychological health of everyone in your organization.`,
   },
   {
-    id: 15,
+    id: "15",
     title: "Expanding Your Leadership Impact",
     href: "/blog/project-manager-wellbeing-catalyst",
     description:
@@ -354,7 +357,7 @@ The relationship between information flow and psychological wellbeing remains on
 Project managers have always been more than just schedulers and task trackers. At their best, they're integrators who connect people, resources, and objectives to deliver meaningful outcomes. Today, this integration role has never been more important—particularly when it comes to fostering environments where psychological wellbeing and performance can coexist.`,
   },
   {
-    id: 16,
+    id: "16",
     title: "Psychosocial Risk Assessment for Resource-Constrained Teams",
     href: "/blog/measuring-what-matters",
     description:

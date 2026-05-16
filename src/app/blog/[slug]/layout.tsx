@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { getPost } from "@/lib/post-filters";
+import { fetchDocument } from "@/lib/atproto-feed";
 import { metadata as rootMetadata } from "@/app/layout";
-import { getAtprotoUri } from "@/lib/atproto-uris";
 
 export async function generateMetadata({
   params,
@@ -9,7 +8,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPost(`/blog/${slug}`);
+  const post = await fetchDocument(slug);
   if (!post) {
     return {
       title: "Post not found",
@@ -25,6 +24,9 @@ export async function generateMetadata({
       title: post.title,
       description: post.description,
       url: "https://smart-knowledge-systems.com/blog/" + slug,
+      ...(post.coverImageUrl && {
+        images: [{ url: post.coverImageUrl }],
+      }),
     },
   };
 }
@@ -37,7 +39,8 @@ export default async function BlogPostLayout({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const atUri = await getAtprotoUri(slug);
+  const post = await fetchDocument(slug);
+  const atUri = post?.atUri;
   return (
     <>
       {atUri && <link rel="site.standard.document" href={atUri} />}

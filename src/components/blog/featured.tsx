@@ -5,18 +5,18 @@ import { Category } from "@/content/blog/posts";
 
 interface FeaturedProps {
   postCategories: Category[];
-  excludePosts?: number[];
+  excludeHrefs?: string[];
   variant?: "default" | "sidebar";
   afterHeading?: React.ReactNode;
 }
 
 export default async function Featured({
   postCategories,
-  excludePosts,
+  excludeHrefs,
   variant = "default",
   afterHeading,
 }: FeaturedProps) {
-  const posts = await getFeaturedPosts(postCategories, 3, excludePosts);
+  const posts = await getFeaturedPosts(postCategories, 3, excludeHrefs);
 
   if (variant === "sidebar") {
     return (

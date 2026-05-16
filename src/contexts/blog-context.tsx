@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { getPublishedPosts } from "@/lib/post-filters";
+import { fetchAllDocuments } from "@/lib/atproto-feed";
 import {
   filterSortAndPaginatePosts,
   getAllCategoriesFromPosts,
@@ -154,7 +154,7 @@ export function BlogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let cancelled = false;
 
-    getPublishedPosts()
+    fetchAllDocuments()
       .then((publishedPosts) => {
         if (!cancelled) setAllPublishedPosts(publishedPosts);
       })

@@ -18,6 +18,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.sara.ai",
       },
+      {
+        protocol: "https",
+        hostname: "auriporia.us-west.host.bsky.network",
+      },
+      {
+        protocol: "https",
+        hostname: "*.bsky.network",
+      },
     ],
   },
   async redirects() {

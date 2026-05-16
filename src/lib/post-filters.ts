@@ -145,7 +145,7 @@ export const getAllCategories = async (): Promise<string[]> => {
 export const getFeaturedPosts = async (
   categories: Category[],
   limit: number,
-  excludePosts: number[] = []
+  excludeHrefs: string[] = []
 ): Promise<Post[]> => {
   // Build index map once for O(1) weight lookups per category
   const categoryWeights = new Map(
@@ -153,13 +153,13 @@ export const getFeaturedPosts = async (
   );
 
   // Build Set for O(1) exclusion checks
-  const excludeSet = new Set(excludePosts);
+  const excludeSet = new Set(excludeHrefs);
 
   // Filter out future posts and excluded posts
   const currentDate = new Date();
   const currentPosts = postsData.filter((post) => {
     const postDate = new Date(post.datetime);
-    return postDate <= currentDate && !excludeSet.has(post.id);
+    return postDate <= currentDate && !excludeSet.has(post.href);
   });
 
   const filteredPosts =
