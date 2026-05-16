@@ -1,3 +1,5 @@
 import nextPlugin from "eslint-config-next";
 
-export default nextPlugin;
+const config = [{ ignores: ["convex/_generated/"] }, ...nextPlugin];
+
+export default config;
