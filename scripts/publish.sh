@@ -44,5 +44,12 @@ bunx vercel build --prod
 # 5. Upload prebuilt artifacts
 bunx vercel deploy --prebuilt --prod
 
-# 6. Push so origin/main matches deployed state
+# 6. Bust the Next.js data cache so the new post is live without waiting 7 days
+if [ -n "${REVALIDATE_SECRET:-}" ]; then
+  curl -sf -X POST "https://www.smart-knowledge-systems.com/api/revalidate" \
+    -H "x-revalidate-secret: $REVALIDATE_SECRET" || \
+    echo "Warning: revalidation request failed (continuing)"
+fi
+
+# 7. Push so origin/main matches deployed state
 git push
